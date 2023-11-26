@@ -1,0 +1,9 @@
+   
+POST https://tkbutsuribu.vercel.app/api/push_token HTTP/1.1
+Content-Type: application/json
+
+{
+    "token": "cqNYgaR3wSBFX5BDGYMGjV:APA91bFUO-xPYb6wjzn3QxG_EZ7wMg36S4NeGF8hILnUeT2cgScI_JiA5OGKHQt0qakxZgVSFy7FMZthN5TBbl5qftXtl03_2BByJgvtph-7A3Ozb9wKp-9W7bwIpFRsoXRLSJRxC9Go",
+    "true_topics":["new-article"],
+    "false_topics":[]
+}
