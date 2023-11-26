@@ -1,0 +1,14 @@
+//IPアドレス取得
+const fetchIpAddress = async() => {
+  return await fetch('https://ipinfo.io?callback')
+  .then(response => response.json())
+  .then(json => json.ip);
+}
+
+//エンコード
+var blob = Utilities.newBlob(ORACLE_USER + ":" + ORACLE_PASS);
+  var codeSrc = blob.getBytes();
+  var authCode = Utilities.base64Encode(codeSrc);
+↑
+//re-CAPTCHAの参考
+https://cloud.google.com/recaptcha-enterprise/docs/instrument-web-pages?hl=ja

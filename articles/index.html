@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow"> <!--テスト時用の検索結果から除外するタグ。公開時は削除-->
+    <meta name="description" content="記事一覧"><!--ページの説明-->
+
+    <meta property="og:url" content="https://tkbutsuribu.vercel.app/articles/index.html" /><!--URL-->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="記事一覧 - 所北物理部" /><!--ページのタイトル　SNS向け-->
+    <meta property="og:description" content="記事一覧" /><!--ページの説明　SNS向け-->
+    <meta property="og:image" content="image/iconBIG.jpg" />
+    <meta name="twitter:card" content="summary">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>記事一覧 - 所北物理部</title><!--ページのタイトル-->
+
+    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
+    <link rel="manifest" href="../manifest.webmanifest">
+
+    <!--   <script src="main.js"></script>-->
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="main" style="text-align:left;">
+        <h1>ブログ</h1>
+        <ul>
+            <li><a href=/articles/osirase.html>お知らせ</a></li>
+        </ul>
+        <a href="https://tkbutsuribu.vercel.app/">トップページへ</a>
+    </div>
+    <div id="footer"></div>
+    <script>
+        fetch("https://tkbutsuribu.vercel.app/header.html")
+            .then((response) => response.text())
+            .then((data) => document.querySelector("#header").innerHTML = data);
+        fetch("https://tkbutsuribu.vercel.app/footer.html")
+            .then((response) => response.text())
+            .then((data) => document.querySelector("#footer").innerHTML = data);
+    </script>
+</body>
