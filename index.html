@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="所北物理部の公式HPです。">
+
+    <meta property="og:url" content="https://tkbutsuribu.vercel.app/index.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="所北物理部" />
+    <meta property="og:description" content="所北物理部の公式HPです" />
+    <meta property="og:image" content="image/iconBIG.jpg" />
+    <meta name="twitter:card" content="summary">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>所北物理部</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
+    <link rel="manifest" href="./manifest.webmanifest">
+
+
+    <link href="splashscreens/iphone5_splash.png"
+        media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphone6_splash.png"
+        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphoneplus_splash.png"
+        media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphonex_splash.png"
+        media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphonexr_splash.png"
+        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/iphonexsmax_splash.png"
+        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipad_splash.png"
+        media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipadpro1_splash.png"
+        media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipadpro3_splash.png"
+        media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="splashscreens/ipadpro2_splash.png"
+        media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <script type="module" src="pwa.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then((reg) => { console.log('SW registered.', reg); });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="content1">
+        <div id="main">
+            <div id="access-counter"></div>
+            <div class="title">
+                <h1>
+                    <nobr>所北物理部のサイトへ</nobr>
+                    <nobr>ようこそ！</nobr>
+                </h1>
+            </div>
+        </div>
+        <img id="mainicon" src="iconBIG.jpg" width="320" height="320" alt="物理部ロゴ">
+        <div class="links">
+            <div class="twitter">
+                <a style="text-decoration: none;"
+                    href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5ETK_physics_club&region=follow_link&screen_name=TK_physics_club"
+                    target="_blank" rel="noopener norefereer"><span>
+                        <nobr>𝕏 フォローする</nobr>
+                    </span></a>
+            </div>
+            <div class="youtube">
+                <a href="https://www.youtube.com/channel/UCMx0SnqChPhp4rapoqgan3g?sub_confirmation=1" target="_blank"
+                    rel="noopener norefereer"><span>
+                        <nobr>公式YouTube</nobr>
+                    </span></a>
+            </div>
+            <div class="tokokitahp">
+                <a href="https://tokokita-h.spec.ed.jp/" target="_blank" rel="noopener norefereer">
+                    <nobr>所北HP</nobr>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="content2" width="400">
+        <div id="sitemap">
+            <table>
+                <tr>
+                    <td><a href=https://tkbutsuribu.vercel.app/about.html>概要</a></td>
+                </tr><br>
+                <tr>
+                    <td><a href=https://tkbutsuribu.vercel.app/articles/index.html>記事一覧</a></td>
+                </tr><br>
+                <tr>
+                    <td><a href=https://tkbutsuribu.vercel.app/games/index.html>ゲームスタジオ</a></td>
+                </tr><br>
+                <tr>
+                    <td><a href=#>掲示板(未完成)</a></td>
+                </tr><br>
+            </table>
+        </div>
+        <div id="buttons">
+            <div id="InstallBtnForiOS" style="width: fit-content;">
+                <label class="open button" for="pop-up"><img src="./images/install.png" alt="install"
+                        style="max-height: 100%;width: auto;margin: 0 5px 0 2px">インストールする</label>
+                <input type="checkbox" id="pop-up">
+                <div class="overlay">
+                    <label class="close2" for="pop-up"></label>
+                    <div class="window">
+                        <label class="close" for="pop-up">閉じる</label>
+                        <div class="pop-up-content">
+                            <h4>インストール方法</h4>
+                            <p>このサイトはPWAに対応しています。詳しくは<a href="https://tkbutsuribu.vercel.app/about.html#pwa">こちら</a></p>
+                            <h5>iPhone、iPad、その他Apple製モバイル端末の場合</h5>
+                            <p>共有メニューから「ホーム画面に追加」を押してください</p>
+                            <h5>Mac、その他Apple製パソコンの場合</h5>
+                            <p>メニューから「PWAのインストール」とかいうやつを押してください。</p>
+                            <h5>アプリ内ブラウザの場合</h5>
+                            <p>標準ブラウザで開いてください</p>
+                            <h5>Android、Windowsの場合</h5>
+                            <p>メニューから「このアプリをインストール」みたいなのを押してください。一度閉じてもう一度このボタンを押すとポップアップが出るかもしれないのでそちらからもできます。</p>
+                            <h5>どれにも当てはまらない場合、上に書いてある通りにできない場合</h5>
+                            <p>以下の方法をお試しください
+                            <ul>
+                                <li>ブラウザを最新版にする</li>
+                                <li>別のブラウザでやってみる</li>
+                                <li>再読み込みしてみる</li>
+                                <li>既にインストールしてないか確かめる</li>
+                            </ul>
+                            それでも解決しない場合、お問い合わせください</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="InstallBtn" class="button" style="display:none"><img src="./images/install.png" alt="install"
+                    style="max-height: 100%;width: auto;margin: 0 5px 0 2px">インストールする</button>
+            <button id="requestpermission" class="button" type="button" value="通知" style="display: block;"><img
+                    src="./images/notification.png" alt="notification"
+                    style="max-height: 100%;width: auto;margin: 0 5px 0 2px">通知を許可する</button>
+        </div>
+    </div>
+    <script type="module" src="counter.js"></script>
+</body>
+
+</html>

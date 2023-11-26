@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="./normalize.css">
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex,nofollow"> <!--テスト時用の検索結果から除外するタグ。公開時は削除-->
+    <meta name="description" content="所北物理部の紹介ページです">
+
+    <meta property="og:url" content="https://tkbutsuribu.vercel.app/about.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="概要 - 所北物理部" />
+    <meta property="og:description" content="所北物理部の紹介ページです" />
+    <meta property="og:image" content="image/iconBIG.jpg" />
+    <meta name="twitter:card" content="summary">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>概要 - 所北物理部</title>
+
+    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
+    <link rel="manifest" href="./manifest.webmanifest">
+
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="main" style="padding-left: 10px;">
+        <h1 style="margin-bottom: 0.5em;">世界を大いに盛り上げる所北物理部</h1>
+        <h4 style="margin-bottom: 0.5em;">
+            <nobr>好きなことにとことん熱中できる空間が欲しい人に捧ぐ。</nobr>
+        </h4>
+        <p style="padding-right: 10px;">
+            所北物理部ではプログラミング、3Dプリンター、動画制作、物理の早期先行、機械工学などを行っています。もちろん、これ以外にもあなたのやりたい事ができます。所北物理部で好きなことに熱中する3年間を過ごしませんか？</p>
+        <h4 style="margin-bottom: 0px;padding-bottom:0px;">活動日</h4>
+        </h4>
+        <p>&emsp;月、火、木（18時くらいまで）</p>
+        <h4 style="margin-bottom: 0px;padding-bottom: 0px;">活動内容</h4>
+        <p>&emsp;いろいろ（文化祭は毎年、成果物を展示してます）</p>
+        <h4 style="margin-bottom: 0px;padding-bottom:0px;">よくあるQ no A</h4>
+        <ul>
+            <li>今一番欲しいものは何？</li>
+            <li>軍○事開発をしているという噂が…</li>
+            <li>今年の文化祭は何をするんですか…</li>
+            <li>名誉顧問は決まりましたか？</li>
+        </ul>
+        <h2 id="pwa">このサイトについて</h2>
+        <p>このサイトは、PWAに対応しています。（PWAについての記事も今後書きます）<br>
+            PWAをインストールすることで、簡単にアクセスできるようになる、パケット使用料が減る、軽くなるなどのメリットがあります。<br>
+            ぜひPWAをインストールしてご利用ください。
+        </p>
+        <a href="https://tkbutsuribu.vercel.app/">トップページへ</a>
+    </div>
+    <div id="footer"></div>
+    <script>
+        fetch("https://tkbutsuribu.vercel.app/header.html")
+            .then((response) => response.text())
+            .then((data) => document.querySelector("#header").innerHTML = data);
+        fetch("https://tkbutsuribu.vercel.app/footer.html")
+            .then((response) => response.text())
+            .then((data) => document.querySelector("#footer").innerHTML = data);
+    </script>
+</body>
