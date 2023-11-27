@@ -13,7 +13,6 @@ export default async (request, response) => {
     expectedSignature = expectedSignature.update(JSON.stringify(request.body));
     expectedSignature = expectedSignature.digest('hex');
     const signature = request.headers['x-microcms-signature'];
-    console.log(signature)
     if (!timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
         fin = true;
         console.log("not right access")
@@ -21,7 +20,7 @@ export default async (request, response) => {
     }
     const addArticleDB = (id, newcontent) => {
 
-        await supabase
+        const { data, error } = await supabase
             .from('articles')
             .upsert({ id: id, title: newcontent.title, description: newcontent.description, revisedAt: newcontent.revisedAt })
             .select();
@@ -29,9 +28,9 @@ export default async (request, response) => {
     }
     const deleteArticleDB = (id) => {
         const { error } = await supabase
-        .from('articles')
-        .delete()
-        .eq('id', id)
+            .from('articles')
+            .delete()
+            .eq('id', id)
     }
     const articleid = request.body.id;
     switch (request.body.type) {
