@@ -19,16 +19,26 @@ export default async (request, response) => {
         console.log("not right access")
         return response.status(401).json({ "status": "error" });
     }
+    const addArticleDB = (id, newcontent) => {
+        //ex)newcontent.title
+    }
+    const deleteArticleDB = (id) => {
 
+    }
+    const articleid = request.body.id;
     switch (request.body.type) {
         case 'new':
-
+            addArticleDB(articleid, request.body.content.new.publishValue)
             break;
         case 'edit':
-
+            if (request.body.content.new.status == "CLOSED") {
+                deleteArticleDB(articleid)
+            } else if (request.body.content.new.status == "PUBLISH") {
+                addArticleDB(articleid, request.body.content.new.publishValue)
+            }
             break;
         case 'delete':
-
+            deleteArticleDB(articleid);
             break;
         default:
             fin = true;
