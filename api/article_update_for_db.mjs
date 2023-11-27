@@ -5,6 +5,7 @@ const { timingSafeEqual } = await import('node:crypto');
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
 
 export default async (request, response) => {
+    let fin=false;
     if (request.method !== 'POST') {
         return response.status(400).json({ "status": "error" });
     }
@@ -41,7 +42,7 @@ export default async (request, response) => {
         case 'edit':
             if (request.body.contents.new.status == "CLOSED") {
                 await deleteArticleDB(articleid)
-            } else if (request.body.content.new.status == "PUBLISH") {
+            } else if (request.body.contents.new.status == "PUBLISH") {
                 await addArticleDB(articleid, request.body.contents.new.publishValue)
             }
             break;
