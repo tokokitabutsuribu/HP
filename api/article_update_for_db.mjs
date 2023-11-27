@@ -18,7 +18,7 @@ export default async (request, response) => {
         console.log("not right access")
         return response.status(401).json({ "status": "error" });
     }
-    const addArticleDB = (id, newcontent) => {
+    const addArticleDB = async (id, newcontent) => {
 
         const { data, error } = await supabase
             .from('articles')
@@ -26,7 +26,7 @@ export default async (request, response) => {
             .select();
 
     }
-    const deleteArticleDB = (id) => {
+    const deleteArticleDB = async (id) => {
         const { error } = await supabase
             .from('articles')
             .delete()
@@ -35,21 +35,23 @@ export default async (request, response) => {
     const articleid = request.body.id;
     switch (request.body.type) {
         case 'new':
-            addArticleDB(articleid, request.body.content.new.publishValue)
+            await addArticleDB(articleid, request.body.content.new.publishValue)
             break;
         case 'edit':
             if (request.body.content.new.status == "CLOSED") {
-                deleteArticleDB(articleid)
+                await deleteArticleDB(articleid)
             } else if (request.body.content.new.status == "PUBLISH") {
-                addArticleDB(articleid, request.body.content.new.publishValue)
+                await addArticleDB(articleid, request.body.content.new.publishValue)
             }
             break;
         case 'delete':
-            deleteArticleDB(articleid);
+            await deleteArticleDB(articleid);
             break;
         default:
             fin = true;
             console.log("type is bad")
             return response.status(400).json({ "status": "error" });
     }
+
+    if(!fin) return response.status(200).json({"status":"success"})
 }  
