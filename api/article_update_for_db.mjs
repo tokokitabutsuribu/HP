@@ -54,6 +54,9 @@ export default async (request, response) => {
             console.log("type is bad")
             return response.status(400).json({ "status": "error" });
     }
+    if(articleid!=request.body.contents.old.id){
+        deleteArticleDB(request.body.contents.old.id);
+    }
 
     if(!fin) return response.status(200).json({"status":"success"})
 }  
