@@ -57,7 +57,7 @@ export default async (request, response) => {
             return response.status(400).json({ "status": "error" });
     }
     if (articleid != request.body.contents.old.id) {
-        deleteArticleDB(request.body.contents.old.id);
+        await deleteArticleDB(request.body.contents.old.id);
         console.log(articleid + "!=" + request.body.contents.old.id)
     } else {
         console.log(articleid + "==" + request.body.contents.old.id)
