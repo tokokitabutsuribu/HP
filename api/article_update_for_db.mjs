@@ -36,13 +36,13 @@ export default async (request, response) => {
     const articleid = request.body.id;
     switch (request.body.type) {
         case 'new':
-            await addArticleDB(articleid, request.body.content.new.publishValue)
+            await addArticleDB(articleid, request.body.contents.new.publishValue)
             break;
         case 'edit':
-            if (request.body.content.new.status == "CLOSED") {
+            if (request.body.contents.new.status == "CLOSED") {
                 await deleteArticleDB(articleid)
             } else if (request.body.content.new.status == "PUBLISH") {
-                await addArticleDB(articleid, request.body.content.new.publishValue)
+                await addArticleDB(articleid, request.body.contents.new.publishValue)
             }
             break;
         case 'delete':
