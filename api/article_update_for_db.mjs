@@ -5,7 +5,7 @@ const { timingSafeEqual } = await import('node:crypto');
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
 
 export default async (request, response) => {
-    let fin=false;
+    let fin = false;
     if (request.method !== 'POST') {
         return response.status(400).json({ "status": "error" });
     }
@@ -26,7 +26,7 @@ export default async (request, response) => {
             .from('articles')
             .upsert({ id: id, title: newcontent.title, description: newcontent.description, revisedAt: newcontent.revisedAt })
             .select();
-            console.log(error)
+        console.log(error)
 
     }
     const deleteArticleDB = async (id) => {
@@ -34,7 +34,7 @@ export default async (request, response) => {
             .from('articles')
             .delete()
             .eq('id', id)
-            console.log(error)
+        console.log(error)
     }
     const articleid = request.body.id;
     switch (request.body.type) {
@@ -56,9 +56,12 @@ export default async (request, response) => {
             console.log("type is bad")
             return response.status(400).json({ "status": "error" });
     }
-    if(articleid!=request.body.contents.old.id){
+    if (articleid != request.body.contents.old.id) {
         deleteArticleDB(request.body.contents.old.id);
+        console.log(articleid + "!=" + request.body.contents.old.id)
+    } else {
+        console.log(articleid + "==" + request.body.contents.old.id)
     }
 
-    if(!fin) return response.status(200).json({"status":"success"})
+    if (!fin) return response.status(200).json({ "status": "success" })
 }  
