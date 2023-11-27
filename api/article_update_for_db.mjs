@@ -20,10 +20,18 @@ export default async (request, response) => {
         return response.status(401).json({ "status": "error" });
     }
     const addArticleDB = (id, newcontent) => {
-        //ex)newcontent.title
+
+        await supabase
+            .from('articles')
+            .upsert({ id: id, title: newcontent.title, description: newcontent.description, revisedAt: newcontent.revisedAt })
+            .select();
+
     }
     const deleteArticleDB = (id) => {
-
+        const { error } = await supabase
+        .from('articles')
+        .delete()
+        .eq('id', id)
     }
     const articleid = request.body.id;
     switch (request.body.type) {
