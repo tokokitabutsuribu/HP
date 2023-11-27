@@ -26,6 +26,7 @@ export default async (request, response) => {
             .from('articles')
             .upsert({ id: id, title: newcontent.title, description: newcontent.description, revisedAt: newcontent.revisedAt })
             .select();
+            console.log(error)
 
     }
     const deleteArticleDB = async (id) => {
@@ -33,6 +34,7 @@ export default async (request, response) => {
             .from('articles')
             .delete()
             .eq('id', id)
+            console.log(error)
     }
     const articleid = request.body.id;
     switch (request.body.type) {
