@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
-
+const { createHmac } = await import('node:crypto');
+const { timingSafeEqual } = await import('node:crypto');
 // Create a single supabase client for interacting with your database
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
 
