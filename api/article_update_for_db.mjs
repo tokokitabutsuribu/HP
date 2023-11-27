@@ -22,19 +22,19 @@ export default async (request, response) => {
     }
     const addArticleDB = async (id, newcontent) => {
 
-        const { data, error } = await supabase
+        const { data, statusText, error } = await supabase
             .from('articles')
             .upsert({ id: id, title: newcontent.title, description: newcontent.description, revisedAt: newcontent.revisedAt })
             .select();
-        console.log(error)
+        console.log(statusText)
 
     }
     const deleteArticleDB = async (id) => {
-        const { error } = await supabase
+        const { statusText, error } = await supabase
             .from('articles')
             .delete()
             .eq('id', id)
-        console.log(error)
+        console.log(statusText)
     }
     const articleid = request.body.id;
     switch (request.body.type) {
@@ -58,9 +58,6 @@ export default async (request, response) => {
     }
     if (articleid != request.body.contents.old.id) {
         await deleteArticleDB(request.body.contents.old.id);
-        console.log(articleid + "!=" + request.body.contents.old.id)
-    } else {
-        console.log(articleid + "==" + request.body.contents.old.id)
     }
 
     if (!fin) return response.status(200).json({ "status": "success" })
