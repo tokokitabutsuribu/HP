@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.38.5",
     "@vercel/kv": "^1.0.0",
     "crypto": "^1.0.1",
     "firebase-admin": "^11.11.1"
