@@ -5,7 +5,7 @@ const client = createClient({
     apiKey: '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa',
 })
 
-
+try{
 let contentID = 'n39zOq9PAW'
 client
     .get({
@@ -18,7 +18,9 @@ client
 
 
 
-
+}catch(e){
+    window.alert(e);
+}
 
 //Prism.highlightAll();
 //で読み込む
