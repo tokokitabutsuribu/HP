@@ -18,10 +18,10 @@ const updateArticle = (id) => {
             document.querySelector('#title').textContent = res.title;
         })
         .then((error)=>{
-            window.alert(error)
+            window.alert("1"+error)
         })
     }catch(e){
-        window.alert(e);
+        window.alert("2"+e);
     }
 
 }
