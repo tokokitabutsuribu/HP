@@ -42,6 +42,7 @@ try {
                 document.querySelector('#title').textContent = res.title;
                 document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
                 addarray('#content', res.contents, undefined, 'content');
+                Prism.highlightAll();
             })
             .catch((error) => {
                 console.log(error)
