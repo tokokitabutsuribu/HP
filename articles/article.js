@@ -34,10 +34,10 @@ try {
     var articledata;
     var is404 = false;
     const getArticledata = async () => {
-        const searchParams = new URLSearchParams( window.location.search );
+        const searchParams = new URLSearchParams(window.location.search);
         const id = searchParams.get("a")
-        if(id=""){
-            is404=true;
+        if (id = "") {
+            is404 = true;
             return
         }
         await client
@@ -49,15 +49,15 @@ try {
                 articledata = res;
             })
             .catch((error) => {
-                is404=true;
+                is404 = true;
                 console.log(error)
             })
     }
     const updateDOM = async () => {
-        if(is404){
+        if (is404) {
             await fetch("https://tkbutsuribu.vercel.app/404forarticle.html")
-            .then((response) => response.text())
-            .then((data) => document.querySelector("body").innerHTML = data);
+                .then((response) => response.text())
+                .then((data) => document.querySelector("body").innerHTML = data);
             return
         }
         const res = articledata;
@@ -66,17 +66,27 @@ try {
         document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
         addarray('#content', res.contents, undefined, 'content');
 
-        let add=""
+        let add = ""
         for (const elem of res.index) {
-            add += '<li><a href="#' + elem.link+'">'+elem.index + '</a></li>\n';
+            add += '<li><a href="#' + elem.link + '">' + elem.index + '</a></li>\n';
         }
-        document.querySelector('#index').innerHTML=add
-        
+        document.querySelector('#index').innerHTML = add
+
 
 
         Prism.highlightAll();
     }
-    // window.addEventListener('DOMContentLoaded', updateArticle());
+    window.addEventListener('DOMContentLoaded', async () => {
+        const header = fetch("https://tkbutsuribu.vercel.app/header.html")
+            .then((response) => response.text())
+            .then((data) => document.querySelector("#header").innerHTML = data);
+        const footer = fetch("https://tkbutsuribu.vercel.app/footer.html")
+            .then((response) => response.text())
+            .then((data) => document.querySelector("#footer").innerHTML = data);
+        const getArticle = getArticledata();
+        await Promise.all(header, footer, getArticle);
+        await updateDOM();
+    });
 } catch (e) {
     window.alert(e);
 }
