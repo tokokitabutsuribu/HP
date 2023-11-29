@@ -46,16 +46,16 @@
         <a href="https://tkbutsuribu.vercel.app/">トップページへ</a>
     </div>
     <div id="footer"></div>
-    <script>
+    <script async>
         const header = fetch("https://tkbutsuribu.vercel.app/header.html")
             .then((response) => response.text())
             .then((data) => document.querySelector("#header").innerHTML = data);
         const footer = fetch("https://tkbutsuribu.vercel.app/footer.html")
             .then((response) => response.text())
             .then((data) => document.querySelector("#footer").innerHTML = data);
-        getArticledata();
-        await Promise.all(header, footer);
-        updateDOM();
+        const getArticle = getArticledata();
+        await Promise.all(header, footer,getArticle);
+        await updateDOM();
     </script>
 </body>
 

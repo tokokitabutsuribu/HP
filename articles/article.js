@@ -33,7 +33,7 @@ try {
 
     var articledata;
     var is404 = false;
-    const getArticledata = () => {
+    const getArticledata = async () => {
         const searchParams = new URLSearchParams( window.location.search );
         const id = searchParams.get("a")
         if(id=""){
@@ -53,7 +53,7 @@ try {
                 console.log(error)
             })
     }
-    const updateDOM = () => {
+    const updateDOM = async () => {
         if(is404){
             await fetch("https://tkbutsuribu.vercel.app/404forarticle.html")
             .then((response) => response.text())
