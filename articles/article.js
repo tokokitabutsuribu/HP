@@ -7,22 +7,17 @@ const client = createClient({
 })
 
 const updateArticle = (id) => {
-    try{
     client
         .get({
             endpoint: 'articles',
             contentId: 'pzazaa-hz8',
         })
         .then((res) => {
-            window.alert(res.title)
             document.querySelector('#title').textContent = res.title;
         })
-        .then((error)=>{
-            window.alert("1"+error)
+        .catch((error)=>{
+            console.log(error)
         })
-    }catch(e){
-        window.alert("2"+e);
-    }
 
 }
 
