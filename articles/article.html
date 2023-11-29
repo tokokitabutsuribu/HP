@@ -5,13 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../normalize.css">
-    <link href="themes/prism.css" rel="stylesheet" />
+    <link href="../prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="article.css">
     <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
     <link rel="manifest" href="../manifest.webmanifest">
     <meta property="og:type" content="article" />
     <meta property="og:image" content="image/iconBIG.jpg" />
     <meta name="twitter:card" content="summary">
+    <script src="../prism.js" data-manual></script>
+    <script src="https://unpkg.com/microcms-js-sdk@latest/dist/umd/microcms-js-sdk.js"></script>
+    <script src="article.js" type="text/javascript"></script>
     <!--可変要素-->
     <title>記事一覧 - 所北物理部</title><!--ページのタイトル-->
     <meta name="description" content="記事一覧"><!--ページの説明-->
@@ -24,7 +27,7 @@
 
 <body>
     <div id="header"></div>
-    <div class="main" style="text-align:left;">
+    <div class="main line-numbers" style="text-align:left;">
         <ul id="category">
             <li>お知らせ</li>
             <li>つぶやき</li>
@@ -46,7 +49,6 @@
             .then((response) => response.text())
             .then((data) => document.querySelector("#footer").innerHTML = data);
     </script>
-    <script src="article.js" type="text/javascript"></script>
 </body>
 
 
