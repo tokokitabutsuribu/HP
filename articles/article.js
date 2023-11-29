@@ -11,7 +11,7 @@ const updateArticle = (id) => {
     client
         .get({
             endpoint: 'articles',
-            contentId: id,
+            contentId: 'pzazaa-hz8',
         })
         .then((res) => {
             window.alert(res.title)
@@ -28,4 +28,4 @@ const updateArticle = (id) => {
 
 //Prism.highlightAll();
 //で読み込む
-window.addEventListener('DOMContentLoaded',updateArticle("n39zOq9PAW"));
+window.addEventListener('DOMContentLoaded',updateArticle());
