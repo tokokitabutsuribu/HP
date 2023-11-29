@@ -7,9 +7,14 @@ const client = createClient({
 
 
 let contentID = 'n39zOq9PAW'
-client.get({ endpoint: 'articles',contentID: contentID}).then((res) => {
-    document.querySelector('#title').textContent = res.title;
-})
+client
+    .get({
+        endpoint: 'articles',
+        contentId: contentID,
+    })
+    .then((res) => {
+        document.querySelector('#title').textContent = res.title;
+    })
 
 
 
