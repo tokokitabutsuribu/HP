@@ -6,7 +6,7 @@ const client = createClient({
     apiKey: '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa',
 })
 try {
-    const addarray = (id, array, tag) => {
+    const addarray = (id, array, tag, key) => {
         let add = "";
         let starttag;
         let endtag;
@@ -18,8 +18,14 @@ try {
             endtag = ''
         }
         if (!array.lenth) {
-            for (const elem of array) {
-                add += starttag + elem + endtag;
+            if (key === undefined) {
+                for (const elem of array) {
+                    add += starttag + elem + endtag;
+                }
+            } else {
+                for (const elem of array) {
+                    add += starttag + elem[key] + endtag;
+                }
             }
         }
         document.querySelector(id).innerHTML = add;
@@ -32,8 +38,10 @@ try {
                 contentId: 'pzazaa-hz8',
             })
             .then((res) => {
-                addarray('#category', res.category, 'li')
+                addarray('#category', res.category, 'li',undefined)
                 document.querySelector('#title').textContent = res.title;
+                document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
+                addarray('#content',res.contents,undefined,'content');
             })
             .catch((error) => {
                 console.log(error)
