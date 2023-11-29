@@ -38,19 +38,18 @@ try {
                 contentId: 'pzazaa-hz8',
             })
             .then((res) => {
-                addarray('#category', res.category, 'li',undefined)
+                addarray('#category', res.category, 'li', undefined)
                 document.querySelector('#title').textContent = res.title;
                 document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
-                addarray('#content',res.contents,undefined,'content');
+                addarray('#content', res.contents, undefined, 'content');
             })
             .catch((error) => {
                 console.log(error)
             })
 
+        Prism.highlightAll();
     }
 
-    //Prism.highlightAll();
-    //で読み込む
     window.addEventListener('DOMContentLoaded', updateArticle());
 } catch (e) {
     window.alert(e);
