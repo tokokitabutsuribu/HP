@@ -13,6 +13,11 @@ const updateArticle = (id) => {
             contentId: 'pzazaa-hz8',
         })
         .then((res) => {
+            let addCategory="";
+            for(const elem of res.category){
+                addCategory+='<li>'+elem+'</li>\n'
+            }
+            document.querySelector('#category').innerHTML=addCategory;
             document.querySelector('#title').textContent = res.title;
         })
         .catch((error)=>{
