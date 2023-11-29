@@ -42,19 +42,21 @@ try {
                 document.querySelector('#title').textContent = res.title;
                 document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
                 addarray('#content', res.contents, undefined, 'content');
+
+                let add=""
+                for (const elem of res.index) {
+                    add += '<li><a href="#' + elem.link+'>'+elem.index + '</a></li>\n';
+                }
+                document.querySelector('#index').innerHTML=add
+                
                 Prism.highlightAll();
             })
             .catch((error) => {
                 console.log(error)
             })
-
-        Prism.highlightAll();
     }
 
     window.addEventListener('DOMContentLoaded', updateArticle());
-    window.addEventListener('load', function(){
-        Prism.highlightAll();
-    });
 } catch (e) {
     window.alert(e);
 }
