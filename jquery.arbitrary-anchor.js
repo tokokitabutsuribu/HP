@@ -95,10 +95,10 @@
 
     // Scroll to $el.
     if ( $el && $el.length ) {
-      var top = $el.offset().top - window.AA_CONFIG.scrollOffset-20;
+      var top = $el.offset().top - window.AA_CONFIG.scrollOffset;
 
       $bodhtml.stop(true, false)
-              .animate({ scrollTop: top },  parseInt(animationTime), window.AA_CONFIG.easingFunction );
+              .animate({ scrollTop: top-100 },  parseInt(animationTime), window.AA_CONFIG.easingFunction );
 
     }
   }
