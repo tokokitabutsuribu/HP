@@ -45,7 +45,7 @@ try {
 
                 let add=""
                 for (const elem of res.index) {
-                    add += '<li><a href="#' + elem.link+'>'+elem.index + '</a></li>\n';
+                    add += '<li><a href="#' + elem.link+'">'+elem.index + '</a></li>\n';
                 }
                 document.querySelector('#index').innerHTML=add
                 
