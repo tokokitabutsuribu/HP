@@ -7,6 +7,7 @@ const client = createClient({
 })
 
 const updateArticle = (id) => {
+    window.alert("load")
     client
         .get({
             endpoint: 'articles',
