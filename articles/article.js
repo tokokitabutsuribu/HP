@@ -31,32 +31,52 @@ try {
         document.querySelector(id).innerHTML = add;
     }
 
-    const updateArticle = (id) => {
-        client
+    var articledata;
+    var is404 = false;
+    const getArticledata = () => {
+        const searchParams = new URLSearchParams( window.location.search );
+        const id = searchParams.get("a")
+        if(id=""){
+            is404=true;
+            return
+        }
+        await client
             .get({
                 endpoint: 'articles',
-                contentId: 'pzazaa-hz8',
+                contentId: id,
             })
             .then((res) => {
-                addarray('#category', res.category, 'li', undefined)
-                document.querySelector('#title').textContent = res.title;
-                document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
-                addarray('#content', res.contents, undefined, 'content');
-
-                let add=""
-                for (const elem of res.index) {
-                    add += '<li><a href="#' + elem.link+'">'+elem.index + '</a></li>\n';
-                }
-                document.querySelector('#index').innerHTML=add
-                
-                Prism.highlightAll();
+                articledata = res;
             })
             .catch((error) => {
+                is404=true;
                 console.log(error)
             })
     }
+    const updateDOM = () => {
+        if(is404){
+            await fetch("https://tkbutsuribu.vercel.app/404forarticle.html")
+            .then((response) => response.text())
+            .then((data) => document.querySelector("body").innerHTML = data);
+            return
+        }
+        const res = articledata;
+        addarray('#category', res.category, 'li', undefined)
+        document.querySelector('#title').textContent = res.title;
+        document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
+        addarray('#content', res.contents, undefined, 'content');
 
-    window.addEventListener('DOMContentLoaded', updateArticle());
+        let add=""
+        for (const elem of res.index) {
+            add += '<li><a href="#' + elem.link+'">'+elem.index + '</a></li>\n';
+        }
+        document.querySelector('#index').innerHTML=add
+        
+
+
+        Prism.highlightAll();
+    }
+    // window.addEventListener('DOMContentLoaded', updateArticle());
 } catch (e) {
     window.alert(e);
 }
