@@ -98,7 +98,7 @@
       var top = $el.offset().top - window.AA_CONFIG.scrollOffset;
 
       $bodhtml.stop(true, false)
-              .animate({ scrollTop: top-100 },  parseInt(animationTime), window.AA_CONFIG.easingFunction );
+              .animate({ scrollTop: top-120 },  parseInt(animationTime), window.AA_CONFIG.easingFunction );
 
     }
   }
