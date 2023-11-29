@@ -51,6 +51,9 @@ try {
     }
 
     window.addEventListener('DOMContentLoaded', updateArticle());
+    window.addEventListener('load', function(){
+        Prism.highlightAll();
+    });
 } catch (e) {
     window.alert(e);
 }
