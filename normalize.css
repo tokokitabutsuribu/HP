@@ -30,6 +30,11 @@ main {
     padding-bottom: 10px;
 }
 
+hr{
+    border-style: inset;
+    border-width: 1px;
+}
+
 p,
 table,
 blockquote,
