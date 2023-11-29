@@ -30,7 +30,7 @@ const updateArticle = (id) => {
             contentId: 'pzazaa-hz8',
         })
         .then((res) => {
-            addarray(#category, res.category, 'li')
+            addarray('#category', res.category, 'li')
             document.querySelector('#title').textContent = res.title;
         })
         .catch((error) => {
