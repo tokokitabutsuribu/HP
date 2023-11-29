@@ -13,6 +13,7 @@ client
         contentId: contentID,
     })
     .then((res) => {
+        window.alert(res.title)
         document.querySelector('#title').textContent = res.title;
     })
 
