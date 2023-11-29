@@ -18,7 +18,7 @@ const addarray = (id, array, tag) => {
         endtag = ''
     }
     for (const elem of array) {
-        addCategory += starttag + elem + endtag;
+        add += starttag + elem + endtag;
     }
     document.querySelector(id).innerHTML = add;
 }
