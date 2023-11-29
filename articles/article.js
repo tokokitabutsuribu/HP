@@ -17,6 +17,9 @@ const updateArticle = (id) => {
             window.alert(res.title)
             document.querySelector('#title').textContent = res.title;
         })
+        .then((error)=>{
+            window.alert(error)
+        })
     }catch(e){
         window.alert(e);
     }
