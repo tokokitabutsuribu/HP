@@ -24,7 +24,7 @@ export default async (request, response) => {
 
         const { data, statusText, error } = await supabase
             .from('articles')
-            .upsert({ id: id, title: newcontent.title, description: newcontent.description, revisedAt: newcontent.revisedAt })
+            .upsert({ id: id, title: newcontent.title, description: newcontent.description, revisedAt: newcontent.revisedAt, category: newcontent.category })
             .select();
         console.log(statusText)
 
