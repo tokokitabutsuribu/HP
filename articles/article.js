@@ -5,7 +5,7 @@ const client = createClient({
     serviceDomain: 'tkbutsuribu', // service-domain は XXXX.microcms.io の XXXX 部分
     apiKey: '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa',
 })
-
+try{
 const addarray = (id, array, tag) => {
     let add = "";
     let starttag;
@@ -42,3 +42,6 @@ const updateArticle = (id) => {
 //Prism.highlightAll();
 //で読み込む
 window.addEventListener('DOMContentLoaded', updateArticle());
+}catch(e){
+    window.alert(e);
+}
