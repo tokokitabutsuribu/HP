@@ -7,7 +7,7 @@ const client = createClient({
 })
 
 const updateArticle = (id) => {
-    window.alert("load")
+    try{
     client
         .get({
             endpoint: 'articles',
@@ -17,7 +17,9 @@ const updateArticle = (id) => {
             window.alert(res.title)
             document.querySelector('#title').textContent = res.title;
         })
-
+    }catch(e){
+        window.alert(e);
+    }
 
 }
 
