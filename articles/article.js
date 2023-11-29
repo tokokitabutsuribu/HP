@@ -84,7 +84,7 @@ try {
             .then((response) => response.text())
             .then((data) => document.querySelector("#footer").innerHTML = data);
         const getArticle = getArticledata();
-        await Promise.all(header, footer, getArticle);
+        await Promise.all([header, footer, getArticle]);
         await updateDOM();
     });
 } catch (e) {
