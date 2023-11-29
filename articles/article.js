@@ -6,6 +6,23 @@ const client = createClient({
     apiKey: '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa',
 })
 
+const addarray = (id, array, tag) => {
+    let add = "";
+    let starttag;
+    let endtag;
+    if (tag !== undefined) {
+        starttag = '<' + tag + '>'
+        endtag = '</' + tag + '>\n'
+    } else {
+        starttag = ''
+        endtag = ''
+    }
+    for (const elem of array) {
+        addCategory += starttag + elem + endtag;
+    }
+    document.querySelector(id).innerHTML = add;
+}
+
 const updateArticle = (id) => {
     client
         .get({
@@ -13,14 +30,10 @@ const updateArticle = (id) => {
             contentId: 'pzazaa-hz8',
         })
         .then((res) => {
-            let addCategory="";
-            for(const elem of res.category){
-                addCategory+='<li>'+elem+'</li>\n'
-            }
-            document.querySelector('#category').innerHTML=addCategory;
+            addarray(#category, res.category, 'li')
             document.querySelector('#title').textContent = res.title;
         })
-        .catch((error)=>{
+        .catch((error) => {
             console.log(error)
         })
 
@@ -28,4 +41,4 @@ const updateArticle = (id) => {
 
 //Prism.highlightAll();
 //で読み込む
-window.addEventListener('DOMContentLoaded',updateArticle());
+window.addEventListener('DOMContentLoaded', updateArticle());
