@@ -30,12 +30,12 @@ try {
         }
         document.querySelector(id).innerHTML = add;
     }
-
+    let id;
     var articledata;
     var is404 = false;
     const getArticledata = async () => {
         const searchParams = new URLSearchParams(window.location.search);
-        const id = searchParams.get("id")
+        id=searchParams.get("id")
         if (id == null) {
             is404 = true;
             return
@@ -71,8 +71,11 @@ try {
             add += '<li><a href="#' + elem.link + '">' + elem.index + '</a></li>\n';
         }
         document.querySelector('#index').innerHTML = add
-
-
+        document.title=res.title+"  -所北物理部";
+        document.querySelector('meta[name="description"]').setAttribute("content", res.description );
+        document.querySelector('meta[property="og:url"]').setAttribute("content", "https://tkbutsuribu.vercel.app/articles/article.html?id=" + id);
+        document.querySelector('property="og:title"').setAttribute("content", res.title);
+        document.querySelector('og:description').setAttribute("content", res.description);
 
         Prism.highlightAll();
     }
