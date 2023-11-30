@@ -76,7 +76,7 @@ try {
             document.querySelector('meta[name="description"]').setAttribute("content", res.description);
             document.querySelector('meta[property="og:url"]').setAttribute("content", "https://tkbutsuribu.vercel.app/articles/article.html?id=" + id);
             document.querySelector('meta[property="og:title"]').setAttribute("content", res.title);
-            document.querySelector('meta[og:description]').setAttribute("content", res.description);
+            document.querySelector('meta[property="og:description"]').setAttribute("content", res.description);
         } catch (e) {
             window.alert(e)
         }
