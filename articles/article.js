@@ -70,16 +70,13 @@ try {
         for (const elem of res.index) {
             add += '<li><a href="#' + elem.link + '">' + elem.index + '</a></li>\n';
         }
-        try {
-            document.querySelector('#index').innerHTML = add
-            document.title = res.title + "  -所北物理部";
-            document.querySelector('meta[name="description"]').setAttribute("content", res.description);
-            document.querySelector('meta[property="og:url"]').setAttribute("content", "https://tkbutsuribu.vercel.app/articles/article.html?id=" + id);
-            document.querySelector('meta[property="og:title"]').setAttribute("content", res.title);
-            document.querySelector('meta[property="og:description"]').setAttribute("content", res.description);
-        } catch (e) {
-            window.alert(e)
-        }
+        document.querySelector('#index').innerHTML = add
+        document.title = res.title + "  -所北物理部";
+        document.querySelector('meta[name="description"]').setAttribute("content", res.description);
+        document.querySelector('meta[property="og:url"]').setAttribute("content", "https://tkbutsuribu.vercel.app/articles/article.html?id=" + id);
+        document.querySelector('meta[property="og:title"]').setAttribute("content", res.title);
+        document.querySelector('meta[property="og:description"]').setAttribute("content", res.description);
+
         Prism.highlightAll();
     }
     window.addEventListener('DOMContentLoaded', async () => {
