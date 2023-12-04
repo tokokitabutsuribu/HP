@@ -64,7 +64,7 @@ try {
         addarray('#category', res.category, 'li', undefined)
         document.querySelector('#title').textContent = res.title;
         document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
-        addarray('#content', res.contents, undefined, 'content');
+        addarray('#content', res.contents.replaceAll('<table>','<div class="table-wrapper"><table>').replaceAll('</table>','</table></div>'), undefined, 'content');
 
         let add = ""
         for (const elem of res.index) {
