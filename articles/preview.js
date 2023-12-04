@@ -38,7 +38,6 @@ try {
         const searchParams = new URLSearchParams(window.location.search);
         id = searchParams.get("id");
         mydraftKey = searchParams.get("draftKey");
-        window.alert("id:"+id+"\ndraftKey:"+mydraftKey);
         if (id == null) {
             is404 = true;
             return
@@ -54,8 +53,7 @@ try {
             })
             .catch((error) => {
                 is404 = true;
-                console.log(error)
-                window.alert(error);
+                console.log(error);
             })
     }
     const updateDOM = async () => {
