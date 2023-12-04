@@ -1,5 +1,5 @@
-.main{
-    padding:10px
+.main {
+    padding: 10px
 }
 
 #category {
@@ -24,7 +24,7 @@
 
 code[class*='language-'],
 pre[class*='language-'] {
-  white-space: pre-wrap !important;
+    white-space: pre-wrap !important;
 }
 
 :not(pre)>code {
@@ -35,3 +35,49 @@ pre[class*='language-'] {
     border-radius: 4px;
     border-color: gray;
 }
+
+blockquote {
+    max-width: 500px;
+    padding: 1em 1.5em;
+    border-left: 4px solid #d6dde3;
+    color: #333333;
+}
+
+blockquote:has(cite) {
+    padding-bottom: .5em;
+}
+
+blockquote p {
+    margin-top: 0;
+}
+
+blockquote cite {
+    display: block;
+    color: #737373;
+    font-size: .8em;
+    text-align: right;
+}
+
+th{
+    background-color:lightgray;
+  }
+  
+  table{
+    border-collapse: collapse;
+  }
+  th{
+      border:solid 1px;
+  }
+  td{
+      border:solid 1px;
+      padding:2px 7px;
+  }
+  tr{
+    padding:0;
+    margin:0;
+  }
+  p{
+    margin:0;
+    padding:0;
+  }
+  
