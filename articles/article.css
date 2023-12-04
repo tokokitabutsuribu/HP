@@ -77,11 +77,12 @@ table {
 
 th {
     border: solid 1px;
+    padding: 2px 8px;
 }
 
 td {
     border: solid 1px;
-    padding: 2px 12px;
+    padding: 2px 8px;
 }
 
 tr {
