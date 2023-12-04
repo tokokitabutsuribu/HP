@@ -20,7 +20,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const messaging = getMessaging(app);
 
 const APIURL = "https://tkbutsuribu.vercel.app/api/push_token";
@@ -32,7 +31,7 @@ document.getElementById('requestpermission').onclick = function requestPermissio
         || (/Macintosh/.test(ua) && ((navigator.maxTouchPoints > 1) || ('ontouchend' in document)))
         || ((ua.indexOf('ipad') > -1 || ua.indexOf('Macintosh') > -1) && ('ontouchend' in document))) {
         if (!window.matchMedia("(display-mode: standalone)").matches) {
-            document.getElementById('pop-up').checked=true;
+            document.getElementById('pop-up').checked = true;
         }
     }
     Notification.requestPermission()
@@ -46,7 +45,7 @@ document.getElementById('requestpermission').onclick = function requestPermissio
                 if (/iPad|iPhone|iPod/.test(ua) || (/macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || 'ontouchend' in document))
                     || (ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document)) {
                     if (!window.matchMedia("(display-mode: standalone)").matches) {
-                        document.getElementById('pop-up').checked=true;
+                        document.getElementById('pop-up').checked = true;
                     } else {
                         document.getElementById('requestpermission').innerText = "通知がブロックされています"
                     }
@@ -124,6 +123,10 @@ function registerInstallAppEvent(elem) {
 }//end registerInstallAppEvent
 
 registerInstallAppEvent(document.getElementById("InstallBtn"));
-if(window.matchMedia("(display-mode: standalone)").matches){
-    installforios.style.display="none";
+if (window.matchMedia("(display-mode: standalone)").matches) {
+    installforios.style.display = "none";
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+    const analytics = getAnalytics(app);
+})
