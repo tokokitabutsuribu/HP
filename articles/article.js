@@ -20,11 +20,11 @@ try {
         if (!array.lenth) {
             if (key === undefined) {
                 for (const elem of array) {
-                    add += starttag + elem + endtag;
+                    add += starttag + elem.replaceAll('<table>','<div class="table-wrapper"><table>').replaceAll('</table>','</table></div>') + endtag;
                 }
             } else {
                 for (const elem of array) {
-                    add += starttag + elem[key] + endtag;
+                    add += starttag + elem[key].replaceAll('<table>','<div class="table-wrapper"><table>').replaceAll('</table>','</table></div>') + endtag;
                 }
             }
         }
@@ -65,7 +65,7 @@ try {
         document.querySelector('#title').textContent = res.title;
         document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
         try{
-        addarray('#content', res.contents.replaceAll('<table>','<div class="table-wrapper"><table>').replaceAll('</table>','</table></div>'), undefined, 'content');
+        addarray('#content', res.contents, undefined, 'content');
     }catch(e){
         window.alert(e);
     }
