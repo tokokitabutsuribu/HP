@@ -37,6 +37,7 @@ pre[class*='language-'] {
 }
 
 blockquote {
+    margin:0.5em 0;
     max-width: 500px;
     padding: 1em 1.5em;
     border-left: 4px solid #d6dde3;
@@ -63,6 +64,8 @@ th{
   }
   
   table{
+    margin:0.5em;
+    text-align: center;
     border-collapse: collapse;
   }
   th{
@@ -70,7 +73,7 @@ th{
   }
   td{
       border:solid 1px;
-      padding:2px 7px;
+      padding:2px 12px;
   }
   tr{
     padding:0;
