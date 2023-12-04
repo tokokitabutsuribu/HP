@@ -63,11 +63,16 @@ th {
     background-color: lightgray;
 }
 
+.table-wrapper {
+    overflow-x: scroll;
+}
+
 table {
     margin: 0.5em;
     text-align: center;
     border-collapse: collapse;
-    overflow-x: scroll;
+    width: 100%;
+    white-space: nowrap;
 }
 
 th {
@@ -87,10 +92,4 @@ tr {
 p {
     margin: 0;
     padding: 0;
-}
-
-tbody {
-    width: 100%;
-    border-collapse: collapse;
-    white-space: nowrap;
 }
