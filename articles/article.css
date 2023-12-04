@@ -67,7 +67,7 @@ table {
     margin: 0.5em;
     text-align: center;
     border-collapse: collapse;
-    overflow-x: %20scroll;
+    overflow-x: scroll;
 }
 
 th {
