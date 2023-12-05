@@ -29,7 +29,7 @@ const pageplus = () => {
 }
 
 const pageminus = () => {
-    if (page > 2) {
+    if (page >= 2) {
         window.location.href = '/articles/index.html?page=' + (page - 1);
     }
 }
