@@ -94,5 +94,5 @@ try {
         await updateDOM();
     });
 } catch (e) {
-    window.alert(e);
+    console.log(e);
 }
