@@ -25,12 +25,12 @@ const updateDOM = () => {
 }
 
 const pageplus = () => {
-    window.location.href = '/index.html?page=' + (page + 1);
+    window.location.href = '/articles/index.html?page=' + (page + 1);
 }
 
 const pageminus = () => {
     if (page > 2) {
-        window.location.href = '/index.html?page=' + (page - 1);
+        window.location.href = '/articles/index.html?page=' + (page - 1);
     }
 }
 
