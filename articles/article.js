@@ -67,7 +67,7 @@ try {
         try{
         addarray('#content', res.contents, undefined, 'content');
     }catch(e){
-        window.alert(e);
+        console.log(e);
     }
         let add = ""
         for (const elem of res.index) {
@@ -94,5 +94,5 @@ try {
         await updateDOM();
     });
 } catch (e) {
-    window.alert(e);
+    console.log(e);
 }

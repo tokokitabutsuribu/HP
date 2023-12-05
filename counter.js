@@ -93,5 +93,5 @@ try {
         insertHTML(count)
     }
 } catch (e) {
-    window.alert(e);
+    console.log(e);
 }
