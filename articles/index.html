@@ -19,8 +19,7 @@
 
     <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
     <link rel="manifest" href="../manifest.webmanifest">
-
-    <!--   <script src="main.js"></script>-->
+    <script src="index.js"></script>
 </head>
 
 <body>
@@ -31,8 +30,10 @@
             <li></li>
         </ul>
         <br>
-        <div>
-            <button id=""
+        <div style="display: flex;">
+            <button id="pageminus" onclick="pageminus()">＜</button>
+            <div id="pagenum"></div>
+            <button id="pageplus" onclick="pageplus()">＜</button>
         </div>
     </div>
     <div id="footer"></div>
