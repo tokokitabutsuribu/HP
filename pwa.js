@@ -128,5 +128,5 @@ if (window.matchMedia("(display-mode: standalone)").matches) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    const analytics = getAnalytics(app);
+    //const analytics = getAnalytics(app);
 })
