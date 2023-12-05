@@ -10,13 +10,11 @@ try {
     let ifPlusCount = false;
     const insertHTML = (accesscount) => {
         //htmlに入れる
-        let add = '<ul class="access-count"><li style="margin-right:5px">あなたは</li>';
+        let add = '';
         const countstr = accesscount.toString().padStart(Math.max(accesscount.toString().length,6),0)
         for (let i = 0; i < countstr.length; i++) {
             add += '<li class="num">' + countstr.substr(i, 1) + '</li>';
         }
-        add += '<li><nobr>人目の来訪者です</nobr></li></ul>'
-        add += '<style>.counter-area {text-align: center;}.access-count {margin: 0;padding: 0;list-style: none;}.access-count li {display: inline-block;font-size: 16px;font-family: Arial, sans-serif;}.num {position: relative;width: 15px;font-size: 16px !important;background: #000;color: #fff;border-right-width: 1px;font-weight: 700;border-color: #858585;height: 20px;text-align: center;padding-top: 2px;}.access-count li:nth-last-child(2){border-right-width: 0px;}.num::before {position: absolute;display: block;width: 14px;height: 11px;top: 0px;content: "";border-bottom-width: 1px;border-color: black;</style>'
         document.querySelector("#access-counter").innerHTML = add;
     }
 
