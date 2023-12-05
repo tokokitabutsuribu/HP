@@ -99,12 +99,9 @@
 
       $bodhtml.stop(true, false)
         .animate({ scrollTop: top - 120 }, parseInt(animationTime), window.AA_CONFIG.easingFunction);
-      try {
-        const url = location.href;
-        history.replaceState(null, null, url.substr(0, url.indexOf('#')));
-      } catch (e) {
-        window.alert(e);
-      }
+
+      const url = location.href;
+      history.replaceState(null, null, url.substr(0, url.indexOf('#')));
     }
   }
 
