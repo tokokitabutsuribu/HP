@@ -64,7 +64,7 @@ try {
             history.pushState(null, null, '/articles/index.html?page=' + (page - 1));
             init();
             await getArticledata();
-            updateDOM()
+            updateDOM();
         }
     }
 
