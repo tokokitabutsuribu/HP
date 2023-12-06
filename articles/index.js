@@ -1,8 +1,8 @@
 try{
 window.alert('start')
-var page;
-var data;
-var maxofpage = 10;
+let page;
+let data;
+let maxofpage = 10;
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 const supabase = createClient('https://ojizjelrnhsxpmjtavhi.supabase.co/', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qaXpqZWxybmhzeHBtanRhdmhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyMzUwNjcsImV4cCI6MjAxNDgxMTA2N30.7ElMMPF5I89Ec3-nwnLczykjM96ZxMubfwgMLF4LJ1k');
 
