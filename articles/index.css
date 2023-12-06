@@ -1,16 +1,31 @@
-#article li{
-    list-style:none;
-    font-size:20px;
-    border-width:1px;
-    border-style:solid;
-    border-color:black;
-    margin:3px;
-    height:60px;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  #article li a{
-    color:black;
-    text-decoration:none;
-  }
-  
+#article li {
+  list-style: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  margin: 3px;
+  /*height:60px;*/
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#article li a {
+  color: black;
+  text-decoration: none;
+}
+
+#article li a h4 {
+  margin: 3px;
+  padding: 0;
+  line-height: 1;
+}
+
+#article li a p {
+  margin: 3px;
+  padding: 0;
+  line-height: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

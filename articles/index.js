@@ -28,7 +28,9 @@ try {
         await supabase
             .from('articles')
             .select()
-            .order('revisedAt', { ascending: false })
+            .order('revisedAt', {
+                ascending: false
+            })
             .range((page - 1) * maxofpage - 1, page * maxofpage - 1)
             .then((res) => {
                 data = res.data;
@@ -43,7 +45,8 @@ try {
         let add = "";
         if (!data.lenth) {
             for (const elem of data) {
-                add += '<li><a href="/articles/article.html?id=' + elem.id + '">' + elem.title + '</a></li>';
+                console.log(elem);
+                add += '<li><a href="/articles/article.html?id=' + elem.id + '"><h4>' + elem.title + '</h4><p>' + elem.description + '</p></a></li>';
             }
         }
         document.querySelector('#article').innerHTML = add;
