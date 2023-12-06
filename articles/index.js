@@ -1,3 +1,4 @@
+try{
 var page;
 var data;
 var maxofpage = 10;
@@ -71,3 +72,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     await Promise.all([header, footer, getArticle]);
     await updateDOM();
 });
+}catch(e){
+    window.alert(e);
+}
