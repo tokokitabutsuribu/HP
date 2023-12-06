@@ -50,20 +50,18 @@ try {
     }
 
     document.getElementById('pageplus').onclick = async function () {
-        page++;
+        history.pushState(null, null, '/articles/index.html?page=' + (page + 1));
         init()
         await getArticledata();
         updateDOM();
-        history.pushState(null, null, '/articles/index.html?page=' + (page + 1));
     }
 
     document.getElementById('pageminus').onclick = async function () {
         if (page >= 2) {
-            page--;
+            history.pushState(null, null, '/articles/index.html?page=' + (page - 1));
             init();
             await getArticledata();
             updateDOM()
-            history.pushState(null, null, '/articles/index.html?page=' + (page - 1));
         }
     }
 
