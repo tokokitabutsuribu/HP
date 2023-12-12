@@ -21,10 +21,6 @@ jobs:
       run: npm ci
     - name: Create Sitemap
       run: npm run add
-    - name: Git Setting
-      run: |
-        git config --local user.email 136794662+tokokitabutsuri@users.noreply.github.com
-        git config --local user.name tokokitabutsuri
     - name: Commit Sitemap
       run: |
         git add sitemap_article.xml
