@@ -5,7 +5,6 @@ const xpath = require('xpath');
 const dom = require('xmldom').DOMParser;
 const fs = require('fs');
 
-try {
 
   const xml = fs.readFileSync('/sitemap.xml', "utf-8");
   const doc = new dom().parseFromString(xml);
@@ -41,8 +40,4 @@ try {
   const xml = builder.buildObject(sitemap);
 
   fs.writeFile('/sitemap.xml', xml);
-} catch (e) {
-  console.error(e);
-  process.exit(1);
-}
 
