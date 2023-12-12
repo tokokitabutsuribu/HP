@@ -2,7 +2,7 @@ name: sitemap_add
 
 on:
   schedule:
-    - cron:  '0 15 * * *'
+    - cron:  '30 14 * * *'
   workflow_dispatch:
 jobs:
   build:
@@ -19,10 +19,6 @@ jobs:
         cache: npm
     - name: Install Dependencies
       run: npm ci
-    - name: pwd
-      run: pwd
-    - name: ls
-      run: ls
     - name: Create Sitemap
       run: npm run add
     - name: Git Setting
@@ -31,7 +27,7 @@ jobs:
         git config --local user.name tokokitabutsuri
     - name: Commit Sitemap
       run: |
-        git add sitemap.xml
-        git commit -m "Add sitemap.xml by Github Actions"
+        git add sitemap_article.xml
+        git commit -m "update sitemap_article.xml by Github Actions"
         git pull
         git push origin
