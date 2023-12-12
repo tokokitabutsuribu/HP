@@ -4,7 +4,7 @@ on:
   repository_dispatch:
     types: [sitemap_add]
 jobs:
-  add:
+  build:
     name: add
     runs-on: ubuntu-latest
     timeout-minutes: 180 # タイムアウト設定しないと永遠に処理走って大変になる場合がある
