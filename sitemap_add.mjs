@@ -32,5 +32,5 @@ const sitemap = {
   },
 };
 const xml = builder.buildObject(sitemap);
-fs.writeFile('sitemap.xml', xml);
+fs.writeFile('sitemap_article.xml', xml);
 
