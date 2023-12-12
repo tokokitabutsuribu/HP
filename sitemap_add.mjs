@@ -1,8 +1,8 @@
 // xml 生成には xml2js というライブラリを使っています
 import { Builder } from 'xml2js';
 const { xpath } = await import('xpath');
-const dom = await import('xmldom').DOMParser;
-const fs = await import('fs');
+const { dom } = await import('xmldom').DOMParser;
+const { fs } = await import('fs');
 
 try {
 
