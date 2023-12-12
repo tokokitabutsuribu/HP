@@ -1,4 +1,3 @@
-import fetchBooks from './fetchBooks'
 // xml 生成には xml2js というライブラリを使っています
 import { Builder } from 'xml2js';
 const xpath = require('xpath');
