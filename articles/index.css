@@ -4,10 +4,10 @@
   border-style: solid;
   border-color: black;
   margin: 3px;
-  /*height:60px;*/
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  margin-bottom: 10px;
 }
 
 #article li a {
@@ -26,6 +26,7 @@
   padding: 0;
   line-height: 1;
   font-size: 14px;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
