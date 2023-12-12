@@ -15,6 +15,10 @@
   "dependencies": {
     "@vercel/kv": "^1.0.0",
     "crypto": "^1.0.1",
-    "firebase-admin": "^11.11.1"
+    "firebase-admin": "^11.11.1",
+    "fs": "^0.0.1-security",
+    "xml2js": "^0.6.2",
+    "xmldom": "^0.6.0",
+    "xpath": "^0.0.33"
   }
 }
