@@ -7,8 +7,8 @@ const fs = require('fs');
 
 try {
 
-  const xml = fs.readFileSync('/sitemap.xml', "utf-8");
-  const doc = new dom().parseFromString(xml);
+  const oldxml = fs.readFileSync('/sitemap.xml', "utf-8");
+  const doc = new dom().parseFromString(oldxml);
   const select = xpath.useNamespaces({
     "a": "http://www.sitemaps.org/schemas/sitemap/0.9"
   });
