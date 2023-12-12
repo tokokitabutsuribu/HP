@@ -19,7 +19,7 @@ jobs:
     - name: Install Dependencies
       run: npm ci
     - name: Create Sitemap
-      run: node sitemap_add.js "${{ toJSON(github.event.client_payload).id }}"
+      run: node /.github/workflows/sitemap_add.js "${{ toJSON(github.event.client_payload).id }}"
     - name: Git Setting
       run: |
         git config --local user.email 136794662+tokokitabutsuri@users.noreply.github.com
