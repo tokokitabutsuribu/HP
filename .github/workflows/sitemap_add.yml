@@ -23,7 +23,7 @@ jobs:
     - name: ls
       run: ls
     - name: Create Sitemap
-      run: npm run add
+      run: npm run add -- "${{ toJSON(github.event.client_payload).id }}"
     - name: Git Setting
       run: |
         git config --local user.email 136794662+tokokitabutsuri@users.noreply.github.com
