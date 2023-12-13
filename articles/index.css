@@ -11,6 +11,7 @@
   background-color: #ebebeb;
   border-radius: 5px;
   max-width: 500px;
+  box-shadow: 1px 1px 2px;
 }
 #article li:hover{
   box-shadow: none;
