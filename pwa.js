@@ -59,7 +59,7 @@ document.getElementById('requestpermission').onclick = function requestPermissio
         })
 }
 
-function getmytoken() {
+async function getmytoken() {
     getToken(messaging, { vapidKey: 'BHYfDERRzVeOZOz32LOi6uZTYpzItJ5MVK8EswEeYkjLLOeX8thI1o7yPBuizxXqq_j_r1pauCAo3_YTGWxc7tQ' }).then((currentToken) => {
         if (currentToken) {
             console.log(currentToken);
