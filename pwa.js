@@ -94,7 +94,6 @@ function getmytoken() {
         // ...
     });
 }
-getmytoken();
 
 //インストールボタン
 const installforios = document.getElementById('InstallBtnForiOS');
@@ -128,5 +127,6 @@ if (window.matchMedia("(display-mode: standalone)").matches) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+    getmytoken();
     //const analytics = getAnalytics(app);
 })
