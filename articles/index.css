@@ -8,6 +8,22 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-bottom: 10px;
+  background-color: #ebebeb;
+  border-radius: 5px;
+  max-width: 500px;
+}
+#article li:hover{
+  box-shadow: none;
+}
+.dummy-text::after {
+  content: "\2026";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 1em;
+  height: 1.4em;
+  background: #fff;
+  text-align: center;
 }
 
 #article li a {
@@ -24,9 +40,15 @@
 #article li a p {
   margin: 3px;
   padding: 0;
-  line-height: 1;
   font-size: 14px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+
+  position: relative;
+  height: 3em;
+  text-align: justify;
+  line-height:1.5;
+  text-justify:inter-ideograph;
 }
