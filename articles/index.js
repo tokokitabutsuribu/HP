@@ -31,7 +31,7 @@ try {
             .order('revisedAt', {
                 ascending: false
             })
-            .range((page - 1) * maxofpage - 1, page * maxofpage - 1)
+            .range((page - 1) * maxofpage, page * maxofpage - 1)
             .then((res) => {
                 data = res.data;
             })
