@@ -30,12 +30,14 @@
 #article li a {
   color: black;
   text-decoration: none;
+  padding: 10px;
 }
 
 #article li a h4 {
   margin: 3px;
   padding: 0;
   line-height: 1;
+  margin-bottom: 6px;
 }
 
 #article li a p {
@@ -43,13 +45,8 @@
   padding: 0;
   font-size: 14px;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-
-
+  white-space: normal;
   position: relative;
   height: 3em;
-  text-align: justify;
   line-height:1.5;
-  text-justify:inter-ideograph;
 }
