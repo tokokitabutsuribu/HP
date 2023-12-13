@@ -5,6 +5,12 @@ try {
     let data;
     let maxofpage = 10;
     let maxpage = 1;
+    await supabase
+        .from('countries')
+        .select('*', { count: 'exact', head: true })
+        .then((data) => {
+            maxpage = Math.ceil(data.count / maxofpage);
+        })
     const init = () => {
         const searchParams = new URLSearchParams(window.location.search);
         if (searchParams.has('page')) {
@@ -16,13 +22,6 @@ try {
             page = 1;
         }
         document.getElementById('pagenum').innerText = page;
-
-        await supabase
-            .from('countries')
-            .select('*', { count: 'exact', head: true })
-            .then((data) => {
-                maxpage = Math.ceil(data.count / maxofpage);
-            })
 
         if (page <= 1) {
             document.getElementById('pageminus').style.visibility = 'hidden';
