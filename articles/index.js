@@ -6,7 +6,7 @@ try {
     let maxofpage = 10;
     let maxpage = 1;
     await supabase
-        .from('countries')
+        .from('articles')
         .select('*', { count: 'exact', head: true })
         .then((data) => {
             maxpage = Math.ceil(data.count / maxofpage);
