@@ -1,16 +1,17 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 const supabase = createClient('https://ojizjelrnhsxpmjtavhi.supabase.co/', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qaXpqZWxybmhzeHBtanRhdmhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyMzUwNjcsImV4cCI6MjAxNDgxMTA2N30.7ElMMPF5I89Ec3-nwnLczykjM96ZxMubfwgMLF4LJ1k');
+
+let page;
+let data;
+let maxofpage = 10;
+let maxpage = 1;
+await supabase
+    .from('articles')
+    .select('*', { count: 'exact', head: true })
+    .then((data) => {
+        maxpage = Math.ceil(data.count / maxofpage);
+    })
 try {
-    let page;
-    let data;
-    let maxofpage = 10;
-    let maxpage = 1;
-    await supabase
-        .from('articles')
-        .select('*', { count: 'exact', head: true })
-        .then((data) => {
-            maxpage = Math.ceil(data.count / maxofpage);
-        })
     const init = () => {
         const searchParams = new URLSearchParams(window.location.search);
         if (searchParams.has('page')) {
@@ -35,7 +36,7 @@ try {
         }
     }
     init();
-    const getArticledata = async () => {
+    var getArticledata = async () => {
         await supabase
             .from('articles')
             .select()
@@ -52,7 +53,7 @@ try {
 
     }
 
-    const updateDOM = () => {
+    var updateDOM = () => {
         let add = "";
         if (!data.lenth) {
             for (const elem of data) {
