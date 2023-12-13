@@ -4,7 +4,7 @@ try {
     let page;
     let data;
     let maxofpage = 10;
-
+    let maxpage = 1;
     const init = () => {
         const searchParams = new URLSearchParams(window.location.search);
         if (searchParams.has('page')) {
@@ -17,10 +17,22 @@ try {
         }
         document.getElementById('pagenum').innerText = page;
 
+        await supabase
+            .from('countries')
+            .select('*', { count: 'exact', head: true })
+            .then((data) => {
+                maxpage = Math.ceil(data.count / maxofpage);
+            })
+
         if (page <= 1) {
             document.getElementById('pageminus').style.visibility = 'hidden';
         } else {
             document.getElementById('pageminus').style.visibility = 'visible';
+        }
+        if (page < maxpage) {
+            document.getElementById('pageplus').style.visibility = 'visible';
+        } else {
+            document.getElementById('pageplus').style.visibility = 'hidden';
         }
     }
     init();
