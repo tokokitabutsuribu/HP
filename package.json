@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add": "node sitemap_add.mjs"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,9 @@
     "@supabase/supabase-js": "^2.38.5",
     "@vercel/kv": "^1.0.0",
     "crypto": "^1.0.1",
-    "firebase-admin": "^11.11.1"
+    "firebase-admin": "^11.11.1",
+    "fs": "^0.0.1-security",
+    "microcms-js-sdk": "^2.7.0",
+    "xml2js": "^0.6.2"
   }
 }
