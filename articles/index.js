@@ -5,13 +5,16 @@ let page;
 let data;
 let maxofpage = 10;
 let maxpage = 1;
-await supabase
-    .from('articles')
-    .select('*', { count: 'exact', head: true })
-    .then((data) => {
-        maxpage = Math.ceil(data.count / maxofpage);
-    })
+
 try {
+    const getmax = async () => {
+        await supabase
+            .from('articles')
+            .select('*', { count: 'exact', head: true })
+            .then((data) => {
+                maxpage = Math.ceil(data.count / maxofpage);
+            })
+    }
     const init = () => {
         const searchParams = new URLSearchParams(window.location.search);
         if (searchParams.has('page')) {
@@ -35,7 +38,6 @@ try {
             document.getElementById('pageplus').style.visibility = 'hidden';
         }
     }
-    init();
     var getArticledata = async () => {
         await supabase
             .from('articles')
@@ -81,6 +83,8 @@ try {
     }
 
     window.addEventListener('DOMContentLoaded', async () => {
+        await getmax();
+        init();
         const header = fetch("https://tkbutsuribu.vercel.app/header.html")
             .then((response) => response.text())
             .then((data) => document.querySelector("#header").innerHTML = data);
