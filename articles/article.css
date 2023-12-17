@@ -126,4 +126,5 @@ p {
 #top-wrapper {
     display: flex;
     text-align: right;
+    justify-content: right;
 }
