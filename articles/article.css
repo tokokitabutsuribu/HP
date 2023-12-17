@@ -113,8 +113,6 @@ p {
 }
 
 #top div span {
-    grid-row: 1/-1;
-    grid-column: 1/-1;
     text-align: center;
     justify-content: center;
     padding-bottom: 1px;
@@ -125,6 +123,5 @@ p {
 
 #top-wrapper {
     display: flex;
-    text-align: right;
     justify-content: right;
 }
