@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html lang="ja">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,10 +36,11 @@
     <div id="footer"></div>
     <script>
         fetch("https://tkbutsuribu.vercel.app/header.html")
-            .then((response) => response.text())
+            .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow"> <!--テスト時用の検索結果から除外するタグ。公開時は削除-->',''))
             .then((data) => document.querySelector("#header").innerHTML = data);
         fetch("https://tkbutsuribu.vercel.app/footer.html")
-            .then((response) => response.text())
+            .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow"> <!--テスト時用の検索結果から除外するタグ。公開時は削除-->',''))
             .then((data) => document.querySelector("#footer").innerHTML = data);
     </script>
 </body>
+</html>
