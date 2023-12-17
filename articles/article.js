@@ -6,6 +6,18 @@ const client = createClient({
     apiKey: '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa',
 })
 try {
+    const replacecontent = (input)=>{
+        const replacekeys = [
+            {key:'<table>',replace:'<div class="table-wrapper"><table>'},
+            {key:'</table>',replace:'</table></div>'},
+            {key:'<iframe',replace:'<iframe loading="lazy"'},
+        ]
+        let ret = input;
+        for(const replacekey of replacekeys){
+            ret = ret.replaceAll(replacekey.key,replacekey.replace);
+        }
+        return ret;
+    }
     const addarray = (id, array, tag, key) => {
         let add = "";
         let starttag;
@@ -20,11 +32,11 @@ try {
         if (!array.lenth) {
             if (key === undefined) {
                 for (const elem of array) {
-                    add += starttag + elem.replaceAll('<table>','<div class="table-wrapper"><table>').replaceAll('</table>','</table></div>') + endtag;
+                    add += starttag + replacecontent(elem) + endtag;
                 }
             } else {
                 for (const elem of array) {
-                    add += starttag + elem[key].replaceAll('<table>','<div class="table-wrapper"><table>').replaceAll('</table>','</table></div>') + endtag;
+                    add += starttag + replacecontent(elem[key]) + endtag;
                 }
             }
         }
