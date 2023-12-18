@@ -13,9 +13,11 @@
   max-width: 800px;
   box-shadow: 1px 1px 2px;
 }
-#article li:hover{
+
+#article li:hover {
   box-shadow: none;
 }
+
 .dummy-text::after {
   content: "\2026";
   position: absolute;
@@ -49,5 +51,22 @@
   white-space: normal;
   position: relative;
   height: 3em;
-  line-height:1.5;
+  line-height: 1.5;
+}
+
+.pagebutton {
+  font-weight: bolder;
+  font-size: 14px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  padding-left: 3px;
+  padding-top: 3px;
+  background-color: #1cf8fd;
+  color: black;
+}
+
+#pagenum {
+  font-size: 22px;
+  font-weight: normal;
 }
