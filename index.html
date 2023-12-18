@@ -66,14 +66,17 @@
         <div id="main">
             <div style="display: flex;">
                 <a href="/articles/osirase.html"
-                    style="text-align: left;background-color: darkblue;color: white;text-decoration: none;padding:5px;margin-right: 10px;"><nobr>お知らせ</nobr></a>
-                <nobr><ul class="access-count" id="access-counter">
+                    style="height: fit-content; white-space: nowrap; text-align: left;background-color: darkblue;color: white;text-decoration: none;padding:5px;margin-right: 10px;">お知らせ</a>
+                <ul class="access-count" id="access-counter">
                     <li style="margin-right:5px" id="count1">あなたは</li>
-                    <li class="num" style="color: black;">1</li><li class="num" style="color: black;">1</li><li class="num" style="color: black;">1</li><li class="num" style="color: black;">1</li><li class="num" style="color: black;">1</li><li class="num" style="color: black;">1</li>
-                    <li>
-                        <nobr id="count2">人目の来訪者です</nobr>
-                    </li>
-                </ul></nobr>
+                    <li class="num" style="color: black;">1</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li style="margin-left: 5px;" id="count2">人目の来訪者です</li>
+                </ul>
                 <style>
                     .counter-area {
                         text-align: center;
@@ -119,6 +122,12 @@
                         border-bottom-width: 1px;
                         border-color: black;
                     }
+                    @media (max-width:380px) {
+                        #count1,#count2{
+                        display: block;
+                    }
+                    }
+
                 </style>
                 <a href="/index.html?noeffect" id="noeffect"
                     style="display: none; text-align: left;background-color: lightblue;color: darkgreen;text-decoration: none;padding:5px;margin-left: 10px;">エフェクトオフ</a>
@@ -171,8 +180,8 @@
         </div>
         <div id="buttons">
             <div id="InstallBtnForiOS" style="width: fit-content;">
-                <label class="open button" for="pop-up"><img height="16px" width="16px" src="./images/install.png" alt="install"
-                        style="max-height: 100%;width: auto;margin: 0 5px 0 2px">インストールする</label>
+                <label class="open button" for="pop-up"><img height="16px" width="16px" src="./images/install.png"
+                        alt="install" style="max-height: 100%;width: auto;margin: 0 5px 0 2px">インストールする</label>
                 <input type="checkbox" id="pop-up">
                 <div class="overlay">
                     <label class="close2" for="pop-up"></label>
@@ -202,10 +211,11 @@
                     </div>
                 </div>
             </div>
-            <button id="InstallBtn" class="button" style="display:none"><img height="16px" width="16px" src="./images/install.png" alt="install"
+            <button id="InstallBtn" class="button" style="display:none"><img height="16px" width="16px"
+                    src="./images/install.png" alt="install"
                     style="max-height: 100%;width: auto;margin: 0 5px 0 2px">インストールする</button>
-            <button id="requestpermission" class="button" type="button" value="通知" style="display: block;"><img height="16px" width="16px"
-                    src="./images/notification.png" alt="notification"
+            <button id="requestpermission" class="button" type="button" value="通知" style="display: block;"><img
+                    height="16px" width="16px" src="./images/notification.png" alt="notification"
                     style="max-height: 100%;width: auto;margin: 0 5px 0 2px">通知を許可する</button>
         </div>
     </div>
