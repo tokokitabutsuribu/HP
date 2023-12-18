@@ -67,7 +67,7 @@
             <div style="display: flex;">
                 <a href="/articles/osirase.html"
                     style="height: fit-content; white-space: nowrap; text-align: left;background-color: darkblue;color: white;text-decoration: none;padding:5px;margin-right: 10px;">お知らせ</a>
-                <ul class="access-count" id="access-counter">
+                <ul class="access-count" id="access-counter" style="font-size: 0;">
                     <li style="margin-right:5px" id="count1">あなたは</li>
                     <li class="num" style="color: black;">1</li>
                     <li class="num" style="color: black;">1</li>
@@ -122,12 +122,14 @@
                         border-bottom-width: 1px;
                         border-color: black;
                     }
-                    @media (max-width:380px) {
-                        #count1,#count2{
-                        display: block;
-                    }
-                    }
 
+                    @media (max-width:380px) {
+
+                        #count1,
+                        #count2 {
+                            display: block;
+                        }
+                    }
                 </style>
                 <a href="/index.html?noeffect" id="noeffect"
                     style="display: none; text-align: left;background-color: lightblue;color: darkgreen;text-decoration: none;padding:5px;margin-left: 10px;">エフェクトオフ</a>
