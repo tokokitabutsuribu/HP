@@ -59,7 +59,7 @@ try {
     const updateDOM = async () => {
         if (is404) {
             await fetch("https://tkbutsuribu.vercel.app/404forarticle.html")
-                .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow">',''))
+                .then((response) => response.text())
                 .then((data) => document.querySelector("body").innerHTML = data);
             return
         }
@@ -84,11 +84,13 @@ try {
     }
     window.addEventListener('DOMContentLoaded', async () => {
         const header = fetch("https://tkbutsuribu.vercel.app/header.html")
-            .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow">',''))
-            .then((data) => document.querySelector("#header").innerHTML = data);
+            .then(res => res.text())
+            .then(text => new DOMParser().parseFromString(text, "text/html"))
+            .then((data) => { document.querySelector("#header").innerHTML = data.body });
         const footer = fetch("https://tkbutsuribu.vercel.app/footer.html")
-            .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow">',''))
-            .then((data) => document.querySelector("#footer").innerHTML = data);
+            .then(res => res.text())
+            .then(text => new DOMParser().parseFromString(text, "text/html"))
+            .then((data) => { document.querySelector("#footer").innerHTML = data.body });
         const getArticle = getArticledata();
         await Promise.all([header, footer, getArticle]);
         await updateDOM();
