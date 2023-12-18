@@ -68,7 +68,7 @@ try {
     const updateDOM = async () => {
         if (is404) {
             await fetch("https://tkbutsuribu.vercel.app/404forarticle.html")
-                .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow"> <!--テスト時用の検索結果から除外するタグ。公開時は削除-->',''))
+                .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow">',''))
                 .then((data) => document.querySelector("body").innerHTML = data);
             return
         }
@@ -96,10 +96,10 @@ try {
     }
     window.addEventListener('DOMContentLoaded', async () => {
         const header = fetch("https://tkbutsuribu.vercel.app/header.html")
-            .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow"> <!--テスト時用の検索結果から除外するタグ。公開時は削除-->',''))
+            .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow">',''))
             .then((data) => document.querySelector("#header").innerHTML = data);
         const footer = fetch("https://tkbutsuribu.vercel.app/footer.html")
-            .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow"> <!--テスト時用の検索結果から除外するタグ。公開時は削除-->',''))
+            .then((response) => response.text().replaceAll('<meta charset="utf-8" />','').replaceAll('<meta name="robots" content="noindex,nofollow">',''))
             .then((data) => document.querySelector("#footer").innerHTML = data);
         const getArticle = getArticledata();
         await Promise.all([header, footer, getArticle]);
