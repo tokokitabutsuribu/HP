@@ -25,7 +25,7 @@ try {
         } else {
             page = 1;
         }
-        history.replaceState(window.location.origin + '/articles/index.html?page=' + page);
+        history.replaceState(null,'',window.location.origin + '/articles/index.html?page=' + page);
         document.getElementById('pagenum').innerText = page;
 
         if (page <= 1) {
