@@ -15,7 +15,7 @@ try {
         for (let i = 0; i < countstr.length; i++) {
             add += '<li class="num">' + countstr.substr(i, 1) + '</li>';
         }
-        add+='<li><nobr id="count2">人目の来訪者です</nobr></li>'
+        add+='<li style="margin-left: 5px;" id="count2">人目の来訪者です</li>'
         document.querySelector("#access-counter").innerHTML = add;
     }
 
