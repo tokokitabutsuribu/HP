@@ -69,6 +69,7 @@ try {
         if (is404) {
             await fetch("https://tkbutsuribu.vercel.app/404forarticle.html")
                 .then((response) => response.text())
+                .then(text => new DOMParser().parseFromString(text, "text/html").documentElement.innerHTML)
                 .then((data) => document.querySelector("body").innerHTML = data);
             return
         }
@@ -97,12 +98,12 @@ try {
     window.addEventListener('DOMContentLoaded', async () => {
         const header = fetch("https://tkbutsuribu.vercel.app/header.html")
             .then(res => res.text())
-            .then(text => new DOMParser().parseFromString(text, "text/html"))
-            .then((data) => { document.querySelector("#header").innerHTML = data.body });
+            .then(text => new DOMParser().parseFromString(text, "text/html").documentElement.innerHTML)
+            .then((data) => { document.querySelector("#header").innerHTML = data });
         const footer = fetch("https://tkbutsuribu.vercel.app/footer.html")
             .then(res => res.text())
-            .then(text => new DOMParser().parseFromString(text, "text/html"))
-            .then((data) => { document.querySelector("#footer").innerHTML = data.body });
+            .then(text => new DOMParser().parseFromString(text, "text/html").documentElement.innerHTML)
+            .then((data) => { document.querySelector("#footer").innerHTML = data });
         const getArticle = getArticledata();
         await Promise.all([header, footer, getArticle]);
         await updateDOM();
