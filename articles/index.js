@@ -72,6 +72,7 @@ try {
         init()
         await getArticledata();
         updateDOM();
+        window.scrollTo(0, 0);
     }
 
     document.getElementById('pageminus').onclick = async function () {
@@ -80,6 +81,7 @@ try {
             init();
             await getArticledata();
             updateDOM();
+            window.scrollTo(0, 0);
         }
     }
 
