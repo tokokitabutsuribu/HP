@@ -127,6 +127,8 @@ if (window.matchMedia("(display-mode: standalone)").matches) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    getmytoken();
+    if (localStorage.hasOwnProperty('messagetoken')) {
+        getmytoken();
+    }
     //const analytics = getAnalytics(app);
 })
