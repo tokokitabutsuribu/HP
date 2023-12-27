@@ -17,6 +17,8 @@ export default async (request, response) => {
     const signature = request.headers['x-microcms-signature'];
     if (!timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
         fin = true;
+        console.log(Buffer.from(signature));
+        console.log(Buffer.from(expectedSignature));
         console.log("not right access")
         return response.status(401).json({ "status": "error" });
     }
@@ -56,7 +58,7 @@ export default async (request, response) => {
             console.log("type is bad")
             return response.status(400).json({ "status": "error" });
     }
-    if (!request.body.contents.old) {
+    if (!request.body.contents.old.id) {
         if (articleid != request.body.contents.old.id) {
             await deleteArticleDB(request.body.contents.old.id);
         }
