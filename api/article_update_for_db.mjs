@@ -58,10 +58,12 @@ export default async (request, response) => {
             console.log("type is bad")
             return response.status(400).json({ "status": "error" });
     }
-    if (!request.body.contents.old.id) {
+    try{
         if (articleid != request.body.contents.old.id) {
             await deleteArticleDB(request.body.contents.old.id);
         }
+    }catch(e){
+        
     }
 
     if (!fin) return response.status(200).json({ "status": "success" })
