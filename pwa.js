@@ -22,7 +22,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 
-const APIURL = "https://tkbutsuribu.vercel.app/api/push_token";
+const APIURL = "/api/push_token";
 
 document.getElementById('requestpermission').onclick = function requestPermission() {
     console.log('Requesting permission...');
