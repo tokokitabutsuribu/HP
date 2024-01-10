@@ -88,11 +88,11 @@ try {
         Prism.highlightAll();
     }
     window.addEventListener('DOMContentLoaded', async () => {
-        const header = fetch("https://tkbutsuribu.vercel.app/header.html")
+        const header = fetch("/header.html")
             .then(res => res.text())
             .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
             .then((data) => { document.querySelector("#header").innerHTML = data });
-        const footer = fetch("https://tkbutsuribu.vercel.app/footer.html")
+        const footer = fetch("/footer.html")
             .then(res => res.text())
             .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
             .then((data) => { document.querySelector("#footer").innerHTML = data });
