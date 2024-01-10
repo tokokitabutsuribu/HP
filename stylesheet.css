@@ -27,6 +27,7 @@
     text-align: center;
     height: fit-content;
     margin-top: 30px;
+    font-weight: bold;
 }
 
 #content1 {
@@ -59,7 +60,7 @@
     width: 128px;
     height: 30px;
     border-radius: 9999px;
-    background-color: red;
+    background-color: #EB0000;
     display: grid;
     place-items: center;
 }

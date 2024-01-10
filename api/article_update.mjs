@@ -37,7 +37,6 @@ export default async (request, response) => {
   expectedSignature = expectedSignature.update(JSON.stringify(request.body));
   expectedSignature = expectedSignature.digest('hex');
   const signature = request.headers['x-microcms-signature'];
-  console.log(signature)
   if (!timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
     fin = true;
     console.log("not right access")

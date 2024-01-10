@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 
 import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-messaging.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+//import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,7 +20,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const messaging = getMessaging(app);
 
 const APIURL = "/api/push_token";
@@ -32,7 +31,7 @@ document.getElementById('requestpermission').onclick = function requestPermissio
         || (/Macintosh/.test(ua) && ((navigator.maxTouchPoints > 1) || ('ontouchend' in document)))
         || ((ua.indexOf('ipad') > -1 || ua.indexOf('Macintosh') > -1) && ('ontouchend' in document))) {
         if (!window.matchMedia("(display-mode: standalone)").matches) {
-            document.getElementById('pop-up').checked=true;
+            document.getElementById('pop-up').checked = true;
         }
     }
     Notification.requestPermission()
@@ -46,7 +45,7 @@ document.getElementById('requestpermission').onclick = function requestPermissio
                 if (/iPad|iPhone|iPod/.test(ua) || (/macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || 'ontouchend' in document))
                     || (ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document)) {
                     if (!window.matchMedia("(display-mode: standalone)").matches) {
-                        document.getElementById('pop-up').checked=true;
+                        document.getElementById('pop-up').checked = true;
                     } else {
                         document.getElementById('requestpermission').innerText = "通知がブロックされています"
                     }
@@ -60,7 +59,7 @@ document.getElementById('requestpermission').onclick = function requestPermissio
         })
 }
 
-function getmytoken() {
+async function getmytoken() {
     getToken(messaging, { vapidKey: 'BHYfDERRzVeOZOz32LOi6uZTYpzItJ5MVK8EswEeYkjLLOeX8thI1o7yPBuizxXqq_j_r1pauCAo3_YTGWxc7tQ' }).then((currentToken) => {
         if (currentToken) {
             console.log(currentToken);
@@ -95,7 +94,6 @@ function getmytoken() {
         // ...
     });
 }
-getmytoken();
 
 //インストールボタン
 const installforios = document.getElementById('InstallBtnForiOS');
@@ -124,6 +122,13 @@ function registerInstallAppEvent(elem) {
 }//end registerInstallAppEvent
 
 registerInstallAppEvent(document.getElementById("InstallBtn"));
-if(window.matchMedia("(display-mode: standalone)").matches){
-    installforios.style.display="none";
+if (window.matchMedia("(display-mode: standalone)").matches) {
+    installforios.style.display = "none";
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.hasOwnProperty('messagetoken')) {
+        getmytoken();
+    }
+    //const analytics = getAnalytics(app);
+})

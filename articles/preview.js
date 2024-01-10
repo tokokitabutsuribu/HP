@@ -53,13 +53,14 @@ try {
             })
             .catch((error) => {
                 is404 = true;
-                console.log(error);
+                console.log(error)
             })
     }
     const updateDOM = async () => {
         if (is404) {
             await fetch("https://tkbutsuribu.vercel.app/404forarticle.html")
                 .then((response) => response.text())
+                .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
                 .then((data) => document.querySelector("body").innerHTML = data);
             return
         }
@@ -77,22 +78,24 @@ try {
         document.title = res.title + "(priview)  -所北物理部";
         document.querySelector('meta[name="description"]').setAttribute("content", res.description);
         document.querySelector('meta[property="og:url"]').setAttribute("content", "https://tkbutsuribu.vercel.app/articles/article.html?id=" + id + "&draftKey=" + mydraftKey);
-        document.querySelector('meta[property="og:title"]').setAttribute("content", res.title+"(preview)");
+        document.querySelector('meta[property="og:title"]').setAttribute("content", res.title + "(preview)");
         document.querySelector('meta[property="og:description"]').setAttribute("content", res.description);
 
         Prism.highlightAll();
     }
     window.addEventListener('DOMContentLoaded', async () => {
         const header = fetch("https://tkbutsuribu.vercel.app/header.html")
-            .then((response) => response.text())
-            .then((data) => document.querySelector("#header").innerHTML = data);
+            .then(res => res.text())
+            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
+            .then((data) => { document.querySelector("#header").innerHTML = data });
         const footer = fetch("https://tkbutsuribu.vercel.app/footer.html")
-            .then((response) => response.text())
-            .then((data) => document.querySelector("#footer").innerHTML = data);
+            .then(res => res.text())
+            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
+            .then((data) => { document.querySelector("#footer").innerHTML = data });
         const getArticle = getArticledata();
         await Promise.all([header, footer, getArticle]);
         await updateDOM();
     });
 } catch (e) {
-    window.alert(e);
+    console.log(e);
 }
