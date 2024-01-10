@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="ja">
 
 <head>
     <meta charset="utf-8" />
@@ -13,33 +14,43 @@
     <meta property="og:image" content="image/iconBIG.jpg" />
     <meta name="twitter:card" content="summary">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../normalize.css">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="/articles/index.css">
     <title>記事一覧 - 所北物理部</title><!--ページのタイトル-->
 
-    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
+    <link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
     <link rel="manifest" href="../manifest.webmanifest">
-
-    <!--   <script src="main.js"></script>-->
 </head>
 
 <body>
     <div id="header"></div>
     <div class="main" style="text-align:left;">
-        <h1>ブログ</h1>
-        <ul>
-            <li><a href=/articles/osirase.html>お知らせ</a></li>
+        <div style="display: flex;align-items: end;">
+            <h1 style="margin-left: 10px;">記事一覧</h1><a href="/articles/osirase.html"
+                style="margin-bottom: 25px; height: fit-content; text-align: left;background-color: darkblue;color: white;text-decoration: none;padding:5px;margin-left: 45px;">お知らせ</a>
+        </div>
+        <ul id="article" style="padding: 0px 7px;margin: 0px;">
         </ul>
-        <a href="https://tkbutsuribu.vercel.app/">トップページへ</a>
+        <br>
+        <div style="display: flex;justify-content: center;align-items: center;gap: 15px;">
+            <button class="pagebutton" type="button" id="pageminus">＜</button>
+            <div id="pagenum"></div>
+            <button class="pagebutton" type="button" id="pageplus">＞</button>
+        </div>
     </div>
     <div id="footer"></div>
     <script>
         fetch("https://tkbutsuribu.vercel.app/header.html")
-            .then((response) => response.text())
-            .then((data) => document.querySelector("#header").innerHTML = data);
+            .then(res => res.text())
+            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
+            .then((data) => { document.querySelector("#header").innerHTML = data });
         fetch("https://tkbutsuribu.vercel.app/footer.html")
             .then((response) => response.text())
+            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
             .then((data) => document.querySelector("#footer").innerHTML = data);
     </script>
+
+    <script type="module" src="/articles/index.js"></script>
 </body>
+
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html lang="ja">
 <head>
     <link rel="stylesheet" href="./normalize.css">
     <meta charset="utf-8" />
@@ -17,7 +17,7 @@
 
     <title>概要 - 所北物理部</title>
 
-    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
+    <link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
     <link rel="manifest" href="./manifest.webmanifest">
@@ -55,10 +55,13 @@
     <div id="footer"></div>
     <script>
         fetch("https://tkbutsuribu.vercel.app/header.html")
-            .then((response) => response.text())
-            .then((data) => document.querySelector("#header").innerHTML = data);
+            .then(res => res.text())
+            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
+            .then((data) => { document.querySelector("#header").innerHTML = data });
         fetch("https://tkbutsuribu.vercel.app/footer.html")
-            .then((response) => response.text())
-            .then((data) => document.querySelector("#footer").innerHTML = data);
+            .then(res => res.text())
+            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
+            .then((data) => { document.querySelector("#footer").innerHTML = data });
     </script>
 </body>
+</html>

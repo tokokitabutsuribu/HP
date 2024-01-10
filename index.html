@@ -3,7 +3,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script src="main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="所沢北高校（通称所北）物理部の公式HPです。役立つ情報や日常のつぶやきなどを発信していきます。無料で遊べるブラウザゲームも公開予定です。">
 
@@ -25,7 +24,7 @@
     <link rel="stylesheet" href="stylesheet.css">
     <title>所北物理部</title>
 
-    <link rel="icon" href="/favicon.ico" sizes="any"><!-- 32×32 -->
+    <link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
     <link rel="manifest" href="./manifest.webmanifest">
@@ -61,7 +60,7 @@
     <link href="splashscreens/ipadpro2_splash.png"
         media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
         rel="apple-touch-startup-image" />
-    <script type="module" src="pwa.js"></script>
+
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js')
@@ -73,15 +72,84 @@
 <body>
     <div id="content1">
         <div id="main">
-            <div id="access-counter"></div>
+            <div style="display: flex;align-items: center;">
+                <a href="/articles/osirase.html"
+                    style="height: fit-content; white-space: nowrap; text-align: left;background-color: darkblue;color: white;text-decoration: none;padding:5px;margin-right: 10px;">お知らせ</a>
+                <ul class="access-count" id="access-counter" style="font-size: 0;">
+                    <li style="margin-right:5px" id="count1">あなたは</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li class="num" style="color: black;">1</li>
+                    <li style="margin-left: 5px;" id="count2">人目の来訪者です</li>
+                </ul>
+                <style>
+                    .counter-area {
+                        text-align: center;
+                    }
+
+                    .access-count {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                    }
+
+                    .access-count li {
+                        display: inline-block;
+                        font-size: 16px;
+                        font-family: Arial, sans-serif;
+                    }
+
+                    .num {
+                        position: relative;
+                        width: 15px;
+                        font-size: 16px !important;
+                        background: #000;
+                        color: #fff;
+                        border-right-width: 1px;
+                        font-weight: 700;
+                        border-color: #858585;
+                        height: 20px;
+                        text-align: center;
+                        padding-top: 2px;
+                    }
+
+                    .access-count li:nth-last-child(2) {
+                        border-right-width: 0px;
+                    }
+
+                    .num::before {
+                        position: absolute;
+                        display: block;
+                        width: 14px;
+                        height: 11px;
+                        top: 0px;
+                        content: "";
+                        border-bottom-width: 1px;
+                        border-color: black;
+                    }
+
+                    @media (max-width:380px) {
+
+                        #count1,
+                        #count2 {
+                            display: block;
+                        }
+                    }
+                </style>
+                <a href="/index.html?noeffect" id="noeffect"
+                    style="display: none; text-align: left;background-color: lightblue;color: darkgreen;text-decoration: none;padding:5px;margin-left: 10px;">エフェクトオフ</a>
+            </div>
             <div class="title">
                 <h1>
-                    <nobr>所北物理部のサイトへ</nobr>
-                    <nobr>ようこそ！</nobr>
+                    <nobr id="title1">所北物理部のサイトへ</nobr>
+                    <nobr id="title2">ようこそ！</nobr>
                 </h1>
             </div>
         </div>
-        <img id="mainicon" src="iconBIG.jpg" width="320" height="320" alt="物理部ロゴ">
+        <img id="mainicon" src="iconBIG.webp" width="320" height="320" alt="物理部ロゴ">
         <div class="links">
             <div class="twitter">
                 <a style="text-decoration: none;"
@@ -122,8 +190,8 @@
         </div>
         <div id="buttons">
             <div id="InstallBtnForiOS" style="width: fit-content;">
-                <label class="open button" for="pop-up"><img src="./images/install.png" alt="install"
-                        style="max-height: 100%;width: auto;margin: 0 5px 0 2px">インストールする</label>
+                <label class="open button" for="pop-up"><img height="16px" width="16px" src="./images/install.png"
+                        alt="install" style="max-height: 100%;width: auto;margin: 0 5px 0 2px">インストールする</label>
                 <input type="checkbox" id="pop-up">
                 <div class="overlay">
                     <label class="close2" for="pop-up"></label>
@@ -153,14 +221,17 @@
                     </div>
                 </div>
             </div>
-            <button id="InstallBtn" class="button" style="display:none"><img src="./images/install.png" alt="install"
+            <button id="InstallBtn" class="button" style="display:none"><img height="16px" width="16px"
+                    src="./images/install.png" alt="install"
                     style="max-height: 100%;width: auto;margin: 0 5px 0 2px">インストールする</button>
             <button id="requestpermission" class="button" type="button" value="通知" style="display: block;"><img
-                    src="./images/notification.png" alt="notification"
+                    height="16px" width="16px" src="./images/notification.png" alt="notification"
                     style="max-height: 100%;width: auto;margin: 0 5px 0 2px">通知を許可する</button>
         </div>
     </div>
+    <script src="main.js"></script>
     <script type="module" src="counter.js"></script>
+    <script type="module" src="pwa.js"></script>
 </body>
 
 </html>
