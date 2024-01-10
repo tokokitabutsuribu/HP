@@ -67,7 +67,11 @@ try {
         const res = articledata;
         addarray('#category', res.category, 'li', undefined)
         document.querySelector('#title').textContent = res.title;
-        document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
+        try {
+            document.querySelector('#updated').textContent = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
+        } catch (e) {
+            document.querySelector('#updated').textContent = "----/--/--"
+        }
         addarray('#content', res.contents, undefined, 'content');
 
         let add = ""
