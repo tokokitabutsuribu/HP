@@ -22,12 +22,26 @@
     display: flex;
     flex-shrink: 1;
     min-width: 0;
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 10px;
     justify-content: center;
     text-align: center;
     height: fit-content;
     margin-top: 30px;
     font-weight: bold;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.links div {
+    width: 110px;
+    height: 30px;
+    border-radius: 9999px;
+    display: grid;
+    place-items: center;
+    font-size: 15px;
+    text-decoration: none;
+    text-align: center;
 }
 
 #content1 {
@@ -38,16 +52,8 @@
 }
 
 .tokokitahp {
-    width: 128px;
-    height: 30px;
-    display: grid;
-    place-items: center;
-    font-size: 18px;
     background-color: aquamarine;
-    border-radius: 9999px;
-    text-decoration: none;
     color: black;
-    text-align: center;
 }
 
 .tokokitahp a {
@@ -57,12 +63,7 @@
 }
 
 .youtube {
-    width: 128px;
-    height: 30px;
-    border-radius: 9999px;
     background-color: #EB0000;
-    display: grid;
-    place-items: center;
 }
 
 .youtube a {
@@ -73,14 +74,7 @@
 }
 
 .twitter {
-    width: 128px;
     background-color: black;
-    border-radius: 9999px;
-    height: 30px;
-    text-decoration: none;
-    display: grid;
-    place-items: center;
-    text-align: center;
 }
 
 .twitter a {
@@ -90,6 +84,15 @@
     text-align: center;
     width: 100%;
     line-height: 100%;
+}
+
+.github {
+    background-color: black;
+}
+
+.github a {
+    column-gap: 2px;
+    margin-top: 3px;
 }
 
 .title h1 {
@@ -133,20 +136,22 @@ body {
     padding-top: 12px;
 }
 
-@media all and (min-width:500px) {
+@media all and (min-width:583px) {
 
     /*PCなど　500~*/
-    .links {
-        flex-direction: row;
+    .links #kaigyou{
+        display: none;
     }
 
 }
 
-@media (max-width:500px) {
+@media (max-width:583px) {
 
     /*スマートフォンなど　~500*/
-    .links {
-        flex-direction: column;
+    .links #kaigyou{
+        display: block;
+        width: 100%;
+        height: 0;
     }
 
 }
@@ -232,4 +237,3 @@ body {
     left: 0;
     z-index: -1;
 }
-
