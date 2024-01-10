@@ -26,6 +26,12 @@
                     <nobr>所北HP</nobr>
                 </a>
             </div>
+            <div class="github">
+                <a href="https://github.com/tokokitabutsuri/HP" target="_blank" rel="noopener norefereer">
+                    <nobr><img height="20px" src="/github-mark-white.svg" style="margin-right: 3px;" alt=""></img><img
+                            height="22px" src="/GitHub_Logo_White.png" alt="Github"></img></nobr>
+                </a>
+            </div>
         </div>
         <div class="footermap">
             <a href="https://tkbutsuribu.vercel.app/index.html">トップページ</a><br>
@@ -38,32 +44,37 @@
     </footer>
     <style>
         .links {
+            display: flex;
+            flex-direction: column;
             width: -moz-fit-content;
             width: fit-content;
-            gap: 20px;
+            gap: 6px;
             justify-content: left;
             text-align: left;
             margin-bottom: 10px;
         }
 
-        .tokokitahp {
+        .links div {
             width: 128px;
             height: 30px;
+            border-radius: 9999px;
             display: grid;
             place-items: center;
             font-size: 18px;
-            background-color: aquamarine;
-            margin-top: 5px;
-            border-radius: 9999px;
             text-decoration: none;
-            color: black;
             text-align: center;
+        }
+
+        .tokokitahp {
+            background-color: aquamarine;
+            color: black;
         }
 
         .tokokitahp a {
             width: 100%;
             color: black;
             text-decoration: none;
+            font-weight: bold;
         }
 
         footer {
@@ -92,13 +103,8 @@
         }
 
         .youtube {
-            width: 128px;
-            height: 30px;
             border-radius: 9999px;
             background-color: red;
-            display: grid;
-            text-align: center;
-            place-items: center;
         }
 
         .youtube a {
@@ -108,15 +114,7 @@
         }
 
         .twitter {
-            width: 128px;
             background-color: black;
-            border-radius: 9999px;
-            height: 30px;
-            text-decoration: none;
-            display: grid;
-            place-items: center;
-            margin-bottom: 5px;
-            text-align: center;
         }
 
         .twitter a {
@@ -126,6 +124,15 @@
             text-align: center;
             width: 100%;
             line-height: 100%;
+        }
+
+        .github {
+            background-color: black;
+        }
+
+        .github a {
+            column-gap: 2px;
+            margin-top: 3px;
         }
     </style>
 </body>
