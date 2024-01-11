@@ -54,7 +54,7 @@ export default async (request, response) => {
     },
     webpush: {
       fcm_options: {
-        link: "https://tkbutsuribu.vercel.app"
+        link: "https://tkbutsuribu.vercel.app/articles/article.html?id="+request.body.id
       }
     }
   }
