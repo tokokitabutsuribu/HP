@@ -244,8 +244,9 @@
         </div>
     </div>
     <script>
-        if (window.matchMedia("(display-mode: standalone)").matches) {
+        if (!window.matchMedia("(display-mode: standalone)").matches) {
             document.getElementById('pwatoolbar').style.display = 'block'
+            document.getElementById('wrapper').style.marginTop='32px'
         }
     </script>
     <script src="main.js"></script>
