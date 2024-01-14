@@ -24,6 +24,41 @@ const messaging = getMessaging(app);
 
 const APIURL = "/api/push_token";
 
+async function getmytoken() {
+    getToken(messaging, { vapidKey: 'BHYfDERRzVeOZOz32LOi6uZTYpzItJ5MVK8EswEeYkjLLOeX8thI1o7yPBuizxXqq_j_r1pauCAo3_YTGWxc7tQ' }).then((currentToken) => {
+        if (currentToken) {
+            console.log(currentToken);
+            localStorage.messageToken = currentToken;
+            document.getElementById('requestpermission').style.display = "none";
+            fetch(APIURL, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    "token": currentToken,
+                    "true_topics": ['お知らせ','活動報告','つぶやき','JavaScript','HTML/CSS','Unity/C#','C/C++','Web全般','その他'],
+                    "false_topics": []
+                })
+            })
+                .then((res) => { console.log(res); })
+                .catch((error) => {
+                    console.log(error);
+                })
+            // Send the token to your server and update the UI if necessary
+            // ...
+        } else {
+            // Show permission request UI
+            console.log('No registration token available. Request permission to generate one.');
+            document.getElementById('requestpermission').style.display = "block";
+            // ...
+        }
+    }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+        document.getElementById('requestpermission').style.display = "block"
+        // ...
+    });
+}
 document.getElementById('requestpermission').onclick = function requestPermission() {
     console.log('Requesting permission...');
     const ua = navigator.userAgent;
@@ -58,43 +93,6 @@ document.getElementById('requestpermission').onclick = function requestPermissio
             console.log(error);
         })
 }
-
-async function getmytoken() {
-    getToken(messaging, { vapidKey: 'BHYfDERRzVeOZOz32LOi6uZTYpzItJ5MVK8EswEeYkjLLOeX8thI1o7yPBuizxXqq_j_r1pauCAo3_YTGWxc7tQ' }).then((currentToken) => {
-        if (currentToken) {
-            console.log(currentToken);
-            localStorage.messageToken = currentToken;
-            document.getElementById('requestpermission').style.display = "none";
-            fetch(APIURL, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    "token": currentToken,
-                    "true_topics": ['new-article'],
-                    "false_topics": []
-                })
-            })
-                .then((res) => { console.log(res); })
-                .catch((error) => {
-                    console.log(error);
-                })
-            // Send the token to your server and update the UI if necessary
-            // ...
-        } else {
-            // Show permission request UI
-            console.log('No registration token available. Request permission to generate one.');
-            document.getElementById('requestpermission').style.display = "block";
-            // ...
-        }
-    }).catch((err) => {
-        console.log('An error occurred while retrieving token. ', err);
-        document.getElementById('requestpermission').style.display = "block"
-        // ...
-    });
-}
-
 //インストールボタン
 const installforios = document.getElementById('InstallBtnForiOS');
 function registerInstallAppEvent(elem) {
