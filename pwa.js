@@ -37,7 +37,7 @@ async function getmytoken() {
                 },
                 body: JSON.stringify({
                     "token": currentToken,
-                    "true_topics": ['お知らせ','活動報告','つぶやき','JavaScript','HTML/CSS','Unity/C#','C/C++','Web全般','その他'],
+                    "true_topics": ['all'],
                     "false_topics": []
                 })
             })
