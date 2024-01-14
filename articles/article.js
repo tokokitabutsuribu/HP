@@ -48,7 +48,7 @@ try {
     const getArticledata = async () => {
         const searchParams = new URLSearchParams(window.location.search);
         id = searchParams.get("id")
-        if (id == null) {
+        if (!id) {
             is404 = true;
             return
         }
