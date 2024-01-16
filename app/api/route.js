@@ -1,1 +1,1 @@
-export async function GET(request,response) {res.status(200).json({ message: request })}
+export async function GET(request,response) {response.status(200).json({ message: request })}
