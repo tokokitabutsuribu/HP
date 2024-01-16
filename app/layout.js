@@ -3,7 +3,7 @@ export default function RootLayout({
   }) {
     return (
       <html lang="ja">
-        {children}
+        <body>{children}</body>
       </html>
     );
   }
