@@ -1,4 +1,4 @@
-export default function route(
+export default function Route(
   req,
   res
 ) {
