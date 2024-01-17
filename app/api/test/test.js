@@ -1,3 +1,5 @@
-export function test(req, res) {
-    res.status(200).json({ message: 'Hello from Next.js!' })
-  }
+function test(req) {
+  return new Response({ message: 'success' }, { status: 200 });
+}
+
+export { test };
