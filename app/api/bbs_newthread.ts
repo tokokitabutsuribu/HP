@@ -1,10 +1,10 @@
-/*import { createClient } from '@supabase/supabase-js'
-const { createHmac } = await import('node:crypto');
+import { createClient } from '@supabase/supabase-js'
+const crypto = require('crypto');
 // Create a single supabase client for interacting with your database
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
+const supabase = createClient(process.env.SUPABASE_URL||'', process.env.SUPABASE_SERVICE_ROLE_KEY||'')
 
 
-const getip: string = (request) => {
+const getip: any = (request:any) => {
     if (request.headers['x-forwarded-for']) {
         return request.headers['x-forwarded-for'];
     }
@@ -23,17 +23,17 @@ const getip: string = (request) => {
     return '0.0.0.0';
 }
 
-export default async (request, response) => {
+export default async (request:any, response:any) => {
     let fin: boolean = false;
     if (request.method !== 'POST') {
         fin = true;
         return response.status(400).json({ "status": "error" });
     }
-    const myposter_id: string = createHmac('md5').update(getip(request), new Date().toDateString()).digest('hex').substr(0,8);
+    const myposter_id: string = crypto.createHmac('SHA256',new Date().toDateString()).update(getip(request)).digest('hex').substr(0,8);
     const mycomment: string = request.body.comment;
     const mythread_id = request.body.thread_id;
     let myreply_token = '';
-    if (request.body in reply_token) {
+    if (request.body.hasOwnProperty('reply_token')) {
         myreply_token = request.body.reply_token;
     }
     await supabase
@@ -47,4 +47,4 @@ export default async (request, response) => {
     }
   })
     if (!fin) return response.status(200).json({ "status": "success" });
-}*/
+}
