@@ -1,5 +1,5 @@
 function test(req,res) {
-  return res.status(200).json({ "status": 'success' });
+  return new Response({ 'message': 'success' }, { status: 200 });
 }
 
 export { test };
