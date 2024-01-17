@@ -14,7 +14,7 @@ export default async (request, response) => {
     let expectedSignature = createHmac('sha256', process.env.MICROCMS_SECRET_KEY)
     expectedSignature = expectedSignature.update(JSON.stringify(request.body));
     expectedSignature = expectedSignature.digest('hex');
-    const signature = request.headers['x-microcms-signature'];
+    const signature = request.headers['X-MICROCMS-Signature'] || request.headers['x-microcms-signature'];
     if (!timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
         fin = true;
         console.log(Buffer.from(signature));
