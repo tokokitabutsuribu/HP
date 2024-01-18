@@ -1,6 +1,8 @@
-import { test } from './test';
+//import { test } from './test';
 //export { test as GET };
 
-export function GET(req, res) {
-    return res.status(200).send({ message: 'success' });
+export default async function GET(req, res) {
+    res.status = 200;
+    res.send = { message: 'success' };
+    return res;
 }
