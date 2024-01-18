@@ -1,5 +1,6 @@
 function test(req,res) {
-  return res.status(200).send(JSON.stringify({message:'success'}))
+  res.status=200;
+  return res.send(JSON.stringify({message:'success'}))
   
 }
 
