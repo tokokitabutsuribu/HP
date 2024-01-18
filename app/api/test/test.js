@@ -1,5 +1,6 @@
 function test(req,res) {
-  return new Response(new Blob(JSON.stringify({message:'success'})), { status: 200 });
+  return res.status(200).send({message:'success'})
+  
 }
 
 export { test };
