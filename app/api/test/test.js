@@ -1,7 +1,6 @@
-function test(req,res) {
-  res.status = 200;
-  res.send = { message: 'success' };
-  return res;
+import { NextResponse } from 'next/server'
+function test(req) {
+  return NextResponse.json({ message: 'success' }, { status: 200 });
 }
 
 export { test };
