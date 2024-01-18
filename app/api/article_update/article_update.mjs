@@ -68,7 +68,7 @@ export default async (request, response) => {
       .catch((error) => {
         console.log(error);
         fin = true;
-        response.status(500).json({ "status": error });
+        return response.status(500).json({ "status": error });
       });
 
   }
