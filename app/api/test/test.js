@@ -1,7 +1,7 @@
 function test(req,res) {
-  res.status=200;
-  return res.send(JSON.stringify({message:'success'}))
-  
+  res.status = 200;
+  res.send = { message: 'success' };
+  return res;
 }
 
 export { test };
