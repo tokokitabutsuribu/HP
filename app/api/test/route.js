@@ -1,7 +1,6 @@
-//import { test } from './test';
+import { test } from './test';
 //export { test as GET };
-export default function handler(req, res) {
-    res.status = 200;
-    return res.send(JSON.stringify({ message: 'success' }));
 
+export function GET(req, res) {
+    return res.status(200).send({ message: 'success' });
 }
