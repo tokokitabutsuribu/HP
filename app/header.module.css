@@ -11,7 +11,7 @@
     margin-top:5px;
 }
 
-#global-navi {
+.global-navi {
     display: block;
     height: fit-content;
     background: #333;
