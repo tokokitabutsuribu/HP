@@ -1,6 +1,5 @@
 import Header from './header.js'
 import Footer from './footer.js'
-import Head from "next/head";
 import './normalize.css'
 
 export default function RootLayout({
@@ -8,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <Head>
+      <head>
         {(process.env.NODE_ENV === "development" || process.env.VERCEL_ENV === "preview") && (
           // eslint-disable-next-line @next/next/no-sync-scripts
           <script
@@ -17,8 +16,7 @@ export default function RootLayout({
             src="https://snippet.meticulous.ai/v1/meticulous.js"
           />
         )}
-        <link href='/normalize.css'></link>
-      </Head>
+      </head>
       <body>
         <Header />
         {children}
