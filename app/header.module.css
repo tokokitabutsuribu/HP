@@ -2,7 +2,6 @@
     height: 88px;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     margin: 0;
     font-family: monospace, sans-serif !important;
 }
