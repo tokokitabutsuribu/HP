@@ -5,6 +5,6 @@ export default async function Footer() {
     const host = headers().get("host");
     return await fetch(`https://${host}/footer.html`, { next: { revalidate: 20 } })
         .then(res => res.text())
-        .then(text => parse(text).body.innerText)
-        .then(text=>parse(text))
+        .then(text => parse(text).querySelector('body').innerHTML)
+        //.then(text=>parse(text))
 }
