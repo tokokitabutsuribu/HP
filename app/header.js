@@ -1,3 +1,4 @@
+import styles from './header.module.css'
 export default async function Header() {
     return (
         <div id="wrapper">
