@@ -1,8 +1,9 @@
 import { headers } from 'next/headers'
+import { parse } from 'node-html-parser';
 
 export default async function Header() {
     const host = headers().get("host");
     return await fetch(`https://${host}/header.html`, { next: { revalidate: 20 } })
         .then(res => res.text())
-        .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
+        .then(text => parse(text).body.innerHTML)
 }
