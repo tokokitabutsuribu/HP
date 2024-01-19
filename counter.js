@@ -4,6 +4,7 @@ try {
     let counterID = localStorage.getItem('counterID');
     //カウントを取得
     let count;
+    let iserror = false;
     const today = new Date().toLocaleDateString('sv-SE');
     let date = "";
     let hasID = false;
@@ -27,6 +28,7 @@ try {
         })
         .catch((error) => {
             count = 0;
+            iserror=true;
         })
 
     if (counterID) {
@@ -81,7 +83,7 @@ try {
             })
         ifPlusCount = true;
     }
-    if (ifPlusCount) {
+    if (ifPlusCount&&!iserror) {
         insertHTML(count + 1)
         //カウンターを増やす
         await supabase
