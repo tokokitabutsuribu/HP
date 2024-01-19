@@ -1,3 +1,6 @@
+import Header from './header.js'
+import Footer from './footer.js'
+
 export default function RootLayout({
   children,
 }) {
@@ -13,7 +16,11 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
