@@ -1,6 +1,7 @@
 import Header from './header.js'
 import Footer from './footer.js'
 import Head from "next/head";
+import './normalize.css'
 
 export default function RootLayout({
   children,
