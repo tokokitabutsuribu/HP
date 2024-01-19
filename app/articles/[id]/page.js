@@ -6,7 +6,7 @@ export default function Page({ params }) {
       <hr></hr>
       <div>My Post</div>
       <div>{params.id}</div>
-      <a href="">a</a><br />
+      <a href={a}>a</a><br />
       <Link href={a}>Link</Link>
       <hr></hr>
       </div>
