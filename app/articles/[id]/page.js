@@ -1,18 +1,29 @@
 export default async function Page({ params }) {
-  let category=[];
-  let title="title";
-  let updated="----/--/--";
-  let index=[];
-  let content=[]
+  let category = [];
+  let title = "title";
+  let updated = "----/--/--";
+  let index = [];
+  let content = [];
 
-  await fetch('https://tkbutsuribu.microcms.io/api/v1/articles/'+params.id, { headers: { 'X-MICROCMS-API-KEY': '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa' }, next: { revalidate: 10 } })
-    .then(data => data.json())
+  let iserror = false;
+  await fetch('https://tkbutsuribu.microcms.io/api/v1/articles/' + params.id, { headers: { 'X-MICROCMS-API-KEY': '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa' }, next: { revalidate: 10 } })
+    .then(data => {
+      if (!data.ok) {
+        iserror = true;
+      }
+      return data.json();
+    })
     .then((data) => {
       console.log(data);
     })
-    .catch((e)=>{
+    .catch((e) => {
+      iserror = true;
+      return { notFound: true };
+    });
+  if (iserror) {
+    console.log('404');
     return { notFound: true };
-  })
+  }
   return (
     <div>
       <ul id="category">
