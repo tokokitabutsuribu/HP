@@ -1,7 +1,7 @@
 import styles from './footer.module.css'
 export default async function Footer() {
     return (
-        <footer>
+        <div id="footer">
             <div className={styles.links}>
                 <div className={styles.twitter}>
                     <a href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5ETK_physics_club&region=follow_link&screen_name=TK_physics_club"
@@ -34,6 +34,6 @@ export default async function Footer() {
                 <a href="https://tkbutsuribu.vercel.app/games/index.html">ゲームスタジオ</a><br />
                 <a href="https://tkbutsuribu.vercel.app/bbs/404.html">掲示板(未完成)</a>
             </div>
-        </footer>
+        </div>
     )
 }
