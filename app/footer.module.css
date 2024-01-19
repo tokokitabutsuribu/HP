@@ -32,7 +32,7 @@
     font-weight: bold;
 }
 
-#footer {
+.footer {
     width: 100%;
     background-color: hsl(0, 0%, 30%);
     color: white;
@@ -87,7 +87,7 @@
     margin-top: 3px;
 }
 
-#github-image {
+.github-image {
     margin-right: 3px;
 }
 

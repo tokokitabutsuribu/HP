@@ -1,7 +1,7 @@
 import styles from './footer.module.css'
 export default async function Footer() {
     return (
-        <div id="footer">
+        <div className={styles.footer}>
             <div className={styles.links}>
                 <div className={styles.twitter}>
                     <a href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5ETK_physics_club&region=follow_link&screen_name=TK_physics_club"
@@ -23,7 +23,7 @@ export default async function Footer() {
                 <div className={styles.github}>
                     <a href="https://github.com/tokokitabutsuri/HP" target="_blank" rel="noopener norefereer">
                         <nobr><img height="20px" src="/github-mark-white.svg" alt=""></img><img
-                            id="github-image" height="22px" src="/GitHub_Logo_White.png" alt="Github"></img></nobr>
+                            className={styles.github-image} height="22px" src="/GitHub_Logo_White.png" alt="Github"></img></nobr>
                     </a>
                 </div>
             </div>
