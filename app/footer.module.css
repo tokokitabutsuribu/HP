@@ -37,6 +37,11 @@
     background-color: hsl(0, 0%, 30%);
     color: white;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: monospace, sans-serif !important;
 }
 
 .footermap a {
@@ -47,14 +52,6 @@
 
 .main {
     flex: auto;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    font-family: monospace, sans-serif !important;
 }
 
 .youtube {
@@ -90,9 +87,10 @@ body {
     margin-top: 3px;
 }
 
-#github-image{
+#github-image {
     margin-right: 3px;
 }
-.twitter a{
+
+.twitter a {
     text-decoration: none;
 }
