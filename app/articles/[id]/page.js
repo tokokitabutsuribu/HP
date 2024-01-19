@@ -3,9 +3,12 @@ export default function Page({ params }) {
   let a = "/articles/" + (params.id + 1) + "/";
   return (
     <div>
+      <hr></hr>
       <div>My Post</div>
-      <a href="">a</a>
+      <div>{params.id}</div>
+      <a href="">a</a><br />
       <Link href={a}>Link</Link>
+      <hr></hr>
       </div>
   )
 }
