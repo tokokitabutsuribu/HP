@@ -5,7 +5,7 @@ export default async function Page({ params }) {
   let index=[];
   let content=[]
 
-  await fetch('https://tkbutsuribu.microcms.io/api/v1/articles/c9uqfteg5yg', { headers: { 'X-MICROCMS-API-KEY': '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa' }, next: { revalidate: 10 } })
+  await fetch('https://tkbutsuribu.microcms.io/api/v1/articles/'+params.id, { headers: { 'X-MICROCMS-API-KEY': '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa' }, next: { revalidate: 10 } })
     .then(data => data.json())
     .then((data) => {
       console.log(data);
