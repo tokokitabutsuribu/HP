@@ -1,4 +1,4 @@
-import styles from './footer.module.css'
+import styles from './footer.module.css';
 export default async function Footer() {
     return (
         <div className={styles.footer}>
@@ -23,7 +23,7 @@ export default async function Footer() {
                 <div className={styles.github}>
                     <a href="https://github.com/tokokitabutsuri/HP" target="_blank" rel="noopener norefereer">
                         <nobr><img height="20px" src="/github-mark-white.svg" alt=""></img><img
-                            className={styles.github-image} height="22px" src="/GitHub_Logo_White.png" alt="Github"></img></nobr>
+                            className={styles.githubImage} height="22px" src="/GitHub_Logo_White.png" alt="Github"></img></nobr>
                     </a>
                 </div>
             </div>
@@ -35,5 +35,5 @@ export default async function Footer() {
                 <a href="https://tkbutsuribu.vercel.app/bbs/404.html">掲示板(未完成)</a>
             </div>
         </div>
-    )
+    );
 }
