@@ -6,5 +6,5 @@ export default async function Header() {
     return await fetch(`https://${host}/header.html`, { next: { revalidate: 20 } })
         .then(res => res.text())
         .then(text => parse(text).querySelector('body').innerHTML)
-        //.then(text=>parse(text))
+        .then(text=>parse(text))
 }
