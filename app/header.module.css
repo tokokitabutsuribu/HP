@@ -1,5 +1,5 @@
-#wrapper{
-    height:88px;
+.wrapper {
+    height: 88px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -7,11 +7,12 @@
     font-family: monospace, sans-serif !important;
 }
 
-.toplink a img{
-    margin-top:5px;
+.topimg {
+    margin-top: 5px;
+    padding: auto;
 }
 
-.global-navi {
+.globalNavi {
     display: block;
     height: fit-content;
     background: #333;
@@ -21,10 +22,10 @@
     width: 100%;
     align-items: flex-end;
     flex-wrap: wrap;
-    z-index:2147483647
+    z-index: 2147483647
 }
 
-#wrapper nav ul li {
+.wrapper nav ul li {
     display: block;
     font-size: 16px;
     padding: 0px;
@@ -34,7 +35,7 @@
 
 }
 
-#wrapper nav ul li a {
+.wrapper nav ul li a {
     color: #ddd;
     text-decoration: none;
 
@@ -57,10 +58,6 @@
     align-items: center;
     text-decoration: none;
     color: white;
-}
-
-.toplink img {
-    padding: auto;
 }
 
 .menu {

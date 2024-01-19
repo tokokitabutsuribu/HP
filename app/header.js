@@ -2,9 +2,9 @@ import styles from './header.module.css'
 export default async function Header() {
     return (
         <div className={styles.wrapper}>
-            <nav className={styles.global-navi}>
+            <nav className={styles.globalNavi}>
                 <nobr><span className={styles.toplink}><a href="https://tkbutsuribu.vercel.app/">
-                    <img src="/icon-48x48.png" width="48" height="48" /><span>所北物理部</span></a></span></nobr>
+                    <img className={styles.topimg} src="/icon-48x48.png" width="48" height="48" /><span>所北物理部</span></a></span></nobr>
                 <ul className={styles.menu}>
                     <li>
                         <nobr><a href="https://tkbutsuribu.vercel.app/about.html">概要</a></nobr>
