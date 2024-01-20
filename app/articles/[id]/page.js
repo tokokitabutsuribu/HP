@@ -1,3 +1,4 @@
+import NotFound from '../404.js'
 export default async function Page({ params }) {
   let category = [];
   let title = "title";
@@ -18,11 +19,10 @@ export default async function Page({ params }) {
     })
     .catch((e) => {
       iserror = true;
-      return { notFound: true };
     });
   if (iserror) {
     console.log('404');
-    return { notFound: true };
+    return <NotFound />;
   }
   return (
     <div>
