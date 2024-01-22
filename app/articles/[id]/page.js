@@ -1,11 +1,11 @@
 import NotFound from '../404.js'
 import parse from 'html-react-parser';
 export default async function Page({ params }) {
-  let category = [];
+  let category = "";
   let title = "title";
   let updated = "----/--/--";
-  let index = [];
-  let content = [];
+  let index = "";
+  let content = "";
 
   const replacecontent = (input) => {
     const replacekeys = [
