@@ -1,17 +1,14 @@
 import './article.css'
-import { useEffect } from 'react'
-import Prism from './prism.js'
 import './prism.css'
+import MyPrism from './myprism.js'
 
 export default function RootLayout({
   children,
 }) {
-  useEffect(() => {
-    Prism.highlightAll();
-  })
   return (
     <div class="main line-numbers" style={{ textAlign: 'left' }}>
       {children}
+      <MyPrism />
     </div>
   );
 }
