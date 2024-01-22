@@ -72,14 +72,14 @@ export default async function Page({ params }) {
   return (
     <div>
       <ul id="category">
-        {category}
+      dangerouslySetInnerHTML={{ __html: category}}
       </ul>
-      <h1 id="title">{title}</h1>
-      <p id="updated">{updated}</p>
+      <h1 id="title">dangerouslySetInnerHTML={{ __html: title}}</h1>
+      <p id="updated">dangerouslySetInnerHTML={{ __html: updated}}</p>
       <ol id="index">
-        {index}
+      dangerouslySetInnerHTML={{ __html: index}}
       </ol>
-      <div id="content">{content}</div>
+      <div id="content">dangerouslySetInnerHTML={{ __html: content}}</div>
       <br />
       <div id="top-wrapper">
         <a id="top" href="javascript:window.location.replace('#.top')">
