@@ -1,4 +1,5 @@
 import NotFound from '../404.js'
+import parse from 'html-react-parser';
 export default async function Page({ params }) {
   let category = [];
   let title = "title";
@@ -72,14 +73,14 @@ export default async function Page({ params }) {
   return (
     <div>
       <ul id="category">
-      dangerouslySetInnerHTML={{ __html: category}}
+      {parse(category)}
       </ul>
-      <h1 id="title">dangerouslySetInnerHTML={{ __html: title}}</h1>
-      <p id="updated">dangerouslySetInnerHTML={{ __html: updated}}</p>
+      <h1 id="title">{parse(title)}</h1>
+      <p id="updated">{parse(updated)}</p>
       <ol id="index">
-      dangerouslySetInnerHTML={{ __html: index}}
+      {parse(index)}
       </ol>
-      <div id="content">dangerouslySetInnerHTML={{ __html: content}}</div>
+      <div id="content">{parse(content)}</div>
       <br />
       <div id="top-wrapper">
         <a id="top" href="javascript:window.location.replace('#.top')">
