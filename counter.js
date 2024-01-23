@@ -73,8 +73,7 @@ try {
         if (counterID) {
             b = supabase
                 .from('pageviews_details')
-                .upsert({ date: today })
-                .eq('id', counterID)
+                .upsert({id:counterID, date: today })
         } else {
             b = supabase
                 .from('pageviews_details')
