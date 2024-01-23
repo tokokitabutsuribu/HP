@@ -3,9 +3,13 @@
 import { useEffect } from 'react'
 import Prism from './prism.js'
 
-export default function myprism(){
-    useEffect(() => {
-        Prism.highlightAll();
-      })
-    return <span></span>
+export default function myprism() {
+  useEffect(() => {
+    try {
+      Prism.highlightAll();
+    } catch (e) {
+      window.alert(e);
+    }
+  })
+  return <span></span>
 }
