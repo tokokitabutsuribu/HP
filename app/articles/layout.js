@@ -1,5 +1,5 @@
 import './article.css'
-import './prism.css'
+//import './prism.css'
 import MyPrism from './myprism.js'
 
 export default function RootLayout({
