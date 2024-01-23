@@ -1,3 +1,4 @@
+import Seo from './seo.js'
 import NotFound from '../404.js'
 import parse from 'html-react-parser';
 export default async function Page({ params }) {
@@ -72,13 +73,14 @@ export default async function Page({ params }) {
   }
   return (
     <div>
+      <Seo title={title} description={description} path={'https://tkbutsuribu.vercel.app/articles/' + params.id} />
       <ul id="category">
-      {parse(category)}
+        {parse(category)}
       </ul>
       <h1 id="title">{parse(title)}</h1>
       <p id="updated">{parse(updated)}</p>
       <ol id="index">
-      {parse(index)}
+        {parse(index)}
       </ol>
       <div id="content">{parse(content)}</div>
       <br />
