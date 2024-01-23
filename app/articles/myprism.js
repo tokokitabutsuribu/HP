@@ -1,12 +1,14 @@
 "use client"
 
 import { useEffect } from 'react'
-import Prism from '/articles/prism.js'
+//import Prism from './prism.js'
 
 export default function myprism() {
+  import Prism2 from '/articles/prism.js'
   useEffect(() => {
     try {
-      Prism.highlightAll();
+      Prism2.highlightAll();
+      //Prism.highlightAll();
     } catch (e) {
       window.alert(e);
     }
