@@ -7,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <>
-    <div class="main line-numbers" style={{ textAlign: 'left' }}>
+    <div class="top main line-numbers" style={{ textAlign: 'left' }}>
       {children}
     </div>
     <MyPrism />
