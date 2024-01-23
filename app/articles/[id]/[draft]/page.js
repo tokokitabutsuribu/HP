@@ -46,7 +46,7 @@ export default async function Page({ params }) {
   }
 
   let iserror = false;
-  await fetch('https://tkbutsuribu.microcms.io/api/v1/articles/' + params.id+'?draftKey='+params.draft, { headers: { 'X-MICROCMS-API-KEY': '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa' }, next: { revalidate: 10 } })
+  await fetch('https://tkbutsuribu.microcms.io/api/v1/articles/' + params.id+'?draftKey='+params.draft, { headers: { 'X-MICROCMS-API-KEY': '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa' }, next: { revalidate: 0 } })
     .then(data => {
       if (!data.ok) {
         iserror = true;
