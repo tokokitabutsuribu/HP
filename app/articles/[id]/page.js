@@ -7,6 +7,7 @@ export default async function Page({ params }) {
   let updated = "----/--/--";
   let index = "";
   let content = "";
+  let description = "";
 
   const replacecontent = (input) => {
     const replacekeys = [
@@ -57,6 +58,7 @@ export default async function Page({ params }) {
     .then((res) => {
       console.log(res);
       title = res.title;
+      description = res.description;
       updated = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
       content = addarray(res.contents, undefined, 'content');
       category = addarray(res.category, 'li', undefined);
