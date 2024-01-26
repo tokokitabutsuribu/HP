@@ -1,4 +1,4 @@
-import NotFound from '../404.js'
+import NotFound from './404.js'
 import parse from 'html-react-parser';
 import { Metadata } from 'next'
 
