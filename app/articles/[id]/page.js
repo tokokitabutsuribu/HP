@@ -1,6 +1,73 @@
-import Seo from './seo.js'
 import NotFound from '../404.js'
 import parse from 'html-react-parser';
+import { Metadata } from 'next'
+
+export async function generateMetadata({ params }) {
+  let title = '';
+  let description = '';
+  let iserror = false;
+  await fetch('https://tkbutsuribu.microcms.io/api/v1/articles/' + params.id, { headers: { 'X-MICROCMS-API-KEY': '41k5Ew3OXIRepVdY8CgIXiAwTNwJiS5mQFpa' }, next: { revalidate: 10 } })
+    .then(data => {
+      if (!data.ok) {
+        iserror = true;
+      }
+      return data.json();
+    })
+    .then((res) => {
+      console.log(res);
+      title = res.title;
+      description = res.description;
+    })
+    .catch((e) => {
+      iserror = true;
+    });
+  if (iserror) {
+    return {
+      title: '記事が見つかりませんでした',
+      robots: {
+        index: false,
+        follow: false,
+        nocache: true,
+      },
+      icons: {
+        icon: '/favicon.ico'
+      },
+      manifest: 'https://tkbutsuribu.vercel.app/manifest.webmanifest',
+
+    }
+  } else {
+    return {
+      title: title + ' -所沢北高校物理部',
+      description: description,
+      openGraph: {
+        title: title,
+        description: description,
+        siteName: '所沢北高校物理部',
+        images: [
+          {
+            url: 'https://tkbutsuribu.vercel.app/iconBIG.jpg',
+            width: 320,
+            height: 320,
+          }
+        ],
+        type: 'article',
+      },
+      icons: {
+        icon: '/favicon.ico',
+      },
+      manifest: 'https://tkbutsuribu.verce.app/manifest.webmanifest',
+      twitter:{
+        card:'summary',
+        title:title,
+        description:description,
+        site:'@TK_physics_club',
+        image:['https://tkbutsuribu.vercel.app/iconBIG.jpg'],
+
+      }
+    }
+  }
+}
+
 export default async function Page({ params }) {
   let category = "";
   let title = "title";
@@ -56,7 +123,6 @@ export default async function Page({ params }) {
       return data.json();
     })
     .then((res) => {
-      console.log(res);
       title = res.title;
       description = res.description;
       updated = new Date(res.revisedAt).toISOString().split("T")[0].replaceAll("-", "/");
@@ -75,7 +141,6 @@ export default async function Page({ params }) {
   }
   return (
     <div>
-      <Seo title={title} description={description} path={'https://tkbutsuribu.vercel.app/articles/' + params.id} />
       <ul id="category">
         {parse(category)}
       </ul>
