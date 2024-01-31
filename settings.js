@@ -1,13 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-
 import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-messaging.js";
-//import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-//firebaseの通知
 const firebaseConfig = {
     apiKey: "AIzaSyCiYIh1FvmXaUteVJG7x7e5knuFakKt5ms",
     authDomain: "butsuribuhp-pwa.firebaseapp.com",
@@ -17,14 +9,20 @@ const firebaseConfig = {
     appId: "1:841487077695:web:42229ff499ed5c91d0838a",
     measurementId: "G-G1N7SE550S"
 };
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
-
 const APIURL = "/api/push_token";
 
-async function getmytoken() {
+
+const reset = () => {
+    if (localStorage.hasOwnProperty('messagetoken')) {
+        document.getElementById('requestpermission').style.display = 'none';
+        document.getElementById('notification').style.display = 'block';
+    }
+};
+reset();
+
+async function getmytoken(mytrue_topics, myfalse_topics) {
     getToken(messaging, { vapidKey: 'BHYfDERRzVeOZOz32LOi6uZTYpzItJ5MVK8EswEeYkjLLOeX8thI1o7yPBuizxXqq_j_r1pauCAo3_YTGWxc7tQ' }).then((currentToken) => {
         if (currentToken) {
             console.log(currentToken);
@@ -37,14 +35,14 @@ async function getmytoken() {
                 },
                 body: JSON.stringify({
                     "token": currentToken,
-                    "true_topics": ['all'],
-                    "false_topics": []
+                    "true_topics": mytrue_topics,
+                    "false_topics": myfalse_topics
                 })
             })
                 .then((res) => { console.log(res); })
                 .catch((error) => {
                     console.log(error);
-                })
+                });
             // Send the token to your server and update the UI if necessary
             // ...
         } else {
@@ -55,10 +53,11 @@ async function getmytoken() {
         }
     }).catch((err) => {
         console.log('An error occurred while retrieving token. ', err);
-        document.getElementById('requestpermission').style.display = "block"
+        document.getElementById('requestpermission').style.display = "block";
         // ...
     });
 }
+
 document.getElementById('requestpermission').onclick = function requestPermission() {
     console.log('Requesting permission...');
     const ua = navigator.userAgent;
@@ -74,7 +73,8 @@ document.getElementById('requestpermission').onclick = function requestPermissio
             if (permission === 'granted') {
                 console.log('Notification permission granted.');
                 document.getElementById('requestpermission').style.display = "none";
-                getmytoken();
+                reset();
+                getmytoken(['all'], []);
             } else {
                 const ua = navigator.userAgent;
                 if (/iPad|iPhone|iPod/.test(ua) || (/macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || 'ontouchend' in document))
@@ -82,51 +82,14 @@ document.getElementById('requestpermission').onclick = function requestPermissio
                     if (!window.matchMedia("(display-mode: standalone)").matches) {
                         document.getElementById('pop-up').checked = true;
                     } else {
-                        document.getElementById('requestpermission').innerText = "通知がブロックされています"
+                        document.getElementById('requestpermission').innerText = "通知がブロックされています";
                     }
                 } else {
-                    document.getElementById('requestpermission').innerText = "通知がブロックされています"
+                    document.getElementById('requestpermission').innerText = "通知がブロックされています";
                 }
             }
         })
         .catch((error) => {
             console.log(error);
-        })
-}
-//インストールボタン
-const installforios = document.getElementById('InstallBtnForiOS');
-function registerInstallAppEvent(elem) {
-    //インストールバナー表示条件満足時のイベントを乗っ取る
-    window.addEventListener('beforeinstallprompt', function (event) {
-        console.log("beforeinstallprompt: ", event);
-        event.preventDefault(); //バナー表示をキャンセル
-        elem.promptEvent = event; //eventを保持しておく
-        elem.style.display = "block"; //要素を表示する
-        installforios.style.display = "none";
-        return false;
-    });
-    //インストールダイアログの表示処理
-    function installApp() {
-        if (elem.promptEvent) {
-            elem.promptEvent.prompt(); //ダイアログ表示
-            elem.promptEvent.userChoice.then(function (choice) {
-                elem.style.display = "none";
-                elem.promptEvent = null; //一度しか使えないため後始末
-            });//end then
-        }
-    }//end installApp
-    //ダイアログ表示を行うイベントを追加
-    elem.addEventListener("click", installApp);
-}//end registerInstallAppEvent
-
-registerInstallAppEvent(document.getElementById("InstallBtn"));
-if (window.matchMedia("(display-mode: standalone)").matches) {
-    installforios.style.display = "none";
-}
-
-window.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.hasOwnProperty('messagetoken')) {
-        getmytoken();
-    }
-    //const analytics = getAnalytics(app);
-})
+        });
+};

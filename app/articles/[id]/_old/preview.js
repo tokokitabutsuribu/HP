@@ -79,7 +79,7 @@ try {
             add += '<li><a href="#' + elem.link + '">' + elem.index + '</a></li>\n';
         }
         document.querySelector('#index').innerHTML = add
-        document.title = res.title + "(priview)  -所北物理部";
+        document.title = res.title + "(priview)  -所沢北高校物理部";
         document.querySelector('meta[name="description"]').setAttribute("content", res.description);
         document.querySelector('meta[property="og:url"]').setAttribute("content", "https://tkbutsuribu.vercel.app/articles/article.html?id=" + id + "&draftKey=" + mydraftKey);
         document.querySelector('meta[property="og:title"]').setAttribute("content", res.title + "(preview)");
