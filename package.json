@@ -7,7 +7,11 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "next build",
+    "dev": "next dev",
+    "prettier": "prettier --write --ignore-unknown .",
+    "prettier:check": "prettier --check --ignore-unknown .",
+    "start": "next start",
     "add": "node sitemap_add.mjs"
   },
   "author": "",
@@ -18,7 +22,20 @@
     "crypto": "^1.0.1",
     "firebase-admin": "^11.11.1",
     "fs": "^0.0.1-security",
+    "html-react-parser": "^5.1.1",
     "microcms-js-sdk": "^2.7.0",
+    "next": "^13.5.6",
+    "node-html-parser": "^6.1.12",
+    "prismjs": "^1.29.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.4",
+    "@types/prismjs": "^1.26.3",
+    "@types/react": "^18.2.48",
+    "babel-plugin-prismjs": "^2.1.0",
+    "typescript": "^5.3.3"
   }
 }
