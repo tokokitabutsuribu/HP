@@ -1,0 +1,95 @@
+.links {
+    display: flex;
+    flex-direction: column;
+    width: -moz-fit-content;
+    width: fit-content;
+    gap: 6px;
+    justify-content: left;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.links div {
+    width: 128px;
+    height: 30px;
+    border-radius: 9999px;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.tokokitahp {
+    background-color: aquamarine;
+    color: black;
+}
+
+.tokokitahp a {
+    width: 100%;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer {
+    width: 100%;
+    background-color: hsl(0, 0%, 30%);
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: monospace, sans-serif !important;
+}
+
+.footermap a {
+    display: inline-block;
+    margin: 3px 0px;
+    color: white;
+}
+
+.main {
+    flex: auto;
+}
+
+.youtube {
+    border-radius: 9999px;
+    background-color: red;
+}
+
+.youtube a {
+    width: 100%;
+    text-decoration: none;
+    color: white;
+}
+
+.twitter {
+    background-color: black;
+}
+
+.twitter a {
+    width: 100%;
+    vertical-align: middle;
+    color: white;
+    text-align: center;
+    width: 100%;
+    line-height: 100%;
+}
+
+.github {
+    background-color: black;
+}
+
+.github a {
+    column-gap: 2px;
+    margin-top: 3px;
+}
+
+.githubImage {
+    margin-right: 3px;
+}
+
+.twitter a {
+    text-decoration: none;
+}
