@@ -1,12 +1,12 @@
 {
-    "name": "所北物理部",
-    "short_name": "所北物理部",
+    "name": "所沢北高校物理部",
+    "short_name": "所沢北高校物理部",
     "theme_color": "#1cf8fd",
     "background_color": "#ffffff",
     "display": "standalone",
     "scope": "https://tkbutsuribu.vercel.app/",
     "start_url": "https://tkbutsuribu.vercel.app/index.html",
-    "description": "所北物理部の公式HPです。インストールする事により、パケット消費量の節約、軽量化、新着通知の受けとり、などのメリットがあります。\nPWAのため、容量は使いません。\nぜひインストールしてご利用ください。",
+    "description": "所沢北高校物理部の公式HPです。インストールする事により、パケット消費量の節約、軽量化、新着通知の受けとり、などのメリットがあります。\nPWAのため、容量は使いません。\nぜひインストールしてご利用ください。",
     "screenshots": [
         {
             "src": "./icon-BIG.jpg",
