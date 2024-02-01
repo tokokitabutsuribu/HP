@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <link rel="stylesheet" href="./normalize.css">
     <meta charset="utf-8" />
@@ -21,7 +22,15 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
     <link rel="manifest" href="./manifest.webmanifest">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0SBGM4VKQL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
+        gtag('config', 'G-0SBGM4VKQL');
+    </script>
 </head>
 
 <body>
@@ -32,7 +41,8 @@
             <nobr>好きなことにとことん熱中できる空間が欲しい人に捧ぐ。</nobr>
         </h4>
         <p style="padding-right: 10px;">
-            所沢北高校物理部ではプログラミング、3Dプリンター、動画制作、物理の早期先行、機械工学などを行っています。もちろん、これ以外にもあなたのやりたい事ができます。所沢北高校物理部で好きなことに熱中する3年間を過ごしませんか？</p>
+            所沢北高校物理部ではプログラミング、3Dプリンター、動画制作、物理の早期先行、機械工学などを行っています。もちろん、これ以外にもあなたのやりたい事ができます。所沢北高校物理部で好きなことに熱中する3年間を過ごしませんか？
+        </p>
         <h4 style="margin-bottom: 0px;padding-bottom:0px;">活動日</h4>
         </h4>
         <p>&emsp;月、火、木（18時くらいまで）</p>
@@ -64,4 +74,5 @@
             .then((data) => { document.querySelector("#footer").innerHTML = data });
     </script>
 </body>
+
 </html>

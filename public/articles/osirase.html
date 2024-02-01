@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,15 +21,23 @@
     <link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
     <link rel="manifest" href="../manifest.webmanifest">
 
-    <!--   <script src="main.js"></script>-->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0SBGM4VKQL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0SBGM4VKQL');
+    </script>
 </head>
 
 <body>
     <div id="header"></div>
     <div class="main" style="padding:10px">
         <h1>お知らせ</h1>
-        <li>2023/11/22   公開しました</li>
-        <li>2024/01/11   記事機能を追加しました</li>
+        <li>2023/11/22 公開しました</li>
+        <li>2024/01/11 記事機能を追加しました</li>
     </div>
     <div id="footer"></div>
     <script>
@@ -42,4 +51,5 @@
             .then((data) => { document.querySelector("#footer").innerHTML = data });
     </script>
 </body>
+
 </html>

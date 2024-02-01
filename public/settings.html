@@ -10,6 +10,15 @@
 
     <link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
     <link rel="manifest" href="./manifest.webmanifest">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0SBGM4VKQL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0SBGM4VKQL');
+    </script>
 </head>
 
 <body>
@@ -20,21 +29,39 @@
         <button id="requestpermission">通知を許可</button>
         <div id="notification" style="display: none;">
             <ul id="categoryList"><!--['お知らせ','活動報告','つぶやき','JavaScript','HTML/CSS','Unity/C#','C/C++','Web全般','その他']-->
-                <li><lavel><input type="checkbox" value="お知らせ">お知らせ</lavel></li>
-                <li><lavel><input type="checkbox" value="活動報告">活動報告</lavel></li>
-                <li><lavel><input type="checkbox" value="つぶやき">つぶやき</lavel></li>
-                <li><lavel><input type="checkbox" value="JavaScript">JavaScript</lavel></li>
-                <li><lavel><input type="checkbox" value="HTML/CSS">HTML/CSS</lavel></li>
-                <li><lavel><input type="checkbox" value="Unity/C#">Unity/C#</lavel></li>
-                <li><lavel><input type="checkbox" value="C/C++">C/C++</lavel></li>
-                <li><lavel><input type="checkbox" value="Web全般">Web全般</lavel></li>
-                <li><lavel><input type="checkbox" value="その他">その他</lavel></li>
+                <li>
+                    <lavel><input type="checkbox" value="お知らせ">お知らせ</lavel>
+                </li>
+                <li>
+                    <lavel><input type="checkbox" value="活動報告">活動報告</lavel>
+                </li>
+                <li>
+                    <lavel><input type="checkbox" value="つぶやき">つぶやき</lavel>
+                </li>
+                <li>
+                    <lavel><input type="checkbox" value="JavaScript">JavaScript</lavel>
+                </li>
+                <li>
+                    <lavel><input type="checkbox" value="HTML/CSS">HTML/CSS</lavel>
+                </li>
+                <li>
+                    <lavel><input type="checkbox" value="Unity/C#">Unity/C#</lavel>
+                </li>
+                <li>
+                    <lavel><input type="checkbox" value="C/C++">C/C++</lavel>
+                </li>
+                <li>
+                    <lavel><input type="checkbox" value="Web全般">Web全般</lavel>
+                </li>
+                <li>
+                    <lavel><input type="checkbox" value="その他">その他</lavel>
+                </li>
             </ul>
             <button id="save">保存</button>
         </div>
     </div>
     <div id="footer"></div>
-    
+
     <script src="settings.js" type="module"></script>
     <script>
         fetch("/header.html")
