@@ -31,40 +31,40 @@ async function getmytoken() {
 			console.log(currentToken);
 			localStorage.messageToken = currentToken;
 			document.getElementById('requestpermission').style.display = "none";
-			// fetch(APIURL, {
-			// 	method: 'POST',
-			// 	headers: {
-			// 		"Content-Type": "application/json",
-			// 	},
-			// 	body: JSON.stringify({
-			// 		"token": currentToken,
-			// 		"true_topics": ['all'],
-			// 		"false_topics": []
-			// 	})
-			// })
-			// 	.then((res) => { console.log(res); })
-			// 	.catch((error) => {
-			// 		console.log(error);
-			// 		iserror = true;
-			// 	});
-			const data = JSON.stringify({
-				"token": currentToken,
-				"true_topics": ['all'],
-				"false_topics": []
-			});
-			let xmlHttpRequest = new XMLHttpRequest();
-			xmlHttpRequest.onload = () => {
-				console.log('success');
-				console.log(this.responseText);
-			};
-			xmlHttpRequest.onerror = () => {
-				iserror = true;
-				console.log('error');
-				console.log(this.responseText);
-			};
-			xmlHttpRequest.open('POST', APIURL);
-			xmlHttpRequest.setRequestHeader("Content-Type", "application/json");
-			xmlHttpRequest.send(data);
+			fetch(APIURL, {
+				method: 'POST',
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					"token": currentToken,
+					"true_topics": ['all'],
+					"false_topics": []
+				})
+			})
+				.then((res) => { console.log(res); })
+				.catch((error) => {
+					console.log(error);
+					iserror = true;
+				});
+			// const data = JSON.stringify({
+			// 	"token": currentToken,
+			// 	"true_topics": ['all'],
+			// 	"false_topics": []
+			// });
+			// let xmlHttpRequest = new XMLHttpRequest();
+			// xmlHttpRequest.onload = () => {
+			// 	console.log('success');
+			// 	console.log(xmlHttpRequest);
+			// };
+			// xmlHttpRequest.onerror = () => {
+			// 	iserror = true;
+			// 	console.log('error');
+			// 	console.log(xmlHttpRequest);
+			// };
+			// xmlHttpRequest.open('POST', APIURL);
+			// xmlHttpRequest.setRequestHeader("Content-Type", "application/json");
+			// xmlHttpRequest.send(data);
 
 			// Send the token to your server and update the UI if necessary
 			// ...
