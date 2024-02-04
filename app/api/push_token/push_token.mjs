@@ -1,7 +1,7 @@
 import { kv } from "@vercel/kv";
 import { getMessaging } from "firebase-admin/messaging";
 import { NextResponse } from 'next/server';
-import { firebaseAdmin as app, messaging } from '../firebaseAdmin.mjs';
+import { firebaseAdmin as app, /*messaging*/ } from '../firebaseAdmin.mjs';
 
 /*initializeApp({
   credential: admin.credential.cert({ // cert()の中に直接JSON形式で代入
@@ -11,7 +11,7 @@ import { firebaseAdmin as app, messaging } from '../firebaseAdmin.mjs';
   }),
 });*/
 //const app = initializeApp();
-//const messaging = getMessaging();
+const messaging = getMessaging();
 
 async function push_token(request) {
   var errormessage = [];

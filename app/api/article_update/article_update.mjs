@@ -3,7 +3,7 @@ const { createHmac } = await import('node:crypto');
 const { timingSafeEqual } = await import('node:crypto');
 import { getMessaging } from "firebase-admin/messaging";
 import { NextResponse } from 'next/server';
-import { firebaseAdmin as app, messaging } from '../firebaseAdmin.mjs';
+import { firebaseAdmin as app, /*messaging*/ } from '../firebaseAdmin.mjs';
 //firebaseのadminSDKの認証
 
 /*const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG)
@@ -21,7 +21,7 @@ const params = {
 };*/
 
 //const app = initializeApp();
-//const messaging = getMessaging();
+const messaging = getMessaging();
 let fin = false;
 async function article_update(request) {
   if (request.method !== 'POST') {
