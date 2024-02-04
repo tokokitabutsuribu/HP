@@ -22,6 +22,7 @@ export async function meta(url,cache) {
     });
   if (iserror) {
     return {
+      metadataBase: new URL('https://tkbutsuribu.vercel.app/'),
       title: '記事が見つかりませんでした',
       robots: {
         index: false,
@@ -36,6 +37,7 @@ export async function meta(url,cache) {
     }
   } else {
     return {
+      metadataBase: new URL('https://tkbutsuribu.vercel.app/'),
       title: title + ' -所沢北高校物理部',
       description: description,
       openGraph: {
