@@ -63,8 +63,8 @@ async function getmytoken() {
 				console.log(this.responseText);
 			};
 			xmlHttpRequest.open('POST', APIURL);
-			xhr.setRequestHeader("Content-Type", "application/json");
-			xhr.send(data);
+			xmlHttpRequest.setRequestHeader("Content-Type", "application/json");
+			xmlHttpRequest.send(data);
 
 			// Send the token to your server and update the UI if necessary
 			// ...
