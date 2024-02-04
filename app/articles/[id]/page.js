@@ -1,4 +1,3 @@
-import { Metadata } from 'next'
 import { meta, articlePage } from '../article.js'
 
 export async function generateMetadata({ params }) {
