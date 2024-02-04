@@ -38,7 +38,7 @@ async function push_token(request) {
 		.catch((e) => {
 			errormessage.push('supabse '+e)
 		});
-
+		console.log(`${request.body.true_topics}  +  ${request.body.false_topics}`)
 	//トピックに登録
 	for (var topic of request.body.true_topics) {
 		await messaging.subscribeToTopic(request.body.token, topic)
