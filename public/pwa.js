@@ -25,26 +25,47 @@ const messaging = getMessaging(app);
 const APIURL = "/api/push_token";
 
 async function getmytoken() {
+	let iserror = false;
 	getToken(messaging, { vapidKey: 'BHYfDERRzVeOZOz32LOi6uZTYpzItJ5MVK8EswEeYkjLLOeX8thI1o7yPBuizxXqq_j_r1pauCAo3_YTGWxc7tQ' }).then((currentToken) => {
 		if (currentToken) {
 			console.log(currentToken);
 			localStorage.messageToken = currentToken;
 			document.getElementById('requestpermission').style.display = "none";
-			fetch(APIURL, {
-				method: 'POST',
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					"token": currentToken,
-					"true_topics": ['all'],
-					"false_topics": []
-				})
-			})
-				.then((res) => { console.log(res); })
-				.catch((error) => {
-					console.log(error);
-				});
+			// fetch(APIURL, {
+			// 	method: 'POST',
+			// 	headers: {
+			// 		"Content-Type": "application/json",
+			// 	},
+			// 	body: JSON.stringify({
+			// 		"token": currentToken,
+			// 		"true_topics": ['all'],
+			// 		"false_topics": []
+			// 	})
+			// })
+			// 	.then((res) => { console.log(res); })
+			// 	.catch((error) => {
+			// 		console.log(error);
+			// 		iserror = true;
+			// 	});
+			const data = JSON.stringify({
+				"token": currentToken,
+				"true_topics": ['all'],
+				"false_topics": []
+			});
+			let xmlHttpRequest = new XMLHttpRequest();
+			xmlHttpRequest.onload = () => {
+				console.log('success');
+				console.log(this.responseText);
+			};
+			xmlHttpRequest.onerror = () => {
+				iserror = true;
+				console.log('error');
+				console.log(this.responseText);
+			};
+			xmlHttpRequest.open('POST', APIURL);
+			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.send(data);
+
 			// Send the token to your server and update the UI if necessary
 			// ...
 		} else {
