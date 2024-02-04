@@ -13,7 +13,7 @@ import { NextResponse } from 'next/server';
 const app = initializeApp();
 const messaging = getMessaging();
 
-export async function push_token(request) {
+async function push_token(request) {
   var errormessage = [];
   // try {
   if (request.method !== 'POST') {

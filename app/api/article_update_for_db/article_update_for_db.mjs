@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 // Create a single supabase client for interacting with your database
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
 
-export async function article_update_for_db(request) {
+async function article_update_for_db(request) {
     let fin = false;
     if (request.method !== 'POST') {
         return NextResponse.status(400).json({ "status": "error" });

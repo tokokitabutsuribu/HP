@@ -28,7 +28,7 @@ const app = initializeApp({ credential: cert(JSON.parse(atob(process.env.FIREBAS
 //const app = initializeApp();
 const messaging = getMessaging();
 let fin = false;
-export async function article_update(request) {
+async function article_update(request) {
   if (request.method !== 'POST') {
     return NextResponse.status(400).json({ "status": "error" });
   }
