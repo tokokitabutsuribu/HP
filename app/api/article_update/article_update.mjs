@@ -2,9 +2,8 @@
 const { createHmac } = await import('node:crypto');
 const { timingSafeEqual } = await import('node:crypto');
 import { getMessaging } from "firebase-admin/messaging";
-import { cert } from 'firebase-admin/app';
-import { initializeApp } from 'firebase-admin/app';
 import { NextResponse } from 'next/server';
+import { firebaseAdmin as app, messaging } from '../firebaseAdmin.mjs';
 //firebaseのadminSDKの認証
 
 /*const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG)
@@ -21,12 +20,8 @@ const params = {
   clientC509CertUrl: serviceAccount.client_x509_cert_url
 };*/
 
-// firebase admin
-const app = initializeApp({ credential: cert(JSON.parse(atob(process.env.FIREBASE_CONFIG_BASE64))), });
-
-
 //const app = initializeApp();
-const messaging = getMessaging();
+//const messaging = getMessaging();
 let fin = false;
 async function article_update(request) {
   if (request.method !== 'POST') {
