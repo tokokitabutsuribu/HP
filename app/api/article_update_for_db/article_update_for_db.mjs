@@ -7,9 +7,9 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SER
 
 async function article_update_for_db(request) {
     let fin = false;
-    if (request.method !== 'POST') {
-        return NextResponse.status(400).json({ "status": "error" });
-    }
+//    if (request.method !== 'POST') {          //Next.js導入により不要
+//        return NextResponse.status(400).json({ "status": "error" });
+//    }
     //送信元の認証
     //microCMSのwebhookのシークレット値
     let expectedSignature = createHmac('sha256', process.env.MICROCMS_SECRET_KEY);

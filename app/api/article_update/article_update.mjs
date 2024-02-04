@@ -24,9 +24,9 @@ const params = {
 const messaging = getMessaging();
 let fin = false;
 async function article_update(request) {
-  if (request.method !== 'POST') {
-    return NextResponse.status(400).json({ "status": "error" });
-  }
+  // if (request.method !== 'POST') {          //Next.js導入により不要
+  //   return NextResponse.status(400).json({ "status": "error" });
+  // }
   //送信元の認証
   //microCMSのwebhookのシークレット値
   let expectedSignature = createHmac('sha256', process.env.MICROCMS_SECRET_KEY);

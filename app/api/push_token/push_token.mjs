@@ -1,7 +1,9 @@
 import { kv } from "@vercel/kv";
 import { getMessaging } from "firebase-admin/messaging";
 import { NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
 import { firebaseAdmin as app, /*messaging*/ } from '../firebaseAdmin.mjs';
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
 
 /*initializeApp({
   credential: admin.credential.cert({ // cert()の中に直接JSON形式で代入
@@ -16,9 +18,9 @@ const messaging = getMessaging();
 async function push_token(request) {
   var errormessage = [];
   // try {
-  if (request.method !== 'POST') {
-    return NextResponse.status(400).json({ "status": "bad_request" });
-  }
+  //  if (request.method !== 'POST') {          //Next.js導入により不要
+  //    return NextResponse.status(400).json({ "status": "bad_request" });
+  //  }
   //kvに登録
   const date = new Date();
   const currentTime = date.toLocaleString();
