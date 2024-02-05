@@ -12,14 +12,14 @@ await client
   .getAllContentIds({
     endpoint: 'articles',
   })
-  .then((res) => IDs=res)
+  .then((res) => {IDs=res})
   .catch((err) => console.error(err));
 
 // xml に記述する URL のリスト作成
 const urls = []
 
 for(const id of IDs){
-  urls.push({loc:'https://tkbutsuribu.vercel.app/articles/article.html?id='+id});
+  urls.push({loc:`https://tkbutsuribu.vercel.app/articles/${id}`});
 }
 // xml 生成
 const builder = new Builder();

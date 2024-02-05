@@ -15,7 +15,7 @@ const APIURL = "/api/push_token";
 
 
 const reset = () => {
-    if (localStorage.hasOwnProperty('messagetoken')) {
+    if (Object.prototype.hasOwnProperty.call(localStorage,'messagetoken')) {
         document.getElementById('requestpermission').style.display = 'none';
         document.getElementById('notification').style.display = 'block';
     }
@@ -34,9 +34,9 @@ async function getmytoken(mytrue_topics, myfalse_topics) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    "token": currentToken,
-                    "true_topics": mytrue_topics,
-                    "false_topics": myfalse_topics
+                    token: currentToken,
+                    true_topics: mytrue_topics,
+                    false_topics: myfalse_topics
                 })
             })
                 .then((res) => { console.log(res); })

@@ -21,7 +21,7 @@ async function article_update_for_db(request) {
         console.log(Buffer.from(signature));
         console.log(Buffer.from(expectedSignature));
         console.log("not right access");
-        return NextResponse.json({ "status": "error" },{status:401});
+        return NextResponse.json({ status: "error" },{status:401});
     }
     const addArticleDB = async (id, newcontent) => {
 
@@ -45,9 +45,9 @@ async function article_update_for_db(request) {
             await addArticleDB(articleid, request.body.contents.new.publishValue);
             break;
         case 'edit':
-            if (request.body.contents.new.status == "CLOSED") {
+            if (request.body.contents.new.status === "CLOSED") {
                 await deleteArticleDB(articleid);
-            } else if (request.body.contents.new.status == "PUBLISH") {
+            } else if (request.body.contents.new.status === "PUBLISH") {
                 await addArticleDB(articleid, request.body.contents.new.publishValue);
             }
             break;
@@ -57,16 +57,16 @@ async function article_update_for_db(request) {
         default:
             fin = true;
             console.log("type is bad");
-            return NextResponse.json({ "status": "error" },{status:400});
+            return NextResponse.json({ status: "error" },{status:400});
     }
     try {
-        if (articleid != request.body.contents.old.id) {
+        if (articleid !== request.body.contents.old.id) {
             await deleteArticleDB(request.body.contents.old.id);
         }
     } catch (e) {
 
     }
 
-    if (!fin) return NextResponse.json({ "status": "success" },{status:200});
+    if (!fin) return NextResponse.json({ status: "success" },{status:200});
 }
 export { article_update_for_db };
