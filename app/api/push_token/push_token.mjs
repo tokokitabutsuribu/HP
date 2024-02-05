@@ -16,8 +16,8 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SER
 const messaging = getMessaging();
 
 async function push_token(req) {
-	let request = await req.json();
-	var errormessage = [];
+	const request = await req.json();
+	const errormessage = [];
 	// try {
 	//  if (request.method !== 'POST') {          //Next.js導入により不要
 	//    return NextResponse.status(400).json({ "status": "bad_request" });
@@ -35,34 +35,34 @@ async function push_token(req) {
 		.upsert({ token: request.token, last_updated: new Date().toLocaleString(), true_topics: request.true_topics, false_topics: request.false_topics })
 		.select()
 		.then(({ statusText }) => {
-			errormessage.push('supabase ' + statusText)
+			errormessage.push(`supabase ${statusText}`)
 		})
 		.catch((e) => {
-			errormessage.push('supabse ' + e)
+			errormessage.push(`supabse ${e}`)
 		});
 	//トピックに登録
-	for (var topic of request.true_topics) {
+	for (const topic of request.true_topics) {
 		await messaging.subscribeToTopic(request.token, topic)
 			.then((res) => {
 				// See the MessagingTopicManagementResponse reference documentation
 				// for the contents of response.
-				errormessage.push('Successfully subscribed to topic:' + JSON.stringify(res));
+				errormessage.push(`Successfully subscribed to topic:${JSON.stringify(res)}`);
 			})
 			.catch((error) => {
-				errormessage.push("subscribe:" + error);
+				errormessage.push(`subscribe:${error}`);
 			});
 	};
 
 	//トピックに登録解除
-	for (var topic of request.false_topics) {
+	for (const topic of request.false_topics) {
 		await messaging.unsubscribeFromTopic(request.token, topic)
 			.then((res) => {
 				// See the MessagingTopicManagementResponse reference documentation
 				// for the contents of response.
-				errormessage.push('Successfully unsubscribed from topic:' + JSON.stringify(res));
+				errormessage.push(`Successfully unsubscribed from topic:${JSON.stringify(res)}`);
 			})
 			.catch((error) => {
-				errormessage.push("unsubscribe:" + error);
+				errormessage.push(`unsubscribe:${error}`);
 			});
 	};
 
