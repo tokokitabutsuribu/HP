@@ -66,7 +66,10 @@ async function push_token(req) {
 			});
 	};
 
-	return NextResponse.json({ "status": errormessage },{status:200});
+	return new NextResponse(
+		JSON.stringify({ success: true, message: 'success' }),
+		{ status: 200, headers: { 'content-type': 'application/json' } },
+		);
 	/* } catch (error) {
 	   errormessage.push(error);
 	   return response.status(500).json({ "status": errormessage });
