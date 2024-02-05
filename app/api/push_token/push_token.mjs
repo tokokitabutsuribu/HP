@@ -32,7 +32,7 @@ async function push_token(req) {
 	//supabaseに登録
 	await supabase
 		.from('messaging-tokens')
-		.upsert({ token: request.token, last_updated: new Date().toLocaleString(),true_topics:request.true_topics,false_topics:request.false_topics })
+		.upsert({ token: request.token, last_updated: new Date().toLocaleString(), true_topics: request.true_topics, false_topics: request.false_topics })
 		.select()
 		.then(({ statusText }) => {
 			errormessage.push('supabase ' + statusText)
@@ -66,10 +66,11 @@ async function push_token(req) {
 			});
 	};
 
-	return new NextResponse(
+	let a = new NextResponse(
 		JSON.stringify({ success: true, message: 'success' }),
 		{ status: 200, headers: { 'content-type': 'application/json' } },
-		);
+	);
+	return a;
 	/* } catch (error) {
 	   errormessage.push(error);
 	   return response.status(500).json({ "status": errormessage });
