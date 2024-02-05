@@ -1,6 +1,6 @@
 import { kv } from "@vercel/kv";
 import { getMessaging } from "firebase-admin/messaging";
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 import { createClient } from '@supabase/supabase-js';
 import { firebaseAdmin as app, /*messaging*/ } from '../firebaseAdmin.mjs';
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
@@ -66,11 +66,7 @@ async function push_token(req) {
 			});
 	};
 
-	let a = new NextResponse(
-		JSON.stringify({ success: true, message: 'success' }),
-		{ status: 200, headers: { 'content-type': 'application/json' } },
-	);
-	return a;
+	return NextResponse.json({ messsage: "Hello World" });
 	/* } catch (error) {
 	   errormessage.push(error);
 	   return response.status(500).json({ "status": errormessage });
