@@ -28,6 +28,7 @@ async function push_token(req) {
 	// await kv.set(request.body.token, currentTime, { ex: 5184000 });
 	// errormessage.push("kv success");
 
+	console.log(`${request}\n\n${request.body}\n\n${request.body.token}`)
 	//supabaseに登録
 	await supabase
 		.from('messaging-tokens')
@@ -39,7 +40,6 @@ async function push_token(req) {
 		.catch((e) => {
 			errormessage.push('supabse ' + e)
 		});
-	console.log(`${request.body}`)
 	//トピックに登録
 	for (var topic of request.body.true_topics) {
 		await messaging.subscribeToTopic(request.body.token, topic)
