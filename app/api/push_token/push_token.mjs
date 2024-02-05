@@ -16,7 +16,7 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SER
 const messaging = getMessaging();
 
 async function push_token(req) {
-	let request = req.json();
+	let request = await req.json();
 	var errormessage = [];
 	// try {
 	//  if (request.method !== 'POST') {          //Next.js導入により不要
@@ -28,7 +28,7 @@ async function push_token(req) {
 	// await kv.set(request.body.token, currentTime, { ex: 5184000 });
 	// errormessage.push("kv success");
 
-	console.log(`${request}\n\n${request.body}`)
+	console.log(`${request}\n\n${request.body}\n\n${request.true_topics}`)
 	//supabaseに登録
 	await supabase
 		.from('messaging-tokens')
