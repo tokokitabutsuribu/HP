@@ -1,14 +1,16 @@
 "use client";
 
+import { useEffect } from "react";
+
 export default function gtm() {
-	((w, d, s, l, i) => {
-		w[l] = w[l] || [];
-		w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-		const f = d.getElementsByTagName(s)[0];
-		const j = d.createElement(s);
-		const dl = l !== "dataLayer" ? `&l=${l}` : "";
+	useEffect(()=>{
+		window["dataLayer"] = window["dataLayer"] || [];
+		window["dataLayer"].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+		const f = document.getElementsByTagName("script")[0];
+		const j = document.createElement("script");
+		const dl = "dataLayer" !== "dataLayer" ? `&l=${"dataLayer"}` : "";
 		j.async = true;
-		j.src = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`;
+		j.src = `https://www.googletagmanager.com/gtm.js?id="GTM-TVKWHB4T"${dl}`;
 		f.parentNode.insertBefore(j, f);
-	})(window, document, "script", "dataLayer", "GTM-TVKWHB4T");
+	});
 }
