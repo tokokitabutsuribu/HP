@@ -13,7 +13,6 @@ export async function meta(url,cache) {
       return data.json();
     })
     .then((res) => {
-      console.log(res);
       title = res.title;
       description = res.description;
     })
