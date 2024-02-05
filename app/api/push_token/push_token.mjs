@@ -28,11 +28,11 @@ async function push_token(req) {
 	// await kv.set(request.body.token, currentTime, { ex: 5184000 });
 	// errormessage.push("kv success");
 
-	console.log(`${request}\n\n${request.body}\n\n${request.true_topics}`)
+	//console.log(`${request}\n\n${request.true_topics}`)
 	//supabaseに登録
 	await supabase
 		.from('messaging-tokens')
-		.upsert({ token: request.body.token, last_updated: new Date().toLocaleString() })
+		.upsert({ token: request.token, last_updated: new Date().toLocaleString(),true_topics:request.true_topics,false_topics:request.false_topics })
 		.select()
 		.then(({ statusText }) => {
 			errormessage.push('supabase ' + statusText)
@@ -41,8 +41,8 @@ async function push_token(req) {
 			errormessage.push('supabse ' + e)
 		});
 	//トピックに登録
-	for (var topic of request.body.true_topics) {
-		await messaging.subscribeToTopic(request.body.token, topic)
+	for (var topic of request.true_topics) {
+		await messaging.subscribeToTopic(request.token, topic)
 			.then((res) => {
 				// See the MessagingTopicManagementResponse reference documentation
 				// for the contents of response.
@@ -54,8 +54,8 @@ async function push_token(req) {
 	};
 
 	//トピックに登録解除
-	for (var topic of request.body.false_topics) {
-		await messaging.unsubscribeFromTopic(request.body.token, topic)
+	for (var topic of request.false_topics) {
+		await messaging.unsubscribeFromTopic(request.token, topic)
 			.then((res) => {
 				// See the MessagingTopicManagementResponse reference documentation
 				// for the contents of response.
