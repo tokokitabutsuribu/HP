@@ -28,7 +28,7 @@ async function push_token(req) {
 	// await kv.set(request.body.token, currentTime, { ex: 5184000 });
 	// errormessage.push("kv success");
 
-	console.log(`${request}\n\n${request.body}\n\n${request.body.token}`)
+	console.log(`${request}\n\n${request.body}`)
 	//supabaseに登録
 	await supabase
 		.from('messaging-tokens')
