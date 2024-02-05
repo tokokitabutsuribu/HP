@@ -36,7 +36,7 @@ async function article_update(request) {
   if (!timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
     fin = true;
     console.log("not right access");
-    return NextResponse.status(401).json({ "status": "error" });
+    return NextResponse.json({ "status": "error" },{status:401});
   }
 
   const condition = '\'new-article\' in topics';
@@ -64,10 +64,10 @@ async function article_update(request) {
       .catch((error) => {
         console.log(error);
         fin = true;
-        return NextResponse.status(500).json({ "status": error });
+        return NextResponse.json({ "status": error },{status:500});
       });
 
   }
-  if (!fin) return NextResponse.status(200).json({ "status": "success" });
+  if (!fin) return NextResponse.json({ "status": "success" },{status:200});
 }
 export { article_update };

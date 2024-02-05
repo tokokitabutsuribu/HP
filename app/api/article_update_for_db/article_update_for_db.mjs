@@ -21,7 +21,7 @@ async function article_update_for_db(request) {
         console.log(Buffer.from(signature));
         console.log(Buffer.from(expectedSignature));
         console.log("not right access");
-        return NextResponse.status(401).json({ "status": "error" });
+        return NextResponse.json({ "status": "error" },{status:401});
     }
     const addArticleDB = async (id, newcontent) => {
 
@@ -57,7 +57,7 @@ async function article_update_for_db(request) {
         default:
             fin = true;
             console.log("type is bad");
-            return NextResponse.status(400).json({ "status": "error" });
+            return NextResponse.json({ "status": "error" },{status:400});
     }
     try {
         if (articleid != request.body.contents.old.id) {
@@ -67,6 +67,6 @@ async function article_update_for_db(request) {
 
     }
 
-    if (!fin) return NextResponse.status(200).json({ "status": "success" });
+    if (!fin) return NextResponse.json({ "status": "success" },{status:200});
 }
 export { article_update_for_db };
