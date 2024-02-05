@@ -15,7 +15,8 @@ const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SER
 //const app = initializeApp();
 const messaging = getMessaging();
 
-async function push_token(request) {
+async function push_token(req) {
+	let request = req.json();
 	var errormessage = [];
 	// try {
 	//  if (request.method !== 'POST') {          //Next.js導入により不要
@@ -33,12 +34,12 @@ async function push_token(request) {
 		.upsert({ token: request.body.token, last_updated: new Date().toLocaleString() })
 		.select()
 		.then(({ statusText }) => {
-			errormessage.push('supabase '+statusText)
+			errormessage.push('supabase ' + statusText)
 		})
 		.catch((e) => {
-			errormessage.push('supabse '+e)
+			errormessage.push('supabse ' + e)
 		});
-		console.log(`${request.body}`)
+	console.log(`${request.body}`)
 	//トピックに登録
 	for (var topic of request.body.true_topics) {
 		await messaging.subscribeToTopic(request.body.token, topic)
