@@ -19,4 +19,5 @@ export default function gtm() {
 			console.log("at gtm")
 		}
 	});
+	return<></>
 }
