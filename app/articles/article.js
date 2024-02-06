@@ -1,5 +1,6 @@
 import NotFound from "./404.js";
 import parse from "html-react-parser";
+import TopButton from './topbutton.js'
 
 export async function meta(url, cache) {
 	let title = "";
@@ -153,16 +154,7 @@ export async function articlePage(url, cache) {
 			<ol id="index">{parse(index)}</ol>
 			<div id="content">{parse(content)}</div>
 			<br />
-			<div id="top-wrapper">
-				<button type="button" id="top" onClick={window.location.replace("#.top")}>
-					<div>
-						<span>
-							↑<br />
-							TOP
-						</span>
-					</div>
-				</button>
-			</div>
+			<TopButton />
 		</div>
 	);
 }
