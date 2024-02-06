@@ -2,6 +2,7 @@ import "./normalize.css";
 import GTM from "./gtm.js";
 
 export default function RootLayout({ children }) {
+	try{
 	return (
 		<html lang="ja">
 			<head />
@@ -31,4 +32,9 @@ export default function RootLayout({ children }) {
 			</body>
 		</html>
 	);
+}catch(e){
+	console.log(e);
+	console.log("at top layout")
+	return{children}
+}
 }
