@@ -19,7 +19,7 @@ await client
 const urls = []
 
 for(const id of IDs){
-  urls.push({loc:'https://tkbutsuribu.vercel.app/articles/article.html?id='+id});
+  urls.push({loc:'https://tkbutsuribu.vercel.app/articles/'+id});
 }
 // xml 生成
 const builder = new Builder();
@@ -32,5 +32,5 @@ const sitemap = {
   },
 };
 const xml = builder.buildObject(sitemap);
-fs.writeFile('sitemap_article.xml', xml);
+fs.writeFile('/public/sitemap_article.xml', xml);
 
