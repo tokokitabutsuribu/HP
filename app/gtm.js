@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 
 export default function gtm() {
+	console.log("gtm");
 	useEffect(()=>{
 		window["dataLayer"] = window["dataLayer"] || [];
 		window["dataLayer"].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
