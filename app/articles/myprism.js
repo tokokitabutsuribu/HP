@@ -8,7 +8,8 @@ export default function myprism() {
 		try {
 			Prism.highlightAll();
 		} catch (e) {
-			console.log(e);
+			console.log(e)
+			console.log("at prism");
 		}
 	});
 
