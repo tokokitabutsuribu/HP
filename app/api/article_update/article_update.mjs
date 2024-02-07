@@ -2,8 +2,8 @@
 const { createHmac } = await import('node:crypto');
 const { timingSafeEqual } = await import('node:crypto');
 import { getMessaging } from "firebase-admin/messaging";
-import { cert } from 'firebase-admin/app';
-import { initializeApp } from 'firebase-admin/app';
+import { NextResponse } from 'next/server';
+import { firebaseAdmin as app, /*messaging*/ } from '../firebaseAdmin.mjs';
 //firebaseのadminSDKの認証
 
 /*const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG)
@@ -20,27 +20,23 @@ const params = {
   clientC509CertUrl: serviceAccount.client_x509_cert_url
 };*/
 
-// firebase admin
-const app = initializeApp({ credential: cert(JSON.parse(atob(process.env.FIREBASE_CONFIG_BASE64))), });
-
-
 //const app = initializeApp();
 const messaging = getMessaging();
 let fin = false;
-export default async (request, response) => {
-  if (request.method !== 'POST') {
-    return response.status(400).json({ "status": "error" });
-  }
+async function article_update(request) {
+  // if (request.method !== 'POST') {          //Next.js導入により不要
+  //   return NextResponse.status(400).json({ "status": "error" });
+  // }
   //送信元の認証
   //microCMSのwebhookのシークレット値
-  let expectedSignature = createHmac('sha256', process.env.MICROCMS_SECRET_KEY)
+  let expectedSignature = createHmac('sha256', process.env.MICROCMS_SECRET_KEY);
   expectedSignature = expectedSignature.update(JSON.stringify(request.body));
   expectedSignature = expectedSignature.digest('hex');
   const signature = request.headers['x-microcms-signature'];
   if (!timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
     fin = true;
-    console.log("not right access")
-    return response.status(401).json({ "status": "error" });
+    console.log("not right access");
+    return Response.json({ status: "error" },{status:401});
   }
 
   const condition = '\'new-article\' in topics';
@@ -54,10 +50,10 @@ export default async (request, response) => {
     },
     webpush: {
       fcm_options: {
-        link: "https://tkbutsuribu.vercel.app/articles/article.html?id="+request.body.id
+        link: `https://tkbutsuribu.vercel.app/articles/article.html?id=${request.body.id}`
       }
     }
-  }
+  };
   if (!fin) {
     // Send a message to devices subscribed to the provided topic.
     await messaging.send(sendmessage)
@@ -68,9 +64,10 @@ export default async (request, response) => {
       .catch((error) => {
         console.log(error);
         fin = true;
-        return response.status(500).json({ "status": error });
+        return Response.json({ status: error },{status:500});
       });
 
   }
-  if (!fin) return response.status(200).json({ "status": "success" });
+  if (!fin) return Response.json({ status: "success" },{status:200});
 }
+export { article_update };

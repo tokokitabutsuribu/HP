@@ -1,17 +1,18 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
 const { createHmac } = await import('node:crypto');
 const { timingSafeEqual } = await import('node:crypto');
+import { NextResponse } from 'next/server';
 // Create a single supabase client for interacting with your database
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
 
-export default async (request, response) => {
+async function article_update_for_db(request) {
     let fin = false;
-    if (request.method !== 'POST') {
-        return response.status(400).json({ "status": "error" });
-    }
+//    if (request.method !== 'POST') {          //Next.js導入により不要
+//        return NextResponse.status(400).json({ "status": "error" });
+//    }
     //送信元の認証
     //microCMSのwebhookのシークレット値
-    let expectedSignature = createHmac('sha256', process.env.MICROCMS_SECRET_KEY)
+    let expectedSignature = createHmac('sha256', process.env.MICROCMS_SECRET_KEY);
     expectedSignature = expectedSignature.update(JSON.stringify(request.body));
     expectedSignature = expectedSignature.digest('hex');
     const signature = request.headers['X-MICROCMS-Signature'] || request.headers['x-microcms-signature'];
@@ -19,8 +20,8 @@ export default async (request, response) => {
         fin = true;
         console.log(Buffer.from(signature));
         console.log(Buffer.from(expectedSignature));
-        console.log("not right access")
-        return response.status(401).json({ "status": "error" });
+        console.log("not right access");
+        return Response.json({ status: "error" },{status:401});
     }
     const addArticleDB = async (id, newcontent) => {
 
@@ -28,26 +29,26 @@ export default async (request, response) => {
             .from('articles')
             .upsert({ id: id, title: newcontent.title, description: newcontent.description, revisedAt: newcontent.revisedAt, category: newcontent.category })
             .select();
-        console.log(statusText)
+        console.log(statusText);
 
-    }
+    };
     const deleteArticleDB = async (id) => {
         const { statusText, error } = await supabase
             .from('articles')
             .delete()
-            .eq('id', id)
-        console.log(statusText)
-    }
+            .eq('id', id);
+        console.log(statusText);
+    };
     const articleid = request.body.id;
     switch (request.body.type) {
         case 'new':
-            await addArticleDB(articleid, request.body.contents.new.publishValue)
+            await addArticleDB(articleid, request.body.contents.new.publishValue);
             break;
         case 'edit':
-            if (request.body.contents.new.status == "CLOSED") {
-                await deleteArticleDB(articleid)
-            } else if (request.body.contents.new.status == "PUBLISH") {
-                await addArticleDB(articleid, request.body.contents.new.publishValue)
+            if (request.body.contents.new.status === "CLOSED") {
+                await deleteArticleDB(articleid);
+            } else if (request.body.contents.new.status === "PUBLISH") {
+                await addArticleDB(articleid, request.body.contents.new.publishValue);
             }
             break;
         case 'delete':
@@ -55,16 +56,17 @@ export default async (request, response) => {
             break;
         default:
             fin = true;
-            console.log("type is bad")
-            return response.status(400).json({ "status": "error" });
+            console.log("type is bad");
+            return Response.json({ status: "error" },{status:400});
     }
-    try{
-        if (articleid != request.body.contents.old.id) {
+    try {
+        if (articleid !== request.body.contents.old.id) {
             await deleteArticleDB(request.body.contents.old.id);
         }
-    }catch(e){
-        
+    } catch (e) {
+
     }
 
-    if (!fin) return response.status(200).json({ "status": "success" })
-}  
+    if (!fin) return Response.json({ status: "success" },{status:200});
+}
+export { article_update_for_db };

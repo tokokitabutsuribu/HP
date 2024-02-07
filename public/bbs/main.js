@@ -25,7 +25,7 @@ const db = getFirestore(app);
 
 function post(){
   alert('posting');
-  let data={
+  const data={
     name:document.getElementById('name').value,
     message:document.getElementById('message'),
     time:Timestamp.fromdate(new Date()),
@@ -37,7 +37,7 @@ function post(){
 
 
 function getID(){
-  let fetchIpAddress = async() => {
+  const fetchIpAddress = async() => {
     return await fetch('https://ipinfo.io?callback')
     .then(response => response.json())
     .then(json => json.ip);

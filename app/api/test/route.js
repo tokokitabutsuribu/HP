@@ -1,2 +1,2 @@
 import { test } from './test';
-export { test as GET };
+//export { test as GET };

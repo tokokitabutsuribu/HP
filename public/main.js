@@ -1,11 +1,11 @@
-var url = new URL(window.location.href);
-var params = url.searchParams;
+const url = new URL(window.location.href);
+const params = url.searchParams;
 if (params.has('noeffect')) {
 
 } else {
-    var today = new Date(/*2023, 7, 7, 1, 1, 1, 1*/);   //デバッグ用の日付指定の場合
-    var start = new Date(today.getFullYear(), 7, 7, 0, 0, 0, 0);
-    var end = new Date(today.getFullYear(), 7, 8, 0, 0, 0, 0);
+    const today = new Date(/*2023, 7, 7, 1, 1, 1, 1*/);   //デバッグ用の日付指定の場合
+    const start = new Date(today.getFullYear(), 7, 7, 0, 0, 0, 0);
+    const end = new Date(today.getFullYear(), 7, 8, 0, 0, 0, 0);
     if ((start.getTime() <= today.getTime() && today.getTime() < end.getTime()) || params.has('sevenseven')) {
         document.getElementById('mainicon').src = 'iconBIG_7_7.GIF';
         document.getElementById("count1").innerHTML = 'ã‚ãªãŸã¯ ';

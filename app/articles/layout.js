@@ -7,6 +7,7 @@ import MyPrism from './myprism.js'
 export default function RootLayout({
   children,
 }) {
+  try{
   return (
     <>
     <Header />
@@ -17,4 +18,9 @@ export default function RootLayout({
     <Footer />
     </>
   );
+}catch(e){
+  console.log(e)
+  console.log("at article layout")
+  return{children}
+}
 }
