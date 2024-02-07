@@ -65,11 +65,7 @@ async function push_token(req) {
 				errormessage.push(`unsubscribe:${error}`);
 			});
 	};
-	try{
-	NextResponse.json({ message: "Hello World" });
-}catch(e){
-	console.log(e);
-	Response.json({message:"test"},{status:200})
-}
+
+	return Response.json({ message: "success" }, { status: 200 })
 }
 export { push_token };
