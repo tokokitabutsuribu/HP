@@ -12,7 +12,7 @@ if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
     }
 }
 
-window.onload(() => {
+window.addEventListener('DOMContentLoaded',() => {
     try{
     document.getElementById('header').innerHTML = `<div id="wrapper" style="height: 88px">
 <nav id="global-navi">
