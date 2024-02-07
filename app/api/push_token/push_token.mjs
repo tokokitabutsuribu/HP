@@ -69,7 +69,7 @@ async function push_token(req) {
 	NextResponse.json({ message: "Hello World" });
 }catch(e){
 	console.log(e);
-	NextResponse.json({message:""},{status:200})
+	Response.json({message:"test"},{status:200})
 }
 }
 export { push_token };
