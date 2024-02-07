@@ -1,11 +1,15 @@
 //<script src="/global.js" id="globaljs"></script>
 
 if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
-    let script = document.createElement('script');
-    script.dataset.projectId = 'cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP';
-    script.dataset.isProductionEnvironment = false;
-    script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
-    document.getElementById('globaljs').after(script);
+    try {
+        let script = document.createElement('script');
+        script.dataset.projectId = 'cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP';
+        script.dataset.isProductionEnvironment = false;
+        script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
+        document.getElementById('globaljs').after(script);
+    } catch (e) {
+        window.alert(e);
+    }
 }
 
 window.onload(() => {
