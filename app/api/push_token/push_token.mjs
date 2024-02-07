@@ -66,12 +66,10 @@ async function push_token(req) {
 			});
 	};
 	try{
-	return NextResponse.json({ messsage: "Hello World" });
+	NextResponse.json({ message: "Hello World" });
 }catch(e){
 	console.log(e);
-	return NextResponse.json({
-		message: "Hello! Stripe Webhook."
-	})
+	NextResponse.json({message:""},{status:200})
 }
 }
 export { push_token };
