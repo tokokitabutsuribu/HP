@@ -65,12 +65,13 @@ async function push_token(req) {
 				errormessage.push(`unsubscribe:${error}`);
 			});
 	};
-
+	try{
 	return NextResponse.json({ messsage: "Hello World" });
-	/* } catch (error) {
-	   errormessage.push(error);
-	   return response.status(500).json({ "status": errormessage });
-	 // Handle errors
-	 }*/
+}catch(e){
+	console.log(e);
+	return NextResponse.json({
+		message: "Hello! Stripe Webhook."
+	})
+}
 }
 export { push_token };
