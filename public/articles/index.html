@@ -12,6 +12,7 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-TVKWHB4T');</script>
     <!-- End Google Tag Manager -->
+    <script src="/global.js" id="globaljs"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow"> <!--テスト時用の検索結果から除外するタグ。公開時は削除-->
@@ -53,17 +54,6 @@
         </div>
     </div>
     <div id="footer"></div>
-    <script>
-        fetch("/header.html")
-            .then(res => res.text())
-            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
-            .then((data) => { document.querySelector("#header").innerHTML = data });
-        fetch("/footer.html")
-            .then((response) => response.text())
-            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
-            .then((data) => document.querySelector("#footer").innerHTML = data);
-    </script>
-
     <script type="module" src="/articles/index.js"></script>
 </body>
 
