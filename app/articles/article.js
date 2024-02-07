@@ -122,6 +122,7 @@ export async function articlePage(url, cache) {
 	})
 		.then((data) => {
 			if (!data.ok) {
+				console.log('fetch data is not ok')
 				iserror = true;
 			}
 			return data.json();
@@ -129,10 +130,12 @@ export async function articlePage(url, cache) {
 		.then((res) => {
 			title = res.title;
 			description = res.description;
+			try{
 			updated = new Date(res.revisedAt)
 				.toISOString()
 				.split("T")[0]
 				.replaceAll("-", "/");
+			}catch{}
 			content = addarray(res.contents, undefined, "content");
 			category = addarray(res.category, "li", undefined);
 			for (const elem of res.index) {
