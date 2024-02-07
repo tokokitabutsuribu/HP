@@ -13,6 +13,7 @@ if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
 }
 
 window.onload(() => {
+    try{
     document.getElementById('header').innerHTML = `<div id="wrapper" style="height: 88px">
 <nav id="global-navi">
     <div id="pwatoolbar" style="display: none;">
@@ -265,5 +266,8 @@ body {
 </style>`
     if (window.matchMedia("(display-mode: standalone)").matches) {
         document.getElementById('pwatoolbar').style.display = 'block';
+    }
+    }catch(e){
+        window.alert(e);
     }
 })
