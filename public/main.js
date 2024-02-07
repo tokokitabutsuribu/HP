@@ -1,3 +1,16 @@
+if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
+    try {
+        let script = document.createElement('script');
+        script.dataset.projectId = 'cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP';
+        script.dataset.isProductionEnvironment = false;
+        script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
+        document.getElementById('main').after(script);
+    } catch (e) {
+        window.alert(e)
+    }
+}
+
+
 const url = new URL(window.location.href);
 const params = url.searchParams;
 if (params.has('noeffect')) {
@@ -17,11 +30,5 @@ if (params.has('noeffect')) {
         }
     })
 }
-if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
-    let script = document.createElement('script');
-    script.dataset.projectId = 'cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP';
-    script.dataset.isProductionEnvironment = false;
-    script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
-    document.getElementById('globaljs').after(script);
-}
+
 
