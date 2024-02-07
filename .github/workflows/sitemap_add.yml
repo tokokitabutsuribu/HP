@@ -27,5 +27,5 @@ jobs:
         git config --local user.name tokokitabutsuri
     - name: Commit Sitemap
       run: |
-        git add sitemap_article.xml
+        git add -A
         git commit -m "update sitemap_article.xml by Github Actions" ||echo "no commit is made" && git pull && git push origin

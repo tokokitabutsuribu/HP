@@ -12,14 +12,14 @@ await client
   .getAllContentIds({
     endpoint: 'articles',
   })
-  .then((res) => {IDs=res})
+  .then((res) => IDs=res)
   .catch((err) => console.error(err));
 
 // xml に記述する URL のリスト作成
 const urls = []
 
 for(const id of IDs){
-  urls.push({loc:`https://tkbutsuribu.vercel.app/articles/${id}`});
+  urls.push({loc:'https://tkbutsuribu.vercel.app/articles/'+id});
 }
 // xml 生成
 const builder = new Builder();
@@ -32,5 +32,5 @@ const sitemap = {
   },
 };
 const xml = builder.buildObject(sitemap);
-fs.writeFile('sitemap_article.xml', xml);
+fs.writeFile('public/sitemap_article.xml', xml);
 
