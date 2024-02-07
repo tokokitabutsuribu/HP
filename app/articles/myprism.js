@@ -12,7 +12,7 @@ export default function myprism() {
 				console.log(e)
 				console.log("at prism");
 			}
-		});
+		},[]);
 	} catch (e) {
 		console.log(e)
 		console.log("at prism");
