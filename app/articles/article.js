@@ -48,7 +48,7 @@ export async function meta(url, cache) {
 			siteName: "所沢北高校物理部",
 			images: [
 				{
-					url: "https://tkbutsuribu.vercel.app/iconBIG.jpg",
+					url: "https://tkbutsuribu.vercel.app/images/iconmain.svg",
 					width: 320,
 					height: 320,
 				},
@@ -64,7 +64,7 @@ export async function meta(url, cache) {
 			title: title,
 			description: description,
 			site: "@TK_physics_club",
-			image: ["https://tkbutsuribu.vercel.app/iconBIG.jpg"],
+			image: ["https://tkbutsuribu.vercel.app/images/iconmain.svg"],
 		},
 	};
 }

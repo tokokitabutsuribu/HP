@@ -16,7 +16,7 @@ const params = url.searchParams;
 if (params.has('noeffect')) {
 
 } else {
-    window.onload(() => {
+    window.addEventListener('DOMContentLoaded',() => {
         const today = new Date(/*2023, 7, 7, 1, 1, 1, 1*/);   //デバッグ用の日付指定の場合
         const start = new Date(today.getFullYear(), 7, 7, 0, 0, 0, 0);
         const end = new Date(today.getFullYear(), 7, 8, 0, 0, 0, 0);
