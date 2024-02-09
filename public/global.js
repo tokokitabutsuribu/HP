@@ -158,7 +158,7 @@ body {
     <div class="github">
         <a href="https://github.com/tokokitabutsuri/HP" target="_blank" rel="noopener norefereer">
             <nobr><img height="20px" src="/images/github-mark-white.svg" style="margin-right: 3px;" alt=""></img><img
-                    height="22px" src="/images/github_logo_white.svg" alt="Github"></img></nobr>
+                    height="22px" src="/images/github-logo-white.svg" alt="Github"></img></nobr>
         </a>
     </div>
 </div>
