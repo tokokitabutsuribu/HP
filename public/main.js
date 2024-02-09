@@ -6,7 +6,7 @@ if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
         script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
         document.getElementById('main').after(script);
     } catch (e) {
-        window.alert(e)
+        console.log(e)
     }
 }
 

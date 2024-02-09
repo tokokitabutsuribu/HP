@@ -58,7 +58,7 @@ try {
 				data = res.data;
 			})
 			.catch((e) => {
-				window.alert(e);
+				console.log(e);
 			});
 	};
 
@@ -98,5 +98,5 @@ try {
 		await updateDOM();
 	});
 } catch (e) {
-	window.alert(e);
+	console.log(e);
 }
