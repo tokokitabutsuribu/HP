@@ -21,7 +21,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="記事一覧 - 所沢北高校物理部" /><!--ページのタイトル　SNS向け-->
     <meta property="og:description" content="記事一覧" /><!--ページの説明　SNS向け-->
-    <meta property="og:image" content="image/iconBIG.jpg" />
+    <meta property="og:image" content="/images/iconmain.svg" />
     <meta name="twitter:card" content="summary">
 
     <link rel="stylesheet" href="../normalize.css">
@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    <script src="/global.js" id="globaljs"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVKWHB4T" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -53,17 +54,6 @@
         </div>
     </div>
     <div id="footer"></div>
-    <script>
-        fetch("/header.html")
-            .then(res => res.text())
-            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
-            .then((data) => { document.querySelector("#header").innerHTML = data });
-        fetch("/footer.html")
-            .then((response) => response.text())
-            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
-            .then((data) => document.querySelector("#footer").innerHTML = data);
-    </script>
-
     <script type="module" src="/articles/index.js"></script>
 </body>
 

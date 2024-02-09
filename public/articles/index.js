@@ -58,7 +58,7 @@ try {
 				data = res.data;
 			})
 			.catch((e) => {
-				window.alert(e);
+				console.log(e);
 			});
 	};
 
@@ -94,28 +94,9 @@ try {
 	window.addEventListener("DOMContentLoaded", async () => {
 		await getmax();
 		init();
-		const header = fetch("/header.html")
-			.then((res) => res.text())
-			.then(
-				(text) =>
-					new DOMParser().parseFromString(text, "text/html").body.innerHTML,
-			)
-			.then((data) => {
-				document.querySelector("#header").innerHTML = data;
-			});
-		const footer = fetch("/footer.html")
-			.then((res) => res.text())
-			.then(
-				(text) =>
-					new DOMParser().parseFromString(text, "text/html").body.innerHTML,
-			)
-			.then((data) => {
-				document.querySelector("#footer").innerHTML = data;
-			});
-		const getArticle = getArticledata();
-		await Promise.all([header, footer, getArticle]);
+		const getArticle = await getArticledata();
 		await updateDOM();
 	});
 } catch (e) {
-	window.alert(e);
+	console.log(e);
 }

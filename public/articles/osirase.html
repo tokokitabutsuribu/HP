@@ -21,7 +21,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="お知らせ - 所沢北高校物理部" /><!--ページのタイトル　SNS向け-->
     <meta property="og:description" content="お知らせ" /><!--ページの説明　SNS向け-->
-    <meta property="og:image" content="../image/iconBIG.jpg" />
+    <meta property="og:image" content="/images/iconmain.svg" />
     <meta name="twitter:card" content="summary">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    <script src="/global.js" id="globaljs"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVKWHB4T" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -45,16 +46,6 @@
         <li>2024/1/31 Next.jsを導入しました</li>
     </div>
     <div id="footer"></div>
-    <script>
-        fetch("/header.html")
-            .then(res => res.text())
-            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
-            .then((data) => { document.querySelector("#header").innerHTML = data });
-        fetch("/footer.html")
-            .then(res => res.text())
-            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
-            .then((data) => { document.querySelector("#footer").innerHTML = data });
-    </script>
 </body>
 
 </html>

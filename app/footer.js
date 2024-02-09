@@ -22,8 +22,8 @@ export default async function Footer() {
                 </div>
                 <div className={styles.github}>
                     <a href="https://github.com/tokokitabutsuri/HP" target="_blank" rel="noreferrer noopener">
-                        <nobr><img height="20px" src="/github-mark-white.svg" alt="" /><img
-                            className={styles.githubImage} height="22px" src="/GitHub_Logo_White.png" alt="Github" /></nobr>
+                        <nobr><img height="20px" src="/images/github-mark-white.svg" alt="" /><img
+                            className={styles.githubImage} height="22px" src="/images/github_logo_white.svg" alt="Github" /></nobr>
                     </a>
                 </div>
             </div>

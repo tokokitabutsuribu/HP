@@ -21,7 +21,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="概要 - 所沢北高校物理部" />
     <meta property="og:description" content="所沢北高校物理部の紹介ページです" />
-    <meta property="og:image" content="image/iconBIG.jpg" />
+    <meta property="og:image" content="/images/iconmain.svg" />
     <meta name="twitter:card" content="summary">
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -35,6 +35,7 @@
 </head>
 
 <body>
+    <script src="/global.js" id="globaljs"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVKWHB4T" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -68,16 +69,6 @@
         <a href="https://tkbutsuribu.vercel.app/">トップページへ</a>
     </div>
     <div id="footer"></div>
-    <script>
-        fetch("/header.html")
-            .then(res => res.text())
-            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
-            .then((data) => { document.querySelector("#header").innerHTML = data });
-        fetch("/footer.html")
-            .then(res => res.text())
-            .then(text => new DOMParser().parseFromString(text, "text/html").body.innerHTML)
-            .then((data) => { document.querySelector("#footer").innerHTML = data });
-    </script>
 </body>
 
 </html>
