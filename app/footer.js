@@ -6,18 +6,18 @@ export default async function Footer() {
                 <div className={styles.twitter}>
                     <a href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5ETK_physics_club&region=follow_link&screen_name=TK_physics_club"
                         target="_blank" rel="noreferrer noopener"><span>
-                            <nobr>𝕏 フォローする</nobr>
+                            <span style="white-space: nowrap;">𝕏 フォローする</span>
                         </span></a>
                 </div>
                 <div className={styles.youtube}>
                     <a href="https://www.youtube.com/channel/UCMx0SnqChPhp4rapoqgan3g?sub_confirmation=1" target="_blank"
                         rel="noreferrer noopener"><span>
-                            <nobr>公式YouTube</nobr>
+                            <span style="white-space: nowrap;">公式YouTube</span>
                         </span></a>
                 </div>
                 <div className={styles.tokokitahp}>
                     <a href="https://tokokita-h.spec.ed.jp/" target="_blank" rel="noreferrer noopener">
-                        <nobr>所北HP</nobr>
+                        <span style="white-space: nowrap;">所北HP</span>
                     </a>
                 </div>
                 <div className={styles.github}>

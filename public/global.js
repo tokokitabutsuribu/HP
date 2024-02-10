@@ -25,16 +25,16 @@ window.addEventListener('DOMContentLoaded',() => {
                 id="settings"><img src="/images/settings.svg" height="32" alt="設定"></a></span></nobr>
     <ul class="menu">
         <li>
-            <nobr><a href="https://tkbutsuribu.vercel.app/about.html">概要</a></nobr>
+            <span style="white-space: nowrap;"><a href="https://tkbutsuribu.vercel.app/about.html">概要</a></span>
         </li>
         <li>
-            <nobr><a href="https://tkbutsuribu.vercel.app/articles/index.html">記事</a></nobr>
+            <span style="white-space: nowrap;"><a href="https://tkbutsuribu.vercel.app/articles/index.html">記事</a></span>
         </li>
         <li>
-            <nobr><a href="https://tkbutsuribu.vercel.app/games/index.html">スタジオ</a></nobr>
+            <span style="white-space: nowrap;"><a href="https://tkbutsuribu.vercel.app/games/index.html">スタジオ</a></span>
         </li>
         <li>
-            <nobr><a href="https://tkbutsuribu.vercel.app/bbs/404.html">掲示板(未完成)</a></nobr>
+            <span style="white-space: nowrap;"><a href="https://tkbutsuribu.vercel.app/bbs/404.html">掲示板(未完成)</a></span>
         </li>
     </ul>
 </nav>
@@ -141,18 +141,18 @@ body {
         <a style="text-decoration: none;"
             href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5ETK_physics_club&region=follow_link&screen_name=TK_physics_club"
             target="_blank" rel="noopener norefereer"><span>
-                <nobr>𝕏 フォローする</nobr>
+                <span style="white-space: nowrap;">𝕏 フォローする</span>
             </span></a>
     </div>
     <div class="youtube">
         <a href="https://www.youtube.com/channel/UCMx0SnqChPhp4rapoqgan3g?sub_confirmation=1" target="_blank"
             rel="noopener norefereer"><span>
-                <nobr>公式YouTube</nobr>
+                <span style="white-space: nowrap;">公式YouTube</span>
             </span></a>
     </div>
     <div class="tokokitahp">
         <a href="https://tokokita-h.spec.ed.jp/" target="_blank" rel="noopener norefereer">
-            <nobr>所北HP</nobr>
+            <span style="white-space: nowrap;">所北HP</span>
         </a>
     </div>
     <div class="github">

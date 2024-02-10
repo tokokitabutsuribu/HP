@@ -9,7 +9,7 @@ export default function () {
                     <div className={styles.wrapper} style={{ height: 'calc(100vh-1em)' }}>
                         <div className={styles.content} style={{ height: 'fit-content', width: 'fit-content' }}>
                             <h1 className={styles.h1}>
-                                <nobr>ページないよ(泣)</nobr>
+                                <span style="white-space: nowrap;">ページないよ(泣)</span>
                             </h1>
                             <div className={styles.image}><img src="https://tkbutsuribu.vercel.app/ms404.JPG" alt="404姉さん" width="256" height="256" /></div>
                             <button type='button' id='back' onclick="window.history.back()">戻る</button>
