@@ -168,7 +168,13 @@
                     </h1>
                 </div>
             </div>
-            <img id="mainicon" src="/images/iconmain.svg" width="320" height="320" alt="物理部ロゴ">
+            <div style="height: 320px; padding:0"><img id="mainicon" src="/images/iconmain.svg" width="320" height="320" alt="物理部ロゴ" decoding="async" style="display:none">
+            <script>
+                window.addEventListener('DOMContentLoaded',()=>{
+                    document.getElementById('mainicon').style.display='block';
+                });
+            </script>
+            </div>
             <div class="links">
                 <div class="twitter">
                     <a style="text-decoration: none;"
