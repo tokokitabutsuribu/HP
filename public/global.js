@@ -20,9 +20,9 @@ window.addEventListener('DOMContentLoaded',() => {
         <button onclick="history.back()"><img src="/images/left.svg" width="16px"></button>
         <button onclick="location.reload()"><img src="/images/reload.svg" width="19px"></button>
     </div>
-    <nobr><span class="toplink"><a href="https://tkbutsuribu.vercel.app/"><img src="/icon-48x48.png" width="48"
+    <span style="white-space: nowrap;"><span class="toplink"><a href="https://tkbutsuribu.vercel.app/"><img src="/icon-48x48.png" width="48"
                     height="48" style="margin-top: 5px;" alt="トップページ"><span>所沢北高校物理部</span></a><a href="/settings.html"
-                id="settings"><img src="/images/settings.svg" height="32" alt="設定"></a></span></nobr>
+                id="settings"><img src="/images/settings.svg" height="32" alt="設定"></a></span></span>
     <ul class="menu">
         <li>
             <span style="white-space: nowrap;"><a href="https://tkbutsuribu.vercel.app/about.html">概要</a></span>
@@ -157,8 +157,8 @@ body {
     </div>
     <div class="github">
         <a href="https://github.com/tokokitabutsuri/HP" target="_blank" rel="noopener norefereer">
-            <nobr><img height="20px" src="/images/github-mark-white.svg" style="margin-right: 3px;" alt=""></img><img
-                    height="22px" src="/images/github-logo-white.svg" alt="Github"></img></nobr>
+            <span style="white-space: nowrap;"><img height="20px" src="/images/github-mark-white.svg" style="margin-right: 3px;" alt=""></img><img
+                    height="22px" src="/images/github-logo-white.svg" alt="Github"></img></span>
         </a>
     </div>
 </div>
