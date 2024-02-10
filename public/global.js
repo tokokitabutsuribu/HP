@@ -2,7 +2,7 @@
 
 if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
     try {
-        let script = document.createElement('script');
+        const script = document.createElement('script');
         script.dataset.projectId = 'cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP';
         script.dataset.isProductionEnvironment = false;
         script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
