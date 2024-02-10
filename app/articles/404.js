@@ -1,4 +1,4 @@
-import styles from './404.module.css'
+import styles from './404.module.css';
 export default function () {
     try {
         return (
@@ -12,15 +12,15 @@ export default function () {
                                 <nobr>ページないよ(泣)</nobr>
                             </h1>
                             <div className={styles.image}><img src="https://tkbutsuribu.vercel.app/ms404.JPG" alt="404姉さん" width="256" height="256" /></div>
-                            <a href="#" onclick="window.history.back(); return false;">戻る</a>
+                            <button type='button' id='back' onclick="window.history.back()">戻る</button>
                         </div>
                     </div>
-                </div>
+                </div >
             </>
-        )
+        );
     } catch (e) {
         console.log(e);
-        console.log("at 404.js")
-        return <><div></div></>
+        console.log("at 404.js");
+        return <><div /></>;
     }
 }
