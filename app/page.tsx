@@ -1,8 +1,6 @@
 import React from "react"
 
-const page = () => {
+export default function page() {
     return <div><h1>Top Page</h1></div>
 
 }
-
-export default page()
