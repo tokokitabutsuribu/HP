@@ -25,8 +25,8 @@ export default function page() {
             </div>
             <div className={style.title}>
                 <h1>
-                    <nobr id="title1">所沢北高校物理部のサイトへ</nobr>
-                    <nobr id="title2">ようこそ！</nobr>
+                    <span style={{whiteSpace:'nowrap'}} id="title1">所沢北高校物理部のサイトへ</span>
+                    <span style={{whiteSpace:'nowrap'}} id="title2">ようこそ！</span>
                 </h1>
             </div>
         </div>
@@ -36,27 +36,27 @@ export default function page() {
                 <a style={{textDecoration: "none"}}
                     href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5ETK_physics_club&region=follow_link&screen_name=TK_physics_club"
                     target="_blank" rel="noopener noreferrer"><span>
-                        <nobr>𝕏 フォローする</nobr>
+                        <span style={{whiteSpace:'nowrap'}}>𝕏 フォローする</span>
                     </span></a>
             </div>
             <div className={style.youtube}>
                 <a href="https://www.youtube.com/channel/UCMx0SnqChPhp4rapoqgan3g?sub_confirmation=1"
                     target="_blank" rel="noopener noreferrer"><span>
-                        <nobr>公式YouTube</nobr>
+                        <span style={{whiteSpace:'nowrap'}}>公式YouTube</span>
                     </span></a>
             </div>
             <div id="kaigyou"></div>
 
             <div className={style.tokokitahp}>
                 <a href="https://tokokita-h.spec.ed.jp/" target="_blank" rel="noopener noreferrer">
-                    <nobr>所北HP</nobr>
+                    <span style={{whiteSpace:'nowrap'}}>所北HP</span>
                 </a>
             </div>
             <div className={style.github}>
                 <a href="https://github.com/tokokitabutsuri/HP" target="_blank" rel="noopener noreferrer">
-                    <nobr><img height="20px" width="20px" src="/images/github-mark-white.svg"
+                    <span style={{whiteSpace:'nowrap'}}><img height="20px" width="20px" src="/images/github-mark-white.svg"
                             style={{marginRight: "3px"}} alt="Git" /><img height="22px" width="57px"
-                            src="/images/github-logo-white.svg" alt="hub" /></nobr>
+                            src="/images/github-logo-white.svg" alt="hub" /></span>
                 </a>
             </div>
         </div>
