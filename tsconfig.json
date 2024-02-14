@@ -30,5 +30,7 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "moduleResolution": "bundler",
+  "allowImportingTsExtensions": true
 }
