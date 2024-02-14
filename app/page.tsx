@@ -1,8 +1,8 @@
 import React from "react";
-import style from "./stylesheet.module.css";
-import NotifyButton from "./NotifyButton.tsx";
-import PwaToolBar from "./PwaToolBar.tsx";
-import Counter from "./Counter.tsx";
+import styles from "./stylesheet.module.css";
+import NotifyButton from "./NotifyButton";
+import PwaToolBar from "./PwaToolBar";
+import Counter from "./Counter";
 
 export default function page() {
   return (
@@ -35,7 +35,7 @@ export default function page() {
                 お知らせ
               </a>
               <ul
-                className={style.accessCount}
+                className={styles.accessCount}
                 id="access-counter"
                 style={{ fontSize: "0px" }}
               >
@@ -47,7 +47,6 @@ export default function page() {
                   人目の来訪者です
                 </li>
               </ul>
-              <style></style>
               <a
                 href="/index.html?noeffect"
                 id="noeffect"
@@ -64,7 +63,7 @@ export default function page() {
                 エフェクトオフ
               </a>
             </div>
-            <div className={style.title}>
+            <div className={styles.title}>
               <h1>
                 <span style={{ whiteSpace: "nowrap" }} id="title1">
                   所沢北高校物理部のサイトへ
@@ -82,8 +81,8 @@ export default function page() {
             height="320"
             alt="物理部ロゴ"
           />
-          <div className={style.links}>
-            <div className={style.twitter}>
+          <div className={styles.links}>
+            <div className={styles.twitter}>
               <a
                 style={{ textDecoration: "none" }}
                 href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5ETK_physics_club&region=follow_link&screen_name=TK_physics_club"
@@ -95,7 +94,7 @@ export default function page() {
                 </span>
               </a>
             </div>
-            <div className={style.youtube}>
+            <div className={styles.youtube}>
               <a
                 href="https://www.youtube.com/channel/UCMx0SnqChPhp4rapoqgan3g?sub_confirmation=1"
                 target="_blank"
@@ -106,9 +105,9 @@ export default function page() {
                 </span>
               </a>
             </div>
-            <div id="kaigyou"></div>
+            <div id="kaigyou" />
 
-            <div className={style.tokokitahp}>
+            <div className={styles.tokokitahp}>
               <a
                 href="https://tokokita-h.spec.ed.jp/"
                 target="_blank"
@@ -117,7 +116,7 @@ export default function page() {
                 <span style={{ whiteSpace: "nowrap" }}>所北HP</span>
               </a>
             </div>
-            <div className={style.github}>
+            <div className={styles.github}>
               <a
                 href="https://github.com/tokokitabutsuri/HP"
                 target="_blank"
