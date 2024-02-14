@@ -9,8 +9,11 @@ import style from './stylesheet.module.css'
 // errormessage.push("kv success");
 export default async function counter() {
 	try{
+		console.log(cookies().getAll())
 	const id = cookies().get("counterID").value;
+		console.log(id)
 	const idindex = await kv.lpos("users", id);
+		console.log(idindex)
 	if (!idindex) {
 		await kv.lpush("users", id);
 	} else {
