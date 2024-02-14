@@ -134,7 +134,7 @@
 	padding: 10px 5px;
 }
 
-.button-parent {
+.buttonParent {
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
@@ -205,7 +205,7 @@
 	border-radius: 9999px;
 }
 
-#pop-up {
+#popUp {
 	display: none;
 }
 
@@ -213,7 +213,7 @@
 	display: none;
 }
 
-#pop-up:checked+.overlay {
+#popUp:checked+.overlay {
 	display: block;
 	position: fixed;
 	width: 100%;
@@ -242,7 +242,7 @@
 	-webkit-overflow-scrolling: touch;
 }
 
-.pop-up-content {
+.popUpContent {
 	height: fit-content;
 	width: 90%;
 }
@@ -271,17 +271,17 @@
 	z-index: -1;
 }
 
-.counter-area {
+.counterArea {
 	text-align: center;
 }
 
-.access-count {
+.accessCount {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.access-count li {
+.accessCount li {
 	display: inline-block;
 	font-size: 16px;
 	font-family: Arial, sans-serif;
@@ -301,7 +301,7 @@
 	padding-top: 2px;
 }
 /* カウンター */
-.access-count li:nth-last-child(2) {
+.accessCount li:nth-last-child(2) {
 	border-right-width: 0px;
 }
 

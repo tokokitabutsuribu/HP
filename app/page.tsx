@@ -13,7 +13,7 @@ export default function page() {
             <div style={{display: "flex",alignItems: "center",justifyContent: "center",gap: "clamp(0px,12vw,25px)"}}>
                 <a href="/articles/osirase.html"
                     style={{height: "fit-content", whiteSpace: "nowrap", textAlign: "left",backgroundColor: "darkblue",color: "white",textDecoration: "none",padding:"5px",marginRight: "10px",}}>お知らせ</a>
-                <ul className={style.access-count} id="access-counter" style={{fontSize: "0px",}}>
+                <ul className={style.accessCount} id="access-counter" style={{fontSize: "0px",}}>
                     <li style={{marginRight:"5px"}} id="count1">あなたは</li>
                     <li style={{marginLeft: "5px"}} id="count2">人目の来訪者です</li>
                 </ul>
@@ -21,7 +21,7 @@ export default function page() {
                     
                 </style>
                 <a href="/index.html?noeffect" id="noeffect"
-                    style={{display: none; text-align: left;background-color: lightblue;color: darkgreen;text-decoration: none;padding:5px;marginLeft: 10px;}}>エフェクトオフ</a>
+                    style={{display: "none", textAlign: "left",backgroundColor: "lightblue",color: "darkgreen",textDecoration: "none",padding:"5px",marginLeft: "10px",}}>エフェクトオフ</a>
             </div>
             <div className={style.title}>
                 <h1>
@@ -55,40 +55,40 @@ export default function page() {
             <div className={style.github}>
                 <a href="https://github.com/tokokitabutsuri/HP" target="_blank" rel="noopener noreferrer">
                     <nobr><img height="20px" width="20px" src="/images/github-mark-white.svg"
-                            style={{marginRight: 3px;" alt="Git" /><img height="22px" width="57px}}
+                            style={{marginRight: "3px"}} alt="Git" /><img height="22px" width="57px"
                             src="/images/github-logo-white.svg" alt="hub" /></nobr>
                 </a>
             </div>
         </div>
     </div>
-    <div id="content2" width="400">
+    <div id="content2" style={{width:"400px"}}>
         <div id="sitemap">
             <table>
                 <tr>
-                    <td><a href=https://tkbutsuribu.vercel.app/about.html>概要</a></td>
-                </tr><br>
+                    <td><a href="https://tkbutsuribu.vercel.app/about.html">概要</a></td>
+                </tr><br />
                 <tr>
-                    <td><a href=https://tkbutsuribu.vercel.app/articles/index.html>記事一覧</a></td>
-                </tr><br>
+                    <td><a href="https://tkbutsuribu.vercel.app/articles/index.html">記事一覧</a></td>
+                </tr><br />
                 <tr>
-                    <td><a href=https://tkbutsuribu.vercel.app/games/index.html>ゲームスタジオ</a></td>
-                </tr><br>
+                    <td><a href="https://tkbutsuribu.vercel.app/games/index.html">ゲームスタジオ</a></td>
+                </tr><br />
                 <tr>
-                    <td><a href=#>掲示板(未完成)</a></td>
-                </tr><br>
+                    <td><a href="#.">掲示板(未完成)</a></td>
+                </tr><br />
             </table>
         </div>
         <div id="buttons">
-            <div id="InstallBtnForiOS" style={{width: fit-content;}}>
-                <label className="open button" for="pop-up"><img height="16px" width="16px"
+            <div id="InstallBtnForiOS" style={{width: "fit-content",}}>
+                <label className={`${style.open} ${style.button}`} htmlFor="pop-up"><img height="16px" width="16px"
                         src="/images/installicon.svg" alt="install"
-                        style={{max-height: 100%;width: auto;margin: 0 5px 0 2px}}>インストールする</label>
-                <input type="checkbox" id="pop-up">
-                <div className="overlay">
-                    <label className="close2" for="pop-up"></label>
-                    <div className="window">
-                        <label className="close" for="pop-up">閉じる</label>
-                        <div className="pop-up-content">
+                        style={{maxHeight: "100%",width: "auto",margin:"0 5px 0 2px"}} />インストールする</label>
+                <input type="checkbox" id="pop-up" />
+                <div className={style.overlay}>
+                    <label className={style.close2} htmlFor="pop-up" />
+                    <div className={style.window}>
+                        <label className={style.close} htmlFor="pop-up">閉じる</label>
+                        <div className={style.popUpContent}>
                             <h4>インストール方法</h4>
                             <p>このサイトはPWAに対応しています。詳しくは<a href="https://tkbutsuribu.vercel.app/about.html#pwa">こちら</a>
                             </p>
@@ -113,12 +113,12 @@ export default function page() {
                     </div>
                 </div>
             </div>
-            <button id="InstallBtn" className="button" style={{display:none"><img height="16px" width="16px}}
+            <button id="InstallBtn" className={style.button} type="button" style={{display:"none"}}><img height="16px" width="16px"
                     src="/images/installicon.svg" alt="install"
-                    style={{max-height: 100%;width: auto;margin: 0 5px 0 2px}}>インストールする</button>
-            <button id="requestpermission" className="button" type="button" value="通知" style={{display: block;}}><img
+                    style={{maxHeight: "100%",width: "auto",margin: "0 5px 0 2px"}} />インストールする</button>
+            <button id="requestpermission" className={style.button} type="button" value="通知" style={{display: "block",}}><img
                     height="16px" width="16px" src="./images/notification.png" alt="notification"
-                    style={{max-height: 100%;width: auto;margin: 0 5px 0 2px}}>通知を許可する</button>
+                    style={{maxHeight: "100%",width: "auto",margin: "0 5px 0 2px"}} />通知を許可する</button>
         </div>
     </div>
 </div></>)
