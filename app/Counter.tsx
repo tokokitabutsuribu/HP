@@ -8,6 +8,7 @@ import style from './stylesheet.module.css'
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
 // errormessage.push("kv success");
 export default async function counter() {
+	try{
 	const id = cookies().get("counterID").value;
 	const idindex = await kv.lpos("users", id);
 	if (!idindex) {
@@ -23,4 +24,9 @@ export default async function counter() {
 	}
 
 	return <>{ret}</>;
+}catch(e){
+	console.warn(e)
+	console.warn('at counter.tsx')
+	return<><li className={style.number}>x</li></>
+}
 }

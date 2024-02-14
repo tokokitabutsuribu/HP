@@ -12,6 +12,7 @@ export function middleware(request: NextRequest) {
         request.cookies.set('counterID',newID)
         response.cookies.set('counterID', newID)
     }
+    console.log(request.cookies.getAll())
     return response
 }
 
