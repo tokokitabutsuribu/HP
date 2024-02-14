@@ -1,19 +1,20 @@
 import { kv } from "@vercel/kv";
+import { cookies } from 'next/headers'
 
 // const date = new Date();
 // const currentTime = date.toLocaleString();
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
 // errormessage.push("kv success");
-function counter() {
+export default async function counter() {
 
-	let ip: string = request.ip ?? request.headers.get('x-real-ip') ?? '';
-	// プロキシ経由の場合、x-forwarded-forヘッダーからIPアドレスを取得
-	if (!ip && forwardedFor) {
-		const forwardedFor = request.headers.get('x-forwarded-for');
-		ip = forwardedFor.split(',').at(0) ?? 'Unknown';
-	}
-
-	if (false) {
+	const cookieStore = cookies();
+	const cookie = cookieStore
+		.getAll()
+		.map((cookie) => `${cookie.name}=${cookie.value}`)
+		.join(";");
+	let id = cookies().get('counterID')?.value
+	const idindex = await kv.lpos('users',id)
+	if (!idindex) {
 
 	} else {
 		kv.incr('count')
