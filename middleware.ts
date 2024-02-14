@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import crypto from 'crypto'
+//import crypto from 'crypto'
 
 export function middleware(request: NextRequest) {
 
@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
 
 
     if (!request.cookies.has('counterID')) {
-        const newID = crypto.randomUUID()
+        const newID = 'aaa'//crypto.randomUUID()
         request.cookies.set('counterID',newID)
         response.cookies.set('counterID', newID)
     }
