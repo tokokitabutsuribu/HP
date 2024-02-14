@@ -1,5 +1,6 @@
 import { kv } from "@vercel/kv";
 import { cookies } from 'next/headers'
+import React from "react";
 
 // const date = new Date();
 // const currentTime = date.toLocaleString();
@@ -13,11 +14,19 @@ export default async function counter() {
 		.map((cookie) => `${cookie.name}=${cookie.value}`)
 		.join(";");
 	let id = cookies().get('counterID')?.value
-	const idindex = await kv.lpos('users',id)
+	const idindex = await kv.lpos('users', id)
 	if (!idindex) {
 
 	} else {
-		kv.incr('count')
+		await kv.incr('count')
 	}
+
+	let ret;
+	const getcount: string = await kv.get('count') ?? '0'
+	for (const num of getcount.split('')) {
+		ret += <li className="num">{num}</li>;
+	}
+	getcount.sub
+	return ret
 }
 
