@@ -17,8 +17,7 @@ export default async function counter() {
       id = cookies().get("counterID").value;
     } else {
       id = crypto.randomUUID();
-      cidcookie(id);
-      cidc=<Cidcookie />
+      cidc=<Cidcookie cid={id} />
     }
     console.log(`id:${id}`);
     const idindex = await kv.lpos("users", id);

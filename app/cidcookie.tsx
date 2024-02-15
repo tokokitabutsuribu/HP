@@ -3,9 +3,9 @@ import React from 'react'
 import { useEffect } from "react"
 
 
-export default function(id:string){
+export default function({cid}){
     useEffect(()=>{
-        document.cookie=`counterID=${id}`
+        document.cookie=`counterID=${cid}`
       },[id])
     return <></>
 }
