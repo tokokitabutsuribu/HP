@@ -9,6 +9,7 @@ import headers from "next/headers";
 // errormessage.push("kv success");
 export default async function counter(request) {
   try {
+	console.log(request)
     const ip: string =
       request.ip ??
       request.headers.get("x-real-ip") ??
@@ -36,7 +37,7 @@ export default async function counter(request) {
     console.log(ret);
     return <>{ret}</>;
   } catch (e) {
-    console.warn(`at counter.tsx\n\n${e}`);
+    console.log(`at counter.tsx\n\n${e}`);
     return (
       <>
         <li className={style.number}>x</li>
