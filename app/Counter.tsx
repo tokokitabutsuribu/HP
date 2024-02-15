@@ -22,10 +22,15 @@ export default async function counter() {
 
 	let ret: React.JSX.Element[];
 	const getcount: string = await kv.get("count");
-	for (let i=0;i<getcount.length;i++) {
+	console.log(getcount)
+	let i=0;
+	for (i=0;i<getcount.length;i++) {
 		ret.push(<li className={style.number}>{getcount[i]}</li>);
 	}
-
+	for(;i<6;i++){
+		ret.push(<li className={style.number}>0</li>);
+	}
+	console.log(ret)
 	return <>{ret}</>;
 }catch(e){
 	console.warn(e)
