@@ -11,7 +11,7 @@ import cidcookie from "./cidcookie";
 export default async function counter() {
   try {
     let id: string;
-    if (cookies().has("counterID")&&cookies().get("counterID")!=="aaa") {
+    if (cookies().has("counterID")&&cookies().get("counterID").value!=="aaa") {
       id = cookies().get("counterID").value;
     } else {
       id = crypto.randomUUID();
