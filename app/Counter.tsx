@@ -11,13 +11,13 @@ import cidcookie from "./cidcookie";
 export default async function counter() {
   try {
     let id: string;
-    if (cookies().has("counterID")) {
+    if (cookies().has("counterID")&&cookies().get("counterID")!=="aaa") {
       id = cookies().get("counterID").value;
     } else {
       id = crypto.randomUUID();
       cidcookie(id);
     }
-    console.log(`id:+${id}`);
+    console.log(`id:${id}`);
     const idindex = await kv.lpos("users", id);
     console.log(`index:${idindex}`);
     if (!Number.isInteger(idindex)) {
