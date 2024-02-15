@@ -9,21 +9,23 @@ import headers from "next/headers";
 // errormessage.push("kv success");
 export default async function counter(request) {
   try {
-	
-    const ip: string = request.ip ?? request.headers.get('x-real-ip') ??Math.round(Math.random() * 100).toString();
+    const ip: string =
+      request.ip ??
+      request.headers.get("x-real-ip") ??
+      Math.round(Math.random() * 100).toString();
 
-    console.log('ip:'+ip);
+    console.log(`ip:+${ip}`);
     const idindex = await kv.lpos("users", ip);
-    console.log('index:'+idindex);
+    console.log(`index:${idindex}`);
     if (!Number.isInteger(idindex)) {
       await kv.lpush("users", ip);
       await kv.incr("count");
-	  console.log('incr')
+      console.log("incr");
     }
 
     const ret: React.JSX.Element[] = [];
     const getcount: string = await kv.get("count");
-    console.log('count:'+getcount);
+    console.log(`count:${getcount}`);
     let i = 0;
     for (i = 0; i < getcount.length; i++) {
       ret.push(<li className={style.number}>{getcount[i]}</li>);
@@ -34,8 +36,7 @@ export default async function counter(request) {
     console.log(ret);
     return <>{ret}</>;
   } catch (e) {
-    console.warn(e);
-    console.warn("at counter.tsx");
+    console.warn(`at counter.tsx\n\n${e}`);
     return (
       <>
         <li className={style.number}>x</li>
