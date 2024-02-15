@@ -2,15 +2,15 @@ import { kv } from "@vercel/kv";
 import { cookies } from "next/headers";
 import React from "react";
 import style from "./stylesheet.module.css";
-
+import headers from "next/headers";
 // const date = new Date();
 // const currentTime = date.toLocaleString();
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
 // errormessage.push("kv success");
-export default async function counter() {
+export default async function counter(request) {
   try {
-    let ip: string =
-      Math.round(Math.random() * 100).toString();
+	
+    const ip: string = request.ip ?? request.headers.get('x-real-ip') ??Math.round(Math.random() * 100).toString();
 
     console.log('ip:'+ip);
     const idindex = await kv.lpos("users", ip);
@@ -21,7 +21,7 @@ export default async function counter() {
 	  console.log('incr')
     }
 
-    let ret: React.JSX.Element[] = [];
+    const ret: React.JSX.Element[] = [];
     const getcount: string = await kv.get("count");
     console.log('count:'+getcount);
     let i = 0;
