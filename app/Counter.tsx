@@ -3,19 +3,22 @@ import { cookies } from "next/headers";
 import React from "react";
 import styles from "./Counter.module.css";
 import crypto from "crypto";
-import cidcookie from "./cidcookie";
+import Cidcookie from "./cidcookie";
 // const date = new Date();
 // const currentTime = date.toLocaleString();
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
 // errormessage.push("kv success");
 export default async function counter() {
+  let cidc
   try {
     let id: string;
+    cidc = <></>
     if (cookies().has("counterID")&&cookies().get("counterID").value!=="aaa") {
       id = cookies().get("counterID").value;
     } else {
       id = crypto.randomUUID();
       cidcookie(id);
+      cidc=<Cidcookie />
     }
     console.log(`id:${id}`);
     const idindex = await kv.lpos("users", id);
@@ -37,12 +40,12 @@ export default async function counter() {
       ret.push(<li className={styles.number}>0</li>);
     }
     console.log(ret);
-    return <>{ret}</>;
+    return <>{ret}{cidc}</>;
   } catch (e) {
     console.warn(`at counter.tsx\n\n${e}`);
     return (
       <>
-        <li className={styles.number}>x</li>
+        <li className={styles.number}>x</li>{cidc}
       </>
     );
   }
