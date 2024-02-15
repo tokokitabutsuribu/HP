@@ -1,7 +1,7 @@
 import { kv } from "@vercel/kv";
 import { cookies } from "next/headers";
 import React from "react";
-import style from "./Counter.module.css";
+import styles from "./Counter.module.css";
 import crypto from "crypto";
 import cidcookie from "./cidcookie";
 // const date = new Date();
@@ -31,18 +31,18 @@ export default async function counter() {
     console.log(`count:${getcount}`);
     let i = 0;
     for (i = 0; i < getcount.length; i++) {
-      ret.push(<li className={style.number}>{getcount[i]}</li>);
+      ret.push(<li className={styles.number}>{getcount[i]}</li>);
     }
     for (; i < 6; i++) {
-      ret.push(<li className={style.number}>0</li>);
+      ret.push(<li className={styles.number}>0</li>);
     }
     console.log(ret);
     return <>{ret}</>;
   } catch (e) {
-    console.log(`at counter.tsx\n\n${e}`);
+    console.warn(`at counter.tsx\n\n${e}`);
     return (
       <>
-        <li className={style.number}>x</li>
+        <li className={styles.number}>x</li>
       </>
     );
   }
