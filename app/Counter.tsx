@@ -1,7 +1,7 @@
 import { kv } from "@vercel/kv";
 import { cookies } from "next/headers";
 import React, { useEffect } from "react";
-import style from "./stylesheet.module.css";
+import style from "./Counter.module.css";
 import headers from "next/headers";
 import crypto from "crypto";
 // const date = new Date();

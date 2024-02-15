@@ -1,0 +1,52 @@
+.counterArea {
+	text-align: center;
+}
+
+.accessCount {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.accessCount li {
+	display: inline-block;
+	font-size: 16px;
+	font-family: Arial, sans-serif;
+}
+
+.num {
+	position: relative;
+	width: 15px;
+	font-size: 16px !important;
+	background: .000;
+	color: #fff;
+	border-right-width: 1px;
+	font-weight: 700;
+	border-color: .858585;
+	height: 20px;
+	text-align: center;
+	padding-top: 2px;
+}
+/* カウンター */
+.accessCount li:nth-last-child(2) {
+	border-right-width: 0px;
+}
+
+.num::before {
+	position: absolute;
+	display: block;
+	width: 14px;
+	height: 11px;
+	top: 0px;
+	content: "";
+	border-bottom-width: 1px;
+	border-color: black;
+}
+
+@media (max-width:380px) {
+
+	.count1,
+	.count2 {
+		display: block;
+	}
+}

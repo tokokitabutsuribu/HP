@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import style from './stylesheet.module.css'
+import style from './NotifyButton.module.css'
 
 export default function () {
   return (

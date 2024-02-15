@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useEffect } from "react";
-import style from "./stylesheet.module.css";
+import style from "./PwaToolBar.module.css";
 
 export default function () {
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function () {
   });
 
   return (
-    <div id="pwatoolbar" style={{ display: "none" }}>
+    <div className={style.pwatoolbar} style={{ display: "none" }}>
       <button
         type="button"
         onClick={() => {

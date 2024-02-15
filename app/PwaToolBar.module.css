@@ -1,0 +1,24 @@
+.pwatoolbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	background-color: .1cf8fd;
+	height: 32px;
+	align-items: center;
+	display: flex;
+	z-index: 3;
+}
+
+.pwatoolbar button {
+	width: 32px;
+	height: 32px;
+	border-radius: 9999px;
+	border-width: 0;
+	background-color: #fff0;
+	margin-left: 10px;
+}
+
+.pwatoolbar button:hover {
+	background-color: .0007;
+}
