@@ -1,9 +1,9 @@
 import { kv } from "@vercel/kv";
 import { cookies } from "next/headers";
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./Counter.module.css";
-import headers from "next/headers";
 import crypto from "crypto";
+import cidcookie from "./cidcookie";
 // const date = new Date();
 // const currentTime = date.toLocaleString();
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
@@ -14,10 +14,8 @@ export default async function counter() {
     if (cookies().has("counterID")) {
       id = cookies().get("counterID").value;
     } else {
-      id=      crypto.randomUUID();
-      useEffect(()=>{
-        document.cookie=`counterID=${id}`
-      },[])
+      id = crypto.randomUUID();
+      cidcookie(id);
     }
     console.log(`id:+${id}`);
     const idindex = await kv.lpos("users", id);
