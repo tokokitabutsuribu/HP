@@ -10,8 +10,6 @@ import style from "./stylesheet.module.css";
 export default async function counter() {
   try {
     let ip: string =
-      request.ip ??
-      request.headers.get("x-real-ip") ??
       Math.round(Math.random() * 100).toString();
 
     console.log('ip:'+ip);
