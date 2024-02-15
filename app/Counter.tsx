@@ -16,7 +16,7 @@ export default async function counter() {
     const idindex = await kv.lpos("users", ip);
     console.log('index:'+idindex);
     if (!Number.isInteger(idindex)) {
-      await kv.lpush("users", id);
+      await kv.lpush("users", ip);
       await kv.incr("count");
 	  console.log('incr')
     }
