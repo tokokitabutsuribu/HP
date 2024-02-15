@@ -4,8 +4,7 @@ import NotifyButton from "./NotifyButton";
 import PwaToolBar from "./PwaToolBar";
 import Counter from "./Counter";
 
-export default function page(request) {
-  console.log(request)
+export default function page() {
   return (
     <>
       <PwaToolBar />

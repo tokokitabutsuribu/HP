@@ -1,25 +1,29 @@
 import { kv } from "@vercel/kv";
 import { cookies } from "next/headers";
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./stylesheet.module.css";
 import headers from "next/headers";
+import crypto from "crypto";
 // const date = new Date();
 // const currentTime = date.toLocaleString();
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
 // errormessage.push("kv success");
-export default async function counter(request) {
+export default async function counter() {
   try {
-	console.log(request)
-    const ip: string =
-      request.ip ??
-      request.headers.get("x-real-ip") ??
-      Math.round(Math.random() * 100).toString();
-
-    console.log(`ip:+${ip}`);
-    const idindex = await kv.lpos("users", ip);
+    let id: string;
+    if (cookies().has("counterID")) {
+      id = cookies().get("counterID").value;
+    } else {
+      id=      crypto.randomUUID();
+      useEffect(()=>{
+        document.cookie=`counterID=${id}`
+      },[])
+    }
+    console.log(`id:+${id}`);
+    const idindex = await kv.lpos("users", id);
     console.log(`index:${idindex}`);
     if (!Number.isInteger(idindex)) {
-      await kv.lpush("users", ip);
+      await kv.lpush("users", id);
       await kv.incr("count");
       console.log("incr");
     }
