@@ -35,7 +35,7 @@ export default function page() {
               >
                 お知らせ
               </a>
-              <Suspense fallback={<>あなたは<span style={{backgroundColor:"black",color:"white;",width:"96px",textAlign:"center",margin:"0px",height:"20px",fontSize:"16px",paddingTop:"2px"}}>loading</span>人目の来訪者です</>}>
+              <Suspense fallback={<span>あなたは<span style={{backgroundColor:"black",color:"white;",width:"96px",textAlign:"center",margin:"0px",height:"20px",fontSize:"16px",paddingTop:"2px"}}>loading</span>人目の来訪者です</span>}>
                 <Counter />
               </Suspense>
               <a
