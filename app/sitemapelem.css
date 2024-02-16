@@ -1,0 +1,14 @@
+.li{
+    width:100%;
+    list-style: none;
+}
+
+.a{
+    width:100%;
+}
+
+.div{
+    border: solid 1px black;
+	padding: 10px 5px;
+    width:100%;
+}

@@ -3,6 +3,7 @@ import styles from "./stylesheet.module.css";
 import NotifyButton from "./NotifyButton";
 import PwaToolBar from "./PwaToolBar";
 import Counter from "./Counter";
+import SiteMapElem from "./sitemapelem";
 
 export default function page() {
   return (
@@ -137,36 +138,12 @@ export default function page() {
         </div>
         <div className={styles.content2} style={{ width: "400px" }}>
           <div className={styles.sitemap}>
-            <table>
-              <tr>
-                <td>
-                  <a href="https://tkbutsuribu.vercel.app/about.html">概要</a>
-                </td>
-              </tr>
-              <br />
-              <tr>
-                <td>
-                  <a href="https://tkbutsuribu.vercel.app/articles/index.html">
-                    記事一覧
-                  </a>
-                </td>
-              </tr>
-              <br />
-              <tr>
-                <td>
-                  <a href="https://tkbutsuribu.vercel.app/games/index.html">
-                    ゲームスタジオ
-                  </a>
-                </td>
-              </tr>
-              <br />
-              <tr>
-                <td>
-                  <a href="#.">掲示板(未完成)</a>
-                </td>
-              </tr>
-              <br />
-            </table>
+            <ul>
+              <SiteMapElem url="/about.html" name="概要" />
+              <SiteMapElem url="/articles/" name="記事一覧" />
+              <SiteMapElem url="/games/" name="ゲームスタジオ" />
+              <SiteMapElem url="#." name="掲示板(未完成)" />
+            </ul>
           </div>
           <NotifyButton />
         </div>
