@@ -7,7 +7,7 @@ export default async function Header() {
 					<span className={styles.toplink}>
 						<a href="https://tkbutsuribu.vercel.app/">
 							<img className={styles.topimg} src="/icon-48x48.png" width="48" height="48" alt="logo" />
-							<span>所北物理部</span>
+							<span>所沢北高校物理部</span>
 						</a>
 					</span>
 				</nobr>
