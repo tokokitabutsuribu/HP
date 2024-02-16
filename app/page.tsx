@@ -8,6 +8,7 @@ import SiteMapElem from "./sitemapelem";
 export default function page() {
   return (
     <>
+    <link rel="preload" as="image" href="/images/iconmain.svg" />
       <PwaToolBar />
       <div className={styles.wrapper}>
         <div className={styles.content1}>
