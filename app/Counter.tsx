@@ -9,10 +9,9 @@ import Cidcookie from "./cidcookie";
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
 // errormessage.push("kv success");
 export default async function counter() {
-  let cidc;
+  let cidc = <></>;
   try {
     let id: string;
-    cidc = <></>;
     if (
       cookies().has("counterID") &&
       cookies().get("counterID").value !== "aaa"
