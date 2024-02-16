@@ -32,9 +32,10 @@ export default async function counter() {
 
     const ret: React.JSX.Element[] = [];
     const getcount: string = await kv.get("count");
+    getcount = String(getcount);
     console.log(`count:${getcount}`);
     let i = 0;
-    console.log(`length:${getcount.length}`)
+    console.log(`length:${getcount.length}`);
     for (i = 0; i < 6 - getcount.length; i++) {
       ret.push(<li className={styles.num}>0</li>);
     }
