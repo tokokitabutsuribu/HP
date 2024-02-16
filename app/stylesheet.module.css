@@ -117,11 +117,16 @@
 	width: 100%;
 	border: solid 2px black;
 	border-collapse: collapse;
+	display: table;
+}
+.sitemap table tr{
+	display:table-row
 }
 
 .sitemap table tr td {
 	display: table-cell;
 	width: 100%;
+	color:red;
 	border: solid 1px black;
 	padding: 10px 5px;
 }
