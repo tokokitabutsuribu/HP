@@ -31,8 +31,7 @@ export default async function counter() {
     }
 
     const ret: React.JSX.Element[] = [];
-    const getcount: string = await kv.get("count");
-    getcount = String(getcount);
+    const getcount: string = String(await kv.get("count"));
     console.log(`count:${getcount}`);
     let i = 0;
     console.log(`length:${getcount.length}`);
