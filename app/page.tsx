@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import styles from "./stylesheet.module.css";
 import NotifyButton from "./NotifyButton";
 import PwaToolBar from "./PwaToolBar";
@@ -35,7 +35,9 @@ export default function page() {
               >
                 お知らせ
               </a>
-              <Counter />
+              <Suspense fallback={<span style={{backgroundColor:"black",color:"white;",width:"96px",textAlign:"center"}}>loading</span>}>
+                <Counter />
+              </Suspense>
               <a
                 href="/index.html?noeffect"
                 className={styles.noeffect}
