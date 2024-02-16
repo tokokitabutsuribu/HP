@@ -34,18 +34,7 @@ export default function page() {
               >
                 お知らせ
               </a>
-              <ul
-                className={`${styles.accessCount} ${styles.accessCounter}`}
-                style={{ fontSize: "0px" }}
-              >
-                <li style={{ marginRight: "5px" }} className={styles.count1}>
-                  あなたは
-                </li>
-                <Counter />
-                <li style={{ marginLeft: "5px" }} className={styles.count2}>
-                  人目の来訪者です
-                </li>
-              </ul>
+              <Counter />
               <a
                 href="/index.html?noeffect"
                 className={styles.noeffect}
@@ -64,10 +53,16 @@ export default function page() {
             </div>
             <div className={styles.title}>
               <h1>
-                <span style={{ whiteSpace: "nowrap" }} className={styles.title1}>
+                <span
+                  style={{ whiteSpace: "nowrap" }}
+                  className={styles.title1}
+                >
                   所沢北高校物理部のサイトへ
                 </span>
-                <span style={{ whiteSpace: "nowrap" }} className={styles.title2}>
+                <span
+                  style={{ whiteSpace: "nowrap" }}
+                  className={styles.title2}
+                >
                   ようこそ！
                 </span>
               </h1>

@@ -9,19 +9,21 @@ import Cidcookie from "./cidcookie";
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
 // errormessage.push("kv success");
 export default async function counter() {
-  let cidc
+  let cidc;
   try {
     let id: string;
-    cidc = <></>
-    if (cookies().has("counterID")&&cookies().get("counterID").value!=="aaa") {
+    cidc = <></>;
+    if (
+      cookies().has("counterID") &&
+      cookies().get("counterID").value !== "aaa"
+    ) {
       id = cookies().get("counterID").value;
     } else {
       id = crypto.randomUUID();
-      cidc=<Cidcookie cid={id} />
+      cidc = <Cidcookie cid={id} />;
     }
     console.log(`id:${id}`);
     const idindex = await kv.lpos("users", id);
-    console.log(`index:${idindex}`);
     if (!Number.isInteger(idindex)) {
       await kv.lpush("users", id);
       await kv.incr("count");
@@ -33,18 +35,33 @@ export default async function counter() {
     console.log(`count:${getcount}`);
     let i = 0;
     for (i = 0; i < getcount.length; i++) {
-      ret.push(<li className={styles.number}>{getcount[i]}</li>);
+      ret.push(<li className={styles.num}>{getcount[i]}</li>);
     }
     for (; i < 6; i++) {
-      ret.push(<li className={styles.number}>0</li>);
+      ret.push(<li className={styles.num}>0</li>);
     }
     console.log(ret);
-    return <>{ret}{cidc}</>;
+    return (
+      <ul
+        className={styles.accessCount}
+        style={{ fontSize: "0px" }}
+      >
+        <li style={{ marginRight: "5px" }} className={styles.count1}>
+          あなたは
+        </li>
+        {ret}
+        {cidc}
+        <li style={{ marginLeft: "5px" }} className={styles.count2}>
+          人目の来訪者です
+        </li>
+      </ul>
+    );
   } catch (e) {
     console.warn(`at counter.tsx\n\n${e}`);
     return (
       <>
-        <li className={styles.number}>x</li>{cidc}
+        <li className={styles.num}>x</li>
+        {cidc}
       </>
     );
   }
