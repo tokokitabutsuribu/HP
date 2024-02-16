@@ -34,27 +34,27 @@ export default async function counter() {
     const getcount: string = await kv.get("count");
     console.log(`count:${getcount}`);
     let i = 0;
+    console.log(`length:${getcount.length}`)
+    for (i = 0; i < 6 - getcount.length; i++) {
+      ret.push(<li className={styles.num}>0</li>);
+    }
     for (i = 0; i < getcount.length; i++) {
       ret.push(<li className={styles.num}>{getcount[i]}</li>);
     }
-    for (; i < 6; i++) {
-      ret.push(<li className={styles.num}>0</li>);
-    }
     console.log(ret);
     return (
-      <ul
-        className={styles.accessCount}
-        style={{ fontSize: "0px" }}
-      >
-        <li style={{ marginRight: "5px" }} className={styles.count1}>
-          あなたは
-        </li>
-        {ret}
+      <>
+        <ul className={styles.accessCount} style={{ fontSize: "0px" }}>
+          <li style={{ marginRight: "5px" }} className={styles.count1}>
+            あなたは
+          </li>
+          {ret}
+          <li style={{ marginLeft: "5px" }} className={styles.count2}>
+            人目の来訪者です
+          </li>
+        </ul>
         {cidc}
-        <li style={{ marginLeft: "5px" }} className={styles.count2}>
-          人目の来訪者です
-        </li>
-      </ul>
+      </>
     );
   } catch (e) {
     console.warn(`at counter.tsx\n\n${e}`);
