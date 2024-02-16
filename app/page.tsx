@@ -4,11 +4,14 @@ import NotifyButton from "./NotifyButton";
 import PwaToolBar from "./PwaToolBar";
 import Counter from "./Counter";
 import SiteMapElem from "./sitemapelem";
+import Head from "next/head";
 
 export default function page() {
   return (
     <>
-    <link rel="preload" as="image" href="/images/iconmain.svg" />
+      <Head>
+        <link rel="preload" as="image" href="/images/iconmain.svg" />
+      </Head>
       <PwaToolBar />
       <div className={styles.wrapper}>
         <div className={styles.content1}>
@@ -36,7 +39,28 @@ export default function page() {
               >
                 お知らせ
               </a>
-              <Suspense fallback={<span>あなたは<span style={{backgroundColor:"black",color:"white;",width:"96px",textAlign:"center",margin:"0px",height:"20px",fontSize:"16px",paddingTop:"2px"}}>loading</span>人目の来訪者です</span>}>
+              <Suspense
+                fallback={
+                  <span>
+                    あなたは
+                    <span
+                      style={{
+                        backgroundColor: "black",
+                        color: "white;",
+                        width: "96px",
+                        textAlign: "center",
+                        margin: "0px",
+                        height: "20px",
+                        fontSize: "16px",
+                        paddingTop: "2px",
+                      }}
+                    >
+                      loading
+                    </span>
+                    人目の来訪者です
+                  </span>
+                }
+              >
                 <Counter />
               </Suspense>
               <a
