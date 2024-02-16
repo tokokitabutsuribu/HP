@@ -17,7 +17,7 @@ export default function () {
           />
           インストールする
         </label>
-        <input type="checkbox" id="pop-up" />
+        <input type="checkbox" className={style.popUp} id="pop-up" />
         <div className={style.overlay}>
           <label className={style.close2} htmlFor="pop-up" />
           <div className={style.window}>
@@ -92,6 +92,7 @@ export default function () {
         />
         通知を許可する
       </button>
+      <script src="/pwa.js" />
     </div>
   );
 }

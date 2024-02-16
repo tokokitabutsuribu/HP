@@ -10,7 +10,7 @@ export default function () {
       document.getElementById("pwatoolbar").style.display = "block";
       document.getElementById("wrapper").style.marginTop = "32px";
     }
-  });
+  },[]);
 
   return (
     <div className={style.pwatoolbar} style={{ display: "none" }}>
