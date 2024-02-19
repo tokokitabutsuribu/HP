@@ -1,5 +1,7 @@
 //<script src="/global.js" id="globaljs"></script>
 
+//meticulous
+//本番環境では実行しない
 if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
     try {
         let script = document.createElement('script');
@@ -12,6 +14,17 @@ if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
     }
 }
 
+//Google tag manager
+(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-TVKWHB4T');
+
+//ヘッダーフッターツールバー
 window.addEventListener('DOMContentLoaded',() => {
     try{
     document.getElementById('header').innerHTML = `<div id="wrapper" style="height: 88px">
@@ -40,6 +53,7 @@ window.addEventListener('DOMContentLoaded',() => {
 </nav>
 </div>
 <style>
+<noscript>JavaScript切らないで</noscript>
 #pwatoolbar {
     background-color: #1cf8fd;
     height: 32px;

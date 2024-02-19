@@ -50,7 +50,7 @@ async function article_update(request) {
     },
     webpush: {
       fcm_options: {
-        link: `https://tkbutsuribu.vercel.app/articles/article.html?id=${request.body.id}`
+        link: `https://tkbutsuribu.vercel.app/articles/${request.body.id}`
       }
     }
   };
