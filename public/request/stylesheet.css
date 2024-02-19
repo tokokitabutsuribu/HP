@@ -1,0 +1,14 @@
+.music {
+	margin: 5px;
+}
+
+button {
+	display: block;
+}
+
+.remove{
+	display: inline;
+	border-radius: 9999px;
+	background-color: red;
+	border: 0;
+}

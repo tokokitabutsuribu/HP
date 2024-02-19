@@ -1,20 +1,20 @@
 //<script src="/global.js" id="globaljs"></script>
 
 if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
-    try {
-        const script = document.createElement('script');
-        script.dataset.projectId = 'cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP';
-        script.dataset.isProductionEnvironment = false;
-        script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
-        document.getElementById('globaljs').after(script);
-    } catch (e) {
-        console.log(e);
-    }
+	try {
+		const script = document.createElement("script");
+		script.dataset.projectId = "cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP";
+		script.dataset.isProductionEnvironment = false;
+		script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
+		document.getElementById("globaljs").after(script);
+	} catch (e) {
+		console.log(e);
+	}
 }
 
-window.addEventListener('DOMContentLoaded',() => {
-    try{
-    document.getElementById('header').innerHTML = `<div id="wrapper" style="height: 88px">
+window.addEventListener("DOMContentLoaded", () => {
+	try {
+		document.getElementById("header").innerHTML = `<div id="wrapper" style="height: 88px">
 <nav id="global-navi">
     <div id="pwatoolbar" style="display: none;">
         <button onclick="history.back()"><img src="/images/left.svg" width="16px"></button>
@@ -135,7 +135,7 @@ body {
     font-family: monospace, sans-serif !important;
 }
 </style>`;
-    document.getElementById('footer').innerHTML = `<footer>
+		document.getElementById("footer").innerHTML = `<footer>
 <div class="links">
     <div class="twitter">
         <a style="text-decoration: none;"
@@ -263,11 +263,11 @@ body {
     column-gap: 2px;
     margin-top: 3px;
 }
-</style>`
-    if (window.matchMedia("(display-mode: standalone)").matches) {
-        document.getElementById('pwatoolbar').style.display = 'block';
-    }
-    }catch(e){
-        console.log(e);
-    }
-})
+</style>`;
+		if (window.matchMedia("(display-mode: standalone)").matches) {
+			document.getElementById("pwatoolbar").style.display = "block";
+		}
+	} catch (e) {
+		console.log(e);
+	}
+});
