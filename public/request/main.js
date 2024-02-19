@@ -15,7 +15,7 @@ try {
 
 	document.getElementById('submit').addEventListener('click', () => {
 		try {
-			const apiurl = 'https://devhook.app/api/endpoint/1KxPOyuuekVMybXy0EJASIyySjThM7Ug/hook'
+			const apiurl = '/api/request'//'https://devhook.app/api/endpoint/1KxPOyuuekVMybXy0EJASIyySjThM7Ug/hook'
 			const musiclist = Array.from(document.getElementsByClassName('music')).map((musicelem) => {
 				const ret = {}
 				Array.from(musicelem.children).map((childelem) => {
