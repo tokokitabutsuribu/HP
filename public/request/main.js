@@ -32,12 +32,13 @@ try {
 				})
 				return ret;
 			})
+			if(iserror){
+				window.alert('未記入の項目があります')
+				return;
+			}
 			requestelem.style.display = 'none'
 			sendingelem.style.display = 'block'
 			let rawdata;
-			if(iserror){
-				return;
-			}
 			fetch(apiurl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ musiclist: musiclist }) })
 			.then((data)=>{rawdata=data;return data.json()})	
 			.then((data) => {
