@@ -46,7 +46,7 @@ try {
 					} else {
 						sendingelem.style.display = 'none'
 						sendedelem.style.display = 'block'
-						window.alert(`${data.status}:${data.statusText}\n${(await data.json()).message}\n${(await data.json()).body?.message}`)
+						//window.alert(`${data.status}:${data.statusText}\n${(await data.json()).message}\n${(await data.json()).body?.message}`)
 					}
 				})
 				.catch((e) => {
