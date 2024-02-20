@@ -13,7 +13,7 @@ try {
 		document.getElementById('musiclist').appendChild(music);
 	};
 	const requestelem = document.getElementById('request')
-	const sendingelem = document.getElementById('sending')
+	const sendingelem = document.getElementById('loading-wrapper')
 	const sendedelem = document.getElementById('sended')
 	const failedelem = document.getElementById('failed')
 	const errorpopup = document.getElementById('errorpopup')
