@@ -39,9 +39,17 @@
 			<input type="button" id="submit" value="送信" />
 		</form>
 	</div>
-	<div id="sending" style="display: none;">sending</div>
+
+	<div id="loading-wrapper">
+		<div id="loading-text">SENDING</div>
+		<div id="loading-content"></div>
+	</div>
+
 	<div id="sended" style="display: none;">sended</div>
 	<div id="failed" style="display: none;">failed</div>
+	<button id="errorpopup" style="display: none;" onclick="document.getElementById('errorpopup').style.display='none'">
+		<div>空欄の項目があります</div>
+	</button>
 	<div class="main"></div>
 	<div id="footer"></div>
 	<script src="/request/main.js"></script>

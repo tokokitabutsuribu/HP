@@ -36,7 +36,6 @@ try {
 				window.alert('未記入の項目があります')
 				return;
 			}
-			requestelem.style.display = 'none'
 			sendingelem.style.display = 'block'
 			let rawdata;
 			fetch(apiurl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ musiclist: musiclist }) })
@@ -49,6 +48,7 @@ try {
 						<label>作曲者<input type="text" name="artistname" placeholder="例:滝廉太郎" required /></label>
 					</div>
 				</div>`
+						requestelem.style.display='none'
 						sendingelem.style.display = 'none'
 						sendedelem.style.display = 'block'
 					} else {
