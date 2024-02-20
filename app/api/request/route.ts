@@ -7,8 +7,8 @@ export async function POST(rawreq: NextRequest) {
     const req = await rawreq.json()
     for (const music of req.musiclist) {
         if (!(music.musicname && music.artistname)) {
-            console.log(`error:${music}`)
-            return NextResponse.json({ message: 'ERROR' }, { status: 400, statusText: 'bad request' })
+            console.log(`error:${JSON.stringify(music)}`)
+            return NextResponse.json({ message: 'request has null' }, { status: 400, statusText: 'bad request' })
         }
     }
     let iserror = false;

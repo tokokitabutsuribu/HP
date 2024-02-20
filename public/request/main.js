@@ -12,11 +12,11 @@ try {
 
 		document.getElementById('musiclist').appendChild(music);
 	};
-	const requestelem=document.getElementById('request')
-	const sendingelem=document.getElementById('sending')
-	const sendedelem=document.getElementById('sended')
-	const failedelem=document.getElementById('failed')
-	
+	const requestelem = document.getElementById('request')
+	const sendingelem = document.getElementById('sending')
+	const sendedelem = document.getElementById('sended')
+	const failedelem = document.getElementById('failed')
+
 	document.getElementById('submit').addEventListener('click', () => {
 		try {
 			const apiurl = '/api/request'//'https://devhook.app/api/endpoint/1KxPOyuuekVMybXy0EJASIyySjThM7Ug/hook'
@@ -28,22 +28,28 @@ try {
 				})
 				return ret;
 			})
-			requestelem.style.display='none'
-			sendingelem.style.display='block'
+			requestelem.style.display = 'none'
+			sendingelem.style.display = 'block'
 			fetch(apiurl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ musiclist: musiclist }) })
 				.then((data) => {
-					document.getElementById('form').innerHTML = `<div id="musiclist">
+					if (data.ok) {
+						document.getElementById('form').innerHTML = `<div id="musiclist">
 					<div class="music">
 						<lavel>曲名<input type="text" name="musicname" placeholder="例:荒城の月" /></lavel>
 						<label>作曲者<input type="text" name="artistname" placeholder="例:滝廉太郎" /></label>
 					</div>
 				</div>`
-				sendingelem.style.display='none'
-				sendedelem.style.display='block'
+						sendingelem.style.display = 'none'
+						sendedelem.style.display = 'block'
+					} else {
+						sendingelem.style.display = 'none'
+						sendedelem.style.display = 'block'
+						window.alert(`${data.status}:${data.statusText}\n${(await data.json()).message}\n${(await data.json()).body?.message}`)
+					}
 				})
 				.catch((e) => {
-					sendingelem.style.display='none'
-					sendedelem.style.display='block'
+					sendingelem.style.display = 'none'
+					sendedelem.style.display = 'block'
 					window.alert(e)
 				})
 		} catch (e) {
