@@ -6,7 +6,7 @@ try {
 		music.classList.add('music')
 		num++;
 		music.id = num;
-		music.innerHTML = `<lavel>曲名<input type="text" name="musicname" placeholder="例:荒城の月" required /></lavel>
+		music.innerHTML = `<label>曲名<input type="text" name="musicname" placeholder="例:荒城の月" required /></label>
     <label>作曲者<input type="text" name="artistname" placeholder="例:滝廉太郎" required /></label>
 	<button class="remove" type="button" onclick="document.getElementById('${num}').remove()">-</button>`;
 
@@ -44,7 +44,7 @@ try {
 					if (rawdata.ok) {
 						document.getElementById('form').innerHTML = `<div id="musiclist">
 					<div class="music">
-						<lavel>曲名<input type="text" name="musicname" placeholder="例:荒城の月" required /></lavel>
+						<label>曲名<input type="text" name="musicname" placeholder="例:荒城の月" required /></label>
 						<label>作曲者<input type="text" name="artistname" placeholder="例:滝廉太郎" required /></label>
 					</div>
 				</div>`

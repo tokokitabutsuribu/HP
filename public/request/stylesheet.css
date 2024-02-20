@@ -23,7 +23,7 @@ input:invalid {
 	position: absolute;
 }
 
-lavel:has(input:invalid)::after {
+label:has(input:invalid)::after {
 	content: "必須項目です";
 	color: red;
 	position: relative;
