@@ -5,9 +5,9 @@ const supabase = createClient(process.env.SUPABASE_URL ?? '', process.env.SUPABA
 
 export async function POST(rawreq: NextRequest) {
     const req = await rawreq.json()
-    console.log(req)
     for (const music of req.musiclist) {
         if (!(music.musicname && music.artistname)) {
+            console.log(`error:${music}`)
             return NextResponse.json({ message: 'ERROR' }, { status: 400, statusText: 'bad request' })
         }
     }
@@ -15,7 +15,7 @@ export async function POST(rawreq: NextRequest) {
     await supabase
         .from('musics')
         .insert(req.musiclist)
-        .then((data) => { console.log(data) },
+        .then((data) => {},
             (e) => {
                 console.error(e);
                 iserror = true;
