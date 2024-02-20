@@ -17,17 +17,24 @@ button {
 	background-color: #00000088;
 }
 
-input:invalid {
-	background-color: #fff;
-	border-color: #f00;
-	position: absolute;
+input {
+	width: 100px;
+}
+
+label {
+	position: relative;
 }
 
 label:has(input:invalid)::after {
 	content: "必須項目です";
 	color: red;
-	position: relative;
-	bottom: calc(1em - 1px);
-	left: 1px;
+	position: absolute;
+	top: 0px;
+	right: 50px;
 	font-size: 10px;
+}
+
+input:invalid {
+	background-color: #fff;
+	border-color: #f00;
 }
