@@ -16,6 +16,7 @@ try {
 	const sendingelem = document.getElementById('sending')
 	const sendedelem = document.getElementById('sended')
 	const failedelem = document.getElementById('failed')
+	const errorpopup = document.getElementById('errorpopup')
 
 	document.getElementById('submit').addEventListener('click', () => {
 		try {
@@ -33,7 +34,7 @@ try {
 				return ret;
 			})
 			if(iserror){
-				window.alert('未記入の項目があります')
+				errorpopup.style.display='flex'
 				return;
 			}
 			sendingelem.style.display = 'block'
