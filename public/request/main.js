@@ -30,11 +30,13 @@ try {
 			})
 			requestelem.style.display = 'none'
 			sendingelem.style.display = 'block'
+			let rawdata;
 			fetch(apiurl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ musiclist: musiclist }) })
-			.then((data)=>data.json())	
+			.then((data)=>{rawdata=data;return data.json()})	
 			.then((data) => {
 				window.alert(JSON.stringify(data))
-					if (data.ok) {
+				window.alert(rawdata.ok)
+					if (rawdata.ok) {
 						document.getElementById('form').innerHTML = `<div id="musiclist">
 					<div class="music">
 						<lavel>曲名<input type="text" name="musicname" placeholder="例:荒城の月" /></lavel>
@@ -46,7 +48,7 @@ try {
 					} else {
 						sendingelem.style.display = 'none'
 						sendedelem.style.display = 'block'
-						//window.alert(`${data.status}:${data.statusText}\n${(await data.json()).message}\n${(await data.json()).body?.message}`)
+						window.alert(`${rawdata.status}:${rawdata.statusText}\n${data.message}`)
 					}
 				})
 				.catch((e) => {
