@@ -31,7 +31,9 @@ try {
 			requestelem.style.display = 'none'
 			sendingelem.style.display = 'block'
 			fetch(apiurl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ musiclist: musiclist }) })
-				.then((data) => {
+			.then((data)=>data.json())	
+			.then((data) => {
+				window.alert(JSON.stringify(data))
 					if (data.ok) {
 						document.getElementById('form').innerHTML = `<div id="musiclist">
 					<div class="music">
