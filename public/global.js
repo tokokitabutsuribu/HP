@@ -70,7 +70,7 @@ window.addEventListener("DOMContentLoaded", () => {
     width: 100%;
     align-items: flex-end;
     flex-wrap: wrap;
-    z-index: 2147483647
+    z-index: 1000;
 }
 
 #wrapper nav ul li {

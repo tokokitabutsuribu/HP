@@ -1,9 +1,60 @@
+html {
+	overflow: auto;
+}
+body {
+	min-width: 350px;
+}
+.main{
+	padding-left: 10px;
+}
+
 .music {
 	margin: 5px;
 }
 
+label, button {
+	font-size: 18px;
+}
+
 button {
 	display: block;
+}
+
+#add-wrapper {
+	display: flex;
+	position: relative;
+	flex-direction: column	;
+	justify-content: center;
+	height: 16px;
+	align-items: center;
+	margin:25px 0px;
+}
+
+#add {
+	display: flex;
+	width: 150px;
+	background: none;
+	border: none;
+	align-items: center;
+	justify-content: center;
+}
+#add div{
+	font-size: 45px;
+	background-color: white;
+	border-radius: 9999px;
+	border-style: solid;
+	border-width: 1px;
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+}
+#add-wrapper hr {
+	position: absolute;
+	width: 95vw;
+	top: 0px;
+	left: 0px;
+	color: black;
+	z-index: -1;
 }
 
 .remove {
@@ -25,7 +76,12 @@ label {
 	position: relative;
 }
 
-label:has(input:invalid)::after {
+label span::after{
+	content: "*";
+	color: red;
+}
+
+label:has(input:user-invalid)::after {
 	content: "必須項目です";
 	color: red;
 	position: absolute;
@@ -34,9 +90,12 @@ label:has(input:invalid)::after {
 	font-size: 10px;
 }
 
-input:invalid {
+input:user-invalid:not(:focus) {
 	background-color: #fff;
 	border-color: #f00;
+	border-style: solid;
+	border-width: 1px;
+	outline-color: #f00;
 }
 
 #loading-wrapper {
@@ -126,7 +185,7 @@ input:invalid {
 	-o-animation: loader 2s linear infinite;
 }
 
-@-webkit-keyframes loaders {
+@-webkit-keyframes loader {
 	0% {
 		-webkit-transform: rotate(0deg);
 		-ms-transform: rotate(0deg);
@@ -161,6 +220,7 @@ input:invalid {
 #errorpopup {
 	display: flex;
 	position: fixed;
+	z-index: 9999;
 	background-color: #0008;
 	top: 0px;
 	left: 0px;
