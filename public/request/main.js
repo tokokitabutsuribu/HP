@@ -6,9 +6,9 @@ try {
 		music.classList.add('music');
 		num++;
 		music.id = num;
-		music.innerHTML = `<label><span>曲名</span><input type="text" name="musicname" placeholder=" " required /></label>
-    <label><span>作曲者</span><input type="text" name="artistname" placeholder=" " required /></label>
-	<button class="remove" type="button" onclick="document.getElementById('${num}').remove()">-</button>`;
+		music.innerHTML = `<label><span>曲名</span><input type="text" name="musicname" placeholder="必須項目です" required /></label>
+    <label><span>作曲者</span><input type="text" name="artistname" placeholder="必須項目です" required /></label>
+	<button class="remove" type="button" onclick="document.getElementById('${num}').remove()"><img src="./remove.svg" /></button>`;
 
 		document.getElementById('musiclist').appendChild(music);
 	};
@@ -34,7 +34,8 @@ try {
 				return ret;
 			});
 			if (iserror) {
-				errorpopup.style.display = 'flex';
+				errorpopup.style.visibility = 'visible';
+				errorpopup.style.opacity = 1;
 				return;
 			}
 			sendingelem.style.display = 'block';
@@ -45,19 +46,19 @@ try {
 					if (rawdata.ok) {
 						document.getElementById('musiclist').innerHTML = `
 					<div class="music">
-						<label><span>曲名</span><input type="text" name="musicname" placeholder=" " required /></label>
-						<label><span>作曲者</span><input type="text" name="artistname" placeholder=" " required /></label>
+						<label><span>曲名</span><input type="text" name="musicname" placeholder="必須項目です" required /></label>
+						<label><span>作曲者</span><input type="text" name="artistname" placeholder="必須項目です" required /></label>
 					</div>`;
 						requestelem.style.display = 'none';
 						sendingelem.style.display = 'none';
 						sendedelem.style.display = 'block';
 						let jump = 10;
-						const jumpmessage= document.getElementById('jumpmessage')
+						const jumpmessage = document.getElementById('jumpmessage');
 						jumpTopTimeoutId = setInterval(() => {
 							jump--;
-							jumpmessage.innerHTML=`送信しました。${jump}秒後に自動的に<a href="/">トップページ</a>に遷移します。`
+							jumpmessage.innerHTML = `送信しました。${jump}秒後に自動的に<a href="/">トップページ</a>に遷移します。`;
 							if (jump === 0) {
-								jumpmessage.innerText='遷移しています……'
+								jumpmessage.innerText = '遷移しています……';
 								location.href = "/";
 							}
 						}, 1000);

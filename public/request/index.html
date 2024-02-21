@@ -39,14 +39,14 @@
 	<div class="main">
 		<div id="title">
 			<h1>曲リクエストフォーム</h1>
-			<p>物理部では2024年度の文化祭にてリズムゲームを制作・展示します。人気の曲も収録したいので、一部収録曲をリクエストによって決定します。著作権に関しては<a href="https://elaws.e-gov.go.jp/document?lawid=345AC0000000048#Mp-At_38">著作権法第三十八条</a>より問題ないので自由にリクエストしてください。<br>※全ての曲を収録することは不可能です。ご了承ください。また、自作曲等公開されていない曲を収録してほしい方は直接お問い合わせください。</p>
+			<p>物理部では2024年度の文化祭にてリズムゲームを制作・展示します。人気の曲も収録したいので、一部収録曲をリクエストによって決定します。著作権に関しては<a href="https://elaws.e-gov.go.jp/document?lawid=345AC0000000048#Mp-At_38">著作権法第三十八条</a>より問題ないので自由にリクエストしてください。<br>※全ての曲を収録することは不可能です。ご了承ください。また、自作曲等公開されていない曲も大歓迎です。直接お問い合わせください。</p>
 		</div>
 		<div id="request">
 			<form id="form" autocomplete="off">
 				<div id="musiclist">
 					<div class="music">
-						<label><span>曲名</span><input type="text" name="musicname" placeholder=" " required /></label>
-						<label><span>作曲者</span><input type="text" name="artistname" placeholder=" " required /></label>
+						<label><span>曲名</span><input type="text" name="musicname" placeholder="必須項目です" required /></label>
+						<label><span>作曲者</span><input type="text" name="artistname" placeholder="必須項目です" required /></label>
 					</div>
 				</div>
 				<div id="add-wrapper">
@@ -67,8 +67,8 @@
 		<div id="sended" style="display: none;"><span id="jumpmessage">送信しました。10秒後に自動的に<a
 					href="/">トップページ</a>に遷移します。</span><button type="button" id="reset">もう一度リクエストを書く</button></div>
 		<div id="failed" style="display: none;">failed</div>
-		<button id="errorpopup" style="display: none;"
-			onclick="document.getElementById('errorpopup').style.display='none'">
+		<button id="errorpopup" style="visibility:hidden;opacity:0;"
+			onclick="const e = document.getElementById('errorpopup');e.style.visibility='hidden';e.style.opacity=0;">
 			<div>空欄の項目があります</div>
 		</button>
 	</div>
