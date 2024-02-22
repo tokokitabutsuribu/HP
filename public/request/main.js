@@ -29,7 +29,7 @@ try {
 					if (!childelem.children[1].value) {
 						iserror = true;
 					}
-					ret[childelem.children[1].getAttribute('name')] = childelem.children[0].value;
+					ret[childelem.children[1].getAttribute('name')] = childelem.children[1].value;
 				});
 				return ret;
 			});
