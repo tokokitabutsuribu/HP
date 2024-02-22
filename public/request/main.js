@@ -53,9 +53,10 @@ try {
 						requestelem.style.display = 'none';
 						sendingelem.style.display = 'none';
 						descrelem.style.display = 'none';
-						sendedelem.style.display = 'block';
-						let jump = 10;
+						let jump = 3;
 						const jumpmessage = document.getElementById('jumpmessage');
+						jumpmessage.innerHTML = `送信しました。${jump}秒後に自動的に<a href="/">トップページ</a>に遷移します。`;
+						sendedelem.style.display = 'block';
 						jumpTopTimeoutId = setInterval(() => {
 							jump--;
 							jumpmessage.innerHTML = `送信しました。${jump}秒後に自動的に<a href="/">トップページ</a>に遷移します。`;
@@ -87,6 +88,7 @@ try {
 		clearInterval(jumpTopTimeoutId);
 		sendedelem.style.display = 'none';
 		requestelem.style.display = 'block';
+		descrelem.style.display = 'block';
 	});
 } catch (e) {
 	window.alert(e);
