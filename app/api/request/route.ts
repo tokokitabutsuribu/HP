@@ -7,8 +7,12 @@ export async function POST(rawreq: NextRequest) {
     const req = await rawreq.json()
     for (const music of req.musiclist) {
         if (!(music.musicname && music.artistname)) {
-            console.log(`error:${JSON.stringify(music)}`)
+            console.log(`error:null\n${JSON.stringify(music)}`)
             return NextResponse.json({ message: 'request has null' }, { status: 400, statusText: 'bad request' })
+        }
+        if (!(music.musicname.length<=2000 && music.artistname.length<=2000)) {
+            console.log(`error:too long\n${JSON.stringify(music)}`)
+            return NextResponse.json({ message: 'request has too long content' }, { status: 400, statusText: 'bad request' })
         }
     }
     let iserror = false;
