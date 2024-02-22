@@ -8,7 +8,7 @@ try {
 		music.id = num;
 		music.innerHTML = `<label><span>曲名</span><input type="text" name="musicname" placeholder="必須項目です" required /></label>
     <label><span>作曲者</span><input type="text" name="artistname" placeholder="必須項目です" required /></label>
-	<button class="remove" type="button" onclick="document.getElementById('${num}').remove()"><img src="./remove.svg" /></button>`;
+	<button class="remove" type="button" onclick="document.getElementById('${num}').remove()"><img src="./remove.svg" alt="delete" /></button>`;
 
 		document.getElementById('musiclist').appendChild(music);
 	};
@@ -25,11 +25,11 @@ try {
 			const musiclist = Array.from(document.getElementsByClassName('music')).map((musicelem) => {
 				const ret = {};
 				Array.from(musicelem.children).map((childelem) => {
-					if (!childelem.children[0]) return;
-					if (!childelem.children[0].value) {
+					if (!childelem.children[1]) return;
+					if (!childelem.children[1].value) {
 						iserror = true;
 					}
-					ret[childelem.children[0].getAttribute('name')] = childelem.children[0].value;
+					ret[childelem.children[1].getAttribute('name')] = childelem.children[0].value;
 				});
 				return ret;
 			});

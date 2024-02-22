@@ -9,13 +9,15 @@ body {
 #settings {
 	display: none;
 }
-#request{
+
+#request {
 	margin-top: 10px;
 	padding: 7px;
-	border-style:dashed;
+	border-style: dashed;
 	border-width: 1px;
 	border-color: black;
 }
+
 .main {
 	padding-left: 10px;
 	padding-right: 10px;
@@ -24,9 +26,9 @@ body {
 .music {
 	margin: 5px;
 	align-items: flex-end;
-    display: flex;
-    flex-direction: row;
-    gap: 8px 
+	display: flex;
+	flex-direction: row;
+	gap: 8px
 }
 
 label, button {
@@ -69,9 +71,9 @@ button {
 
 #add-wrapper hr {
 	position: absolute;
-	width: 95vw;
+	width: 98%;
 	top: 0px;
-	left: 0px;
+	left: 1%;
 	color: black;
 	z-index: -1;
 }
@@ -84,35 +86,42 @@ button {
 	width: 20px;
 	padding: 0;
 }
-.remove img{
+
+.remove img {
 	width: 20px;
 }
+
 #sending {
 	background-color: #00000088;
 }
 
 input {
 	width: 100px;
+	height: 16px;
 }
 
 label {
 	position: relative;
+	display: flex;
+	align-items: flex-end;
 }
 
 label span::after {
 	content: "*";
 	color: red;
 }
-input::placeholder{
+
+input::placeholder {
 	visibility: hidden;
 }
+
 input:user-invalid::placeholder {
 	color: red;
 	visibility: visible;
 	font-size: 9px;
 	position: absolute;
-	top:-2px;
-	left:0px;
+	top: -2px;
+	left: 0px;
 }
 
 input:user-invalid:not(:focus) {
@@ -280,4 +289,27 @@ input:user-invalid:not(:focus) {
 	bottom: 8px;
 	right: 10px;
 	color: blue
+}
+
+label span {
+	white-space: nowrap;
+}
+
+@media all and (max-width:420px) {
+
+	.main {
+		padding: 3px;
+	}
+
+	#request {
+		padding: 3px;
+	}
+	label,button{
+		font-size: 16px;
+	}
+.music{
+	gap:4px;
+	margin-left: 1px;
+	margin-right: 1px;
+}
 }
