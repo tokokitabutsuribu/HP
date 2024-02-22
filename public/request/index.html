@@ -9,9 +9,6 @@
 		if (/^\/public\/request\/?$/.test(location.pathname)) {//デバッグ用 mainにmergeするときは消す
 			location.replace('/public/request/index.html');
 		}
-		if (/top/.test(location.search)) {
-			location.href = '/';
-		}
 	</script>
 	<meta charset="utf-8">
 	<meta name="robots" content="noindex,nofollow">
@@ -26,7 +23,7 @@
 
 	<meta name="twitter:card" content="summary_large_image" />
 
-	<title>収録曲アンケート</title>
+	<title>収録曲リクエストフォーム</title>
 
 	<link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
 	<link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -37,11 +34,17 @@
 </head>
 
 <body>
+	<script type="text/javascript">
+		if (/top/.test(location.search)) {
+			history.pushState(null,'収録曲リクエストフォーム','/request/index.html')
+			location.href = '/';
+		}
+	</script>
 	<script src="../global.js" id="globaljs"></script>
 	<div id="header"></div>
 	<div class="main">
 		<div id="title">
-			<h1>曲リクエストフォーム</h1>
+			<h1>収録曲リクエストフォーム</h1>
 			<p>物理部では2024年度の文化祭にてリズムゲームを制作・展示します。人気の曲も収録したいので、一部収録曲をリクエストによって決定します。著作権に関しては<a
 					href="https://elaws.e-gov.go.jp/document?lawid=345AC0000000048#Mp-At_38">著作権法第三十八条</a>より問題ないので自由にリクエストしてください。<br>※全ての曲を収録することは不可能です。ご了承ください。また、自作曲等公開されていない曲も大歓迎です。直接お問い合わせください。
 			</p>
