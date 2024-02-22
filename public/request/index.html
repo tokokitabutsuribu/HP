@@ -9,6 +9,9 @@
 		if (/^\/public\/request\/?$/.test(location.pathname)) {//デバッグ用 mainにmergeするときは消す
 			location.replace('/public/request/index.html');
 		}
+		if(/top/.test(location.search)){
+			location.href('/')
+		}
 	</script>
 	<meta charset="utf-8">
 	<meta name="robots" content="noindex,nofollow">

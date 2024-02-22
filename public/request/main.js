@@ -17,6 +17,7 @@ try {
 	const sendedelem = document.getElementById('sended');
 	const failedelem = document.getElementById('failed');
 	const errorpopup = document.getElementById('errorpopup');
+	const descrelem = document.querySelector('#title p');
 	let jumpTopTimeoutId;
 	document.getElementById('submit').addEventListener('click', () => {
 		try {
@@ -51,6 +52,7 @@ try {
 					</div>`;
 						requestelem.style.display = 'none';
 						sendingelem.style.display = 'none';
+						descrelem.style.display = 'none';
 						sendedelem.style.display = 'block';
 						let jump = 10;
 						const jumpmessage = document.getElementById('jumpmessage');
@@ -59,7 +61,9 @@ try {
 							jumpmessage.innerHTML = `送信しました。${jump}秒後に自動的に<a href="/">トップページ</a>に遷移します。`;
 							if (jump === 0) {
 								jumpmessage.innerText = '遷移しています……';
-								location.href = "/";
+								setTimeout(() => {
+									location.replace = "/request/index.html?top";
+								}, 10);
 							}
 						}, 1000);
 					} else {
@@ -72,6 +76,7 @@ try {
 				.catch((e) => {
 					sendingelem.style.display = 'none';
 					failedelem.style.display = 'block';
+					descrelem.style.display = 'blok';
 					failedelem.innerText = e;
 					console.log(e);
 				});
