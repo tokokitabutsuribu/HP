@@ -63,7 +63,8 @@ try {
 							if (jump === 0) {
 								jumpmessage.innerText = '遷移しています……';
 								clearInterval(jumpTopTimeoutId);
-								location.replace('/request/index.html?top');
+								history.pushState(null,'収録曲リクエストフォーム')
+								location.replace('/');
 							}
 						}, 1000);
 					} else {
