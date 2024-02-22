@@ -61,9 +61,8 @@ try {
 							jumpmessage.innerHTML = `送信しました。${jump}秒後に自動的に<a href="/">トップページ</a>に遷移します。`;
 							if (jump === 0) {
 								jumpmessage.innerText = '遷移しています……';
-								setTimeout(() => {
-									location.replace = "/request/index.html?top";
-								}, 10);
+								clearInterval(jumpTopTimeoutId);
+								location.replace('/request/index.html?top');
 							}
 						}, 1000);
 					} else {
@@ -76,7 +75,7 @@ try {
 				.catch((e) => {
 					sendingelem.style.display = 'none';
 					failedelem.style.display = 'block';
-					descrelem.style.display = 'blok';
+					descrelem.style.display = 'block';
 					failedelem.innerText = e;
 					console.log(e);
 				});
