@@ -21,6 +21,7 @@ try {
 	let jumpTopTimeoutId;
 	document.getElementById('submit').addEventListener('click', () => {
 		try {
+			failedelem.style.display='none'
 			const apiurl = '/api/request';//'https://devhook.app/api/endpoint/1KxPOyuuekVMybXy0EJASIyySjThM7Ug/hook'
 			let iserror = false;
 			const musiclist = Array.from(document.getElementsByClassName('music')).map((musicelem) => {
