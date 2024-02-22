@@ -17,11 +17,13 @@
     <meta name="description"
         content="所沢北高校（通称所北）物理部の公式HPです。役立つ情報や日常のつぶやきなどを発信していきます。無料で遊べるブラウザゲームも公開予定です。PWAとプッシュ通知にも対応しています。">
 
+    <meta property="og:locale" content="ja_JP" />
     <meta property="og:url" content="https://tkbutsuribu.vercel.app/index.html" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="所沢北高校物理部公式HP" />
     <meta property="og:description" content="所沢北高校物理部の公式HPです。役立つ情報や日常のつぶやきなどを発信していきます。無料で遊べるブラウザゲームも公開予定です。" />
     <meta property="og:image" content="https://tkbutsuribu.vercel.app/iconTwitter.png" />
+    <meta property="og:site_name" content="所沢北高校物理部" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@TK_physics_club" />
@@ -77,13 +79,32 @@
                 .then((reg) => { console.log('SW registered.', reg); });
         }
     </script>
+    <script type="application/ld+json">
+        [
+          {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name":"所沢北高校物理部",
+            "alternateName":["所北物理部","TK_physics_club","TKPC"],
+            "url":"https://tkbutsuribu.vercel.app/",
+            "headline": "所沢北高校物理部公式HP",
+            "description": "所沢北高校（通称所北）物理部の公式HPです。役立つ情報や日常のつぶやきなどを発信していきます。無料で遊べるブラウザゲームも公開予定です。",
+            "image": {
+              "@type": "ImageObject",
+              "url": "/images/iconBIG.jpg"
+            }
+          }
+        ]
+      </script>
 </head>
 
 <body>
     <script src="main.js" id="main"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVKWHB4T" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
+            style="display:none;visibility:hidden"></iframe>
+            <div>お願いだからJavaScript切らないで</div>
+        </noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="pwatoolbar" style="display: none;">
         <button onclick="history.back()"><img src="/images/left.svg" width="16px" alt="back"></button>
@@ -193,9 +214,9 @@
                 </div>
                 <div class="github">
                     <a href="https://github.com/tokokitabutsuri/HP" target="_blank" rel="noopener norefereer">
-                        <span style="white-space: nowrap;"><img height="20px" width="20px"
-                                src="/images/github-mark-white.svg" style="margin-right: 3px;" alt="Git" /><img
-                                height="22px" width="57px" src="/images/github-logo-white.svg" alt="hub" /></span>
+                        <span style="white-space: nowrap;"><img height="20px" width="20px" src="/images/github-mark-white.svg"
+                                style="margin-right: 3px;" alt="Git" /><img height="22px" width="57px"
+                                src="/images/github-logo-white.svg" alt="hub" /></span>
                     </a>
                 </div>
             </div>
@@ -269,41 +290,7 @@
     </script>
     <script type="module" src="counter.js"></script>
     <script type="module" src="pwa.js"></script>
-    <script type="application/ld+json">
-        [
-          {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "name":"所沢北高校物理部",
-            "alternateName":["所北物理部","TK_physics_club","TKPC"],
-            "url":"https://tkbutsuribu.vercel.app/",
-            "headline": "所沢北高校物理部公式HP",
-            "description": "所沢北高校（通称所北）物理部の公式HPです。役立つ情報や日常のつぶやきなどを発信していきます。無料で遊べるブラウザゲームも公開予定です。",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://tkbutsuribu.vercel.app"
-            },
-            "image": {
-              "@type": "ImageObject",
-              "url": "/images/iconBIG.jpg"
-            },
-            "author": {
-              "@type": "Person",
-              "name": "所沢北高校物理部広報担当",
-              "image": "/images/iconBIG.jpg"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "所沢北高校物理部",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "/images/iconBIG.jpg"
-              }
-            },
-            "datePublished": "2023-09-19T00:00"
-          }
-        ]
-      </script>
+    
 
 </body>
 

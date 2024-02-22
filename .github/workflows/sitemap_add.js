@@ -24,7 +24,7 @@ const fs = require('fs');
   }
 
   console.log(process.argv[2]);
-  urls.push({ loc: "https://tkbutsuribu.vercel.app/articles/article.html?id=" + process.argv[2] })
+  urls.push({ loc: "https://tkbutsuribu.vercel.app/articles/" + process.argv[2] })
 
   // xml 生成
   console.log(urls)

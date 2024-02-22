@@ -1,20 +1,34 @@
 //<script src="/global.js" id="globaljs"></script>
 
+//meticulous
+//本番環境では実行しない
 if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
-	try {
-		const script = document.createElement("script");
-		script.dataset.projectId = "cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP";
-		script.dataset.isProductionEnvironment = false;
-		script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
-		document.getElementById("globaljs").after(script);
-	} catch (e) {
-		console.log(e);
-	}
+    try {
+        const script = document.createElement("script");
+        script.dataset.projectId = "cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP";
+        script.dataset.isProductionEnvironment = false;
+        script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
+        document.getElementById("globaljs").after(script);
+    } catch (e) {
+        console.log(e);
+    }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-	try {
-		document.getElementById("header").innerHTML = `<div id="wrapper" style="height: 88px">
+//Google tag manager
+((w, d, s, l, i) => {
+    w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    }); const f = d.getElementsByTagName(s)[0];
+    const j = d.createElement(s);
+    const dl = l !== 'dataLayer' ? `&l=${l}` : ''; j.async = true; j.src =
+        `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-TVKWHB4T');
+
+//ヘッダーフッターツールバー
+window.addEventListener('DOMContentLoaded', () => {
+    try {
+        document.getElementById('header').innerHTML = `<div id="wrapper" style="height: 88px">
 <nav id="global-navi">
     <div id="pwatoolbar" style="display: none;">
         <button onclick="history.back()"><img src="/images/left.svg" width="16px"></button>
@@ -40,6 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </nav>
 </div>
 <style>
+<noscript>JavaScript切らないで</noscript>
 #pwatoolbar {
     background-color: #1cf8fd;
     height: 32px;
@@ -135,7 +150,7 @@ body {
     font-family: monospace, sans-serif !important;
 }
 </style>`;
-		document.getElementById("footer").innerHTML = `<footer>
+        document.getElementById("footer").innerHTML = `<footer>
 <div class="links">
     <div class="twitter">
         <a style="text-decoration: none;"
@@ -264,10 +279,10 @@ body {
     margin-top: 3px;
 }
 </style>`;
-		if (window.matchMedia("(display-mode: standalone)").matches) {
-			document.getElementById("pwatoolbar").style.display = "block";
-		}
-	} catch (e) {
-		console.log(e);
-	}
+        if (window.matchMedia("(display-mode: standalone)").matches) {
+            document.getElementById("pwatoolbar").style.display = "block";
+        }
+    } catch (e) {
+        console.log(e);
+    }
 });

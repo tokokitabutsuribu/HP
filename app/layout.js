@@ -18,16 +18,6 @@ export default function RootLayout({ children }) {
 							src="https://snippet.meticulous.ai/v1/meticulous.js"
 						/>
 					)}
-
-				<noscript>
-					<iframe
-						src="https://www.googletagmanager.com/ns.html?id=GTM-TVKWHB4T"
-						title="GTM(noscript)"
-						height="0"
-						width="0"
-						style={{ display: "none", visibility: "hidden" }}
-					/>
-				</noscript>
 				{children}
 			</body>
 		</html>
