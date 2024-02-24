@@ -2,9 +2,7 @@
 
 //meticulous
 //本番環境では実行しない
-const url = new URL(window.location.href);
-const params = url.searchParams;
-if (!/tkbutsuribu.vercel.app/.test(location.href) && !params.has('notest')) {
+if (!/tkbutsuribu.vercel.app/.test(location.href) && !/notest/.test(location.search)) {
     try {
         const script = document.createElement("script");
         script.dataset.projectId = "cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP";
@@ -17,7 +15,7 @@ if (!/tkbutsuribu.vercel.app/.test(location.href) && !params.has('notest')) {
 }
 
 //Google tag manager
-((w, d, s, l, i) => {
+(async (w, d, s, l, i) => {
     w[l] = w[l] || []; w[l].push({
         'gtm.start':
             new Date().getTime(), event: 'gtm.js'
@@ -29,7 +27,7 @@ if (!/tkbutsuribu.vercel.app/.test(location.href) && !params.has('notest')) {
 
 //ヘッダーフッターツールバー
 window.addEventListener('DOMContentLoaded', () => {
-    try {
+    (async () => {
         document.getElementById('header').innerHTML = `<div id="wrapper" style="height: 88px">
 <nav id="global-navi">
     <div id="pwatoolbar" style="display: none;">
@@ -152,6 +150,8 @@ body {
     font-family: monospace, sans-serif !important;
 }
 </style>`;
+    });
+    (async () => {
         document.getElementById("footer").innerHTML = `<footer>
 <div class="links">
     <div class="twitter">
@@ -281,10 +281,10 @@ body {
     margin-top: 3px;
 }
 </style>`;
+    })();
+    (async () => {
         if (window.matchMedia("(display-mode: standalone)").matches) {
             document.getElementById("pwatoolbar").style.display = "block";
         }
-    } catch (e) {
-        console.log(e);
-    }
+    })();
 });
