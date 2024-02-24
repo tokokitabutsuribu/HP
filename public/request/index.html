@@ -8,7 +8,7 @@
 		}
 	</script>
 	<meta charset="utf-8">
-	<meta name="robots" content="noindex,nofollow">
+	<!-- <meta name="robots" content="noindex,nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="2025年度の文化祭で展示するリズムゲームの収録曲アンケートです。">
 
@@ -23,11 +23,23 @@
 	<title>収録曲リクエストフォーム</title>
 
 	<link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
-	<link rel="icon" href="/icon.svg" type="image/svg+xml">
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
 	<link rel="manifest" href="/manifest.webmanifest">
-	<link rel="stylesheet" href="../normalize.css">
-	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="../normalize.css" />
+	<link rel="stylesheet" href="stylesheet.css" />
+
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+	<link rel="preconnect dns-prefetch" href="//www.googletagmanager.com">
+	<link rel="preload" href="https://www.googletagmanager.com/gtm.js?id=GTM-TVKWHB4T">
+	<link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-0SBGM4VKQL&l=dataLayer&cx=c">
+	<link rel="preload" href="/global.css">
+	<link rel="preload" href="/images/github-logo-white.svg">
+	<link rel="preload" href="/images/github-mark-white.svg">
+	<link rel="preload" href="/icon-72x72.png">
+	<link rel="preload" href="./main.js">
+	<link rel="preload" href="./plus.svg">
+
+
 </head>
 
 <body>
@@ -74,7 +86,7 @@
 		</button>
 	</div>
 	<div id="footer"></div>
-	<script src="main.js"></script>
+	<script src="main.js" defer></script>
 </body>
 
 </html>
