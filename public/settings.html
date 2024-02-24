@@ -2,16 +2,6 @@
 <html lang="ja">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-TVKWHB4T');</script>
-    <!-- End Google Tag Manager -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow"> <!--テスト時用の検索結果から除外するタグ。公開時は削除-->
@@ -24,10 +14,6 @@
 
 <body>
     <script src="/global.js" id="globaljs"></script>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVKWHB4T" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div id="header"></div>
     <div class="main" style="padding:10px">
         <h2>個人設定</h2>
@@ -36,31 +22,31 @@
         <div id="notification" style="display: none;">
             <ul id="categoryList"><!--['お知らせ','活動報告','つぶやき','JavaScript','HTML/CSS','Unity/C#','C/C++','Web全般','その他']-->
                 <li>
-                    <lavel><input type="checkbox" value="お知らせ">お知らせ</lavel>
+                    <label><input type="checkbox" value="お知らせ">お知らせ</label>
                 </li>
                 <li>
-                    <lavel><input type="checkbox" value="活動報告">活動報告</lavel>
+                    <label><input type="checkbox" value="活動報告">活動報告</label>
                 </li>
                 <li>
-                    <lavel><input type="checkbox" value="つぶやき">つぶやき</lavel>
+                    <label><input type="checkbox" value="つぶやき">つぶやき</label>
                 </li>
                 <li>
-                    <lavel><input type="checkbox" value="JavaScript">JavaScript</lavel>
+                    <label><input type="checkbox" value="JavaScript">JavaScript</label>
                 </li>
                 <li>
-                    <lavel><input type="checkbox" value="HTML/CSS">HTML/CSS</lavel>
+                    <label><input type="checkbox" value="HTML/CSS">HTML/CSS</label>
                 </li>
                 <li>
-                    <lavel><input type="checkbox" value="Unity/C#">Unity/C#</lavel>
+                    <label><input type="checkbox" value="Unity/C#">Unity/C#</label>
                 </li>
                 <li>
-                    <lavel><input type="checkbox" value="C/C++">C/C++</lavel>
+                    <label><input type="checkbox" value="C/C++">C/C++</label>
                 </li>
                 <li>
-                    <lavel><input type="checkbox" value="Web全般">Web全般</lavel>
+                    <label><input type="checkbox" value="Web全般">Web全般</label>
                 </li>
                 <li>
-                    <lavel><input type="checkbox" value="その他">その他</lavel>
+                    <label><input type="checkbox" value="その他">その他</label>
                 </li>
             </ul>
             <button id="save">保存</button>

@@ -67,7 +67,7 @@ try {
 		if (!data.lenth) {
 			for (const elem of data) {
 				console.log(elem);
-				add += `<li><a href="/articles/${elem.id}"><h4>${elem.title}</h4><p>' + elem.description + '</p></a></li>`;
+				add += `<li><a href="/articles/${elem.id}"><h4>${elem.title}</h4><p>${elem.description}</p></a></li>`;
 			}
 		}
 		document.querySelector("#article").innerHTML = add;
