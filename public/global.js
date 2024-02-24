@@ -2,7 +2,7 @@
 
 //meticulous
 //本番環境では実行しない
-if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
+if (!/tkbutsuribu.vercel.app/.test(location.href)) {
     try {
         const script = document.createElement("script");
         script.dataset.projectId = "cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP";
