@@ -3,34 +3,34 @@ export default async function Header() {
 	return (
 		<div className={styles.wrapper}>
 			<nav className={styles.globalNavi}>
-				<nobr>
+				<span style={{whiteSpace:'nowrap'}}>
 					<span className={styles.toplink}>
 						<a href="https://tkbutsuribu.vercel.app/">
 							<img className={styles.topimg} src="/icon-48x48.png" width="48" height="48" alt="logo" />
 							<span>所北物理部</span>
 						</a>
 					</span>
-				</nobr>
+				</span>
 				<ul className={styles.menu}>
 					<li>
-						<nobr>
+						<span style={{whiteSpace:'nowrap'}}>
 							<a href="https://tkbutsuribu.vercel.app/about.html">概要</a>
-						</nobr>
+						</span>
 					</li>
 					<li>
-						<nobr>
+						<span style={{whiteSpace:'nowrap'}}>
 							<a href="https://tkbutsuribu.vercel.app/articles/index.html">記事</a>
-						</nobr>
+						</span>
 					</li>
 					<li>
-						<nobr>
+						<span style={{whiteSpace:'nowrap'}}>
 							<a href="https://tkbutsuribu.vercel.app/games/index.html">スタジオ</a>
-						</nobr>
+						</span>
 					</li>
 					<li>
-						<nobr>
+						<span style={{whiteSpace:'nowrap'}}>
 							<a href="https://tkbutsuribu.vercel.app/bbs/404.html">掲示板(未完成)</a>
-						</nobr>
+						</span>
 					</li>
 				</ul>
 			</nav>

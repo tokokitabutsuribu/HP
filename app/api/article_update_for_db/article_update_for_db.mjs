@@ -2,11 +2,13 @@ import { createClient } from '@supabase/supabase-js';
 const { createHmac } = await import('node:crypto');
 const { timingSafeEqual } = await import('node:crypto');
 import { NextResponse } from 'next/server';
+import server from 'next/server'
 // Create a single supabase client for interacting with your database
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
 
-async function article_update_for_db(request) {
+async function article_update_for_db(req) {
     let fin = false;
+    const request = {body:await req.json()}
 //    if (request.method !== 'POST') {          //Next.js導入により不要
 //        return NextResponse.status(400).json({ "status": "error" });
 //    }
@@ -15,7 +17,7 @@ async function article_update_for_db(request) {
     let expectedSignature = createHmac('sha256', process.env.MICROCMS_SECRET_KEY);
     expectedSignature = expectedSignature.update(JSON.stringify(request.body));
     expectedSignature = expectedSignature.digest('hex');
-    const signature = request.headers['X-MICROCMS-Signature'] || request.headers['x-microcms-signature'];
+    const signature = req.headers.get('X-MICROCMS-Signature') || req.headers.get('x-microcms-signature');
     if (!timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
         fin = true;
         console.log(Buffer.from(signature));

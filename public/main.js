@@ -1,6 +1,9 @@
-if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
+const url = new URL(window.location.href);
+const params = url.searchParams;
+
+if (!/tkbutsurobu.vercel.app/.test(location.href)&&!params.has('notest')) {
     try {
-        let script = document.createElement('script');
+        const script = document.createElement('script');
         script.dataset.projectId = 'cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP';
         script.dataset.isProductionEnvironment = false;
         script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
@@ -11,8 +14,6 @@ if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
 }
 
 
-const url = new URL(window.location.href);
-const params = url.searchParams;
 if (params.has('noeffect')) {
 
 } else {

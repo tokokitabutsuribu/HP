@@ -4,50 +4,51 @@
 //本番環境では実行しない
 if (!/tokokitabutsuri.vercel.app/.test(location.href)) {
     try {
-        let script = document.createElement('script');
-        script.dataset.projectId = 'cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP';
+        const script = document.createElement("script");
+        script.dataset.projectId = "cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP";
         script.dataset.isProductionEnvironment = false;
         script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
-        document.getElementById('globaljs').after(script);
+        document.getElementById("globaljs").after(script);
     } catch (e) {
         console.log(e);
     }
 }
 
 //Google tag manager
-(function (w, d, s, l, i) {
+((w, d, s, l, i) => {
     w[l] = w[l] || []; w[l].push({
         'gtm.start':
             new Date().getTime(), event: 'gtm.js'
-    }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    }); const f = d.getElementsByTagName(s)[0];
+    const j = d.createElement(s);
+    const dl = l !== 'dataLayer' ? `&l=${l}` : ''; j.async = true; j.src =
+        `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`; f.parentNode.insertBefore(j, f);
 })(window, document, 'script', 'dataLayer', 'GTM-TVKWHB4T');
 
 //ヘッダーフッターツールバー
-window.addEventListener('DOMContentLoaded',() => {
-    try{
-    document.getElementById('header').innerHTML = `<div id="wrapper" style="height: 88px">
+window.addEventListener('DOMContentLoaded', () => {
+    try {
+        document.getElementById('header').innerHTML = `<div id="wrapper" style="height: 88px">
 <nav id="global-navi">
     <div id="pwatoolbar" style="display: none;">
         <button onclick="history.back()"><img src="/images/left.svg" width="16px"></button>
         <button onclick="location.reload()"><img src="/images/reload.svg" width="19px"></button>
     </div>
-    <nobr><span class="toplink"><a href="https://tkbutsuribu.vercel.app/"><img src="/icon-48x48.png" width="48"
+    <span style="white-space: nowrap;"><span class="toplink"><a href="https://tkbutsuribu.vercel.app/"><img src="/icon-48x48.png" width="48"
                     height="48" style="margin-top: 5px;" alt="トップページ"><span>所沢北高校物理部</span></a><a href="/settings.html"
-                id="settings"><img src="/images/settings.svg" height="32" alt="設定"></a></span></nobr>
+                id="settings"><img src="/images/settings.svg" height="32" alt="設定"></a></span></span>
     <ul class="menu">
         <li>
-            <nobr><a href="https://tkbutsuribu.vercel.app/about.html">概要</a></nobr>
+            <span style="white-space: nowrap;"><a href="https://tkbutsuribu.vercel.app/about.html">概要</a></span>
         </li>
         <li>
-            <nobr><a href="https://tkbutsuribu.vercel.app/articles/index.html">記事</a></nobr>
+            <span style="white-space: nowrap;"><a href="https://tkbutsuribu.vercel.app/articles/index.html">記事</a></span>
         </li>
         <li>
-            <nobr><a href="https://tkbutsuribu.vercel.app/games/index.html">スタジオ</a></nobr>
+            <span style="white-space: nowrap;"><a href="https://tkbutsuribu.vercel.app/games/index.html">スタジオ</a></span>
         </li>
         <li>
-            <nobr><a href="https://tkbutsuribu.vercel.app/bbs/404.html">掲示板(未完成)</a></nobr>
+            <span style="white-space: nowrap;"><a href="https://tkbutsuribu.vercel.app/bbs/404.html">掲示板(未完成)</a></span>
         </li>
     </ul>
 </nav>
@@ -84,7 +85,7 @@ window.addEventListener('DOMContentLoaded',() => {
     width: 100%;
     align-items: flex-end;
     flex-wrap: wrap;
-    z-index: 2147483647
+    z-index: 1000;
 }
 
 #wrapper nav ul li {
@@ -149,30 +150,30 @@ body {
     font-family: monospace, sans-serif !important;
 }
 </style>`;
-    document.getElementById('footer').innerHTML = `<footer>
+        document.getElementById("footer").innerHTML = `<footer>
 <div class="links">
     <div class="twitter">
         <a style="text-decoration: none;"
             href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5ETK_physics_club&region=follow_link&screen_name=TK_physics_club"
             target="_blank" rel="noopener norefereer"><span>
-                <nobr>𝕏 フォローする</nobr>
+                <span style="white-space: nowrap;">𝕏 フォローする</span>
             </span></a>
     </div>
     <div class="youtube">
         <a href="https://www.youtube.com/channel/UCMx0SnqChPhp4rapoqgan3g?sub_confirmation=1" target="_blank"
             rel="noopener norefereer"><span>
-                <nobr>公式YouTube</nobr>
+                <span style="white-space: nowrap;">公式YouTube</span>
             </span></a>
     </div>
     <div class="tokokitahp">
         <a href="https://tokokita-h.spec.ed.jp/" target="_blank" rel="noopener norefereer">
-            <nobr>所北HP</nobr>
+            <span style="white-space: nowrap;">所北HP</span>
         </a>
     </div>
     <div class="github">
         <a href="https://github.com/tokokitabutsuri/HP" target="_blank" rel="noopener norefereer">
-            <nobr><img height="20px" src="/images/github-mark-white.svg" style="margin-right: 3px;" alt=""></img><img
-                    height="22px" src="/images/github-logo-white.svg" alt="Github"></img></nobr>
+            <span style="white-space: nowrap;"><img height="20px" src="/images/github-mark-white.svg" style="margin-right: 3px;" alt=""></img><img
+                    height="22px" src="/images/github-logo-white.svg" alt="Github"></img></span>
         </a>
     </div>
 </div>
@@ -277,11 +278,11 @@ body {
     column-gap: 2px;
     margin-top: 3px;
 }
-</style>`
-    if (window.matchMedia("(display-mode: standalone)").matches) {
-        document.getElementById('pwatoolbar').style.display = 'block';
-    }
-    }catch(e){
+</style>`;
+        if (window.matchMedia("(display-mode: standalone)").matches) {
+            document.getElementById("pwatoolbar").style.display = "block";
+        }
+    } catch (e) {
         console.log(e);
     }
-})
+});
