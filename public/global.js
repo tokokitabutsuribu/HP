@@ -15,15 +15,18 @@ if (!/tkbutsuribu.vercel.app/.test(location.href) && !/notest/.test(location.sea
 }
 
 //Google tag manager
-(async (w, d, s, l, i) => {
-    w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-            new Date().getTime(), event: 'gtm.js'
-    }); const f = d.getElementsByTagName(s)[0];
-    const j = d.createElement(s);
-    const dl = l !== 'dataLayer' ? `&l=${l}` : ''; j.async = true; j.src =
-        `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`; f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer', 'GTM-TVKWHB4T');
+const GTM = async () => {
+    const l = 'dataLayer';
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        'gtm.start': new Date().getTime(), event: 'gtm.js'
+    });
+    const f = document.getElementsByTagName('script')[0];
+    const j = document.createElement('script');
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=GTM-TVKWHB4T&l=dataLayer";
+    f.parentNode.insertBefore(j, f);
+};
 
 
 const addheader = async () => {
@@ -52,103 +55,7 @@ const addheader = async () => {
 </ul>
 </nav>
 </div>
-<style>
-<noscript>JavaScript切らないで</noscript>
-#pwatoolbar {
-background-color: #1cf8fd;
-height: 32px;
-align-items: center;
-display: flex;
-}
-
-#pwatoolbar button {
-width: 32px;
-height: 32px;
-border-radius: 9999px;
-border-width: 0;
-background-color: #fff0;
-margin-left: 10px;
-}
-
-#pwatoolbar button:hover {
-background-color: #0007;
-}
-
-#global-navi {
-display: block;
-height: fit-content;
-background: #333;
-position: fixed;
-top: 0;
-right: 0px;
-width: 100%;
-align-items: flex-end;
-flex-wrap: wrap;
-z-index: 1000;
-}
-
-#wrapper nav ul li {
-display: block;
-font-size: 16px;
-padding: 0px;
-margin: 0px;
-width: auto;
-justify-content: space-evenly;
-
-}
-
-#wrapper nav ul li a {
-color: #ddd;
-text-decoration: none;
-
-}
-
-.toplink {
-display: flex;
-margin-left: 20px;
-width: 300px;
-color: #ddd;
-text-decoration: none;
-font-size: 32px;
-text-align: left;
-align-items: center;
-}
-
-.toplink a {
-display: flex;
-text-align: end;
-align-items: center;
-text-decoration: none;
-color: white;
-}
-
-.toplink img {
-padding: auto;
-}
-
-.menu {
-display: flex;
-width: 100%;
-justify-content: space-evenly;
-margin: 0px;
-padding: 0px;
-}
-
-.main {
-flex: auto;
-}
-#settings{
-position: absolute;
-right:10px
-}
-body {
-display: flex;
-flex-direction: column;
-min-height: 100vh;
-margin: 0;
-font-family: monospace, sans-serif !important;
-}
-</style>`;
+<noscript>JavaScript切らないで</noscript>`;
 };
 const addfooter = async () => {
     document.getElementById("footer").innerHTML = `<footer>
@@ -186,110 +93,26 @@ const addfooter = async () => {
 <a href="https://tkbutsuribu.vercel.app/bbs/404.html">掲示板(未完成)</a>
 </div>
 </div>
-</footer>
-<style>
-.links {
-display: flex;
-flex-direction: column;
-width: -moz-fit-content;
-width: fit-content;
-gap: 8px;
-justify-content: left;
-text-align: left;
-margin-bottom: 10px;
-}
-
-.links div {
-width: 150px;
-height: 30px;
-border-radius: 9999px;
-display: grid;
-place-items: center;
-font-size: 18px;
-text-decoration: none;
-text-align: center;
-}
-
-.tokokitahp {
-background-color: aquamarine;
-color: black;
-}
-
-.tokokitahp a {
-width: 100%;
-color: black;
-text-decoration: none;
-font-weight: bold;
-}
-
-footer {
-width: 100%;
-background-color: hsl(0, 0%, 30%);
-color: white;
-padding: 15px;
-}
-
-.footermap a {
-display: inline-block;
-margin: 8px 0px;
-color: white;
-}
-
-.main {
-flex: auto;
-}
-
-body {
-display: flex;
-flex-direction: column;
-min-height: 100vh;
-margin: 0;
-font-family: monospace, sans-serif !important;
-}
-
-.youtube {
-border-radius: 9999px;
-background-color: #EB0000;
-}
-
-.youtube a {
-width: 100%;
-text-decoration: none;
-color: white;
-}
-
-.twitter {
-background-color: black;
-}
-
-.twitter a {
-width: 100%;
-vertical-align: middle;
-color: white;
-text-align: center;
-width: 100%;
-line-height: 100%;
-}
-
-.github {
-background-color: black;
-}
-
-.github a {
-column-gap: 2px;
-margin-top: 3px;
-}
-</style>`;
+</footer>`;
 };
 const addpwatoolbar = async () => {
     if (window.matchMedia("(display-mode: standalone)").matches) {
         document.getElementById("pwatoolbar").style.display = "block";
     }
 };
-
+const addstyle = async () => {
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = '/global.css';
+    document.getElementById("globaljs").after(style);
+};
 //ヘッダーフッターツールバー
 window.addEventListener('DOMContentLoaded', () => {
+    if (!/notest/.test(location.search)){
+        GTM();
+    }
     addheader();
     addfooter();
     addpwatoolbar();
+    addstyle();
 });
