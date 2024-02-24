@@ -2,7 +2,7 @@
 
 //meticulous
 //本番環境では実行しない
-if (!/tkbutsuribu.vercel.app/.test(location.href) && !/notest/.test(location.search)) {
+if (!/tkbutsuribu.vercel.app/.test(location.href) && !/notest/.test(location.search)&& !/nogtm/.test(location.search)) {
     try {
         const script = document.createElement("script");
         script.dataset.projectId = "cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP";
@@ -38,7 +38,7 @@ const addheader = async () => {
 </div>
 <span style="white-space: nowrap;"><span class="toplink"><a href="https://tkbutsuribu.vercel.app/"><img src="/icon-72x72.png" width="48"
                 height="48" style="margin-top: 5px;" alt="トップページ"><span>所沢北高校物理部</span></a><a href="/settings.html"
-            id="settings"><img src="/images/settings.svg" height="32" alt="設定"></a></span></span>
+            id="settings"><img src="/images/settings.svg" height="32px" width="32px" alt="設定"></a></span></span>
 <ul class="menu">
     <li>
         <span style="white-space: nowrap;"><a href="https://tkbutsuribu.vercel.app/about.html">概要</a></span>
@@ -107,12 +107,12 @@ const addstyle = async () => {
     document.getElementById("globaljs").after(style);
 };
 //ヘッダーフッターツールバー
+addstyle();
 window.addEventListener('DOMContentLoaded', () => {
-    if (!/notest/.test(location.search)){
+    if (!/nogtm/.test(location.search)){
         GTM();
     }
     addheader();
     addfooter();
     addpwatoolbar();
-    addstyle();
 });

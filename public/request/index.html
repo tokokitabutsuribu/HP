@@ -25,8 +25,8 @@
 	<link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
 	<link rel="manifest" href="/manifest.webmanifest">
-	<link rel="preload" href="../normalize.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-	<link rel="preload" href="stylesheet.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+	<link rel="stylesheet" href="../normalize.css" />
+	<link rel="stylesheet" href="stylesheet.css" />
 
 	<meta http-equiv="x-dns-prefetch-control" content="on">
 	<link rel="preconnect dns-prefetch" href="//www.googletagmanager.com">
@@ -38,12 +38,12 @@
 	<link rel="preload" href="/icon-72x72.png">
 	<link rel="preload" href="./main.js">
 	<link rel="preload" href="./plus.svg">
-	
-	
-	<script src="../global.js" id="globaljs" defer></script>
+
+
 </head>
 
 <body>
+	<script src="../global.js" id="globaljs"></script>
 	<div id="header"></div>
 	<div class="main">
 		<div id="title">
