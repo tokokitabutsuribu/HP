@@ -78,7 +78,7 @@ export default function page() {
 							<SiteMapElem url="#." name="掲示板(未完成)" />
 						</ul>
 					</div>
-					<NotifyButton />
+					{/* <NotifyButton /> */}
 				</div>
 			</div>
 		</>
