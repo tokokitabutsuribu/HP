@@ -177,7 +177,6 @@ export default function () {
 				<img height="16px" width="16px" src="./images/notification.svg" alt="notification" style={{ maxHeight: "100%", width: "auto", margin: "0 5px 0 2px" }} />
 				通知を許可する
 			</button>
-			<script src="/pwa.js" />
 		</div>
 	);
 }
