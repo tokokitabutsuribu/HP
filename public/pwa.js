@@ -50,27 +50,6 @@ async function getmytoken() {
 						console.log(error);
 						iserror = true;
 					});
-				// const data = JSON.stringify({
-				// 	"token": currentToken,
-				// 	"true_topics": ['all'],
-				// 	"false_topics": []
-				// });
-				// let xmlHttpRequest = new XMLHttpRequest();
-				// xmlHttpRequest.onload = () => {
-				// 	console.log('success');
-				// 	console.log(xmlHttpRequest);
-				// };
-				// xmlHttpRequest.onerror = () => {
-				// 	iserror = true;
-				// 	console.log('error');
-				// 	console.log(xmlHttpRequest);
-				// };
-				// xmlHttpRequest.open('POST', APIURL);
-				// xmlHttpRequest.setRequestHeader("Content-Type", "application/json");
-				// xmlHttpRequest.send(data);
-
-				// Send the token to your server and update the UI if necessary
-				// ...
 			} else {
 				// Show permission request UI
 				console.log("No registration token available. Request permission to generate one.");
