@@ -4,7 +4,7 @@ import NotifyButton from "./NotifyButton";
 import PwaToolBar from "./PwaToolBar";
 import Counter from "./Counter";
 import SiteMapElem from "./sitemapelem";
-import { Head } from "next/document";
+import CounterLoading from "./CounterLoading";
 export const dynamic = "force-dynamic";
 
 export default function page() {
@@ -18,15 +18,7 @@ export default function page() {
 							<a href="/articles/osirase.html" style={{ height: "fit-content", whiteSpace: "nowrap", textAlign: "left", backgroundColor: "darkblue", color: "white", textDecoration: "none", padding: "5px", marginRight: "10px" }}>
 								お知らせ
 							</a>
-							<Suspense
-								fallback={
-									<span>
-										あなたは
-										<span style={{ backgroundColor: "black", color: "white;", width: "96px", textAlign: "center", margin: "0px", height: "20px", fontSize: "16px", paddingTop: "2px" }}>loading</span>
-										人目の来訪者です
-									</span>
-								}
-							>
+							<Suspense fallback={<CounterLoading />}>
 								<Counter />
 							</Suspense>
 							<a href="/index.html?noeffect" className={styles.noeffect} style={{ display: "none", textAlign: "left", backgroundColor: "lightblue", color: "darkgreen", textDecoration: "none", padding: "5px", marginLeft: "10px" }}>

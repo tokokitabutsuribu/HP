@@ -31,7 +31,7 @@ export default async function counter() {
 		console.log(`count:${getcount}`);
 		let i = 0;
 		console.log(`length:${getcount.length}`);
-		for (i = 0; i < 6 - getcount.length; i++) {
+		for (i = 0; i < 8 - getcount.length; i++) {
 			ret.push(<li className={styles.num}>0</li>);
 		}
 		for (i = 0; i < getcount.length; i++) {
