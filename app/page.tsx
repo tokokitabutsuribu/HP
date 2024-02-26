@@ -9,6 +9,9 @@ import { Head } from "next/document";
 export default function page() {
 	return (
 		<>
+		<Head>
+			<link rel="manifest" href="/manifest.webmanifest" />
+		</Head>
 			<PwaToolBar />
 			<div className={styles.wrapper}>
 				<div className={styles.content1}>
