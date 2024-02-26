@@ -4,7 +4,6 @@ import React from "react";
 import styles from "./Counter.module.css";
 import crypto from "crypto";
 import Cidcookie from "./cidcookie";
-import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 // const date = new Date();
 // const currentTime = date.toLocaleString();
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
