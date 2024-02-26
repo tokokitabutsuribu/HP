@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export default function page() {
 	return (
 		<>
-			{/* <PwaToolBar /> */}
+			<PwaToolBar />
 			<div className={styles.wrapper}>
 				<div className={styles.content1}>
 					<div className={styles.main}>

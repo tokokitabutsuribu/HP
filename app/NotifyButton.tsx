@@ -16,7 +16,7 @@ const firebaseConfig = {
 };
 
 export default function () {
-	useEffect(() => {
+	/*useEffect(() => {
 		const app = initializeApp(firebaseConfig);
 		const messaging = getMessaging(app);
 		const APIURL = "/api/push_token";
@@ -128,7 +128,7 @@ export default function () {
 		if (Object.prototype.hasOwnProperty.call(localStorage, "messagetoken")) {
 			getmytoken();
 		}
-	}, []);
+	}, []);*/
 
 	return (
 		<div id="buttons">
