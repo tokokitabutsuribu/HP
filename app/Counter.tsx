@@ -10,7 +10,7 @@ import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
 // errormessage.push("kv success");
 
-async function hasCookieData(key: string): Promise<boolean> {
+async function hasCookieData(key: string){
 	const cookieData = cookies().has(key);
 	return new Promise((resolve) =>
 		setTimeout(() => {
@@ -18,7 +18,7 @@ async function hasCookieData(key: string): Promise<boolean> {
 		}, 1000),
 	);
 }
-async function getCookieData(key: string): Promise<string> {
+async function getCookieData(key: string){
 	const cookieData = cookies().get(key).value;
 	return new Promise((resolve) =>
 		setTimeout(() => {
@@ -29,7 +29,7 @@ async function getCookieData(key: string): Promise<string> {
 export default async function counter() {
 	let cidc = <></>;
 	try {
-		let id: string;
+		let id:string|unknown;
 		if ((await hasCookieData("counterID")) && (await getCookieData("counterID")) !== "aaa") {
 			id = await getCookieData("counterID");
 		} else {
