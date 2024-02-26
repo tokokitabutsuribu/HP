@@ -5,7 +5,10 @@ export default function RootLayout({ children }) {
 	try {
 		return (
 			<html lang="ja">
-				<head />
+				<head>
+					<meta charSet="utf-8" />
+					<link rel="manifest" href="/manifest.webmanifest" />
+				</head>
 				<body>
 
 					{(process.env.NODE_ENV === "development" ||
@@ -25,7 +28,7 @@ export default function RootLayout({ children }) {
 		);
 	} catch (e) {
 		console.log(e);
-		console.log("at top layout")
-		return { children }
+		console.log("at top layout");
+		return { children };
 	}
 }
