@@ -6,7 +6,7 @@ import style from "./PwaToolBar.module.css";
 
 export default function () {
 	const [toolbar, settoolbar] = useState<ReactNode>();
-
+//
 	useEffect(() => {
 		if (window.matchMedia("(display-mode: standalone)").matches) {
 			settoolbar(
