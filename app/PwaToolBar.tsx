@@ -1,35 +1,40 @@
 "use client";
 
-import React from "react";
+import React, { ReactComponentElement, ReactNode, useState } from "react";
 import { useEffect } from "react";
 import style from "./PwaToolBar.module.css";
 
 export default function () {
-  useEffect(() => {
-    if (window.matchMedia("(display-mode: standalone)").matches) {
-      document.getElementById("pwatoolbar").style.display = "block";
-      document.getElementById("wrapper").style.marginTop = "32px";
-    }
-  },[]);
+	const [toolbar, settoolbar] = useState<ReactNode>();
 
-  return (
-    <div className={style.pwatoolbar} style={{ display: "none" }}>
-      <button
-        type="button"
-        onClick={() => {
-          history.back();
-        }}
-      >
-        <img src="/images/left.svg" width="16px" alt="back" />
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          location.reload();
-        }}
-      >
-        <img src="/images/reload.svg" width="19px" alt="reload" />
-      </button>
-    </div>
-  );
+	useEffect(() => {
+		if (window.matchMedia("(display-mode: standalone)").matches) {
+			settoolbar(
+				<div className={style.pwatoolbar}>
+					<button
+						type="button"
+						onClick={() => {
+							history.back();
+						}}
+					>
+						<img src="/images/left.svg" width="16px" alt="back" />
+					</button>
+					<button
+						type="button"
+						onClick={() => {
+							location.reload();
+						}}
+					>
+						<img src="/images/reload.svg" width="19px" alt="reload" />
+					</button>
+				</div>,
+			);
+
+			document.getElementById("wrapper").style.marginTop = "32px";
+		} else {
+			settoolbar(<div style={{ display: "none" }} />);
+		}
+	}, []);
+
+	return <>{toolbar}</>;
 }
