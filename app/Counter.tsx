@@ -9,29 +9,14 @@ import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 // const currentTime = date.toLocaleString();
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
 // errormessage.push("kv success");
+export const dynamic = "force-dynamic";
 
-async function hasCookieData(key: string){
-	const cookieData = cookies().has(key);
-	return new Promise((resolve) =>
-		setTimeout(() => {
-			resolve(cookieData);
-		}, 1000),
-	);
-}
-async function getCookieData(key: string){
-	const cookieData = cookies().get(key).value;
-	return new Promise((resolve) =>
-		setTimeout(() => {
-			resolve(cookieData);
-		}, 1000),
-	);
-}
 export default async function counter() {
 	let cidc = <></>;
 	try {
-		let id:string|unknown;
-		if ((await hasCookieData("counterID")) && (await getCookieData("counterID")) !== "aaa") {
-			id = await getCookieData("counterID");
+		let id: string;
+		if (cookies().has("counterID")) {
+			id = cookies().get("counterID").value;
 		} else {
 			id = crypto.randomUUID();
 			cidc = <Cidcookie cid={id} />;
