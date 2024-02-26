@@ -16,7 +16,7 @@ const firebaseConfig = {
 };
 
 export default function () {
-	/*useEffect(() => {
+	useEffect(() => {
 		const app = initializeApp(firebaseConfig);
 		const messaging = getMessaging(app);
 		const APIURL = "/api/push_token";
@@ -115,20 +115,20 @@ export default function () {
 				});
 		};
 
-		if (/iPad|iPhone|iPod/.test(ua) || (/macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || "ontouchend" in document)) || ua.indexOf("ipad") > -1 || (ua.indexOf("macintosh") > -1 && "ontouchend" in document)) {
-			document.getElementById("InstallBtn").addEventListener("click", () => {
-				(document.getElementById("pop-up") as HTMLInputElement).checked = true;
-			});
-		} else {
-			registerInstallAppEvent(document.getElementById("InstallBtn"));
-		}
-		if (window.matchMedia("(display-mode: standalone)").matches) {
-			document.getElementById("InstallBtn").style.display = "none";
-		}
-		if (Object.prototype.hasOwnProperty.call(localStorage, "messagetoken")) {
-			getmytoken();
-		}
-	}, []);*/
+		// if (/iPad|iPhone|iPod/.test(ua) || (/macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || "ontouchend" in document)) || ua.indexOf("ipad") > -1 || (ua.indexOf("macintosh") > -1 && "ontouchend" in document)) {
+		// 	document.getElementById("InstallBtn").addEventListener("click", () => {
+		// 		(document.getElementById("pop-up") as HTMLInputElement).checked = true;
+		// 	});
+		// } else {
+		// 	registerInstallAppEvent(document.getElementById("InstallBtn"));
+		// }
+		// if (window.matchMedia("(display-mode: standalone)").matches) {
+		// 	document.getElementById("InstallBtn").style.display = "none";
+		// }
+		// if (Object.prototype.hasOwnProperty.call(localStorage, "messagetoken")) {
+		// 	getmytoken();
+		// }
+	}, []);
 
 	return (
 		<div id="buttons">
