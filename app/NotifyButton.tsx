@@ -169,7 +169,7 @@ export default function () {
 					</div>
 				</div>
 			</div>
-			<button id="InstallBtn" className={style.button} type="button" style={{ display: "none" }}>
+			<button id="InstallBtn" className={style.button} type="button">
 				<img height="16px" width="16px" src="/images/installicon.svg" alt="install" style={{ maxHeight: "100%", width: "auto", margin: "0 5px 0 2px" }} />
 				インストールする
 			</button>
