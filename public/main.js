@@ -1,7 +1,7 @@
 const url = new URL(window.location.href);
 const params = url.searchParams;
 
-if (!/tkbutsurobu.vercel.app/.test(location.href)&&!params.has('notest')) {
+if (!/tkbutsuribu.vercel.app/.test(location.href)&&!params.has('notest')) {
     try {
         const script = document.createElement('script');
         script.dataset.projectId = 'cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP';

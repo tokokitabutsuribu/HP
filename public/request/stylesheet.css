@@ -1,16 +1,94 @@
+html {
+	overflow: auto;
+}
+
+body {
+	min-width: 350px;
+}
+
+#settings {
+	display: none;
+}
+
+#request {
+	margin-top: 10px;
+	padding: 7px;
+	border-style: dashed;
+	border-width: 1px;
+	border-color: black;
+}
+
+.main {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
 .music {
 	margin: 5px;
+	align-items: flex-end;
+	display: flex;
+	flex-direction: row;
+	gap: 8px
+}
+
+label, button {
+	font-size: 18px;
 }
 
 button {
 	display: block;
 }
 
-.remove {
-	display: inline;
+#add-wrapper {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	justify-content: center;
+	height: 16px;
+	align-items: center;
+	margin: 25px 0px;
+}
+
+#add {
+	display: flex;
+	width: 150px;
+	background: none;
+	border: none;
+	align-items: center;
+	justify-content: center;
+}
+
+#add div {
+	font-size: 45px;
+	background-color: white;
 	border-radius: 9999px;
-	background-color: red;
-	border: 0;
+	border-style: solid;
+	border-width: 1px;
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+}
+
+#add-wrapper hr {
+	position: absolute;
+	width: 98%;
+	top: 0px;
+	left: 1%;
+	color: black;
+	z-index: -1;
+}
+
+.remove {
+	background: none;
+	border: none;
+	display: flex;
+	align-items: center;
+	width: 20px;
+	padding: 0;
+}
+
+.remove img {
+	width: 20px;
 }
 
 #sending {
@@ -19,24 +97,39 @@ button {
 
 input {
 	width: 100px;
+	height: 16px;
 }
 
 label {
 	position: relative;
+	display: flex;
+	align-items: flex-end;
 }
 
-label:has(input:invalid)::after {
-	content: "必須項目です";
+label span::after {
+	content: "*";
 	color: red;
-	position: absolute;
-	top: 0px;
-	right: 50px;
-	font-size: 10px;
 }
 
-input:invalid {
+input::placeholder {
+	visibility: hidden;
+}
+
+input:user-invalid::placeholder {
+	color: red;
+	visibility: visible;
+	font-size: 9px;
+	position: absolute;
+	top: -2px;
+	left: 0px;
+}
+
+input:user-invalid:not(:focus) {
 	background-color: #fff;
 	border-color: #f00;
+	border-style: solid;
+	border-width: 1px;
+	outline-color: #f00;
 }
 
 #loading-wrapper {
@@ -126,7 +219,7 @@ input:invalid {
 	-o-animation: loader 2s linear infinite;
 }
 
-@-webkit-keyframes loaders {
+@-webkit-keyframes loader {
 	0% {
 		-webkit-transform: rotate(0deg);
 		-ms-transform: rotate(0deg);
@@ -161,6 +254,7 @@ input:invalid {
 #errorpopup {
 	display: flex;
 	position: fixed;
+	z-index: 9999;
 	background-color: #0008;
 	top: 0px;
 	left: 0px;
@@ -171,6 +265,7 @@ input:invalid {
 	text-align: center;
 	justify-content: center;
 	align-items: center;
+	transition: .2s;
 }
 
 #errorpopup div {
@@ -194,4 +289,27 @@ input:invalid {
 	bottom: 8px;
 	right: 10px;
 	color: blue
+}
+
+label span {
+	white-space: nowrap;
+}
+
+@media all and (max-width:420px) {
+
+	.main {
+		padding: 3px;
+	}
+
+	#request {
+		padding: 3px;
+	}
+	label,button{
+		font-size: 16px;
+	}
+.music{
+	gap:4px;
+	margin-left: 1px;
+	margin-right: 1px;
+}
 }
