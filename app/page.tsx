@@ -5,6 +5,7 @@ import PwaToolBar from "./PwaToolBar";
 import Counter from "./Counter";
 import SiteMapElem from "./sitemapelem";
 import { Head } from "next/document";
+export const dynamic = "force-dynamic";
 
 export default function page() {
 	return (
