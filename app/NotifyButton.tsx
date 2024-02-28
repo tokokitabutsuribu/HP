@@ -20,45 +20,45 @@ export default function () {
 		//const app = initializeApp(firebaseConfig);
 		//const messaging = getMessaging(app);
 		const APIURL = "/api/push_token";
-		async function getmytoken() {
-			let iserror = false;
-			getToken(messaging, { vapidKey: "BHYfDERRzVeOZOz32LOi6uZTYpzItJ5MVK8EswEeYkjLLOeX8thI1o7yPBuizxXqq_j_r1pauCAo3_YTGWxc7tQ" })
-				.then((currentToken) => {
-					if (currentToken) {
-						console.log(currentToken);
-						localStorage.messageToken = currentToken;
-						document.getElementById("requestpermission").style.display = "none";
-						fetch(APIURL, {
-							method: "POST",
-							headers: {
-								"Content-Type": "application/json",
-							},
-							body: JSON.stringify({
-								token: currentToken,
-								true_topics: ["all"],
-								false_topics: [],
-							}),
-						})
-							.then((res) => {
-								console.log(res);
-							})
-							.catch((error) => {
-								console.log(error);
-								iserror = true;
-							});
-					} else {
-						// Show permission request UI
-						console.log("No registration token available. Request permission to generate one.");
-						document.getElementById("requestpermission").style.display = "block";
-						// ...
-					}
-				})
-				.catch((err) => {
-					console.log("An error occurred while retrieving token. ", err);
-					document.getElementById("requestpermission").style.display = "block";
-					// ...
-				});
-		}
+		// async function getmytoken() {
+		// 	let iserror = false;
+		// 	getToken(messaging, { vapidKey: "BHYfDERRzVeOZOz32LOi6uZTYpzItJ5MVK8EswEeYkjLLOeX8thI1o7yPBuizxXqq_j_r1pauCAo3_YTGWxc7tQ" })
+		// 		.then((currentToken) => {
+		// 			if (currentToken) {
+		// 				console.log(currentToken);
+		// 				localStorage.messageToken = currentToken;
+		// 				document.getElementById("requestpermission").style.display = "none";
+		// 				fetch(APIURL, {
+		// 					method: "POST",
+		// 					headers: {
+		// 						"Content-Type": "application/json",
+		// 					},
+		// 					body: JSON.stringify({
+		// 						token: currentToken,
+		// 						true_topics: ["all"],
+		// 						false_topics: [],
+		// 					}),
+		// 				})
+		// 					.then((res) => {
+		// 						console.log(res);
+		// 					})
+		// 					.catch((error) => {
+		// 						console.log(error);
+		// 						iserror = true;
+		// 					});
+		// 			} else {
+		// 				// Show permission request UI
+		// 				console.log("No registration token available. Request permission to generate one.");
+		// 				document.getElementById("requestpermission").style.display = "block";
+		// 				// ...
+		// 			}
+		// 		})
+		// 		.catch((err) => {
+		// 			console.log("An error occurred while retrieving token. ", err);
+		// 			document.getElementById("requestpermission").style.display = "block";
+		// 			// ...
+		// 		});
+		// }
 		function registerInstallAppEvent(elem) {
 			//インストールバナー表示条件満足時のイベントを乗っ取る
 			window.addEventListener("beforeinstallprompt", (event) => {
