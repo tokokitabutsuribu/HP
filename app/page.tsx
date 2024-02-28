@@ -6,11 +6,12 @@ import Counter from "./Counter";
 import SiteMapElem from "./sitemapelem";
 import CounterLoading from "./CounterLoading";
 import { Metadata } from "next";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const dynamic = "force-dynamic";
 
 export default function page() {
-	const a={
+	const a = {
 		"@context": "http://schema.org",
 		"@type": "WebSite",
 		name: "所沢北高校物理部",
@@ -22,10 +23,14 @@ export default function page() {
 			"@type": "ImageObject",
 			url: "/images/iconBIG.jpg",
 		},
-	}
+	};
 	return (
 		<>
-		<script type="application/ld+json">{JSON.stringify(a)}</script>
+			<HelmetProvider>
+				<Helmet>
+					<script type="application/ld+json">{JSON.stringify(a)}</script>
+				</Helmet>
+			</HelmetProvider>
 			<PwaToolBar />
 			<div className={styles.wrapper}>
 				<div className={styles.content1}>
