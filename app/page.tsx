@@ -10,7 +10,7 @@ import { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export default function page() {
-	const a=`{
+	const a={
 		"@context": "http://schema.org",
 		"@type": "WebSite",
 		name: "所沢北高校物理部",
@@ -22,10 +22,10 @@ export default function page() {
 			"@type": "ImageObject",
 			url: "/images/iconBIG.jpg",
 		},
-	}`
+	}
 	return (
 		<>
-		<script type="application/ld+json">{a}</script>
+		<script type="application/ld+json">{JSON.stringify(a)}</script>
 			<PwaToolBar />
 			<div className={styles.wrapper}>
 				<div className={styles.content1}>
