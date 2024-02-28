@@ -27,7 +27,7 @@ export default function page() {
 	return (
 		<>
 			{/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
-			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonld }} />
+			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
 
 			<PwaToolBar />
 			<div className={styles.wrapper}>
