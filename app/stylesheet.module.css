@@ -6,6 +6,10 @@
 	text-align: right;
 }
 
+circle, path {
+	fill: #1cf8ed
+}
+
 .title {
 	width: 100%;
 	color: red;
