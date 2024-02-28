@@ -10,22 +10,22 @@ import { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export default function page() {
-
+	const a=`{
+		"@context": "http://schema.org",
+		"@type": "WebSite",
+		name: "所沢北高校物理部",
+		alternateName: ["所北物理部", "TK_physics_club", "TKPC"],
+		url: "https://tkbutsuribu.vercel.app/",
+		headline: "所沢北高校物理部公式HP",
+		description: "所沢北高校（通称所北）物理部の公式HPです。役立つ情報や日常のつぶやきなどを発信していきます。無料で遊べるブラウザゲームも公開予定です。",
+		image: {
+			"@type": "ImageObject",
+			url: "/images/iconBIG.jpg",
+		},
+	}`
 	return (
 		<>
-		<script type="application/ld+json">{JSON.stringify({
-			"@context": "http://schema.org",
-			"@type": "WebSite",
-			name: "所沢北高校物理部",
-			alternateName: ["所北物理部", "TK_physics_club", "TKPC"],
-			url: "https://tkbutsuribu.vercel.app/",
-			headline: "所沢北高校物理部公式HP",
-			description: "所沢北高校（通称所北）物理部の公式HPです。役立つ情報や日常のつぶやきなどを発信していきます。無料で遊べるブラウザゲームも公開予定です。",
-			image: {
-				"@type": "ImageObject",
-				url: "/images/iconBIG.jpg",
-			},
-		})}</script>
+		<script type="application/ld+json">{a}</script>
 			<PwaToolBar />
 			<div className={styles.wrapper}>
 				<div className={styles.content1}>
