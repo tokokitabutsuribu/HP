@@ -16,7 +16,6 @@ if (!/tkbutsuribu.vercel.app/.test(location.href) && !/notest/.test(location.sea
 
 //Google tag manager
 const GTM = async () => {
-    const l = 'dataLayer';
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
         'gtm.start': new Date().getTime(), event: 'gtm.js'
