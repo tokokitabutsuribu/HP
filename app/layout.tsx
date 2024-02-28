@@ -1,5 +1,5 @@
 import "./normalize.css";
-import GTM from "./gtm.js";
+import GTM from "./gtm";
 import { Metadata, Viewport } from "next";
 
 export default function RootLayout({ children }) {

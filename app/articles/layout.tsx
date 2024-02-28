@@ -1,5 +1,5 @@
-import Header from '../header.js'
-import Footer from '../footer.js'
+import Header from '../header'
+import Footer from '../footer'
 import './article.css'
 import './prism.css'
 import MyPrism from './myprism.js'
@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <>
     <Header />
-    <div class="top main line-numbers" style={{ textAlign: 'left' }}>
+    <div className="top main line-numbers" style={{ textAlign: 'left' }}>
       {children}
     </div>
     <MyPrism />
