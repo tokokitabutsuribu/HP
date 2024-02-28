@@ -83,37 +83,37 @@ export default function () {
 		}
 
 		const ua = navigator.userAgent;
-		document.getElementById("requestpermission").onclick = function requestPermission() {
-			console.log("Requesting permission...");
+		// document.getElementById("requestpermission").onclick = function requestPermission() {
+		// 	console.log("Requesting permission...");
 
-			if (/iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || "ontouchend" in document)) || ((ua.indexOf("ipad") > -1 || ua.indexOf("Macintosh") > -1) && "ontouchend" in document)) {
-				if (!window.matchMedia("(display-mode: standalone)").matches) {
-					(document.getElementById("pop-up") as HTMLInputElement).checked = true;
-				}
-			}
-			Notification.requestPermission()
-				.then((permission) => {
-					if (permission === "granted") {
-						console.log("Notification permission granted.");
-						document.getElementById("requestpermission").style.display = "none";
-						getmytoken();
-					} else {
-						const ua = navigator.userAgent;
-						if (/iPad|iPhone|iPod/.test(ua) || (/macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || "ontouchend" in document)) || ua.indexOf("ipad") > -1 || (ua.indexOf("macintosh") > -1 && "ontouchend" in document)) {
-							if (!window.matchMedia("(display-mode: standalone)").matches) {
-								(document.getElementById("pop-up") as HTMLInputElement).checked = true;
-							} else {
-								document.getElementById("requestpermission").innerText = "通知がブロックされています";
-							}
-						} else {
-							document.getElementById("requestpermission").innerText = "通知がブロックされています";
-						}
-					}
-				})
-				.catch((error) => {
-					console.log(error);
-				});
-		};
+		// 	if (/iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || "ontouchend" in document)) || ((ua.indexOf("ipad") > -1 || ua.indexOf("Macintosh") > -1) && "ontouchend" in document)) {
+		// 		if (!window.matchMedia("(display-mode: standalone)").matches) {
+		// 			(document.getElementById("pop-up") as HTMLInputElement).checked = true;
+		// 		}
+		// 	}
+		// 	Notification.requestPermission()
+		// 		.then((permission) => {
+		// 			if (permission === "granted") {
+		// 				console.log("Notification permission granted.");
+		// 				document.getElementById("requestpermission").style.display = "none";
+		// 				getmytoken();
+		// 			} else {
+		// 				const ua = navigator.userAgent;
+		// 				if (/iPad|iPhone|iPod/.test(ua) || (/macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || "ontouchend" in document)) || ua.indexOf("ipad") > -1 || (ua.indexOf("macintosh") > -1 && "ontouchend" in document)) {
+		// 					if (!window.matchMedia("(display-mode: standalone)").matches) {
+		// 						(document.getElementById("pop-up") as HTMLInputElement).checked = true;
+		// 					} else {
+		// 						document.getElementById("requestpermission").innerText = "通知がブロックされています";
+		// 					}
+		// 				} else {
+		// 					document.getElementById("requestpermission").innerText = "通知がブロックされています";
+		// 				}
+		// 			}
+		// 		})
+		// 		.catch((error) => {
+		// 			console.log(error);
+		// 		});
+		// };
 
 		// if (/iPad|iPhone|iPod/.test(ua) || (/macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || "ontouchend" in document)) || ua.indexOf("ipad") > -1 || (ua.indexOf("macintosh") > -1 && "ontouchend" in document)) {
 		// 	document.getElementById("InstallBtn").addEventListener("click", () => {
