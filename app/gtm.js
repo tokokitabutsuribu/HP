@@ -6,6 +6,10 @@ export default function gtm() {
 	console.log("gtm");
 	try {
 		useEffect(() => {
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('sw.js')
+					.then((reg) => { console.log('SW registered.', reg); });
+			}
 			if (!/nogtm/.test(location.search)) {
 				try {
 					window.dataLayer = window.dataLayer || [];
