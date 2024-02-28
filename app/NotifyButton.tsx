@@ -17,8 +17,8 @@ const firebaseConfig = {
 
 export default function () {
 	useEffect(() => {
-		const app = initializeApp(firebaseConfig);
-		const messaging = getMessaging(app);
+		//const app = initializeApp(firebaseConfig);
+		//const messaging = getMessaging(app);
 		const APIURL = "/api/push_token";
 		async function getmytoken() {
 			let iserror = false;
