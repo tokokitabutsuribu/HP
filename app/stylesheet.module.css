@@ -6,7 +6,7 @@
 	text-align: right;
 }
 
-circle, path {
+.logosvg circle,.logosvg path {
 	fill: #1cf8ed
 }
 
