@@ -26,9 +26,9 @@ export default function page() {
 	};
 	return (
 		<>
-				<Helmet>
-					<script type="application/ld+json">{JSON.stringify(jsonld)}</script>
-				</Helmet>
+			{/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
+			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonld }} />
+
 			<PwaToolBar />
 			<div className={styles.wrapper}>
 				<div className={styles.content1}>
