@@ -11,7 +11,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 export const dynamic = "force-dynamic";
 
 export default function page() {
-	const a = {
+	const jsonld = {
 		"@context": "http://schema.org",
 		"@type": "WebSite",
 		name: "所沢北高校物理部",
@@ -26,11 +26,9 @@ export default function page() {
 	};
 	return (
 		<>
-			<HelmetProvider>
 				<Helmet>
-					<script type="application/ld+json">{JSON.stringify(a)}</script>
+					<script type="application/ld+json">{JSON.stringify(jsonld)}</script>
 				</Helmet>
-			</HelmetProvider>
 			<PwaToolBar />
 			<div className={styles.wrapper}>
 				<div className={styles.content1}>
