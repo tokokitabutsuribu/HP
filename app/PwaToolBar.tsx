@@ -17,7 +17,7 @@ export default function () {
 							history.back();
 						}}
 					>
-						<img src="/images/left.svg" width="16px" alt="back" />
+						<img src="/images/left.svg" width="16px" height="16px" alt="back" />
 					</button>
 					<button
 						type="button"
@@ -25,7 +25,7 @@ export default function () {
 							location.reload();
 						}}
 					>
-						<img src="/images/reload.svg" width="19px" alt="reload" />
+						<img src="/images/reload.svg" width="19px" height="19px" alt="reload" />
 					</button>
 				</div>,
 			);
