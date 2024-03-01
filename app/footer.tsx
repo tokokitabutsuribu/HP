@@ -6,7 +6,7 @@ export default async function Footer() {
                 <div className={styles.twitter}>
                     <a href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5ETK_physics_club&region=follow_link&screen_name=TK_physics_club"
                         target="_blank" rel="noreferrer noopener"><span>
-                            <span style={{whiteSpace:'nowrap'}}>𝕏 フォローする</span>
+                            <span style={{whiteSpace:'nowrap'}}>公式𝕏</span>
                         </span></a>
                 </div>
                 <div className={styles.youtube}>

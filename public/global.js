@@ -63,7 +63,7 @@ const addfooter = async () => {
     <a style="text-decoration: none;"
         href="https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5ETK_physics_club&region=follow_link&screen_name=TK_physics_club"
         target="_blank" rel="noopener norefereer"><span>
-            <span style="white-space: nowrap;">𝕏 フォローする</span>
+            <span style="white-space: nowrap;">公式𝕏</span>
         </span></a>
 </div>
 <div class="youtube">
