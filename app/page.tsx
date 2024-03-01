@@ -30,7 +30,7 @@ export default function page() {
 			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }} />
 
 			<PwaToolBar />
-			<div className={styles.wrapper}>
+			<div id="wrapper" className={styles.wrapper}>
 				<div className={styles.content1}>
 					<div className={styles.main}>
 						<div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "clamp(0px,12vw,25px)" }}>
