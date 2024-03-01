@@ -8,7 +8,6 @@ import Cidcookie from "./cidcookie";
 // const currentTime = date.toLocaleString();
 // await kv.set(request.body.token, currentTime, { ex: 5184000 });
 // errormessage.push("kv success");
-export const dynamic = "force-dynamic";
 export default async function counter() {
 	let cidc = <></>;
 	try {
