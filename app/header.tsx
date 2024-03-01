@@ -1,7 +1,7 @@
 import styles from "./header.module.css";
 export default async function Header() {
 	return (
-		<div className={styles.wrapper}>
+		<div id="wrapper" className={styles.wrapper}>
 			<nav className={styles.globalNavi}>
 				<span style={{whiteSpace:'nowrap'}}>
 					<span className={styles.toplink}>
