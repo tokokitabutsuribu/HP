@@ -150,3 +150,19 @@
 	}
 
 }
+
+
+.sitemap li{
+    width:100%;
+    list-style: none;
+}
+
+.sitemap a{
+    width:100%;
+}
+
+.sitemap div{
+    border: solid 1px black;
+	padding: 10px 5px;
+    width:100%;
+}

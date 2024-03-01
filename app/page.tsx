@@ -3,11 +3,8 @@ import styles from "./stylesheet.module.css";
 import NotifyButton from "./NotifyButton";
 import PwaToolBar from "./PwaToolBar";
 import Counter from "./Counter";
-import SiteMapElem from "./sitemapelem";
 import CounterLoading from "./CounterLoading";
 import { Metadata } from "next";
-
-
 
 export const dynamic = "force-dynamic";
 
@@ -104,11 +101,27 @@ export default function page() {
 				</div>
 				<div className={styles.content2} style={{ width: "400px" }}>
 					<div className={styles.sitemap}>
-						<ul>
-							<SiteMapElem url="/about.html" name="概要" />
-							<SiteMapElem url="/articles/" name="記事一覧" />
-							<SiteMapElem url="/games/" name="ゲームスタジオ" />
-							<SiteMapElem url="#." name="掲示板(未完成)" />
+						<ul className={styles.sitemap}>
+							<li>
+								<a href="/about.html">
+									<div>概要</div>
+								</a>
+							</li>
+							<li>
+								<a href="/articles/">
+									<div>記事一覧</div>
+								</a>
+							</li>
+							<li>
+								<a href="/games/">
+									<div>ゲームスタジオ</div>
+								</a>
+							</li>
+							<li>
+								<a href="#.">
+									<div>掲示板(未完成)</div>
+								</a>
+							</li>
 						</ul>
 					</div>
 					<NotifyButton />
