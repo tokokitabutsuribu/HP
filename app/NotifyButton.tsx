@@ -83,7 +83,7 @@ export default function () {
 	}
 
 	const ua = navigator.userAgent;
-	document.getElementById("requestpermission").onclick = function requestPermission() {
+	function requestPermission() {
 		console.log("Requesting permission...");
 
 		if (/iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || "ontouchend" in document)) || ((ua.indexOf("ipad") > -1 || ua.indexOf("Macintosh") > -1) && "ontouchend" in document)) {
@@ -114,7 +114,7 @@ export default function () {
 				console.log(error);
 			});
 	};
-
+	document.getElementById("requestpermission").addEventListener('click',requestPermission)
 	if (/iPad|iPhone|iPod/.test(ua) || (/macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || "ontouchend" in document)) || ua.indexOf("ipad") > -1 || (ua.indexOf("macintosh") > -1 && "ontouchend" in document)) {
 		document.getElementById("InstallBtn").addEventListener("click", () => {
 			(document.getElementById("pop-up") as HTMLInputElement).checked = true;
@@ -126,7 +126,7 @@ export default function () {
 		document.getElementById("InstallBtn").style.display = "none";
 	}
 	if (Object.prototype.hasOwnProperty.call(localStorage, "messagetoken")) {
-		getmytoken();
+		requestPermission();
 		 }
 	}, []);
 	return (
