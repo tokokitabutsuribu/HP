@@ -6,9 +6,9 @@ import Counter from "./Counter";
 import SiteMapElem from "./sitemapelem";
 import CounterLoading from "./CounterLoading";
 import { Metadata } from "next";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
-export const dynamic = "force-dynamic";
+
+
 
 export default function page() {
 	const jsonld = {
