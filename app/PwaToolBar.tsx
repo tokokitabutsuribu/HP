@@ -2,7 +2,6 @@
 
 import React, { ReactComponentElement, ReactNode, useState } from "react";
 import { useEffect } from "react";
-import style from "./PwaToolBar.module.css";
 
 export default function () {
 	const [toolbar, settoolbar] = useState<ReactNode>();
@@ -10,16 +9,18 @@ export default function () {
 	useEffect(() => {
 		if (window.matchMedia("(display-mode: standalone)").matches) {
 			settoolbar(
-				<div className={style.pwatoolbar}>
-					<button
+				<div style={{ position: "fixed", top: 0, left: 0, width: "100vw", backgroundColor: "#1cf8fd", height: "32px", alignItems: "center", display: "flex", zIndex: 3 }}>
+					<button className="hovergray"
 						type="button"
 						onClick={() => {
 							history.back();
 						}}
+						style={{ width: "32px", height: "32px", borderRadius: "9999px", borderWidth: 0, backgroundColor: "#fff0", marginLeft: "10px" }}
 					>
 						<img src="/images/left.svg" width="16px" height="16px" alt="back" />
 					</button>
-					<button
+					<button className="hovergray"
+						style={{ width: "32px", height: "32px", borderRadius: "9999px", borderWidth: 0, backgroundColor: "#fff0", marginLeft: "10px",}}
 						type="button"
 						onClick={() => {
 							location.reload();
