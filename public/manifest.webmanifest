@@ -4,8 +4,8 @@
     "theme_color": "#1cf8fd",
     "background_color": "#ffffff",
     "display": "standalone",
-    "scope": "https://tkbutsuribu.vercel.app/",
-    "start_url": "https://tkbutsuribu.vercel.app/index.html",
+    "scope": "https://tkbutsuribu-git-counternextjs-tokokitabutsuris-projects.vercel.app/",
+    "start_url": "https://tkbutsuribu-git-counternextjs-tokokitabutsuris-projects.vercel.app/index.html",
     "description": "所沢北高校物理部の公式HPです。インストールする事により、パケット消費量の節約、軽量化、新着通知の受けとり、などのメリットがあります。\nPWAのため、容量は使いません。\nぜひインストールしてご利用ください。",
     "screenshots": [
         {
