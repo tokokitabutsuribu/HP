@@ -1,0 +1,17 @@
+name: counter_clear
+
+on:
+  schedule:
+    - cron:  '0 15 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    name: reset
+    runs-on: ubuntu-latest
+    timeout-minutes: 180 # タイムアウト設定しないと永遠に処理走って大変になる場合がある
+    steps:
+    - name: reset
+      env:
+        COUNTER_SECRET: ${{ secrets.COUNTER_SECRET }}
+      run: | 
+        curl -X POST -H "Content-Type: application/json" -d '{"Auth":"$COUNTER_SECRET"}' https://tkbutsuribu-git-counternextjs-tokokitabutsuris-projects.vercel.app/api/counter_reset  
