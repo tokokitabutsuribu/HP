@@ -6,7 +6,7 @@ import style from "./PwaToolBar.module.css";
 
 export default function () {
 	const [toolbar, settoolbar] = useState<ReactNode>();
-//
+	//
 	useEffect(() => {
 		if (window.matchMedia("(display-mode: standalone)").matches) {
 			settoolbar(
@@ -29,8 +29,9 @@ export default function () {
 					</button>
 				</div>,
 			);
-
-			document.getElementById("wrapper").style.marginTop = "32px";
+			try {
+				document.getElementById("wrapper").style.marginTop = "32px";
+			} catch (e) {}
 		} else {
 			settoolbar(<div style={{ display: "none" }} />);
 		}
