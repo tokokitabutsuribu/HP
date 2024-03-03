@@ -122,11 +122,13 @@ export default function () {
 		} else {
 			registerInstallAppEvent(document.getElementById("InstallBtn"));
 		}
-		if (window.matchMedia("(display-mode: standalone)").matches) {
-			document.getElementById("InstallBtn").style.display = "none";
+		if (!window.matchMedia("(display-mode: standalone)").matches) {
+			document.getElementById("InstallBtn").style.display = "block";
 		}
 		if (Object.prototype.hasOwnProperty.call(localStorage, "messageToken")) {
 			requestPermission();
+		}else{
+			document.getElementById('requestpermission').style.display='block'
 		}
 	}, []);
 	return (
@@ -164,11 +166,11 @@ export default function () {
 					</div>
 				</div>
 			</div>
-			<button id="InstallBtn" className={style.button} type="button">
+			<button id="InstallBtn" className={style.button} type="button" style={{display:'none'}}>
 				<img height="16px" width="16px" src="/images/installicon.svg" alt="install" style={{ maxHeight: "100%", width: "auto", margin: "0 5px 0 2px" }} />
 				インストールする
 			</button>
-			<button id="requestpermission" className={style.button} type="button" value="通知" style={{ display: "block" }}>
+			<button id="requestpermission" className={style.button} type="button" value="通知" style={{ display: "none" }}>
 				<img height="16px" width="16px" src="./images/notification.svg" alt="notification" style={{ maxHeight: "100%", width: "auto", margin: "0 5px 0 2px" }} />
 				通知を許可する
 			</button>
