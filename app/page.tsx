@@ -42,12 +42,10 @@ export default function page() {
 								エフェクトオフ
 							</a>
 						</div>
-						<div style={{ width: "100%", color: "red", marginTop: "25px", fontSize: "clamp(5px, 3.8vw, 16px)" }}>
-							<h1 style={{ marginBottom: "0px" }}>
-								<span style={{ whiteSpace: "nowrap" }}>所沢北高校物理部のサイトへ</span>
-								<span style={{ whiteSpace: "nowrap" }}>ようこそ！</span>
-							</h1>
-						</div>
+						<h1 style={{ marginBottom: "0px", fontSize: "clamp(10px, 7.6vw, 32px)", width: "100%", color: "red", marginTop: "25px" }}>
+							<span style={{ whiteSpace: "nowrap" }}>所沢北高校物理部のサイトへ</span>
+							<span style={{ whiteSpace: "nowrap" }}>ようこそ！</span>
+						</h1>
 					</div>
 					<svg role="img" aria-label="ロゴ" width="320px" height="320px" viewBox="0 0 1280 1280" xmlns="http://www.w3.org/2000/svg">
 						<circle fill="#1cf8fd" cx="750.309" cy="591.251" r="15.885" />
