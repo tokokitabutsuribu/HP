@@ -54,6 +54,7 @@
 }
 
 .popUpContent {
+	text-align: left;
 	height: fit-content;
 	width: 90%;
 }
