@@ -6,17 +6,6 @@
 	text-align: right;
 }
 
-.logosvg circle,.logosvg path {
-	fill: #1cf8fd
-}
-
-.title {
-	width: 100%;
-	color: red;
-	margin-top: 25px;
-	font-size: clamp(5px, 3.8vw, 16px);
-}
-
 .links {
 	width: fit-content;
 	display: flex;
@@ -93,10 +82,6 @@
 .github a {
 	column-gap: 2px;
 	margin-top: 3px;
-}
-
-.title h1 {
-	margin-bottom: 0px;
 }
 
 .wrapper {
