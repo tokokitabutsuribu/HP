@@ -1,11 +1,16 @@
 
 const checkAndCache = async (request) => {
-
+    Cache.add(request.url);
 };
 const newCache = async (request) => {
-
+    Cache.add(request.url);
 };
-
+const offline = async (request) => {
+    const cache = await caches.open("dynamic-v1");
+    if (/\.vercel\.app\/$|\.vercel\.app\/\?[^/]*/.test(request.url)) {
+        return await cache.match('/offline.html');
+    }
+};
 self.addEventListener('fetch', (e) => {
     if (!navigator.onLine) {
         if (e.request.method !== "GET") return;
@@ -16,18 +21,16 @@ self.addEventListener('fetch', (e) => {
                 const cachedResponse = await cache.match(e.request);
 
                 if (cachedResponse) {
-                    // キャッシュに一致するものが見つかった場合は返却し、
-                    // バックグラウンドでキャッシュ内の項目を更新
-                    e.waitUntil(cache.add(e.request));
+                    // キャッシュに一致するものが見つかった場合は返却
                     return cachedResponse;
                 }
 
                 // キャッシュに一致するものがなければ、ネットワークのものを使用
-                return fetch(e.request);
+                return offline(e.request);
             })(),
         );
     } else {
-        if (!/\.js|\.css|\.svg|\.webp|\.png|\.jpg|\.jpeg|\.ico/i.test(e.request.url)) {
+        if (!/\.js|\.css|\.svg|\.webp|\.png|\.jpg|\.jpeg|\.ico|\.webmanifest|\.gif/i.test(e.request.url)) {
             //return cache and check
             e.respondWith(
                 (async () => {
@@ -44,16 +47,20 @@ self.addEventListener('fetch', (e) => {
 
                     // キャッシュに一致するものがなければ、ネットワークのものを使用
                     e.waitUntil(newCache(e.request));
-                    return fetch(e.request);
+                    return;
                 })(),
             );
 
         } else {
-            //return request and check
-            e.waitUntil(checkAndCache(e.request));
-            return fetch(e.request);
+            //no cache
+            //e.waitUntil(checkAndCache(e.request));
+            return;
         }
 
     }
 
+});
+
+self.addEventListener('install', () => {
+    Cache.add('/offline.html');
 });
