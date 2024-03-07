@@ -69,7 +69,7 @@ const post = () => {
 			if (rawdata.ok) {
 				return rawdata.json();
 			}
-			throw new Error(await rawdata.json());
+			throw new Error((await rawdata.json()).message);
 		})
 		.then((data) => {
 			console.log(data);
@@ -77,7 +77,7 @@ const post = () => {
 			setTimeout(reload,500)
 		})
 		.catch((e) => {
-			window.alert(e.message);
+			window.alert(e);
 		});
 };
 
