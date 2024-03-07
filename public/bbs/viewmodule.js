@@ -32,6 +32,7 @@ const reload = () => {
 };
 
 const makeview = (data) => {
+	document.getElementById('view').innerHTML = '';
 	for (const i in data) {
 		data[i];
 		const elem = document.createElement("div");
@@ -55,10 +56,17 @@ const makeview = (data) => {
 
 const post = () => {
 	const data = {
-		name: document.getElementById("name").value,
-		message: document.getElementById("message").value,
+		poster_name: document.getElementById("name").value,
+		comment: document.getElementById("message").value,
+		thread_id: params.get("thread")
 	};
-	alert(JSON.stringify(data));
+	fetch('/api/bbs_post', {
+		method: "POST", 
+		headers: {"Content-Type": "application/json"}, 
+		body: data
+	  })
+		.then((data) => { console.log(data); })
+		.catch((e) => { window.alert(e); });
 };
 
 document.getElementById('reload').addEventListener('click', reload);

@@ -4,5 +4,5 @@ Content-Type: application/json
 {
     "poster_name":"name",
     "comment":"aaaaaa>>12345 asdfa\naa",
-    "thread_id":123,
+    "thread_id":123
 }
