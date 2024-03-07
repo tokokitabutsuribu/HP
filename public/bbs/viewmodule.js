@@ -65,7 +65,8 @@ const post = () => {
 		headers: {"Content-Type": "application/json"}, 
 		body: data
 	  })
-		.then((data) => { console.log(data); })
+		.then((data) => data.json())
+		.then((data)=>{console.log(data)})
 		.catch((e) => { window.alert(e); });
 };
 
