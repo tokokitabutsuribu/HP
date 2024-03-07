@@ -74,6 +74,7 @@ const post = () => {
 		.then((data) => {
 			console.log(data);
 			document.getElementById("message").value=''
+			setTimeout(reload,500)
 		})
 		.catch((e) => {
 			window.alert(e.message);
