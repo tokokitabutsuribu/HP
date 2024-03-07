@@ -3,9 +3,10 @@
     margin-top: 7px;
     width: 95%;
     max-width: 600px;
+}
+#view div{
     position: relative;
 }
-
 #view div #num {
     color: red;
 }
