@@ -1,10 +1,10 @@
-#view li {
+#view>div {
     width: 95%;
     max-width: 600px;
     position: relative;
 }
 
-#view li::marker {
+#view div #num {
     color: red;
 }
 
@@ -12,7 +12,7 @@
     font-size: 0.7em;
 }
 /*メニューボタン*/
-.menubutton {
+#view div .menubutton {
     position: absolute;
     right: 0;
     top: 0;
@@ -40,6 +40,7 @@
     margin: 0;
     width: 100%;
     text-align: left;
+    color: black;
 }
 
 .menu button:hover {
@@ -48,4 +49,12 @@
 
 .menuon .menu {
     display: block;
+}
+
+
+#message{
+    resize: none;
+    max-width: 95vw;
+    width: 400px;
+    height: 100px;
 }
