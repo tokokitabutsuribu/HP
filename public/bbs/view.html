@@ -20,11 +20,11 @@
 	<div>
 		<ol id="view">
 			<li id="1" data-uuid="6cc7a4f3-c0a7-e353-dfe2-602cc85b5fb7">
-				<div class="menubutton"><img src="menu.svg" width="16px" height="16px" alt="menu">
+				<div class="menubutton" onclick="openmenu(this,arguments[0])"><img src="menu.svg" width="16px" height="16px" alt="menu">
 					<div class="menu">
 						<button
-							onclick="navigator.clipboard.writeText(this.parentNode.parentNode.parentNode.dataset.uuid)">グローバルIDをコピー</button>
-						<button onclick="this.parentNode.parentNode.parentNode.style.display='none'">非表示にする</button>
+							onclick="copyuuid(this,arguments[0])">グローバルIDをコピー</button>
+						<button onclick="this.parentNode.parentNode.parentNode.remove()">非表示にする</button>
 					</div>
 				</div>
 				<span class="username">風吹けば名無し</span>
@@ -40,9 +40,9 @@
 	<hr>
 
 	<div id="form">
-		<input type="text" id="name" name="name" value="デフォルトネーム"
+		<input title="name" type="text" id="name" name="name" value="デフォルトネーム"
 			onclick="if(this.value==='デフォルトネーム')this.select()"><br>
-		<textarea name="message" id="message" cols="50" rows="5"></textarea><br>
+		<textarea title="message" name="message" id="message" cols="50" rows="5"></textarea><br>
 		<input type="button" name="送信" value="送信" onclick="post();"><br>
 	</div>
 
