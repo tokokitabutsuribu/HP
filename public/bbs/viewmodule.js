@@ -61,13 +61,23 @@ const post = () => {
 		thread_id: params.get("thread")
 	};
 	fetch('/api/bbs_post', {
-		method: "POST", 
-		headers: {"Content-Type": "application/json"}, 
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data)
-	  })
-		.then((data) => data.json())
-		.then((data)=>{console.log(data)})
-		.catch((e) => { window.alert(e); });
+	})
+		.then(async (rawdata) => {
+			if (rawdata.ok) {
+				return rawdata.json();
+			}
+			throw new Error(rawdata.json());
+		})
+		.then((data) => {
+			console.log(data);
+			document.getElementById("message").value=''
+		})
+		.catch((e) => {
+			window.alert(e);
+		});
 };
 
 document.getElementById('reload').addEventListener('click', reload);
