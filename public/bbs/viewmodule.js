@@ -76,7 +76,7 @@ const post = () => {
 			document.getElementById("message").value=''
 		})
 		.catch((e) => {
-			window.alert(e);
+			window.alert(e.message);
 		});
 };
 
