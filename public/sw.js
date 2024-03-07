@@ -47,7 +47,7 @@ self.addEventListener('fetch', (e) => {
 
                     // キャッシュに一致するものがなければ、ネットワークのものを使用
                     e.waitUntil(newCache(e.request));
-                    return;
+                    return fetch(e.request.url);
                 })(),
             );
 
