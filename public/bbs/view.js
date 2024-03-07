@@ -19,15 +19,15 @@ window.addEventListener('click', () => {
 	}
 
 });
+const reload = () => {
 
-const menubuttonlist = Array.from(document.getElementsByClassName('menubutton'));
-for (const i in menubuttonlist) {
-	menubuttonlist[i].addEventListener('click', (e) => {
-		menubuttonlist[i].parentElement.classList.toggle('menuon');
-		e.stopPropagation();
-	});
 }
 
+
+const openmenu = () => {
+	menubuttonlist[i].parentElement.classList.toggle('menuon');
+	e.stopPropagation();
+}
 const replacemessage = (message = '') => {
 	let m = '';
 	m = message.replace(/[&'"]/g, m => ({
