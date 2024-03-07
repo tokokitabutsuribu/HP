@@ -63,7 +63,7 @@ const post = () => {
 	fetch('/api/bbs_post', {
 		method: "POST", 
 		headers: {"Content-Type": "application/json"}, 
-		body: data
+		body: JSON.stringify(data)
 	  })
 		.then((data) => data.json())
 		.then((data)=>{console.log(data)})
