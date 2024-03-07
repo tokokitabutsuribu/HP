@@ -69,7 +69,7 @@ const post = () => {
 			if (rawdata.ok) {
 				return rawdata.json();
 			}
-			throw new Error(rawdata.json());
+			throw new Error(await rawdata.json());
 		})
 		.then((data) => {
 			console.log(data);
