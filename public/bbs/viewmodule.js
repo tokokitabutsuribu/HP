@@ -3,27 +3,28 @@ const supabase = createClient("https://ojizjelrnhsxpmjtavhi.supabase.co/", "eyJh
 
 const params = new URL(document.location).searchParams;
 
-const reload = () => {
+const reload = async () => {
 	const threadID = params.get("thread");
 	const mode = params.get('mode') ?? 'all';
-	supabase
+	const loadtitle = supabase
 		.from('threads')
 		.select()
 		.eq('id', threadID)
 		.then((data) => {
 			document.getElementById('title').innerText = data.data[0].title;
 			document.head.title = data.data[0].title + ' -物理部掲示板	';
-			document.querySelector('meta[name="description"]').content=data.data[0].title;
+			document.querySelector('meta[name="description"]').content = data.data[0].title;
 		});
+	let loadcomments;
 	if (mode === 'all') {
-		supabase
+		loadcomments = supabase
 			.from("comments")
 			.select()
 			.eq("thread_id", threadID)
 			.order('posted_at', { ascending: true })
 			.then((data) => { makeview(data.data); });
 	} else if (mode === 'latest') {
-		supabase
+		loadcomments = supabase
 			.from("comments")
 			.select()
 			.eq("thread_id", threadID)
@@ -31,6 +32,7 @@ const reload = () => {
 			.limit(20)
 			.then((data) => { makeview(data.data.reverse()); });
 	}
+	await Promise.all([loadtitle,loadcomments])
 };
 
 const makeview = (data) => {
@@ -85,4 +87,7 @@ const post = () => {
 
 document.getElementById('reload').addEventListener('click', reload);
 document.getElementById('post').addEventListener('click', post);
-window.addEventListener('load', reload);
+window.addEventListener('DOMContentLoaded', async () => {
+	await reload();
+	document.body.style.display=''
+});
