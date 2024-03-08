@@ -12,7 +12,7 @@ const reload = async () => {
 		.eq('id', threadID)
 		.then((data) => {
 			document.getElementById('title').innerText = data.data[0].title;
-			document.head.title = `${data.data[0].title} -物理部掲示板	`;
+			document.title = `${data.data[0].title} -物理部掲示板	`;
 			document.querySelector('meta[name="description"]').content = data.data[0].title;
 		});
 	let loadcomments;
