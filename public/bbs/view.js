@@ -61,7 +61,7 @@ const replacemessage = (message, isembed = false) => {
 	m = m.replaceAll("<", "&lt;");
 	m = m.replaceAll(/>>([0-9]+)/g, "<$1");
 	m = m.replaceAll(">", "&gt;");
-	m = m.replaceAll(/<([0-9]+)/g, '<a href="javascript:void(0)" onclick="popup($1);">&gt;&gt;$1</a>');
+	m = m.replaceAll(/<([0-9]+)/g, '<a href="#" onclick="popup($1);return false;">&gt;&gt;$1</a>');
 	return m;
 };
 /**
