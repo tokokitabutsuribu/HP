@@ -42,7 +42,7 @@ const makeview = (data) => {
 		elem.dataset.uuid = data[i].comment_id;
 		elem.innerHTML = `<div class="menubutton" onclick="openmenu(this,arguments[0])"><img src="menu.svg" width="16px" height="16px"
 		alt="menu">
-	<div class="menu">
+	<div class="bbsmenu">
 		<button type="button" onclick="copyuuid(this,arguments[0])">グローバルIDをコピー</button>
 		<button type="button" onclick="this.parentNode.parentNode.parentNode.remove()">非表示にする</button>
 	</div>
