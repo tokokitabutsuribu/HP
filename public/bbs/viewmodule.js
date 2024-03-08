@@ -12,6 +12,8 @@ const reload = () => {
 		.eq('id', threadID)
 		.then((data) => {
 			document.getElementById('title').innerText = data.data[0].title;
+			document.head.title = data.data[0].title + ' -物理部掲示板	';
+			document.querySelector('meta[name="description"]').content=data.data[0].title;
 		});
 	if (mode === 'all') {
 		supabase
@@ -73,8 +75,8 @@ const post = () => {
 		})
 		.then((data) => {
 			console.log(data);
-			document.getElementById("message").value=''
-			setTimeout(reload,500)
+			document.getElementById("message").value = ''
+			setTimeout(reload, 500)
 		})
 		.catch((e) => {
 			window.alert(e);

@@ -12,12 +12,22 @@
 }
 
 .postdate,.id{
-    font-size: 0.7em;
+    font-size: 12px;
 }
 .content{
     margin:6px;
     margin-left: 16px;
 }
+#post{
+    width: 48px;
+    height:25px;
+    line-height: 25px;
+    border-radius: 5px;
+    margin: 15px 5px;
+    color: white;
+    background-color: #1cf8fd;
+}
+
 /*メニューボタン*/
 #view div .menubutton {
     position: absolute;
