@@ -29,7 +29,7 @@
 </head>
 
 <body style="display: none;">
-	 <script src="../global.js" id="globaljs"></script>
+	<script src="../global.js" id="globaljs"></script>
 	<div id="header"></div>
 	<div class="main">
 		<h1 id="title"></h1>
@@ -43,15 +43,19 @@
 		<hr>
 
 		<div id="form">
-			<input title="ハンドルネーム" type="text" id="name" name="name" value="デフォルトネーム"
-				onclick="if(this.value==='デフォルトネーム')this.select()"><br>
-			<textarea title="コメント" name="message" id="message"></textarea><br>
-			<input type="button" name="送信" value="送信" id="post"><br>
+			<label>ハンドルネーム(15文字まで)<br>
+				<input title="ハンドルネーム" type="text" id="name" name="name" value="デフォルトネーム"
+					onclick="if(this.value==='デフォルトネーム')this.select()" maxlength="15"></label>
+			<label>コメント(300文字まで)<br>
+				<textarea title="コメント" name="message" id="message" maxlength="300"></textarea></label>
+			<input type="button" name="送信" value="送信" id="post">
 		</div>
 	</div>
+	<div id="overray" style="display: none;">
+		<div id="popup">存在しないコメントです</div>
+	</div>
 	<div id="footer"></div>
-	<script src="view.js"></script>
-	<script src="viewmodule.js" type="module"></script>
+	<script src="view.js" type="module"></script>
 </body>
 
 </html>

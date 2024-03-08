@@ -6,7 +6,7 @@ type request = { poster_name: string; comment: string; reply_token?: string; thr
 export async function POST(rawreq: NextRequest) {
 	const req: request = await rawreq.json();
 	if (req.comment.length > 300) return NextResponse.json({ message: "too long comment" }, { status: 400 });
-	if (req.poster_name.length > 30) return NextResponse.json({ message: "too long comment" }, { status: 400 });
+	if (req.poster_name.length > 30) return NextResponse.json({ message: "too long name" }, { status: 400 });
     req.poster_id='qawsedrftgyhujikolp'
 	let iserror = false;
 	await supabase
