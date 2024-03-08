@@ -37,7 +37,7 @@
     background: none;
 }
 
-.menu {
+.bbsmenu {
     display: none;
     position: absolute;
     background-color: white;
@@ -51,7 +51,7 @@
     box-shadow: 0 0px 6px 0 rgba(0, 0, 0, .5);
 }
 
-.menu button {
+.bbsmenu button {
     background-color: white;
     border: none;
     margin: 0;
@@ -60,11 +60,11 @@
     color: black;
 }
 
-.menu button:hover {
+.bbsmenu button:hover {
     background-color: lightgray;
 }
 
-.menuon .menu {
+.menuon .bbsmenu {
     display: block;
 }
 

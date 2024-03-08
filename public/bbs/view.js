@@ -14,7 +14,7 @@ window.addEventListener("click", () => {
 // 	elem.dataset.uuid = (() => ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) => (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16)))();
 // 	elem.innerHTML = `<div class="menubutton" onclick="openmenu(this,arguments[0])"><img src="menu.svg" width="16px" height="16px"
 // 	alt="menu">
-// <div class="menu">
+// <div class="bbsmenu">
 // 	<button onclick="copyuuid(this,arguments[0])">グローバルIDをコピー</button>
 // 	<button onclick="this.parentNode.parentNode.parentNode.remove()">非表示にする</button>
 // </div>
