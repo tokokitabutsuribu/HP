@@ -1,6 +1,6 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+//
+import { createClient } from "https://esm.sh/v135/@supabase/supabase-js@2/es2022/supabase-js.mjs";
 const supabase = createClient("https://ojizjelrnhsxpmjtavhi.supabase.co/", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qaXpqZWxybmhzeHBtanRhdmhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyMzUwNjcsImV4cCI6MjAxNDgxMTA2N30.7ElMMPF5I89Ec3-nwnLczykjM96ZxMubfwgMLF4LJ1k");
-
 const params = new URL(document.location).searchParams;
 
 const reload = async () => {
@@ -67,20 +67,18 @@ const replacemessage = (message, isembed = false) => {
 /**
  * @param {{num:Number,username:string,postdate:string|Date,id:string,replacedcomment:string}}
  */
-const commentelem = ({ num, username, postdate, id, replacedcomment }) => `<div class="menubutton" onclick="openmenu(this,arguments[0])"><img src="menu.svg" width="16px" height="16px"
-alt="menu">
-<div class="bbsmenu">
-<button type="button" onclick="copyuuid(this,arguments[0])">グローバルIDをコピー</button>
-<button type="button" onclick="this.parentNode.parentNode.parentNode.remove()">非表示にする</button>
-</div>
-</div>
-				<span class="num">${num}.</span>
-				<span class="username">${username}</span><wbr>
-				<span style="white-space:nowrap;">
-				<span class="postdate">${new Date(postdate).toLocaleString('ja-jp')}</span>
-				<span class="id">ID:${id}</span>
-				</span>
-				<pre class="comment">${replacedcomment}</pre>`;
+const commentelem = ({ num, username, postdate, id, replacedcomment }) =>
+	`<div class="menubutton" onclick="openmenu(this,arguments[0])"><img src="menu.svg" width="16px" height="16px" alt="menu">
+	<div class="bbsmenu">
+		<button type="button" onclick="copyuuid(this,arguments[0])">グローバルIDをコピー</button>
+		<button type="button" onclick="this.parentNode.parentNode.parentNode.remove()">非表示にする</button>
+	</div>
+	</div>
+		<span class="username">${num}. ${username}</span><wbr>
+		<span class="postdate">${new Date(postdate).toLocaleString('ja-jp')}</span>
+		<span class="id">ID:${id}</span>
+		<pre class="comment">${replacedcomment}</pre>`;
+
 const makeview = (data) => {
 	document.getElementById('view').innerHTML = '';
 	for (const i in data) {
@@ -166,7 +164,7 @@ document.getElementById('overray').addEventListener('click', (ev) => { ev.target
 document.getElementById('popup').addEventListener('click', (ev) => { ev.stopPropagation(); });
 window.addEventListener('DOMContentLoaded', async () => {
 	await reload();
-	document.body.style.display = '';
+	document.body.classList.remove('hidden')
 });
 window.addEventListener("click", () => {
 	const menu = Array.from(document.getElementsByClassName("menuon"));
