@@ -27,7 +27,7 @@ export async function POST(rawreq: NextRequest) {
 	await supabase
 		.from("comments")
 		.select()
-		.eq("comment", req.thread_id)
+		.eq("comment_id", req.thread_id)
 		.then(
 			(data) => {
 				if(Math.floor(data.status/100)===2)
