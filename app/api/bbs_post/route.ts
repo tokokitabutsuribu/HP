@@ -31,7 +31,7 @@ export async function POST(rawreq: NextRequest) {
 		.then(
 			(data) => {
 				req.order = (data.data?.length ?? 0) + 1;
-				console.log(`order:${req.order}`);
+				console.log(`data:${data}`);
 			},
 			(e) => {
 				console.error(e);
@@ -40,7 +40,6 @@ export async function POST(rawreq: NextRequest) {
 		);
 	let iserror = false;
 
-	console.log(req);
 	await supabase
 		.from("comments")
 		.insert(req)
