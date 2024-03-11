@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { createHash } from "node:crypto";
 const supabase = createClient(process.env.SUPABASE_URL ?? "", process.env.SUPABASE_SERVICE_ROLE_KEY ?? "");
-type request = { poster_name: string; comment: string; reply_token?: string; thread_id: number; poster_id?: string };
+type request = { poster_name: string; comment: string; reply_token?: string; thread_id: number; poster_id?: string; order?: number };
 export async function POST(rawreq: NextRequest) {
 	const req: request = await rawreq.json();
 	if (req.comment.length > 300) return NextResponse.json({ message: "too long comment" }, { status: 400 });
@@ -23,8 +23,16 @@ export async function POST(rawreq: NextRequest) {
 		.update(ip)
 		.update(process.env.BBS_SALT ?? "salt")
 		.digest("hex");
-	req.poster_id = `${hash.substring(0,4)}-${hash.substring(4,10)}`;
+	req.poster_id = `${hash.substring(0, 4)}-${hash.substring(4, 10)}`;
+	supabase
+		.from("threads")
+		.select()
+		.eq("id", req.thread_id)
+		.then((data) => {
+			req.order = (data.data?.length ?? 0) + 1;
+		});
 	let iserror = false;
+
 	await supabase
 		.from("comments")
 		.insert(req)

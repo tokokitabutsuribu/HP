@@ -84,11 +84,10 @@ const makeview = (data) => {
 	view.innerHTML = '';
 	const viewelems = new DocumentFragment();
 	for (const i in data) {
-		data[i];
 		const elem = document.createElement("div");
-		elem.id = i;
+		elem.id = data[i].order;
 		elem.dataset.uuid = data[i].comment_id;
-		elem.innerHTML = commentelem({ num: Number.parseInt(i) + 1, username: data[i].poster_name, postdate: data[i].posted_at, id: data[i].poster_id, replacedcomment: replacemessage(data[i].comment) });
+		elem.innerHTML = commentelem({ num: data[i].order, username: data[i].poster_name, postdate: data[i].posted_at, id: data[i].poster_id, replacedcomment: replacemessage(data[i].comment) });
 		viewelems.append(elem);
 	}
 	view.style = '';
