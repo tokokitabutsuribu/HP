@@ -121,7 +121,8 @@ const post = () => {
 		})
 		.catch((e) => {
 			loading.style.display = 'none';
-			window.alert(e);
+			console.log(e);
+			window.alert('エラーが発生しました')
 		});
 };
 
