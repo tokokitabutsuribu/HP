@@ -12,7 +12,7 @@ const reload = async () => {
 		.eq('id', threadID)
 		.then((data) => {
 			document.getElementById('title').innerText = data.data[0].title;
-			document.title = `${data.data[0].title} -物理部掲示板	`;
+			document.title = `${data.data[0].title} -物理部掲示板`;
 			document.querySelector('meta[name="description"]').content = data.data[0].title;
 		});
 	let loadcomments;
@@ -80,15 +80,19 @@ const commentelem = ({ num, username, postdate, id, replacedcomment }) =>
 		<pre class="comment">${replacedcomment}</pre>`;
 
 const makeview = (data) => {
-	document.getElementById('view').innerHTML = '';
+	const view = document.getElementById('view')
+	view.innerHTML = '';
+	const viewelems = new DocumentFragment();
 	for (const i in data) {
 		data[i];
 		const elem = document.createElement("div");
 		elem.id = i;
 		elem.dataset.uuid = data[i].comment_id;
 		elem.innerHTML = commentelem({ num: Number.parseInt(i) + 1, username: data[i].poster_name, postdate: data[i].posted_at, id: data[i].poster_id, replacedcomment: replacemessage(data[i].comment) });
-		document.getElementById("view").appendChild(elem);
+		viewelems.append(elem)
 	}
+	view.style = ''
+	view.appendChild(viewelems);
 };
 
 const post = () => {
@@ -135,6 +139,7 @@ window.openmenu = (elem, event) => {
 };
 window.popup = async (anchor) => {
 	const popup = document.getElementById('popup');
+	popup.innerHTML = '';
 	document.getElementById('overray').style = '';
 	let iserror = false;
 	const data = await supabase
@@ -153,7 +158,6 @@ window.popup = async (anchor) => {
 	elem.id = anchor;
 	elem.dataset.uuid = data.comment_id;
 	elem.innerHTML = commentelem({ num: anchor, username: data.poster_name, postdate: data.posted_at, id: data.poster_id, replacedcomment: replacemessage(data.comment, false) });
-	popup.innerHTML = '';
 	popup.appendChild(elem);
 };
 
@@ -162,13 +166,14 @@ document.getElementById('reload').addEventListener('click', reload);
 document.getElementById('post').addEventListener('click', post);
 document.getElementById('overray').addEventListener('click', (ev) => { ev.target.style.display = 'none'; });
 document.getElementById('popup').addEventListener('click', (ev) => { ev.stopPropagation(); });
-window.addEventListener('DOMContentLoaded', async () => {
-	await reload();
-	document.body.classList.remove('hidden')
-});
+
 window.addEventListener("click", () => {
 	const menu = Array.from(document.getElementsByClassName("menuon"));
 	for (const i in menu) {
 		menu[i].classList.remove("menuon");
 	}
 });
+
+
+//読み込み時に非同期で実行
+reload();
