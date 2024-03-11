@@ -31,7 +31,7 @@ export async function POST(rawreq: NextRequest) {
 		.then(
 			(data) => {
 				req.order = (data.data?.length ?? 0) + 1;
-				console.log(`data:${data}`);
+				console.log(`data:${JSON.stringify(data)}`);
 			},
 			(e) => {
 				console.error(e);
