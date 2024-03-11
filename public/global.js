@@ -108,11 +108,12 @@ const addstyle = async () => {
 };
 //ヘッダーフッターツールバー
 addstyle();
+//CLSの影響が大きいため読み込み後即実行する
+addheader();
+addpwatoolbar();
 window.addEventListener('DOMContentLoaded', () => {
     if (!/nogtm/.test(location.search)){
         GTM();
     }
-    addheader();
     addfooter();
-    addpwatoolbar();
 });
