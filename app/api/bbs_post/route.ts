@@ -25,12 +25,18 @@ export async function POST(rawreq: NextRequest) {
 		.digest("hex");
 	req.poster_id = `${hash.substring(0, 4)}-${hash.substring(4, 10)}`;
 	supabase
-		.from("threads")
+		.from("comments")
 		.select()
 		.eq("id", req.thread_id)
-		.then((data) => {
-			req.order = (data.data?.length ?? 0) + 1;
-		});
+		.then(
+			(data) => {
+				req.order = (data.data?.length ?? 0) + 1;
+			},
+			(e) => {
+				console.error(e);
+				iserror = true;
+			},
+		);
 	let iserror = false;
 
 	await supabase
