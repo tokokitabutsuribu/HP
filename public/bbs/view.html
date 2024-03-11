@@ -38,6 +38,7 @@
 
 	<link rel="stylesheet" href="../normalize.css">
 	<link rel="stylesheet" href="view.css">
+	<link rel="preload" as="style" href="./lazy.css" onload="this.onload=null;this.rel='stylesheet'">
 	<!-- <link rel="stylesheet" href="../global.css"> -->
 </head>
 
@@ -75,6 +76,10 @@
 	</div>
 	<div id="overray" style="display: none;">
 		<div id="popup"></div>
+	</div>
+	<div id="loading-wrapper" style="display: none;">
+		<div id="loading-text">SENDING</div>
+		<div id="loading-content"></div>
 	</div>
 	<div id="footer"></div>
 </body>

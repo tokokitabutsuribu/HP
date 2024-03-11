@@ -2,7 +2,7 @@
 import { createClient } from "https://esm.sh/v135/@supabase/supabase-js@2/es2022/supabase-js.mjs";
 const supabase = createClient("https://ojizjelrnhsxpmjtavhi.supabase.co/", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9qaXpqZWxybmhzeHBtanRhdmhpIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTkyMzUwNjcsImV4cCI6MjAxNDgxMTA2N30.7ElMMPF5I89Ec3-nwnLczykjM96ZxMubfwgMLF4LJ1k");
 const params = new URL(document.location).searchParams;
-
+const loading = document.getElementById('loading-wrapper');
 const reload = async () => {
 	const threadID = params.get("thread");
 	const mode = params.get('mode') ?? 'all';
@@ -76,11 +76,11 @@ const commentelem = ({ num, username, postdate, id, replacedcomment }) =>
 	</div>
 		<span class="username">${num}. ${username}</span><wbr>
 		<span class="postdate">${new Date(postdate).toLocaleString('ja-jp')}</span>
-		<span class="id">ID:${id}</span>
+		<span class="id">ID: ${id}</span>
 		<pre class="comment">${replacedcomment}</pre>`;
 
 const makeview = (data) => {
-	const view = document.getElementById('view')
+	const view = document.getElementById('view');
 	view.innerHTML = '';
 	const viewelems = new DocumentFragment();
 	for (const i in data) {
@@ -89,13 +89,14 @@ const makeview = (data) => {
 		elem.id = i;
 		elem.dataset.uuid = data[i].comment_id;
 		elem.innerHTML = commentelem({ num: Number.parseInt(i) + 1, username: data[i].poster_name, postdate: data[i].posted_at, id: data[i].poster_id, replacedcomment: replacemessage(data[i].comment) });
-		viewelems.append(elem)
+		viewelems.append(elem);
 	}
-	view.style = ''
+	view.style = '';
 	view.appendChild(viewelems);
 };
 
 const post = () => {
+	loading.style.display = '';
 	const data = {
 		poster_name: document.getElementById("name").value,
 		comment: document.getElementById("message").value,
@@ -115,9 +116,12 @@ const post = () => {
 		.then((data) => {
 			console.log(data);
 			document.getElementById("message").value = '';
+			localStorage.setItem('handlename', document.getElementById("name").value);
 			setTimeout(reload, 500);
+			loading.style.display = 'none';
 		})
 		.catch((e) => {
+			loading.style.display = 'none';
 			window.alert(e);
 		});
 };
@@ -173,7 +177,19 @@ window.addEventListener("click", () => {
 		menu[i].classList.remove("menuon");
 	}
 });
+const loaded = async () => {
+	document.getElementById("name").value = localStorage.getItem('handlename') ?? 'デフォルトネーム';
+};
 
+if (document.readyState === 'loading') {
+	// 読み込み中ならDOMContentLoadedで関数を実行
+	document.addEventListener('DOMContentLoaded', () => {
+		loaded();
+	});
+} else {
+	// そうでなければ即実行
+	loaded();
+}
 
 //読み込み時に非同期で実行
 reload();

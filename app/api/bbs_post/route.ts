@@ -23,7 +23,7 @@ export async function POST(rawreq: NextRequest) {
 		.update(ip)
 		.update(process.env.BBS_SALT ?? "salt")
 		.digest("hex");
-	req.poster_id = `${hash.substring(0,4)}:${hash.substring(4,10)}`;
+	req.poster_id = `${hash.substring(0,4)}-${hash.substring(4,10)}`;
 	let iserror = false;
 	await supabase
 		.from("comments")

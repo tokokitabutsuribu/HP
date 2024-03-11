@@ -1,15 +1,13 @@
-.hidden *{
-    visibility: hidden!important;
-}
-
-.main{
+.main {
     margin-left: 7px;
     visibility: visible;
 }
-#title{
+
+#title {
     margin-top: 3px;
     height: 1em;
 }
+
 #view {
     margin-left: 7px;
     margin-top: 7px;
@@ -44,11 +42,13 @@
     background-color: #1cf8fd;
     border-width: 0.5px;
 }
-#form{
+
+#form {
     display: grid;
     margin-top: 5px;
     gap: 8px;
 }
+
 #message {
     resize: none;
     max-width: 95vw;
@@ -67,70 +67,6 @@
 
 .bbsmenu {
     display: none;
-    position: absolute;
-    background-color: white;
-    top: 16px;
-    left: 0;
-    width: 160px;
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 0px;
-    padding: 3px 0px;
-    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, .5);
-    z-index: 30000;
-}
-
-.bbsmenu button {
-    display: block;
-    background-color: white;
-    border: none;
-    margin: 0;
-    width: 100%;
-    text-align: left;
-    color: black;
-}
-
-.bbsmenu button:hover {
-    background-color: lightgray;
-}
-
-.menuon .bbsmenu {
-    display: block;
-}
-
-
-/* ポップアップ */
-#overray {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 9999;
-    background-color: #0008;
-    align-items: center;
-    justify-content: center;
-}
-
-#popup {
-    display: block;
-    text-align: left;
-    padding: 10px;
-    background-color: white;
-    min-height: 50px;
-    max-width: calc(100vw - 16px);
-    width: 620px;
-    border-radius: 10px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #666;
-    box-shadow: 0 0px 18px 0 #555;
-}
-
-#popup>div {
-    position: relative;
-    padding-right: 16px;
 }
 
 @media (max-width:400px) {
@@ -140,7 +76,7 @@
 }
 
 @media (max-width:760px) {
-    .bbsmenu{
+    .bbsmenu {
         left: initial;
         right: 0;
     }
