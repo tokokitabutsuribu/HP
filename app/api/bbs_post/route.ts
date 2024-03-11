@@ -24,13 +24,14 @@ export async function POST(rawreq: NextRequest) {
 		.update(process.env.BBS_SALT ?? "salt")
 		.digest("hex");
 	req.poster_id = `${hash.substring(0, 4)}-${hash.substring(4, 10)}`;
-	supabase
+	await supabase
 		.from("comments")
 		.select()
 		.eq("id", req.thread_id)
 		.then(
 			(data) => {
 				req.order = (data.data?.length ?? 0) + 1;
+				console.log(`order:${req.order}`);
 			},
 			(e) => {
 				console.error(e);
@@ -39,6 +40,7 @@ export async function POST(rawreq: NextRequest) {
 		);
 	let iserror = false;
 
+	console.log(req);
 	await supabase
 		.from("comments")
 		.insert(req)
