@@ -27,11 +27,16 @@ export async function POST(rawreq: NextRequest) {
 	await supabase
 		.from("comments")
 		.select()
-		.eq("id", req.thread_id)
+		.eq("comment", req.thread_id)
 		.then(
 			(data) => {
-				req.order = (data.data?.length ?? 0) + 1;
-				console.log(`data:${JSON.stringify(data)}`);
+				if(Math.floor(data.status/100)===2)
+				{
+					req.order = (data.data?.length ?? 0) + 1;
+				}else{
+					console.error(data);
+					iserror = true;
+				}
 			},
 			(e) => {
 				console.error(e);
