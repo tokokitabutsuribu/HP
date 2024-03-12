@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { kv } from "@vercel/kv";
 
 export async function POST(request:NextRequest){
@@ -9,8 +9,8 @@ export async function POST(request:NextRequest){
         return NextResponse.json({},{status:403,statusText:'Forbidden'})
     }
 
-    const now = new Date().getUTCHours();
+    const now = new Date().toLocaleString('ja-jp')
     await kv.del('users');
-    await kv.lpush('last_reset',now)
+    await kv.set('last_reset',now)
     return NextResponse.json({})
 }
