@@ -116,16 +116,16 @@ export default function () {
 		}
 		document.getElementById("requestpermission").addEventListener("click", requestPermission);
 		if (/iPad|iPhone|iPod/.test(ua) || (/macintosh/.test(ua) && (navigator.maxTouchPoints > 1 || "ontouchend" in document)) || ua.indexOf("ipad") > -1 || (ua.indexOf("macintosh") > -1 && "ontouchend" in document)) {
+			if (!window.matchMedia("(display-mode: standalone)").matches) {
+				document.getElementById("InstallBtn").style.display = "block";
+			}
 			document.getElementById("InstallBtn").addEventListener("click", () => {
 				(document.getElementById("pop-up") as HTMLInputElement).checked = true;
 			});
 		} else {
 			registerInstallAppEvent(document.getElementById("InstallBtn"));
 		}
-		if (!window.matchMedia("(display-mode: standalone)").matches) {
-			document.getElementById("InstallBtn").style.display = "block";
-		}
-		if (Object.prototype.hasOwnProperty.call(localStorage, "messageToken")) {
+		if (localStorage.getItem('messageToken')) {
 			requestPermission();
 		}else{
 			document.getElementById('requestpermission').style.display='block'

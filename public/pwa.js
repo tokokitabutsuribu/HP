@@ -135,7 +135,7 @@ if (window.matchMedia("(display-mode: standalone)").matches) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-	if (Object.prototype.hasOwnProperty.call(localStorage, "messagetoken")) {
+	if (Object.prototype.hasOwnProperty.call(localStorage, "messageToken")) {
 		getmytoken();
 	}
 	//const analytics = getAnalytics(app);
