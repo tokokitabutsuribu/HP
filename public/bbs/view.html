@@ -68,9 +68,9 @@
 		<div id="form">
 			<label>ハンドルネーム(15文字まで)<br>
 				<input title="ハンドルネーム" type="text" id="name" name="name" value="デフォルトネーム"
-					onclick="if(this.value==='デフォルトネーム')this.select()" maxlength="15"></label>
+					onclick="if(this.value==='デフォルトネーム')this.select()" maxlength="15" minlength="1"></label>
 			<label>コメント(300文字まで)<br>
-				<textarea title="コメント" name="message" id="message" maxlength="300"></textarea></label>
+				<textarea title="コメント" name="message" id="message" maxlength="300" minlength="1"></textarea></label>
 			<input type="button" name="送信" value="送信" id="post">
 		</div>
 	</div>
