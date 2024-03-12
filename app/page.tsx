@@ -4,7 +4,7 @@ import NotifyButton from "./NotifyButton";
 import PwaToolBar from "./PwaToolBar";
 import Counter from "./Counter";
 import CounterLoading from "./CounterLoading";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 

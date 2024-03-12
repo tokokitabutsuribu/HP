@@ -7,7 +7,7 @@ export default function gtm() {
 	try {
 		useEffect(() => {
 			if ("serviceWorker" in navigator) {
-				navigator.serviceWorker.register("sw.js").then((reg) => {
+				navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then((reg) => {
 					console.log("SW registered.", reg);
 				});
 			}

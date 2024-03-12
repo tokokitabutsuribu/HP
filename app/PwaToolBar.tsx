@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useLayoutEffect, useState } from "react";
+import React, { type ReactNode, useLayoutEffect, useState } from "react";
 
 export default function () {
 	const [toolbar, settoolbar] = useState<ReactNode>();
