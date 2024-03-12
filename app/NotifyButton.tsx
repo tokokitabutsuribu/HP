@@ -106,6 +106,7 @@ export default function () {
 								document.getElementById("requestpermission").innerText = "通知がブロックされています";
 							}
 						} else {
+							document.getElementById("requestpermission").style.display='block'
 							document.getElementById("requestpermission").innerText = "通知がブロックされています";
 						}
 					}
