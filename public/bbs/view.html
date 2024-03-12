@@ -47,16 +47,16 @@
 	<script src="../global.js" id="globaljs" async></script>
 	<div class="main">
 		<h1 id="title"></h1>
-		
+
 		<input type="button" value="全表示"
 			onclick="location.href=`${location.href.split('?')[0]}?thread=${location.search.match(/thread=([0-9]+)/)[1]}&mode=all`">
 		<input type="button" value="最新20件"
 			onclick="location.href=`${location.href.split('?')[0]}?thread=${location.search.match(/thread=([0-9]+)/)[1]}&mode=latest`">
-			<a href="/bbs/" style="display:block;margin-top: 15px;">スレッド一覧へ戻る</a>
-			<hr>
+		<a href="/bbs/" style="display:block;margin-top: 15px;">スレッド一覧へ戻る</a>
+		<hr>
 		<div id="view" style="height: 100vh;">
-		<!--viewを読み込んだら発火-->
-	<script src="view.js" type="module" async></script>
+			<!--viewを読み込んだら発火-->
+			<script src="view.js" type="module" async></script>
 		</div>
 		<input type="button" value="更新" id="reload">
 		<input type="button" value="全表示"
@@ -68,10 +68,10 @@
 		<div id="form">
 			<label>ハンドルネーム(15文字まで)<br>
 				<input title="ハンドルネーム" type="text" id="name" name="name" value="デフォルトネーム"
-					onclick="if(this.value==='デフォルトネーム')this.select()" maxlength="15" minlength="1"></label>
+					onclick="if(this.value==='デフォルトネーム')this.select()" maxlength="15" required></label>
 			<label>コメント(300文字まで)<br>
-				<textarea title="コメント" name="message" id="message" maxlength="300" minlength="1"></textarea></label>
-			<input type="button" name="送信" value="送信" id="post">
+				<textarea title="コメント" name="message" id="message" maxlength="300" required></textarea></label>
+			<div><input type="button" name="送信" value="送信" id="post"></div>
 		</div>
 	</div>
 	<div id="overray" style="display: none;">

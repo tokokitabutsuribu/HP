@@ -96,9 +96,16 @@ const makeview = (data) => {
 
 const post = () => {
 	loading.style.display = '';
+	const poster_name = document.getElementById("name").value;
+	const comment = document.getElementById("message").value;
+	if (!poster_name || !comment) {
+		window.alert('空です');
+		loading.style.display = 'none';
+		return;
+	}
 	const data = {
-		poster_name: document.getElementById("name").value,
-		comment: document.getElementById("message").value,
+		poster_name: poster_name,
+		comment: comment,
 		thread_id: params.get("thread")
 	};
 	fetch('/api/bbs_post', {
@@ -122,7 +129,7 @@ const post = () => {
 		.catch((e) => {
 			loading.style.display = 'none';
 			console.log(e);
-			window.alert('エラーが発生しました')
+			window.alert('エラーが発生しました');
 		});
 };
 

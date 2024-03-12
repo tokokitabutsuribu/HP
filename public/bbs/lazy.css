@@ -1,3 +1,27 @@
+/* #form :user-invalid {
+    position: relative;
+    border-color: red;
+    outline-color: red;
+}
+
+#form label:has(:user-invalid)::after {
+    content: "入力してください";
+    display: block;
+    color: red;
+} */
+
+#form:has(:invalid) div:has(#post) {
+    display: block;
+    cursor: not-allowed;
+    width: min-content;
+}
+
+#form:has(:invalid) #post {
+    display: block;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 /* メニューの中身 */
 .bbsmenu {
     display: none;
