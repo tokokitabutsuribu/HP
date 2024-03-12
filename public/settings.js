@@ -15,7 +15,7 @@ const APIURL = "/api/push_token";
 
 
 const reset = () => {
-    if (Object.prototype.hasOwnProperty.call(localStorage,'messagetoken')) {
+    if (Object.prototype.hasOwnProperty.call(localStorage,'messageToken')) {
         document.getElementById('requestpermission').style.display = 'none';
         document.getElementById('notification').style.display = 'block';
     }

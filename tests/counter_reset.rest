@@ -1,0 +1,5 @@
+   
+POST https://tkbutsuribu-rnxu41pw2-tokokitabutsuris-projects.vercel.app/api/counter_reset HTTP/1.1
+Content-Type: application/json
+
+{}

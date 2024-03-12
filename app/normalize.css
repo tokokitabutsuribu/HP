@@ -46,7 +46,9 @@ figure,
 dl {
     margin: 0
 }
-
+.hovergray :hover {
+	background-color: #0007;
+}
 /*h1,
 h2,
 h3,

@@ -14,4 +14,4 @@ jobs:
       env:
         COUNTER_SECRET: ${{ secrets.COUNTER_SECRET }}
       run: | 
-        curl -X POST -H "Content-Type: application/json" -d '{"Auth":"'"$COUNTER_SECRET"'"}' https://tkbutsuribu-git-counternextjs-tokokitabutsuris-projects.vercel.app/api/counter_reset  
+        curl -X POST -H "Content-Type: application/json" -d '{"Auth":"'"$COUNTER_SECRET"'"}' https://tkbutsuribu.vercel.app/api/counter_reset  
