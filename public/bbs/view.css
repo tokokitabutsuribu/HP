@@ -32,7 +32,7 @@
     color: gray;
     margin: 6px;
     margin-left: 16px;
-    white-space: wrap;
+    white-space: pre-wrap;
 }
 
 #post {
