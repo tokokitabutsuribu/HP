@@ -14,7 +14,7 @@
     margin-bottom: 10px;
     width: 95%;
     max-width: 600px;
-    white-space: nowrap;
+    word-break: keep-all;
 }
 
 #view>div {
