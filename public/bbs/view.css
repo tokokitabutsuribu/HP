@@ -15,8 +15,8 @@
     width: 95%;
     max-width: 600px;
 }
-#view span{
-    text-wrap: nowrap;
+#view>div>span{
+    white-space: nowrap;
 }
 
 #view>div {
