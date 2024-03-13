@@ -28,7 +28,7 @@
     font-size: 12px;
 }
 
-.comment {
+#view .comment {
     margin: 6px;
     margin-left: 16px;
     white-space: wrap;
