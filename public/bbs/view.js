@@ -5,7 +5,7 @@ const params = new URL(document.location).searchParams;
 const loading = document.getElementById('loading-wrapper');
 const reload = async () => {
 	const threadID = params.get("thread");
-	const mode = params.get('mode') ?? 'all';
+	const mode = params.get('mode') ?? 'latest';
 	const loadtitle = supabase
 		.from('threads')
 		.select()
