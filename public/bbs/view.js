@@ -69,15 +69,15 @@ const replacemessage = (message, isembed = false) => {
  */
 const commentelem = ({ num, username, postdate, id, replacedcomment }) =>
 	`<div class="menubutton" onclick="openmenu(this,arguments[0])"><img src="menu.svg" width="16px" height="16px" alt="menu">
-	<div class="bbsmenu">
-		<button type="button" onclick="copyuuid(this,arguments[0])">グローバルIDをコピー</button>
-		<button type="button" onclick="this.parentNode.parentNode.parentNode.remove()">非表示にする</button>
+		<div class="bbsmenu">
+			<button type="button" onclick="copyuuid(this,arguments[0])">グローバルIDをコピー</button>
+			<button type="button" onclick="this.parentNode.parentNode.parentNode.remove()">非表示にする</button>
+		</div>
 	</div>
-	</div>
-		<span class="username">${num}. ${username}</span><wbr>
-		<span class="postdate">${new Date(postdate).toLocaleString('ja-jp')}</span>
-		<span class="id">ID: ${id}</span>
-		<pre class="comment">${replacedcomment}</pre>`;
+	<span class="username">${num}. ${username}</span><wbr>
+	<span class="postdate">${new Date(postdate).toLocaleString('ja-jp')}</span>
+	<span class="id">ID: ${id}</span>
+	<pre class="comment">${replacedcomment}</pre>`;
 
 const makeview = (data) => {
 	const view = document.getElementById('view');
