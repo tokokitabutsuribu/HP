@@ -1,315 +1,312 @@
 html {
-	overflow: auto;
+  overflow: auto;
 }
 
 body {
-	min-width: 350px;
+  min-width: 350px;
 }
 
 #settings {
-	display: none;
+  display: none;
 }
 
 #request {
-	margin-top: 10px;
-	padding: 7px;
-	border-style: dashed;
-	border-width: 1px;
-	border-color: black;
+  margin-top: 10px;
+  padding: 7px;
+  border-style: dashed;
+  border-width: 1px;
+  border-color: black;
 }
 
 .main {
-	padding-left: 10px;
-	padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .music {
-	margin: 5px;
-	align-items: flex-end;
-	display: flex;
-	flex-direction: row;
-	gap: 8px
+  margin: 5px;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
 
-label, button {
-	font-size: 18px;
+label,
+button {
+  font-size: 18px;
 }
 
 button {
-	display: block;
+  display: block;
 }
 
 #add-wrapper {
-	display: flex;
-	position: relative;
-	flex-direction: column;
-	justify-content: center;
-	height: 16px;
-	align-items: center;
-	margin: 25px 0px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  height: 16px;
+  align-items: center;
+  margin: 25px 0px;
 }
 
 #add {
-	display: flex;
-	width: 150px;
-	background: none;
-	border: none;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  width: 150px;
+  background: none;
+  border: none;
+  align-items: center;
+  justify-content: center;
 }
 
 #add div {
-	font-size: 45px;
-	background-color: white;
-	border-radius: 9999px;
-	border-style: solid;
-	border-width: 1px;
-	width: 45px;
-	height: 45px;
-	line-height: 45px;
+  font-size: 45px;
+  background-color: white;
+  border-radius: 9999px;
+  border-style: solid;
+  border-width: 1px;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
 }
 
 #add-wrapper hr {
-	position: absolute;
-	width: 98%;
-	top: 0px;
-	left: 1%;
-	color: black;
-	z-index: -1;
+  position: absolute;
+  width: 98%;
+  top: 0px;
+  left: 1%;
+  color: black;
+  z-index: -1;
 }
 
 .remove {
-	background: none;
-	border: none;
-	display: flex;
-	align-items: center;
-	width: 20px;
-	padding: 0;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  width: 20px;
+  padding: 0;
 }
 
 .remove img {
-	width: 20px;
+  width: 20px;
 }
 
 #sending {
-	background-color: #00000088;
+  background-color: #00000088;
 }
 
 input {
-	width: 100px;
-	height: 16px;
+  width: 100px;
+  height: 16px;
 }
 
 label {
-	position: relative;
-	display: flex;
-	align-items: flex-end;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
 }
 
 label span::after {
-	content: "*";
-	color: red;
+  content: "*";
+  color: red;
 }
 
 input::placeholder {
-	visibility: hidden;
+  visibility: hidden;
 }
 
 input:user-invalid::placeholder {
-	color: red;
-	visibility: visible;
-	font-size: 9px;
-	position: absolute;
-	top: -2px;
-	left: 0px;
+  color: red;
+  visibility: visible;
+  font-size: 9px;
+  position: absolute;
+  top: -2px;
+  left: 0px;
 }
 
 input:user-invalid:not(:focus) {
-	background-color: #fff;
-	border-color: #f00;
-	border-style: solid;
-	border-width: 1px;
-	outline-color: #f00;
+  background-color: #fff;
+  border-color: #f00;
+  border-style: solid;
+  border-width: 1px;
+  outline-color: #f00;
 }
 
 #loading-wrapper {
-	position: fixed;
-	background-color: #0009;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
+  position: fixed;
+  background-color: #0009;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
 }
 
 #loading-text {
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	color: #fff;
-	width: 100px;
-	height: 30px;
-	margin: -7px 0 0 -45px;
-	text-align: center;
-	font-family: 'PT Sans Narrow', sans-serif;
-	font-size: 20px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  width: 100px;
+  height: 30px;
+  margin: -7px 0 0 -45px;
+  text-align: center;
+  font-family: "PT Sans Narrow", sans-serif;
+  font-size: 20px;
 }
 
 #loading-content {
-	display: block;
-	position: relative;
-	left: 50%;
-	top: 50%;
-	width: 170px;
-	height: 170px;
-	margin: -85px 0 0 -85px;
-	border: 3px solid #F00;
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 170px;
+  height: 170px;
+  margin: -85px 0 0 -85px;
+  border: 3px solid #f00;
 }
 
 #loading-content:after {
-	content: "";
-	position: absolute;
-	border: 3px solid #0F0;
-	left: 15px;
-	right: 15px;
-	top: 15px;
-	bottom: 15px;
+  content: "";
+  position: absolute;
+  border: 3px solid #0f0;
+  left: 15px;
+  right: 15px;
+  top: 15px;
+  bottom: 15px;
 }
 
 #loading-content:before {
-	content: "";
-	position: absolute;
-	border: 3px solid #00F;
-	left: 5px;
-	right: 5px;
-	top: 5px;
-	bottom: 5px;
+  content: "";
+  position: absolute;
+  border: 3px solid #00f;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
 }
 
 #loading-content {
-	border: 3px solid transparent;
-	border-top-color: #4D658D;
-	border-bottom-color: #4D658D;
-	border-radius: 50%;
-	-webkit-animation: loader 2s linear infinite;
-	-moz-animation: loader 2s linear infinite;
-	-o-animation: loader 2s linear infinite;
-	animation: loader 2s linear infinite;
+  border: 3px solid transparent;
+  border-top-color: #4d658d;
+  border-bottom-color: #4d658d;
+  border-radius: 50%;
+  -webkit-animation: loader 2s linear infinite;
+  -moz-animation: loader 2s linear infinite;
+  -o-animation: loader 2s linear infinite;
+  animation: loader 2s linear infinite;
 }
 
 #loading-content:before {
-	border: 3px solid transparent;
-	border-top-color: #D4CC6A;
-	border-bottom-color: #D4CC6A;
-	border-radius: 50%;
-	-webkit-animation: loader 3s linear infinite;
-	-moz-animation: loader 2s linear infinite;
-	-o-animation: loader 2s linear infinite;
-	animation: loader 3s linear infinite;
+  border: 3px solid transparent;
+  border-top-color: #d4cc6a;
+  border-bottom-color: #d4cc6a;
+  border-radius: 50%;
+  -webkit-animation: loader 3s linear infinite;
+  -moz-animation: loader 2s linear infinite;
+  -o-animation: loader 2s linear infinite;
+  animation: loader 3s linear infinite;
 }
 
 #loading-content:after {
-	border: 3px solid transparent;
-	border-top-color: #84417C;
-	border-bottom-color: #84417C;
-	border-radius: 50%;
-	-webkit-animation: loader 1.5s linear infinite;
-	animation: loader 1.5s linear infinite;
-	-moz-animation: loader 2s linear infinite;
-	-o-animation: loader 2s linear infinite;
+  border: 3px solid transparent;
+  border-top-color: #84417c;
+  border-bottom-color: #84417c;
+  border-radius: 50%;
+  -webkit-animation: loader 1.5s linear infinite;
+  animation: loader 1.5s linear infinite;
+  -moz-animation: loader 2s linear infinite;
+  -o-animation: loader 2s linear infinite;
 }
 
 @-webkit-keyframes loader {
-	0% {
-		-webkit-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 
-	100% {
-		-webkit-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes loader {
-	0% {
-		-webkit-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 
-	100% {
-		-webkit-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
-
-
-
-
 #errorpopup {
-	display: flex;
-	position: fixed;
-	z-index: 9999;
-	background-color: #0008;
-	top: 0px;
-	left: 0px;
-	bottom: 0px;
-	right: 0px;
-	border: none;
-	color: black;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-	transition: .2s;
+  display: flex;
+  position: fixed;
+  z-index: 9999;
+  background-color: #0008;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  border: none;
+  color: black;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
 }
 
 #errorpopup div {
-	position: relative;
-	display: block;
-	text-align: left;
-	padding: 10px;
-	background-color: white;
-	min-height: 50px;
-	max-width: 80vw;
-	width: 350px;
-	border-radius: 10px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #666
+  position: relative;
+  display: block;
+  text-align: left;
+  padding: 10px;
+  background-color: white;
+  min-height: 50px;
+  max-width: 80vw;
+  width: 350px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #666;
 }
 
 #errorpopup div::after {
-	content: "閉じる";
-	position: absolute;
-	bottom: 8px;
-	right: 10px;
-	color: blue
+  content: "閉じる";
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  color: blue;
 }
 
 label span {
-	white-space: nowrap;
+  white-space: nowrap;
 }
 
-@media all and (max-width:420px) {
+@media all and (max-width: 420px) {
+  .main {
+    padding: 3px;
+  }
 
-	.main {
-		padding: 3px;
-	}
-
-	#request {
-		padding: 3px;
-	}
-	label,button{
-		font-size: 16px;
-	}
-.music{
-	gap:4px;
-	margin-left: 1px;
-	margin-right: 1px;
-}
+  #request {
+    padding: 3px;
+  }
+  label,
+  button {
+    font-size: 16px;
+  }
+  .music {
+    gap: 4px;
+    margin-left: 1px;
+    margin-right: 1px;
+  }
 }

@@ -1,92 +1,129 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <script>
+      if (/^\/request\/?$/.test(location.pathname)) {
+        location.replace("/request/index.html");
+      }
+    </script>
+    <meta charset="utf-8" />
+    <!-- <meta name="robots" content="noindex,nofollow"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="2025年度の文化祭で展示するリズムゲームの収録曲アンケートです。"
+    />
 
-<head>
-	<script>
-		if (/^\/request\/?$/.test(location.pathname)) {
-			location.replace('/request/index.html');
-		}
-	</script>
-	<meta charset="utf-8">
-	<!-- <meta name="robots" content="noindex,nofollow"> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="2025年度の文化祭で展示するリズムゲームの収録曲アンケートです。">
+    <meta property="og:url" content="https://tkbutsuribu.vercel.app/request/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="収録曲アンケート" />
+    <meta
+      property="og:description"
+      content="2025年度の文化祭で展示するリズムゲームの収録曲アンケートです。"
+    />
+    <meta
+      property="og:image"
+      content="https://tkbutsuribu.vercel.app/iconTwitter.png"
+    />
 
-	<meta property="og:url" content="https://tkbutsuribu.vercel.app/request/" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="収録曲アンケート" />
-	<meta property="og:description" content="2025年度の文化祭で展示するリズムゲームの収録曲アンケートです。" />
-	<meta property="og:image" content="https://tkbutsuribu.vercel.app/iconTwitter.png" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-	<meta name="twitter:card" content="summary_large_image" />
+    <title>収録曲リクエストフォーム</title>
 
-	<title>収録曲リクエストフォーム</title>
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <!-- 32×32 -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- 180×180 -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="../normalize.css" />
+    <link rel="stylesheet" href="stylesheet.css" />
 
-	<link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
-	<link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
-	<link rel="manifest" href="/manifest.webmanifest">
-	<link rel="stylesheet" href="../normalize.css" />
-	<link rel="stylesheet" href="stylesheet.css" />
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <link rel="preconnect dns-prefetch" href="//www.googletagmanager.com" />
+    <link
+      rel="preload"
+      as="script"
+      href="https://www.googletagmanager.com/gtm.js?id=GTM-TVKWHB4T&l=dataLayer"
+    />
+    <link
+      rel="preload"
+      as="script"
+      href="https://www.googletagmanager.com/gtag/js?id=G-0SBGM4VKQL&l=dataLayer&cx=c"
+    />
+    <link rel="preload" as="style" href="/global.css" />
+    <link rel="preload" as="image" href="/images/github-logo-white.svg" />
+    <link rel="preload" as="image" href="/images/github-mark-white.svg" />
+    <link rel="preload" as="image" href="/icon-72x72.png" />
+    <link rel="preload" as="script" href="./main.js" />
+    <link rel="preload" as="image" href="./plus.svg" />
+  </head>
 
-	<meta http-equiv="x-dns-prefetch-control" content="on">
-	<link rel="preconnect dns-prefetch" href="//www.googletagmanager.com">
-	<link rel="preload" as="script" href="https://www.googletagmanager.com/gtm.js?id=GTM-TVKWHB4T&l=dataLayer">
-	<link rel="preload" as="script" href="https://www.googletagmanager.com/gtag/js?id=G-0SBGM4VKQL&l=dataLayer&cx=c">
-	<link rel="preload" as="style" href="/global.css">
-	<link rel="preload" as="image" href="/images/github-logo-white.svg">
-	<link rel="preload" as="image" href="/images/github-mark-white.svg">
-	<link rel="preload" as="image" href="/icon-72x72.png">
-	<link rel="preload" as="script" href="./main.js">
-	<link rel="preload" as="image" href="./plus.svg">
+  <body>
+    <script src="../global.js" id="globaljs"></script>
+    <div id="header"></div>
+    <div class="main">
+      <div id="title">
+        <h1>収録曲リクエストフォーム</h1>
+        <p>
+          物理部では2024年度の文化祭にてリズムゲームを制作・展示します。人気の曲も収録したいので、一部収録曲をリクエストによって決定します。著作権に関しては<a
+            href="https://elaws.e-gov.go.jp/document?lawid=345AC0000000048#Mp-At_38"
+            >著作権法第三十八条</a
+          >より問題ないので自由にリクエストしてください。<br />※全ての曲を収録することは不可能です。ご了承ください。また、自作曲等公開されていない曲も大歓迎です。直接お問い合わせください。
+        </p>
+      </div>
+      <div id="request">
+        <form id="form" autocomplete="off">
+          <div id="musiclist">
+            <div class="music">
+              <label
+                ><span>曲名</span
+                ><input
+                  type="text"
+                  name="musicname"
+                  placeholder="必須項目です"
+                  required
+              /></label>
+              <label
+                ><span>作曲者</span
+                ><input
+                  type="text"
+                  name="artistname"
+                  placeholder="必須項目です"
+                  required
+              /></label>
+            </div>
+          </div>
+          <div id="add-wrapper">
+            <button type="button" id="add">
+              <img src="./plus.svg" alt="plus" width="47px" height="47px" />
+            </button>
+            <hr />
+          </div>
+          <button type="button" id="submit">送信</button>
+        </form>
+      </div>
 
+      <div id="loading-wrapper" style="display: none">
+        <div id="loading-text">SENDING</div>
+        <div id="loading-content"></div>
+      </div>
 
-</head>
-
-<body>
-	<script src="../global.js" id="globaljs"></script>
-	<div id="header"></div>
-	<div class="main">
-		<div id="title">
-			<h1>収録曲リクエストフォーム</h1>
-			<p>物理部では2024年度の文化祭にてリズムゲームを制作・展示します。人気の曲も収録したいので、一部収録曲をリクエストによって決定します。著作権に関しては<a
-					href="https://elaws.e-gov.go.jp/document?lawid=345AC0000000048#Mp-At_38">著作権法第三十八条</a>より問題ないので自由にリクエストしてください。<br>※全ての曲を収録することは不可能です。ご了承ください。また、自作曲等公開されていない曲も大歓迎です。直接お問い合わせください。
-			</p>
-		</div>
-		<div id="request">
-			<form id="form" autocomplete="off">
-				<div id="musiclist">
-					<div class="music">
-						<label><span>曲名</span><input type="text" name="musicname" placeholder="必須項目です"
-								required /></label>
-						<label><span>作曲者</span><input type="text" name="artistname" placeholder="必須項目です"
-								required /></label>
-					</div>
-				</div>
-				<div id="add-wrapper">
-					<button type="button" id="add">
-						<img src="./plus.svg" alt="plus" width="47px" height="47px" />
-					</button>
-					<hr />
-				</div>
-				<button type="button" id="submit">送信</button>
-			</form>
-		</div>
-
-		<div id="loading-wrapper" style="display: none;">
-			<div id="loading-text">SENDING</div>
-			<div id="loading-content"></div>
-		</div>
-
-		<div id="sended" style="display: none;"><span id="jumpmessage">送信しました。10秒後に自動的に<a
-					href="/">トップページ</a>に遷移します。</span><button type="button" id="reset">もう一度リクエストを書く</button></div>
-		<div id="failed" style="display: none;">failed</div>
-		<button id="errorpopup" style="visibility:hidden;opacity:0;"
-			onclick="const e = document.getElementById('errorpopup');e.style.visibility='hidden';e.style.opacity=0;">
-			<div>空欄の項目があります</div>
-		</button>
-	</div>
-	<div id="footer"></div>
-	<script src="main.js" defer></script>
-</body>
-
+      <div id="sended" style="display: none">
+        <span id="jumpmessage"
+          >送信しました。10秒後に自動的に<a href="/">トップページ</a
+          >に遷移します。</span
+        ><button type="button" id="reset">もう一度リクエストを書く</button>
+      </div>
+      <div id="failed" style="display: none">failed</div>
+      <button
+        id="errorpopup"
+        style="visibility: hidden; opacity: 0"
+        onclick="const e = document.getElementById('errorpopup');e.style.visibility='hidden';e.style.opacity=0;"
+      >
+        <div>空欄の項目があります</div>
+      </button>
+    </div>
+    <div id="footer"></div>
+    <script src="main.js" defer></script>
+  </body>
 </html>

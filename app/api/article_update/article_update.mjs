@@ -1,9 +1,9 @@
 //import { initializeApp } from 'firebase-admin/app';
-const { createHmac } = await import('node:crypto');
-const { timingSafeEqual } = await import('node:crypto');
+const { createHmac } = await import("node:crypto");
+const { timingSafeEqual } = await import("node:crypto");
 import { getMessaging } from "firebase-admin/messaging";
-import { NextResponse } from 'next/server';
-import { firebaseAdmin as app, /*messaging*/ } from '../firebaseAdmin.mjs';
+import { NextResponse } from "next/server";
+import { firebaseAdmin as app /*messaging*/ } from "../firebaseAdmin.mjs";
 //firebaseのadminSDKの認証
 
 /*const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG)
@@ -29,45 +29,47 @@ async function article_update(request) {
   // }
   //送信元の認証
   //microCMSのwebhookのシークレット値
-  let expectedSignature = createHmac('sha256', process.env.MICROCMS_SECRET_KEY);
+  let expectedSignature = createHmac("sha256", process.env.MICROCMS_SECRET_KEY);
   expectedSignature = expectedSignature.update(JSON.stringify(request.body));
-  expectedSignature = expectedSignature.digest('hex');
-  const signature = request.headers['x-microcms-signature'];
-  if (!timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
+  expectedSignature = expectedSignature.digest("hex");
+  const signature = request.headers["x-microcms-signature"];
+  if (
+    !timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))
+  ) {
     fin = true;
     console.log("not right access");
-    return Response.json({ status: "error" },{status:401});
+    return Response.json({ status: "error" }, { status: 401 });
   }
 
-  const condition = '\'new-article\' in topics';
+  const condition = "'new-article' in topics";
 
   // See documentation on defining a message payload.
   const sendmessage = {
     topic: "new-article",
     notification: {
-      title: '新しい記事が投稿されました',
-      body: request.body.contents.new.publishValue.title
+      title: "新しい記事が投稿されました",
+      body: request.body.contents.new.publishValue.title,
     },
     webpush: {
       fcm_options: {
-        link: `https://tkbutsuribu.vercel.app/articles/${request.body.id}`
-      }
-    }
+        link: `https://tkbutsuribu.vercel.app/articles/${request.body.id}`,
+      },
+    },
   };
   if (!fin) {
     // Send a message to devices subscribed to the provided topic.
-    await messaging.send(sendmessage)
+    await messaging
+      .send(sendmessage)
       .then((response) => {
         // Response is a message ID string.
-        console.log('Successfully sent message:', response);
+        console.log("Successfully sent message:", response);
       })
       .catch((error) => {
         console.log(error);
         fin = true;
-        return Response.json({ status: error },{status:500});
+        return Response.json({ status: error }, { status: 500 });
       });
-
   }
-  if (!fin) return Response.json({ status: "success" },{status:200});
+  if (!fin) return Response.json({ status: "success" }, { status: 200 });
 }
 export { article_update };

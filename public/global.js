@@ -2,34 +2,40 @@
 
 //meticulous
 //本番環境では実行しない
-if (!/tkbutsuribu.vercel.app/.test(location.href) && !/notest/.test(location.search)&& !/nogtm/.test(location.search)) {
-    try {
-        const script = document.createElement("script");
-        script.dataset.projectId = "cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP";
-        script.dataset.isProductionEnvironment = false;
-        script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
-        document.getElementById("globaljs").after(script);
-    } catch (e) {
-        console.log(e);
-    }
+if (
+  !/tkbutsuribu.vercel.app/.test(location.href) &&
+  !/notest/.test(location.search) &&
+  !/nogtm/.test(location.search)
+) {
+  try {
+    const script = document.createElement("script");
+    script.dataset.projectId = "cy4LiIr4fnVnIeHpS860b4iP9OxJkgyFFyYe6grP";
+    script.dataset.isProductionEnvironment = false;
+    script.src = "https://snippet.meticulous.ai/v1/meticulous.js";
+    document.getElementById("globaljs").after(script);
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 //Google tag manager
 const GTM = async () => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-        'gtm.start': new Date().getTime(), event: 'gtm.js'
-    });
-    const f = document.getElementsByTagName('script')[0];
-    const j = document.createElement('script');
-    j.async = true;
-    j.src = "https://www.googletagmanager.com/gtm.js?id=GTM-TVKWHB4T&l=dataLayer";
-    f.parentNode.insertBefore(j, f);
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    "gtm.start": new Date().getTime(),
+    event: "gtm.js",
+  });
+  const f = document.getElementsByTagName("script")[0];
+  const j = document.createElement("script");
+  j.async = true;
+  j.src = "https://www.googletagmanager.com/gtm.js?id=GTM-TVKWHB4T&l=dataLayer";
+  f.parentNode.insertBefore(j, f);
 };
 
-
 const addheader = async () => {
-    document.getElementById('header').innerHTML = `<div id="wrapper" style="height: 88px">
+  document.getElementById(
+    "header"
+  ).innerHTML = `<div id="wrapper" style="height: 88px">
 <nav id="global-navi">
 <div id="pwatoolbar" style="display: none;">
     <button onclick="history.back()"><img src="/images/left.svg" width="16px"></button>
@@ -57,7 +63,7 @@ const addheader = async () => {
 <noscript>JavaScript切らないで</noscript>`;
 };
 const addfooter = async () => {
-    document.getElementById("footer").innerHTML = `<footer>
+  document.getElementById("footer").innerHTML = `<footer>
 <div class="links">
 <div class="twitter">
     <a style="text-decoration: none;"
@@ -95,23 +101,23 @@ const addfooter = async () => {
 </footer>`;
 };
 const addpwatoolbar = async () => {
-    if (window.matchMedia("(display-mode: standalone)").matches) {
-        document.getElementById("pwatoolbar").style.display = "block";
-    }
+  if (window.matchMedia("(display-mode: standalone)").matches) {
+    document.getElementById("pwatoolbar").style.display = "block";
+  }
 };
 const addstyle = async () => {
-    const style = document.createElement('link');
-    style.rel = 'stylesheet';
-    style.href = '/global.css';
-    document.getElementById("globaljs").after(style);
+  const style = document.createElement("link");
+  style.rel = "stylesheet";
+  style.href = "/global.css";
+  document.getElementById("globaljs").after(style);
 };
 //ヘッダーフッターツールバー
 addstyle();
-window.addEventListener('DOMContentLoaded', () => {
-    if (!/nogtm/.test(location.search)){
-        GTM();
-    }
-    addheader();
-    addfooter();
-    addpwatoolbar();
+window.addEventListener("DOMContentLoaded", () => {
+  if (!/nogtm/.test(location.search)) {
+    GTM();
+  }
+  addheader();
+  addfooter();
+  addpwatoolbar();
 });

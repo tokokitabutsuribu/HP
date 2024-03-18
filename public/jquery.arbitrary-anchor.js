@@ -1,5 +1,4 @@
-; (function (window, $) {
-
+(function (window, $) {
   // Copyright Brian Gonzalez - 2015
   // jquery.arbitrary-anchor.js
   // Arbitrary anchors for any element on your page using a little jQuery magic.
@@ -12,16 +11,18 @@
 
   // Initialize the defaults
   window.AA_CONFIG = window.AA_CONFIG || {};
-  window.AA_CONFIG = $.extend({
-    animationLength: 750,
-    easingFunction: 'linear',
-    scrollOffset: 0
-  }, window.AA_CONFIG);
+  window.AA_CONFIG = $.extend(
+    {
+      animationLength: 750,
+      easingFunction: "linear",
+      scrollOffset: 0,
+    },
+    window.AA_CONFIG
+  );
 
   // Document ready?
   // Well then do the magic.
   $(document).ready(function () {
-
     // Grab our elements.
     $window = $(window);
     $document = $(this);
@@ -32,43 +33,43 @@
     // Scroll to the anchor on initial page load.
     scrollToHash();
 
-    // Select all anchors that have an href 
+    // Select all anchors that have an href
     // that contains `#`.
-    $document.find('a[href^="#"], a[href^="."]').on('click', function () {
-      var href = $(this).attr('href');
+    $document.find('a[href^="#"], a[href^="."]').on("click", function () {
+      var href = $(this).attr("href");
 
-      if (href.charAt(0) === '.') {
-        href = href.split('#');
+      if (href.charAt(0) === ".") {
+        href = href.split("#");
         href.shift();
-        href = '#' + href.join('#');
+        href = "#" + href.join("#");
       }
 
-      // only scroll to element if href is equal 
-      // to hash; we'll let hashchange event 
+      // only scroll to element if href is equal
+      // to hash; we'll let hashchange event
       // handle everything else
-      if (href === location.hash)
-        scrollToHash(href)
-    })
+      if (href === location.hash) scrollToHash(href);
+    });
 
     // Scroll to the object when hashchange event
     // is triggered on the window.
-    $window.on('hashchange', function () {
+    $window.on("hashchange", function () {
       scrollToHash();
-    })
-
-    // Cancel scroll if user interacts with page.
-    $window.on('mousewheel DOMMouseScroll touchstart mousedown MSPointerDown', function (ev) {
-      // the true clears the queue
-      // the false disables jump-to-end 
-      $bodhtml.stop(true, false);
     });
 
-  })
+    // Cancel scroll if user interacts with page.
+    $window.on(
+      "mousewheel DOMMouseScroll touchstart mousedown MSPointerDown",
+      function (ev) {
+        // the true clears the queue
+        // the false disables jump-to-end
+        $bodhtml.stop(true, false);
+      }
+    );
+  });
 
   function scrollToHash(rawHash) {
     var rawHash = rawHash || location.hash;
-    var anchorTuple = rawHash.substring(1)
-      .split("|");
+    var anchorTuple = rawHash.substring(1).split("|");
 
     var hash = anchorTuple[0];
     var animationTime = anchorTuple[1] || window.AA_CONFIG.animationLength;
@@ -82,7 +83,10 @@
 
     // Let the browser handle the default types of anchors.
     // http://stackoverflow.com/questions/484719/html-anchors-with-name-or-id
-    if (($actualAnchor && $actualAnchor.length) || ($actualID && $actualID.length))
+    if (
+      ($actualAnchor && $actualAnchor.length) ||
+      ($actualID && $actualID.length)
+    )
       return;
 
     // Store the arbitrary anchor element.
@@ -97,12 +101,16 @@
     if ($el && $el.length) {
       var top = $el.offset().top - window.AA_CONFIG.scrollOffset;
 
-      $bodhtml.stop(true, false)
-        .animate({ scrollTop: top - 120 }, parseInt(animationTime), window.AA_CONFIG.easingFunction);
+      $bodhtml
+        .stop(true, false)
+        .animate(
+          { scrollTop: top - 120 },
+          parseInt(animationTime),
+          window.AA_CONFIG.easingFunction
+        );
 
       const url = location.href;
-      history.replaceState(null, null, url.substr(0, url.indexOf('#')));
+      history.replaceState(null, null, url.substr(0, url.indexOf("#")));
     }
   }
-
-})(window, jQuery)
+})(window, jQuery);

@@ -1,60 +1,64 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex,nofollow"> <!--テスト時用の検索結果から除外するタグ。公開時は削除-->
-    <link rel="stylesheet" href="./normalize.css">
-    <title>設定</title><!--ページのタイトル-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <!--テスト時用の検索結果から除外するタグ。公開時は削除-->
+    <link rel="stylesheet" href="./normalize.css" />
+    <title>設定</title>
+    <!--ページのタイトル-->
 
-    <link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
-    <link rel="manifest" href="./manifest.webmanifest">
-</head>
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <!-- 32×32 -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+  </head>
 
-<body>
+  <body>
     <script src="/global.js" id="globaljs"></script>
     <div id="header"></div>
-    <div class="main" style="padding:10px">
-        <h2>個人設定</h2>
-        <h4>通知設定</h4>
-        <button id="requestpermission">通知を許可</button>
-        <div id="notification" style="display: none;">
-            <ul id="categoryList"><!--['お知らせ','活動報告','つぶやき','JavaScript','HTML/CSS','Unity/C#','C/C++','Web全般','その他']-->
-                <li>
-                    <label><input type="checkbox" value="お知らせ">お知らせ</label>
-                </li>
-                <li>
-                    <label><input type="checkbox" value="活動報告">活動報告</label>
-                </li>
-                <li>
-                    <label><input type="checkbox" value="つぶやき">つぶやき</label>
-                </li>
-                <li>
-                    <label><input type="checkbox" value="JavaScript">JavaScript</label>
-                </li>
-                <li>
-                    <label><input type="checkbox" value="HTML/CSS">HTML/CSS</label>
-                </li>
-                <li>
-                    <label><input type="checkbox" value="Unity/C#">Unity/C#</label>
-                </li>
-                <li>
-                    <label><input type="checkbox" value="C/C++">C/C++</label>
-                </li>
-                <li>
-                    <label><input type="checkbox" value="Web全般">Web全般</label>
-                </li>
-                <li>
-                    <label><input type="checkbox" value="その他">その他</label>
-                </li>
-            </ul>
-            <button id="save">保存</button>
-        </div>
+    <div class="main" style="padding: 10px">
+      <h2>個人設定</h2>
+      <h4>通知設定</h4>
+      <button id="requestpermission">通知を許可</button>
+      <div id="notification" style="display: none">
+        <ul id="categoryList">
+          <!--['お知らせ','活動報告','つぶやき','JavaScript','HTML/CSS','Unity/C#','C/C++','Web全般','その他']-->
+          <li>
+            <label><input type="checkbox" value="お知らせ" />お知らせ</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="活動報告" />活動報告</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="つぶやき" />つぶやき</label>
+          </li>
+          <li>
+            <label
+              ><input type="checkbox" value="JavaScript" />JavaScript</label
+            >
+          </li>
+          <li>
+            <label><input type="checkbox" value="HTML/CSS" />HTML/CSS</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="Unity/C#" />Unity/C#</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="C/C++" />C/C++</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="Web全般" />Web全般</label>
+          </li>
+          <li>
+            <label><input type="checkbox" value="その他" />その他</label>
+          </li>
+        </ul>
+        <button id="save">保存</button>
+      </div>
     </div>
     <div id="footer"></div>
 
     <script src="settings.js" type="module"></script>
-</body>
-
+  </body>
 </html>

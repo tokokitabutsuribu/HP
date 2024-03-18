@@ -1,45 +1,77 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="記事一覧ページです。新着順に並んでます。検索機能もいつかつけます。"><!--ページの説明-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="記事一覧ページです。新着順に並んでます。検索機能もいつかつけます。"
+    />
+    <!--ページの説明-->
 
-    <meta property="og:url" content="https://tkbutsuribu.vercel.app/articles/index.html" /><!--URL-->
+    <meta
+      property="og:url"
+      content="https://tkbutsuribu.vercel.app/articles/index.html"
+    />
+    <!--URL-->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="記事一覧 - 所沢北高校物理部" /><!--ページのタイトル　SNS向け-->
-    <meta property="og:description" content="記事一覧ページです。新着順に並んでます。検索機能もいつかつけます。" /><!--ページの説明　SNS向け-->
+    <meta property="og:title" content="記事一覧 - 所沢北高校物理部" />
+    <!--ページのタイトル　SNS向け-->
+    <meta
+      property="og:description"
+      content="記事一覧ページです。新着順に並んでます。検索機能もいつかつけます。"
+    />
+    <!--ページの説明　SNS向け-->
     <meta property="og:image" content="/images/iconmain.svg" />
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary" />
 
-    <link rel="stylesheet" href="../normalize.css">
-    <link rel="stylesheet" href="/articles/index.css">
-    <title>記事一覧 - 所沢北高校物理部</title><!--ページのタイトル-->
+    <link rel="stylesheet" href="../normalize.css" />
+    <link rel="stylesheet" href="/articles/index.css" />
+    <title>記事一覧 - 所沢北高校物理部</title>
+    <!--ページのタイトル-->
 
-    <link rel="icon" href="favicon.ico" sizes="any"><!-- 32×32 -->
-    <link rel="manifest" href="../manifest.webmanifest">
-</head>
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <!-- 32×32 -->
+    <link rel="manifest" href="../manifest.webmanifest" />
+  </head>
 
-<body>
+  <body>
     <script src="/global.js" id="globaljs"></script>
     <div id="header"></div>
-    <div class="main" style="text-align:left;">
-        <div style="display: flex;align-items: end;">
-            <h1 style="margin-left: 10px;">記事一覧</h1><a href="/articles/osirase.html"
-                style="margin-bottom: 25px; height: fit-content; text-align: left;background-color: darkblue;color: white;text-decoration: none;padding:5px;margin-left: 45px;">お知らせ</a>
-        </div>
-        <ul id="article" style="padding: 0px 7px;margin: 0px;">
-        </ul>
-        <br>
-        <div style="display: flex;justify-content: center;align-items: center;gap: 15px;">
-            <button class="pagebutton" type="button" id="pageminus">＜</button>
-            <div id="pagenum"></div>
-            <button class="pagebutton" type="button" id="pageplus">＞</button>
-        </div>
+    <div class="main" style="text-align: left">
+      <div style="display: flex; align-items: end">
+        <h1 style="margin-left: 10px">記事一覧</h1>
+        <a
+          href="/articles/osirase.html"
+          style="
+            margin-bottom: 25px;
+            height: fit-content;
+            text-align: left;
+            background-color: darkblue;
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+            margin-left: 45px;
+          "
+          >お知らせ</a
+        >
+      </div>
+      <ul id="article" style="padding: 0px 7px; margin: 0px"></ul>
+      <br />
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 15px;
+        "
+      >
+        <button class="pagebutton" type="button" id="pageminus">＜</button>
+        <div id="pagenum"></div>
+        <button class="pagebutton" type="button" id="pageplus">＞</button>
+      </div>
     </div>
     <div id="footer"></div>
     <script type="module" src="/articles/index.js"></script>
-</body>
-
+  </body>
 </html>

@@ -2,37 +2,36 @@
 *,
 ::before,
 ::after {
-    box-sizing: border-box;
-    border-style: solid;
-    border-width: 0;
-    font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+  font-family: Arial, sans-serif;
 }
 
 html {
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
-    overflow: auto;
-        
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  overflow: auto;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    overflow: hidden;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  overflow: hidden;
 }
 
 main {
-    display: block;
+  display: block;
 }
-.main{
-    padding-top: 5px;
-    padding-bottom: 10px;
+.main {
+  padding-top: 5px;
+  padding-bottom: 10px;
 }
 
-hr{
-    border-style: inset;
-    border-width: 1px;
+hr {
+  border-style: inset;
+  border-width: 1px;
 }
 
 p,
@@ -44,10 +43,10 @@ iframe,
 form,
 figure,
 dl {
-    margin: 0
+  margin: 0;
 }
 .hovergray :hover {
-	background-color: #0007;
+  background-color: #0007;
 }
 /*h1,
 h2,

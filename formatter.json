@@ -1,10 +1,10 @@
 {
-    "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-    "formatter":{
-        "indentSize": 4,
-        "indentStyle": "tab",
-        "lineWidth": 300,
-        "lineEnding": "lf",
-        "formatWithErrors": true
-    }
+  "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+  "formatter": {
+    "indentSize": 4,
+    "indentStyle": "tab",
+    "lineWidth": 300,
+    "lineEnding": "lf",
+    "formatWithErrors": true
+  }
 }

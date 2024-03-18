@@ -1,9 +1,15 @@
 import { meta, articlePage } from "../article.js";
 
 export async function generateMetadata({ params }) {
-	return await meta(`https://tkbutsuribu.microcms.io/api/v1/articles/${params.id}`,10,);
+  return await meta(
+    `https://tkbutsuribu.microcms.io/api/v1/articles/${params.id}`,
+    10
+  );
 }
 
 export default async function Page({ params }) {
-	return await articlePage(`https://tkbutsuribu.microcms.io/api/v1/articles/${params.id}`,10,);
+  return await articlePage(
+    `https://tkbutsuribu.microcms.io/api/v1/articles/${params.id}`,
+    10
+  );
 }

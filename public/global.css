@@ -1,176 +1,174 @@
 #pwatoolbar {
-    background-color: #1cf8fd;
-    height: 32px;
-    align-items: center;
-    display: flex;
+  background-color: #1cf8fd;
+  height: 32px;
+  align-items: center;
+  display: flex;
 }
 
 #pwatoolbar button {
-    width: 32px;
-    height: 32px;
-    border-radius: 9999px;
-    border-width: 0;
-    background-color: #fff0;
-    margin-left: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  border-width: 0;
+  background-color: #fff0;
+  margin-left: 10px;
 }
 
 #pwatoolbar button:hover {
-    background-color: #0007;
+  background-color: #0007;
 }
 
 #global-navi {
-    display: block;
-    height: fit-content;
-    background: #333;
-    position: fixed;
-    top: 0;
-    right: 0px;
-    width: 100%;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    z-index: 1000;
+  display: block;
+  height: fit-content;
+  background: #333;
+  position: fixed;
+  top: 0;
+  right: 0px;
+  width: 100%;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  z-index: 1000;
 }
 
 #wrapper nav ul li {
-    display: block;
-    font-size: 16px;
-    padding: 0px;
-    margin: 0px;
-    width: auto;
-    justify-content: space-evenly;
-
+  display: block;
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+  width: auto;
+  justify-content: space-evenly;
 }
 
 #wrapper nav ul li a {
-    color: #ddd;
-    text-decoration: none;
-
+  color: #ddd;
+  text-decoration: none;
 }
 
 .toplink {
-    display: flex;
-    margin-left: 20px;
-    width: 300px;
-    color: #ddd;
-    text-decoration: none;
-    font-size: 32px;
-    text-align: left;
-    align-items: center;
+  display: flex;
+  margin-left: 20px;
+  width: 300px;
+  color: #ddd;
+  text-decoration: none;
+  font-size: 32px;
+  text-align: left;
+  align-items: center;
 }
 
 .toplink a {
-    display: flex;
-    text-align: end;
-    align-items: center;
-    text-decoration: none;
-    color: white;
+  display: flex;
+  text-align: end;
+  align-items: center;
+  text-decoration: none;
+  color: white;
 }
 
 .toplink img {
-    padding: auto;
+  padding: auto;
 }
 
 .menu {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    margin: 0px;
-    padding: 0px;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 0px;
+  padding: 0px;
 }
 
 .main {
-    flex: auto;
+  flex: auto;
 }
 
 #settings {
-    position: absolute;
-    right: 10px
+  position: absolute;
+  right: 10px;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    font-family: monospace, sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: monospace, sans-serif !important;
 }
 
 .links {
-    display: flex;
-    flex-direction: column;
-    width: -moz-fit-content;
-    width: fit-content;
-    gap: 8px;
-    justify-content: left;
-    text-align: left;
-    margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 8px;
+  justify-content: left;
+  text-align: left;
+  margin-bottom: 10px;
 }
 
 .links div {
-    width: 150px;
-    height: 30px;
-    border-radius: 9999px;
-    display: grid;
-    place-items: center;
-    font-size: 18px;
-    text-decoration: none;
-    text-align: center;
+  width: 150px;
+  height: 30px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
 }
 
 .tokokitahp {
-    background-color: aquamarine;
-    color: black;
+  background-color: aquamarine;
+  color: black;
 }
 
 .tokokitahp a {
-    width: 100%;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
+  width: 100%;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 footer {
-    width: 100%;
-    background-color: hsl(0, 0%, 30%);
-    color: white;
-    padding: 15px;
+  width: 100%;
+  background-color: hsl(0, 0%, 30%);
+  color: white;
+  padding: 15px;
 }
 
 .footermap a {
-    display: inline-block;
-    margin: 8px 0px;
-    color: white;
+  display: inline-block;
+  margin: 8px 0px;
+  color: white;
 }
 
 .youtube {
-    border-radius: 9999px;
-    background-color: #EB0000;
+  border-radius: 9999px;
+  background-color: #eb0000;
 }
 
 .youtube a {
-    width: 100%;
-    text-decoration: none;
-    color: white;
+  width: 100%;
+  text-decoration: none;
+  color: white;
 }
 
 .twitter {
-    background-color: black;
+  background-color: black;
 }
 
 .twitter a {
-    width: 100%;
-    vertical-align: middle;
-    color: white;
-    text-align: center;
-    width: 100%;
-    line-height: 100%;
+  width: 100%;
+  vertical-align: middle;
+  color: white;
+  text-align: center;
+  width: 100%;
+  line-height: 100%;
 }
 
 .github {
-    background-color: black;
+  background-color: black;
 }
 
 .github a {
-    column-gap: 2px;
-    margin-top: 3px;
+  column-gap: 2px;
+  margin-top: 3px;
 }

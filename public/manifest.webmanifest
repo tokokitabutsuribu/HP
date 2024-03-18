@@ -1,80 +1,80 @@
 {
-	"name": "所沢北高校物理部",
-	"short_name": "所沢北高校物理部",
-	"theme_color": "#1cf8fd",
-	"background_color": "#ffffff",
-	"display": "standalone",
-	"scope": "https://tkbutsuribu.vercel.app/",
-	"start_url": "https://tkbutsuribu.vercel.app/",
-	"description": "所沢北高校物理部の公式HPです。インストールする事により、パケット消費量の節約、軽量化、新着通知の受けとり、などのメリットがあります。\nPWAのため、容量は使いません。\nぜひインストールしてご利用ください。",
-	"screenshots": [
-		{
-			"src": "/images/iconmain.svg",
-			"sizes": "320x320",
-			"type": "image/svg+xml"
-		}
-	],
-	"icons": [
-		{
-			"src": "/android-chrome-36x36.png",
-			"sizes": "36x36",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-48x48.png",
-			"sizes": "48x48",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-72x72.png",
-			"sizes": "72x72",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-96x96.png",
-			"sizes": "96x96",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-128x128.png",
-			"sizes": "128x128",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-144x144.png",
-			"sizes": "144x144",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-152x152.png",
-			"sizes": "152x152",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-192x192.png",
-			"sizes": "192x192",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-256x256.png",
-			"sizes": "256x256",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-384x384.png",
-			"sizes": "384x384",
-			"type": "image/png"
-		},
-		{
-			"src": "/android-chrome-512x512.png",
-			"sizes": "512x512",
-			"type": "image/png"
-		},
-		{
-			"src": "/images/maskable_icon.png",
-			"sizes": "1024x1024",
-			"type": "image/png",
-			"purpose": "maskable"
-		}
-	]
+  "name": "所沢北高校物理部",
+  "short_name": "所沢北高校物理部",
+  "theme_color": "#1cf8fd",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "https://tkbutsuribu.vercel.app/",
+  "start_url": "https://tkbutsuribu.vercel.app/",
+  "description": "所沢北高校物理部の公式HPです。インストールする事により、パケット消費量の節約、軽量化、新着通知の受けとり、などのメリットがあります。\nPWAのため、容量は使いません。\nぜひインストールしてご利用ください。",
+  "screenshots": [
+    {
+      "src": "/images/iconmain.svg",
+      "sizes": "320x320",
+      "type": "image/svg+xml"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/android-chrome-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/maskable_icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
 }
