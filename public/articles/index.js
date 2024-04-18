@@ -21,7 +21,7 @@ try {
 	const init = () => {
 		const searchParams = new URLSearchParams(window.location.search);
 		if (searchParams.has("page")) {
-			page = parseInt(searchParams.get("page"));
+			page = Number.parseInt(searchParams.get("page"));
 			if (!page) {
 				page = 1;
 			}

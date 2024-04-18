@@ -1,2 +1,4 @@
 node_modules/
 .hintrc
+.next/
+.env.local
