@@ -16,7 +16,8 @@
     max-width: 600px;
     font-size: 16px;
 }
-#view>div>span{
+
+#view>div>span {
     white-space: nowrap;
 }
 
@@ -25,18 +26,27 @@
     padding-right: 16px;
 }
 
-.postdate, .id {
+.postdate,
+.id {
     font-size: 12px;
 }
 
+@font-face {
+    font-family: "aahub";
+    src: url("./aahub.woff2") format("woff2");
+    font-display: swap;
+}
+
 #view>div>.comment {
-    font-family: monospace!important;
+    font-family: aahub !important;
     color: gray;
     margin: 6px;
     margin-left: 16px;
-    white-space:pre-wrap;
+    white-space: pre-wrap;
     overflow-x: auto;
     max-width: 512px;
+    font-size: 16px;
+    line-height: 18px;
 }
 
 
@@ -59,7 +69,7 @@
 }
 
 #message {
-    font-family: monospace!important;
+    font-family: monospace !important;
     resize: none;
     width: 512px;
     height: 100px;
@@ -78,48 +88,67 @@
 .bbsmenu {
     display: none;
 }
+
 @media (max-width:564px) {
+
     /* 600~550 */
     #view {
         font-size: 15px;
     }
-    #textarea{
+
+    #textarea {
         font-size: 15px;
-        width:480px;
+        width: 480px;
     }
-    #view>div>.comment{
+
+    #view>div>.comment {
+
+        line-height: 17px;
         font-size: 15px;
         max-width: 480px;
     }
 }
+
 @media (max-width:532px) {
+
     /* 550~500 */
     #view {
         font-size: 14px;
     }
-    #textarea{
+
+    #textarea {
         font-size: 14px;
-        width:448px;
+        width: 448px;
     }
-    #view>div>.comment{
+
+    #view>div>.comment {
         font-size: 14px;
+
+        line-height: 16px;
         max-width: 448px;
     }
 }
+
 @media (max-width:500px) {
+
     /* 500~468 */
     #view {
         font-size: 13px;
     }
-    #textarea{
+
+    #textarea {
         font-size: 13px;
-        width:416px;
+        width: 416px;
     }
-    #view>div>.comment{
+
+    #view>div>.comment {
+
+        line-height: 15px;
         font-size: 13px;
         max-width: 416px;
     }
 }
+
 @media (max-width:760px) {
     .bbsmenu {
         left: initial;
