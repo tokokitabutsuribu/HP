@@ -1,8 +1,9 @@
-name: deploy preview website
+name: deploy production website
 on: 
-  push: 
-    branches: 
-      - (?!main).*
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,5 +14,5 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           vercel-org-id: ${{ secrets.ORG_ID}}  #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
-          alias-domains: tkbutsuribu-{{BRANCH}}.vercel.app
+          vercel-args: --prod
 #https://github.com/marketplace/actions/vercel-action
