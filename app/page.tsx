@@ -225,7 +225,7 @@ export default function page() {
               </li>
             </ul>
           </div>
-          <div class='onesignal-customlink-container' />
+          <div className='onesignal-customlink-container' />
         </div>
       </div>
     </>
