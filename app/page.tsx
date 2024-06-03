@@ -23,12 +23,24 @@ export default function page() {
       url: "/images/iconBIG.jpg",
     },
   };
+  const onesignal=`window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function(OneSignal) {
+    OneSignal.init({
+      appId: "0f506d68-5df9-441c-aab8-6bc36a9c2d58",
+    });
+  });`
   return (
     <>
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }}
+      />
+      <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer />
+      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
+      <script
+        type="text/javascript"
+        dangerouslySetInnerHTML={{ __html: onesignal  }}
       />
 
       <PwaToolBar />
@@ -213,7 +225,7 @@ export default function page() {
               </li>
             </ul>
           </div>
-          <NotifyButton />
+          <div class='onesignal-customlink-container' />
         </div>
       </div>
     </>
