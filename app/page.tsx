@@ -5,6 +5,7 @@ import PwaToolBar from "./PwaToolBar";
 import Counter from "./Counter";
 import CounterLoading from "./CounterLoading";
 import type { Metadata } from "next";
+import Head from 'next/head'
 
 export const dynamic = "force-dynamic";
 
@@ -31,6 +32,7 @@ export default function page() {
   });`
   return (
     <>
+      <Head>
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
       <script
         type="application/ld+json"
@@ -41,7 +43,7 @@ export default function page() {
       <script
         type="text/javascript"
         dangerouslySetInnerHTML={{ __html: onesignal  }}
-      />
+      /></Head>
 
       <PwaToolBar />
       <div id="wrapper" className={styles.wrapper}>
