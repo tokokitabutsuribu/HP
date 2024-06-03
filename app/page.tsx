@@ -5,7 +5,7 @@ import PwaToolBar from "./PwaToolBar";
 import Counter from "./Counter";
 import CounterLoading from "./CounterLoading";
 import type { Metadata } from "next";
-import Head from 'next/head'
+import Script from "next/script";
 
 export const dynamic = "force-dynamic";
 
@@ -24,26 +24,16 @@ export default function page() {
       url: "/images/iconBIG.jpg",
     },
   };
-  const onesignal=`window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(function(OneSignal) {
-    OneSignal.init({
-      appId: "0f506d68-5df9-441c-aab8-6bc36a9c2d58",
-    });
-  });`
   return (
     <>
-      <Head>
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }}
       />
-      <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer />
-      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
+      <Script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" />
       <script
-        type="text/javascript"
-        dangerouslySetInnerHTML={{ __html: onesignal  }}
-      /></Head>
+      src="/myonesignal.js"      />
 
       <PwaToolBar />
       <div id="wrapper" className={styles.wrapper}>
