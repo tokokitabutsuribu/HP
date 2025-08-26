@@ -5,6 +5,7 @@ import PwaToolBar from "./PwaToolBar";
 import Counter from "./Counter";
 import CounterLoading from "./CounterLoading";
 import type { Metadata } from "next";
+import Script from "next/script";
 
 export const dynamic = "force-dynamic";
 
@@ -30,6 +31,9 @@ export default function page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonld) }}
       />
+      <Script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" />
+      <script
+      src="/myonesignal.js"      />
 
       <PwaToolBar />
       <div id="wrapper" className={styles.wrapper}>
@@ -213,7 +217,7 @@ export default function page() {
               </li>
             </ul>
           </div>
-          <NotifyButton />
+          <div className='onesignal-customlink-container' />
         </div>
       </div>
     </>
