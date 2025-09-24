@@ -9,6 +9,7 @@ export default function RootLayout({ children }) {
         <head>
           <meta charSet="utf-8" />
           <link rel="manifest" href="/manifest.webmanifest" />
+          <meta name="google-site-verification" content="CyWfH7ucWBsHxufbfeQyPjWhibsPzME8tilxl7VTWdM" />
         </head>
         <body>
           {(process.env.NODE_ENV === "development" ||
