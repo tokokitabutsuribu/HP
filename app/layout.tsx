@@ -1,5 +1,4 @@
 import "./normalize.css";
-import GTM from "./gtm";
 import { Metadata, Viewport } from "next";
 
 export default function RootLayout({ children }) {
@@ -21,8 +20,6 @@ export default function RootLayout({ children }) {
               src="https://snippet.meticulous.ai/v1/meticulous.js"
             />
           )}
-
-          <GTM />
           {children}
         </body>
       </html>
