@@ -33,7 +33,7 @@ export default async function Header() {
           <li>
             <span style={{ whiteSpace: "nowrap" }}>
               <a href="https://tkbutsuribu.vercel.app/games/index.html">
-                スタジオ
+                ゲームスタジオ
               </a>
             </span>
           </li>
