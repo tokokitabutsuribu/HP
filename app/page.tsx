@@ -145,6 +145,18 @@ export default function page() {
                 </span>
               </a>
             </div>
+            <div className={styles.bluesky}>
+              <a
+                style={{ textDecoration: "none" }}
+                href="https://bsky.app/profile/tkbutsuribu.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>
+                  <span style={{ whiteSpace: "nowrap" }}>公式BlueSky</span>
+                </span>
+              </a>
+            </div>
             <div className={styles.youtube}>
               <a
                 href="https://www.youtube.com/channel/UCMx0SnqChPhp4rapoqgan3g?sub_confirmation=1"
