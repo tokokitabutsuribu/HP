@@ -75,6 +75,19 @@
   line-height: 100%;
 }
 
+.bluesky {
+	background-color: a0d8ef;
+}
+
+.bluesky a{
+	width: 100%;
+	vertical-align: middle;
+	color: white;
+	text-align: center;
+	width: 100%;
+	line-height: 100%;
+}
+
 .github {
   background-color: black;
 }
