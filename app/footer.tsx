@@ -14,6 +14,17 @@ export default async function Footer() {
             </span>
           </a>
         </div>
+        <div className={styles.bluesky}>
+          <a
+            href="https://bsky.app/profile/tkbutsuribu.vercel.app"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <span>
+              <span style={{ whiteSpace: "nowrap" }}>公式BlueSky</span>
+            </span>
+          </a>
+        </div>
         <div className={styles.youtube}>
           <a
             href="https://www.youtube.com/channel/UCMx0SnqChPhp4rapoqgan3g?sub_confirmation=1"
