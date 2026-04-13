@@ -96,7 +96,8 @@ export default function page() {
               <span style={{ whiteSpace: "nowrap" }}>ようこそ！</span>
             </h1>
           </div>
-          <svg
+          <img src="//public/images/rogo.svg"></img>
+      <!--    <svg
             role="img"
             aria-label="ロゴ"
             width="320px"
@@ -131,7 +132,7 @@ export default function page() {
             />
             <circle fill="#1cf8fd" cx="1044.094" cy="707.154" r="15.885" />
             <circle fill="#1cf8fd" cx="942.987" cy="707.735" r="15.885" />
-          </svg>
+          </svg> -->
           <div className={styles.links}>
             <div className={styles.twitter}>
               <a
