@@ -98,8 +98,9 @@ export default function page() {
           </div>
           <img
             src="/public/images/logo.svg"
-            height="320px"
-            width="320px" />
+            alt="ロゴ"
+            height="320"
+            width="320" />
           <div className={styles.links}>
             <div className={styles.twitter}>
               <a
