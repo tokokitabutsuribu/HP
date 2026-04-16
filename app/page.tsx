@@ -96,7 +96,7 @@ export default function page() {
               <span style={{ whiteSpace: "nowrap" }}>ようこそ！</span>
             </h1>
           </div>
-          <img src="//public/images/rogo.svg"></img>
+          <img src="/public/images/rogo.svg"></img>
       <!--    <svg
             role="img"
             aria-label="ロゴ"
