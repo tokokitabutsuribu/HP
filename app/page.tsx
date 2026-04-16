@@ -96,7 +96,10 @@ export default function page() {
               <span style={{ whiteSpace: "nowrap" }}>ようこそ！</span>
             </h1>
           </div>
-          <img src="/public/images/logo.svg" height="320" width="320"></img>
+          <img
+            src="/public/images/logo.svg"
+            height="320px"
+            width="320px" />
           <div className={styles.links}>
             <div className={styles.twitter}>
               <a
