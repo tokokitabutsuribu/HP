@@ -121,6 +121,7 @@ function clicked(x,y) {
     }
     if (condition=="stay") {
         if (x<200&&y<50) {page=0;condition="rule";}
+        if (x>400&&x<800&&y>130&&y<170) {condition="play";reset();}
     }
 }
 cvs.addEventListener("mousedown",e=>{
