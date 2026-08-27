@@ -106,10 +106,7 @@ document.addEventListener("keyup",e=>{
         }
     }
 });
-
-cvs.addEventListener("mousedown",e=>{
-    const x=e.offsetX;
-    const y=e.offsetY;
+function clicked(x,y) {
     if (condition=="play"){
         meteors.forEach((meteor,value)=>{
             const meteor_x=meteor.x0+(meteor.time-now_time)/10;
@@ -125,8 +122,14 @@ cvs.addEventListener("mousedown",e=>{
     if (condition=="stay") {
         if (x<200&&y<50) {page=0;condition="rule";}
     }
+}
+cvs.addEventListener("mousedown",e=>{
+    clicked(e.offsetX,e.offsetY);
+    
 });
-
+cvs.addEventListener("touchstart",e=>{
+    e.changedTouches.forEach(point=>clicked(point.screenX,points.screenY));
+});
 
 
 document.addEventListener("visibilitychange",()=>{                  //ズル防止用（他タブに移動したとき、初期画面に戻る）
