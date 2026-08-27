@@ -100,7 +100,7 @@ document.addEventListener("keydown",e=>{
 });
 document.addEventListener("keyup",e=>{
     if (condition=="play"){
-        if ((e.key=="ArrowDown"||e.key=="s"||!e.shiftKey)&&player_y==0) {
+        if ((e.key=="ArrowDown"||e.key=="s"||!e.shiftKey&&e.key!=" ")&&player_y==0) {
             canJump=true;power+=5;
             if (power>100) power=100;
         }
