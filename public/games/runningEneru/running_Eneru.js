@@ -416,7 +416,7 @@ function stay(time){                                                //初期画�
     logoXSize=Math.max(logoXSize,time/2-256);
     ctx.drawImage(logo,0,0,logoXSize,64,width/2-128,100,logoXSize,64);
     ctx.textAlign="center";
-    if (time>1500) ctx.fillText("Let's press >>SPACE<< to start game",width/2,200);
+    if (time>1500) ctx.fillText("Let's press >>SPACE<< or >>CLICK HERE<< to start game",width/2,200);
     ctx.textAlign="right";
     if (highscore!=0) ctx.fillText(`HIGH SCORE:  ${highscore}`,width-10,30);
     ctx.textAlign="left";
