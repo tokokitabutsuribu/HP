@@ -78,7 +78,7 @@ document.addEventListener("keydown",e=>{
         condition="play";
         reset();
     }
-    if (condition=="play"){                                     //ジャンプ
+    if (condition=="play"){                                     //ジャンプ&落下
         if (e.key=="ArrowDown"||e.key=="s"||e.shiftKey) {
             if (player_y!=0) {
                 player_vy=-12
@@ -100,7 +100,7 @@ document.addEventListener("keydown",e=>{
 });
 document.addEventListener("keyup",e=>{
     if (condition=="play"){
-        if ((e.key=="ArrowDown"||e.key=="s"||e.shiftKey)&&player_y==0) {
+        if ((e.key=="ArrowDown"||e.key=="s"||!e.shiftKey)&&player_y==0) {
             canJump=true;power+=5;
             if (power>100) power=100;
         }
