@@ -26,7 +26,7 @@ obstacle_img[3].src="imgs/obstacles/hurdle.png";
 obstacle_img[4].src="imgs/obstacles/theCurseOfTheOhmu_lightning.png";
 obstacle_img[5].src="imgs/obstacles/schrodinger'sCat_2.png";
 
-const width=1000;
+const width=900;
 
 let speed=1;
 let player_y=0;
