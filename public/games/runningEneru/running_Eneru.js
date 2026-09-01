@@ -46,11 +46,11 @@ let meteors=[];
 let motion_start_time=-100000;
 let motion_start_y=0
 let page=0;
+let touched=false;
 function reset(){
     player_y=0;
     player_vy=0;
     jump_time=0;
-    score=0;
     last_obstacle_time=0;
     last_meteor_time=0;
     power=0;
@@ -73,25 +73,31 @@ const meteor_type=[
 let condition="stay";
 let canJump=true;
 
+function up(){
+    if (player_y==0) {
+        player_vy=12;
+        jump_time=now_time;
+    }
+}
+function down_start(){
+    if (player_y!=0) {
+        player_vy=-12
+    }else{
+        canJump=false;
+    }
+}
+function down_end(){
+    canJump=true;power+=5;
+    if (power>100) power=100;
+}
 document.addEventListener("keydown",e=>{
     if (condition=="stay"&&e.key==" ") {                        //スタート
         condition="play";
         reset();
     }
     if (condition=="play"){                                     //ジャンプ&落下
-        if (e.key=="ArrowDown"||e.key=="s"||e.key=="Shift") {
-            if (player_y!=0) {
-                player_vy=-12
-            }else{
-                canJump=false;
-            }
-        }
-        if (canJump&&e.key==" "||e.key=="ArrowUp"||e.key=="w") {
-            if (player_y==0) {
-                player_vy=12;
-                jump_time=now_time;
-            }
-        }
+        if (e.key=="ArrowDown"||e.key=="s"||e.key=="Shift") down_start();
+        if (canJump&&e.key==" "||e.key=="ArrowUp"||e.key=="w") up();
     }
     if (condition=="rule"&&e.key==" ") {
         if (page<1) page++;
@@ -100,10 +106,7 @@ document.addEventListener("keydown",e=>{
 });
 document.addEventListener("keyup",e=>{
     if (condition=="play"){
-        if (e.key=="ArrowDown"||e.key=="s"||e.key=="Shift"&&player_y==0) {
-            canJump=true;power+=5;
-            if (power>100) power=100;
-        }
+        if (e.key=="ArrowDown"||e.key=="s"||e.key=="Shift"&&player_y==0) down_end();
     }
 });
 function clicked(x,y) {
@@ -129,9 +132,26 @@ cvs.addEventListener("mousedown",e=>{
     
 });
 cvs.addEventListener("touchstart",e=>{
-    e.changedTouches.forEach(point=>clicked(point.screenX,points.screenY));
+    touched=true;
+    e.changedTouches.forEach(point=>{
+        clicked(point.screenX,points.screenY)
+        const x=point.screenX;
+        const y=point.screenY;
+        if (condition=="play"){
+            if (x>400&&x<430&&y>300&&y<330) up();
+            if (x>770&&x<800&&y>300&&y<330) down_start();
+        }
+    });
 });
-
+cvs.addEventListener("touchend",e=>{
+    e.changedTouches.forEach(point=>{
+        const x=point.screenX;
+        const y=point.screenY;
+        if (condition=="play"){
+            if (x>770&&x<800&&y>300&&y<330) down_end();
+        }
+    });
+});
 
 document.addEventListener("visibilitychange",()=>{                  //ズル防止用（他タブに移動したとき、初期画面に戻る）
     if (document.hidden) {
@@ -152,10 +172,12 @@ function power_view(rate){
     ctx.arc(30,30,15,0,Math.PI*2);
     ctx.fill();
     ctx.fillStyle="black";
+    ctx.strokeStyle="black";
 }
 
 function gameover(type){                                            //死亡～初期画面・スコア適用
-    ctx.clearRect(0,0,width,300);
+    ctx.clearRect(0,0,width,350);
+    ctx.beginPath();
     ctx.moveTo(0,270);
     ctx.lineTo(width,270);
     ctx.stroke();
@@ -258,7 +280,7 @@ function gameover(type){                                            //死亡～�
         condition="stay";
         start_time=0;
     }
-    if (gameover_type==4) ctx.clearRect(0,0,width,300);
+    if (gameover_type==4) ctx.clearRect(0,0,width,350);
     ctx.font="20px DotGothic16";
     highscore=Math.max(score,highscore);
     ctx.textAlign="right";
@@ -268,15 +290,32 @@ function gameover(type){                                            //死亡～�
 
 function play(){
     ctx.font="20px DotGothic16";                                  //プレイ中
-    ctx.clearRect(0,0,width,300);
+    ctx.clearRect(0,0,width,350);
+    ctx.strokeStyle="black";
+    ctx.lineWidth=3;
+
     power_view(power);
     ctx.textAlign="right";
     ctx.textBaseline="alphabetic"
     ctx.fillText(`${score}`,width-10,30)
+    ctx.beginPath();
     ctx.moveTo(0,270);
     ctx.lineTo(width,270);
     ctx.stroke();
-
+    if (touched) {
+        ctx.beginPath();
+        ctx.arc(415,315,20,0,2*Math.PI);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(785,315,20,0,2*Math.PI);
+        ctx.stroke();
+        ctx.textAlign="center";
+        ctx.textBaseline="middle";
+        ctx.font="30px DotGothic16";
+        ctx.fillText("⇧",415,315);
+        ctx.fillText("⇩",785,315);
+        ctx.font="20px DotGothic16";
+    }
     //障害物の描画
     obstacles.forEach(obstacle=>{
         if (obstacle.type==0||obstacle.type==3) {                   //オーム・ハードル
@@ -410,7 +449,7 @@ function stay(time){                                                //初期画�
     ctx.filter="blur(0px)";
     ctx.font="20px DotGothic16";
     ctx.textBaseline="alphabetic";
-    ctx.clearRect(0,0,width,300);
+    ctx.clearRect(0,0,width,350);
     if (Math.floor(time/200)%10==0) ctx.drawImage(player[0],50,195,64,64);
     else ctx.drawImage(player[0],50,200,64,64);
     let logoXSize=64;
@@ -424,7 +463,7 @@ function stay(time){                                                //初期画�
     if (time>1500) ctx.fillText("Rule >>CLICK HERE<<",10,30)
 }
 function rule(){
-    ctx.clearRect(0,0,width,300);
+    ctx.clearRect(0,0,width,350);
     ctx.font="20px DotGothic16";
     ctx.textAlign="left"
     ctx.textBaseline="middle";
