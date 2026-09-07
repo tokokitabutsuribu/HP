@@ -153,7 +153,7 @@ function clicked(x,y) {
     }
     if (condition=="rule") {
         if (x>1000&&y<50) {page++;}
-        if (page==2) condition=="stay";
+        if (page==2) condition="stay";
     }
 }
 cvs.addEventListener("mousedown",e=>{
