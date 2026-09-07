@@ -151,6 +151,10 @@ function clicked(x,y) {
         if (x<200&&y<50) {page=0;condition="rule";}
         if (x>200&&x<1000&&y>160&&y<230) {condition="play";reset();}
     }
+    if (condition=="rule") {
+        if (x>1000&&y<50) {page++;}
+        if (page==2) condition=="stay";
+    }
 }
 cvs.addEventListener("mousedown",e=>{
     clicked(e.offsetX,e.offsetY);
