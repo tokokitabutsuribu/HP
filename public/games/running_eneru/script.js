@@ -160,12 +160,12 @@ cvs.addEventListener("touchstart",e=>{
     touched=true;
     const rect=cvs.getBoundingClientRect();
     e.changedTouches.forEach(point=>{
-        const x=point.screenX-rect.left;
-        const y=point.screenY-rect.top;
+        const x=point.screenX-rect.left-window.pageXOffset;
+        const y=point.screenY-rect.top -window.pageYOffset;
         clicked(x,y)
         if (condition=="play"){
-            if (x>400&&x<430&&y>300&&y<330) up();
-            if (x>770&&x<800&&y>300&&y<330) down_start();
+            if (x>380&&x<450&&y>280&&y<350) up();
+            if (x>750&&x<820&&y>280&&y<350) down_start();
         }
     });
 });
@@ -175,7 +175,7 @@ cvs.addEventListener("touchend",e=>{
         const x=point.screenX-rect.left;
         const y=point.screenY-rect.top;
         if (condition=="play"){
-            if (x>770&&x<800&&y>300&&y<330) down_end();
+            if (!canJump) down_end();
         }
     });
 });
