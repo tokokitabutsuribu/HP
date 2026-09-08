@@ -120,7 +120,7 @@ document.addEventListener("keydown",e=>{
     }
     if (condition=="play"){                                     //ジャンプ&落下
         if (e.key=="ArrowDown"||e.key=="s"||e.key=="Shift") down_start();
-        if (canJump&&e.key==" "||e.key=="ArrowUp"||e.key=="w") up();
+        if (canJump&&(e.key==" "||e.key=="ArrowUp"||e.key=="w")) up();
     }
     if (condition=="rule"&&e.key==" ") {
         if (page<1) page++;
@@ -129,7 +129,7 @@ document.addEventListener("keydown",e=>{
 });
 document.addEventListener("keyup",e=>{
     if (condition=="play"){
-        if (e.key=="ArrowDown"||e.key=="s"||e.key=="Shift"&&player_y==0) down_end();
+        if ((e.key=="ArrowDown"||e.key=="s"||e.key=="Shift")&&player_y==0) down_end();
     }
 });
 
@@ -156,35 +156,48 @@ function clicked(x,y) {
         if (page==2) condition="stay";
     }
 }
-cvs.addEventListener("mousedown",e=>{
-    clicked(e.offsetX,e.offsetY);
-    
-});
-cvs.addEventListener("touchstart",e=>{
-    touched=true;
-    const rect=cvs.getBoundingClientRect();
-    e.changedTouches.forEach(point=>{
-        const x=point.screenX-rect.left-window.pageXOffset;
-        const y=point.screenY-rect.top -window.pageYOffset;
-        clicked(x,y)
-        if (condition=="play"){
-            if (x>380&&x<450&&y>280&&y<350) up();
-            if (x>750&&x<820&&y>280&&y<350) down_start();
+// Canvas上の座標をゲーム内部の1200x350座標に変換
+function getCanvasPosition(e) {
+    const rect = cvs.getBoundingClientRect();
+
+    return {
+        x: (e.clientX - rect.left) * (1200 / rect.width),
+        y: (e.clientY - rect.top) * (350 / rect.height)
+    };
+}
+
+let touchDown = false;
+
+cvs.addEventListener("pointerdown",e=>{
+    e.preventDefault();
+    const {x,y}=getCanvasPosition(e);
+    if (e.pointerType=="touch") {
+        touched=true;
+    }
+    if (condition=="play"&&e.pointerType=="touch") {
+        if (x>380&&x<450&&y>280&&y<350) up();
+        if (x>750&&x<820&&y>280&&y<350) {
+            down_start();
+            touchDown=true;
         }
-    });
-});
-cvs.addEventListener("touchend",e=>{
-    const rect=cvs.getBoundingClientRect();
-    e.changedTouches.forEach(point=>{
-        const x=point.screenX-rect.left;
-        const y=point.screenY-rect.top;
-        if (condition=="play"){
-            if (!canJump) down_end();
-        }
-    });
+    }
+    clicked(x,y);
 });
 
+cvs.addEventListener("pointerup",e=>{
+    e.preventDefault();
+    if (condition=="play"&&touchDown) {
+        down_end();
+        touchDown=false;
+    }
+});
 
+cvs.addEventListener("pointercancel",e=>{
+    if (condition=="play"&&touchDown) {
+        down_end();
+        touchDown=false;
+    }
+});
 
 
 
@@ -513,7 +526,7 @@ function rule(){
         ctx.fillText("念動ベクトル",120,204);                  ctx.fillText("ただの矢印の見た目をしている。超能力「念動力」で働くとされる力を表す。物理学には実際にはない。",400,204,width-420);
         ctx.fillText("ハードル",120,254);                      ctx.fillText("正真正銘ただのハードル。physicalなだけ。",400,254,width-420);
         ctx.textAlign="right";
-        ctx.fillText("Next >>SPACE<<",width-10,30)
+        ctx.fillText("Next >>CLICK<<",width-10,30)
     } else if (page==1) {
         ctx.drawImage(meteor_img,50,80,48,48);
         ctx.fillText("時間がたつと隕石が降ってきます。地面についた状態で下矢印キー／Sキー／SHIFTキーでゲージをためてから",50,30)
@@ -522,7 +535,7 @@ function rule(){
         ctx.fillText("物理（論理）",150,170);                  ctx.fillText("物理部に伝わる、物理法則を破壊する力を持った「物理（物理）」がコンピューター内に入った状態。",400,160,width-420);ctx.fillText("物理（物理）より劣るが、隕石を破壊することができるだけのエネルギーを持つ。",400,180,width-420);
         ctx.fillText("進んだ距離がスコアです。高スコアを目指して頑張ってください。",50,240);
         ctx.textAlign="right";
-        ctx.fillText("Exit >>SPACE<<",width-10,30)
+        ctx.fillText("Exit >>CLICK<<",width-10,30)
         ctx.textAlign="left";
         ctx.font="bold 50px DotGothic16";
         ctx.fillText("物理",20,170);
