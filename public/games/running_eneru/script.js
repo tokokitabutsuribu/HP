@@ -109,7 +109,7 @@ function down_start(){
 }
 function down_end(){
     canJump=true;
-    if (y<=0){
+    if (player_y==0){
         power+=5;
         if (power>100) power=100;
     }
