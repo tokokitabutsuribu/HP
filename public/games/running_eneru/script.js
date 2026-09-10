@@ -108,8 +108,11 @@ function down_start(){
     }
 }
 function down_end(){
-    canJump=true;power+=5;
-    if (power>100) power=100;
+    canJump=true;
+    if (y<=0){
+        power+=5;
+        if (power>100) power=100;
+    }
 }
 
 
@@ -129,7 +132,7 @@ document.addEventListener("keydown",e=>{
 });
 document.addEventListener("keyup",e=>{
     if (condition=="play"){
-        if ((e.key=="ArrowDown"||e.key=="s"||e.key=="Shift")&&player_y==0) down_end();
+        if (e.key=="ArrowDown"||e.key=="s"||e.key=="Shift") down_end();
     }
 });
 
@@ -158,11 +161,11 @@ function clicked(x,y) {
 }
 // Canvas上の座標をゲーム内部の1200x350座標に変換
 function getCanvasPosition(e) {
-    const rect = cvs.getBoundingClientRect();
+    const rect=cvs.getBoundingClientRect();
 
     return {
-        x: (e.clientX - rect.left) * (1200 / rect.width),
-        y: (e.clientY - rect.top) * (350 / rect.height)
+        x: (e.clientX-rect.left)*(1200 / rect.width),
+        y: (e.clientY-rect.top)*(350 / rect.height)
     };
 }
 
@@ -175,8 +178,8 @@ cvs.addEventListener("pointerdown",e=>{
         touched=true;
     }
     if (condition=="play"&&e.pointerType=="touch") {
-        if (x>380&&x<450&&y>280&&y<350) up();
-        if (x>750&&x<820&&y>280&&y<350) {
+        if (x>0&&x<width/2&&y>280&&y<350) up();
+        if (x>width/2&&x<width&&y>280&&y<350) {
             down_start();
             touchDown=true;
         }
@@ -227,6 +230,17 @@ function power_view(rate){
 
 function gameover(type){                                            //死亡～初期画面・スコア適用
     ctx.clearRect(0,0,width,350);
+    
+    //ぼかす
+    if (now_time-gameover_time>2000) ctx.filter=`blur(${Math.floor((now_time-gameover_time-2000)/100)}px)`;
+    //戻る
+    if (now_time-gameover_time>4000) {
+        ctx.filter="blur(0px)";
+        condition="stay";
+        start_time=0;
+    }
+    
+    ctx.lineWidth=3;
     ctx.beginPath();
     ctx.moveTo(0,270);
     ctx.lineTo(width,270);
@@ -322,14 +336,6 @@ function gameover(type){                                            //死亡～�
             condition="gameover";
         }
     });
-    //ぼかす
-    if (now_time-gameover_time>2000) ctx.filter=`blur(${Math.floor((now_time-gameover_time-2000)/100)}px)`;
-    //戻る
-    if (now_time-gameover_time>4000) {
-        ctx.filter="blur(0px)";
-        condition="stay";
-        start_time=0;
-    }
     if (gameover_type==4) ctx.clearRect(0,0,width,350);
     ctx.font="20px DotGothic16";
     highscore=Math.max(score,highscore);
