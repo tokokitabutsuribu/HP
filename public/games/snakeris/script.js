@@ -68,9 +68,11 @@ function setApple() {
             if(box[i][j]==0&&wayMap[i][j]==0) empty.push({x:j,y:i});
         }
     }
-    let newApple=empty[Math.floor(Math.random()*empty.length)];
-    box[newApple.y][newApple.x]=2;
-    apple++;
+    if (empty.length>0) {
+        let newApple=empty[Math.floor(Math.random()*empty.length)];
+        box[newApple.y][newApple.x]=2;
+        apple++;
+    }
 }
 
 
@@ -219,17 +221,3 @@ board.strokeText("SNAKERIS",150,200);
 board.font="20px sanserif";
 board.fillStyle="black";
 board.fillText("SpaceKey to start",150,400);
-
-/*
-boxReset();
-wayReset();
-for (let i=7;i<height+3;i++)box[i].fill(1);
-setApple();
-drop();
-draw();
-clearLine();
-
-dataUpdate();
-*/
-//alert(box);
-//alert(way.map(pos=>`${pos.x}-${pos.y}`));
