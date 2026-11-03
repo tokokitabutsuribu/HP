@@ -22,6 +22,7 @@ let direction=0;    // 0: 下    1: 上    2: 右    3: 左
 let way=[];
 let box=[];         // 0: 空欄    1:  ヘビの死骸    2: りんご
 
+let grid=false;
 
 let apple=0;
 
@@ -29,6 +30,7 @@ function dataUpdate(){
     el("score").textContent=score;
     el("line").textContent=line;
     el("level").textContent=level;
+    el("length").textContent=way.length;
 }
 
 
@@ -88,10 +90,28 @@ function draw(){
         }
     })});
     board.fillStyle = "green";
-    way.forEach(block=>{
+    way.forEach((block,i)=>{
         board.fillRect(block.x*size,(block.y-3)*size,size,size);
+        if(i==way.length-2){
+            board.fillStyle = "darkgreen";
+        }
     });
-    board.fillStyle="white";
+    board.strokeStyle="white";
+    board.lineWidth=0.3;
+    if(grid){
+        for (let i=1;i<width;i++) {
+            board.beginPath();
+            board.moveTo(i*size,0);
+            board.lineTo(i*size,height*size);
+            board.stroke();
+        }
+        for (let i=1;i<height;i++) {
+            board.beginPath();
+            board.moveTo(0,i*size);
+            board.lineTo(width*size,i*size);
+            board.stroke();
+        }
+    }
 }
 
 
@@ -184,6 +204,7 @@ document.addEventListener("keydown",(e)=>{
         else if(e.key=="ArrowRight"&&firstBody.x-secondBody.x==0) {direction=2;moved=true;}
         else if(e.key=="ArrowLeft"&&firstBody.x-secondBody.x==0) {direction=3;moved=true;}
     }
+    if(e.key=="g") {grid=!grid;draw();}
 });
 
 let lastTime=0;
